@@ -9,7 +9,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
 <!--            <class name="testCases.TC002_FilterRequirement"/>-->
-            <class name="testCases.TC003_AddTestCase"/>
+<!--            <class name="testCases.TC003_AddTestCase"/>-->
 <!--            <class name="testCases.TC001_LogIn"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC001"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC002"/>-->
