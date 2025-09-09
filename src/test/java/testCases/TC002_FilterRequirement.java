@@ -4,26 +4,33 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.DataProviders;
 
 public class TC002_FilterRequirement extends BaseClass {
-    @Test
-    public void verifyRequirementHeading(){
-        logger.info("****** Starting the Log in Test Case *****************");
+
+    @Test(dataProvider = "filterRequirement",dataProviderClass = DataProviders.class)
+    public void verifyRequirementHeading(String epic,String feature,String requirementId,
+                                         String expectedHeader) throws InterruptedException {
+        logger.info("****** Starting the Filter Requirement Test Case *****************");
         try {
             login();
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
-            authorTestCasePage.selectEpic("Epic Mohit");
-            authorTestCasePage.selectFeature("Feature Mohit");
-            authorTestCasePage.clickRequirement("RQ-469");
+            authorTestCasePage.selectEpic(epic);
+            authorTestCasePage.selectFeature(feature);
+            authorTestCasePage.clickRequirement(requirementId);
             String requirementHeader= authorTestCasePage.showRequirementHeader();
-            Assert.assertEquals(requirementHeader,"Requirement Mohit");
+            Assert.assertEquals(requirementHeader,expectedHeader);
             logger.info("Verification Successful");
         }
-        catch (Exception | AssertionError e){
-            logger.error("Test case failed ...");
-            Assert.fail();
-            e.printStackTrace();
+        catch (AssertionError e) {
+            logger.error("Assertion failed: " + e.getMessage());
+            throw e;   // keep the original message
         }
+        catch (Exception e) {
+            logger.error("Exception occurred: " + e.getMessage());
+            throw e;   // or wrap in RuntimeException
+        }
+
         logger.info("************ Test Case Finished *************************");
     }
 }

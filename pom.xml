@@ -16,7 +16,7 @@
                 <version>3.2.5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${basedir}/master.xml</suiteXmlFile>
+                        <suiteXmlFile>${basedir}/authortest.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

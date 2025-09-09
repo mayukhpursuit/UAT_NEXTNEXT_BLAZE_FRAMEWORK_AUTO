@@ -1,10 +1,7 @@
 package utils;
 
 
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -31,17 +28,40 @@ public class XLUtility {
 		this.path=path;
 	}
 		
-	public int getRowCount(String sheetName) throws IOException 
-	{
-		fi=new FileInputStream(path);
-		workbook=new XSSFWorkbook(fi);
-		sheet=workbook.getSheet(sheetName);
-		int rowcount=sheet.getLastRowNum();
-		workbook.close();
-		fi.close();
-		return rowcount;		
+//	public int getRowCount(String sheetName) throws IOException
+//	{
+//		fi=new FileInputStream(path);
+//		workbook=new XSSFWorkbook(fi);
+//		sheet=workbook.getSheet(sheetName);
+//		int rowcount=sheet.getLastRowNum();
+//		workbook.close();
+//		fi.close();
+//		return rowcount;
+//	}
+public int getRowCount(String sheetName) throws IOException {
+	fi = new FileInputStream(path);
+	workbook = new XSSFWorkbook(fi);
+	sheet = workbook.getSheet(sheetName);
+
+	int validRowCount = 0;
+	int lastRowNum = sheet.getLastRowNum();
+
+	for (int i = 1; i <= lastRowNum; i++) { // Start from 1 to skip header
+		Row row = sheet.getRow(i);
+		if (row == null) break;
+
+		Cell cell = row.getCell(0); // Check first column
+		if (cell == null || cell.toString().trim().isEmpty()) break;
+
+		validRowCount++;
 	}
-	
+
+	workbook.close();
+	fi.close();
+	return validRowCount;
+}
+
+
 
 	public int getCellCount(String sheetName,int rownum) throws IOException
 	{
@@ -150,7 +170,8 @@ public class XLUtility {
 		fi.close();
 		fo.close();
 	}
-	
+
+
 }
 
 
