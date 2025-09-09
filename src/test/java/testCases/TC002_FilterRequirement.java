@@ -24,11 +24,11 @@ public class TC002_FilterRequirement extends BaseClass {
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
-            throw e;   // keep the original message
+            throw e;
         }
         catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
-            throw e;   // or wrap in RuntimeException
+            throw e;
         }
 
         logger.info("************ Test Case Finished *************************");
