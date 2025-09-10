@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import pageObjects.BasePage;
 
+import java.util.List;
+
 public class AuthorTestCasePage extends BasePage {
     public AuthorTestCasePage(WebDriver driver){
         super(driver);
@@ -18,6 +20,10 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//span[normalize-space()='Epic']")
     WebElement labelEpic;
+
+    @FindBy(xpath = "(//select[@class='text select-dropdown'])[1]/option")
+    List<WebElement> optionsEpic;
+
 
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[2]")
     WebElement dropdownFeature;
@@ -72,5 +78,17 @@ public class AuthorTestCasePage extends BasePage {
     }
     public boolean getVisibilityOfEpic(){
         return dropdownEpic.isDisplayed();
+    }
+    public int getCountInEpic() throws InterruptedException {
+        Thread.sleep(2000);
+        return optionsEpic.size();
+    }
+    public List<WebElement> getAllEpics() throws InterruptedException {
+        Thread.sleep(2000);
+        return optionsEpic;
+    }
+
+    public void clickEpic(){
+        dropdownEpic.click();
     }
 }

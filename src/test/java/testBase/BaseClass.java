@@ -105,6 +105,7 @@ public class BaseClass {
         clickToYes.click();
         Thread.sleep(6000);
         getDriver().navigate().refresh();
+        Thread.sleep(2000);
     }
 
     // Capture screenshot (Thread-safe)
