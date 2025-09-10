@@ -22,13 +22,4 @@ public class DataProviders {
         return data;
     }
 
-    @DataProvider(name="filterRequirement")
-    public static String[][] getDataTC002() throws IOException {
-        return getExcelData("tc002");
-    }
-
-    @DataProvider(name="addTestCase")
-    public static String[][] getDataTC003() throws IOException {
-        return getExcelData("tc003");
-    }
 }

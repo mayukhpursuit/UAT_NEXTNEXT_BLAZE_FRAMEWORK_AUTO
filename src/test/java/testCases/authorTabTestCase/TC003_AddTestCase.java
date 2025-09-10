@@ -2,13 +2,13 @@ package testCases.authorTabTestCase;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.AddTestcasePage;
-import pageObjects.AuthorTestCasePage;
+import pageObjects.authoTestCaseTab.AddTestcasePage;
+import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
-import utils.DataProviders;
+import DataProviders.AuthorTestCaseDataProvider;
 
 public class TC003_AddTestCase extends BaseClass {
-    @Test(dataProvider="addTestCase",dataProviderClass = DataProviders.class)
+    @Test(dataProvider="addTestCase",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyTestCaseCreation(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,
