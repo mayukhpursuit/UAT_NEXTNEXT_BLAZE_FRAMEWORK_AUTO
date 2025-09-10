@@ -16,6 +16,9 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[1]")
     WebElement dropdownEpic;
 
+    @FindBy(xpath = "//span[normalize-space()='Epic']")
+    WebElement labelEpic;
+
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[2]")
     WebElement dropdownFeature;
 
@@ -31,6 +34,8 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//span[@id='author']")
     WebElement tabAuthorTestcase;
+
+
 
     //actions
 
@@ -62,5 +67,10 @@ public class AuthorTestCasePage extends BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tabAuthorTestcase);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tabAuthorTestcase);
     }
-
+    public String getEpicLabelName(){
+        return labelEpic.getText();
+    }
+    public boolean getVisibilityOfEpic(){
+        return dropdownEpic.isDisplayed();
+    }
 }
