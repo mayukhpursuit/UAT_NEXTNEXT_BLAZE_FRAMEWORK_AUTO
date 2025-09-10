@@ -1,7 +1,6 @@
-package testCases;
+package testCases.authorTabTestCase;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.AddTestcasePage;
 import pageObjects.AuthorTestCasePage;
