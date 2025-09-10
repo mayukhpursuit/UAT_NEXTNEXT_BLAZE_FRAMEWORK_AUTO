@@ -1,4 +1,4 @@
-package testCases.authorTabTestCase;
+package testCases.Demo;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,9 +6,9 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 import DataProviders.AuthorTestCaseDataProvider;
 
-public class TC002_FilterRequirement extends BaseClass {
+public class FilterRequirement extends BaseClass {
 
-    @Test(dataProvider = "filterRequirement",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc002",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyRequirementHeading(String epic,String feature,String requirementId,
                                          String expectedHeader) throws InterruptedException {
         logger.info("****** Starting the Filter Requirement Test Case *****************");

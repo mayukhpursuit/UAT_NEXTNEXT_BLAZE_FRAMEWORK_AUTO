@@ -1,15 +1,20 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC001 extends BaseClass {
-    @Test(dataProvider = "tc001", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyEpicVisibility(
-            String labelName
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class TC003 extends BaseClass {
+    @Test(dataProvider = "tc003", dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void verifyAllAvailableEpicsDisplayed(
+            String expectedEpic
     ) throws InterruptedException {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
@@ -17,10 +22,9 @@ public class TC001 extends BaseClass {
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
-            Assert.assertEquals(authorTestCasePage.getEpicLabelName(),labelName);
-            logger.info("label name displayed as epic");
-            Assert.assertTrue(authorTestCasePage.getVisibilityOfEpic(),"Epic is not Visible");
-            logger.info("Located the Epic dropdown on the left section");
+            authorTestCasePage.clickEpic();
+            Assert.assertEquals(authorTestCasePage.getCountInEpic()-1,Integer.parseInt(expectedEpic),"Count mismatched ..");
+            logger.info("Verified the containing Epics");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
