@@ -16,8 +16,11 @@ public class TC002_FilterRequirement extends BaseClass {
             login();
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.selectEpic(epic);
+            logger.info("Selected the epic");
             authorTestCasePage.selectFeature(feature);
+            logger.info("Selected the Feature");
             authorTestCasePage.clickRequirement(requirementId);
+            logger.info("selected the Desired Requirement");
             String requirementHeader= authorTestCasePage.showRequirementHeader();
             Assert.assertEquals(requirementHeader,expectedHeader);
             logger.info("Verification Successful");

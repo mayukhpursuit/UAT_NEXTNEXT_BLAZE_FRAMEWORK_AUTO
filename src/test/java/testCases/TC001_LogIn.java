@@ -10,6 +10,7 @@ public class TC001_LogIn extends BaseClass {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
+            logger.info("Logged in successfully");
         }
         catch (Exception | AssertionError e){
             logger.error("Test case failed ...");
