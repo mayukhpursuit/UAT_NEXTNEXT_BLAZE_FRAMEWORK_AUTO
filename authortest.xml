@@ -8,9 +8,11 @@
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.authorTabTestCase.TC002_FilterRequirement"/>
+
+
+            <class name="testCases.authorTabTestCase.TC001"/>
 <!--            <class name="testCases.authorTabTestCase.TC003_AddTestCase"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC001_LogIn"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC001"/>-->
         </classes>
     </test>
 </suite>
