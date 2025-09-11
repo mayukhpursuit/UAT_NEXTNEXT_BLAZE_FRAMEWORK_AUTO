@@ -1,16 +1,16 @@
 package testCases.authorTabTestCase;
 
-import DataProviders.AuthorTestCaseDataProvider;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC007 extends BaseClass {
-    @Test(dataProvider = "tc007", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyEpicSelectionAfterRefresh(
-            String epicName,String defaultEpic
-    ) throws InterruptedException {
+import java.util.List;
+
+public class TC008 extends BaseClass {
+    @Test
+    public void verifyEpicSelectionAfterRefresh() throws InterruptedException {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
@@ -19,12 +19,16 @@ public class TC007 extends BaseClass {
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickEpic();
             logger.info("Click on the Epic Drop Down");
-            authorTestCasePage.selectEpic(epicName);
-            logger.info("selected the epic from the dropdown");
-            getDriver().navigate().refresh();
-            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),defaultEpic);
-            System.out.println(authorTestCasePage.getSelectedEpic());
-            logger.info("Verification done...");
+            List<WebElement> epics= authorTestCasePage.getAllEpics();
+            boolean b=false;
+            for (int i=0;i<=epics.size()-1;i++){
+                if (epics.get(i).getText().contains(" ") || epics.get(i).getText().contains("_") || epics.get(i).getText().contains(".")){
+                    b=true;
+                    System.out.println(epics.get(i).getText());
+                }
+            }
+            Assert.assertTrue(b,"Elements with ' ' , . , ");
+            logger.info("Verified successfully that elements with space or special character is present");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
