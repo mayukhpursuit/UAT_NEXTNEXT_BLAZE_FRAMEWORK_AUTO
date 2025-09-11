@@ -91,7 +91,7 @@ public class BaseClass {
         getDriver().findElement(By.xpath("//input[@type='submit']")).click();
 
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='password']")));
         getDriver().findElement(By.xpath("//input[@type='password']")).sendKeys(p.getProperty("password"));
