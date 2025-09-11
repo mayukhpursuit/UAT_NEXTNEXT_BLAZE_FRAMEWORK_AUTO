@@ -87,8 +87,11 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
         return optionsEpic;
     }
-
     public void clickEpic(){
         dropdownEpic.click();
+    }
+    public String getSelectedEpic(){
+        Select s = new Select(dropdownEpic);
+        return s.getFirstSelectedOption().getText();
     }
 }

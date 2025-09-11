@@ -10,7 +10,8 @@
         <classes>
 <!--            <class name="testCases.authorTabTestCase.TC001"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC002"/>-->
-            <class name="testCases.authorTabTestCase.TC003"/>
+<!--            <class name="testCases.authorTabTestCase.TC003"/>-->
+            <class name="testCases.authorTabTestCase.TC004"/>
         </classes>
     </test>
 </suite>
