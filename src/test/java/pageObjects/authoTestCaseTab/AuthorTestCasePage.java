@@ -94,4 +94,5 @@ public class AuthorTestCasePage extends BasePage {
         Select s = new Select(dropdownEpic);
         return s.getFirstSelectedOption().getText();
     }
+
 }

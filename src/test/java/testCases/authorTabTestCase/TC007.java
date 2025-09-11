@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC004 extends BaseClass {
-    @Test(dataProvider = "tc004", dataProviderClass = AuthorTestCaseDataProvider.class)
+public class TC007 extends BaseClass {
+    @Test(dataProvider = "tc007", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyAllAvailableEpicsDisplayed(
-            String epicName
+            String epicName,String defaultEpic
     ) throws InterruptedException {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
@@ -21,10 +21,10 @@ public class TC004 extends BaseClass {
             logger.info("Click on the Epic Drop Down");
             authorTestCasePage.selectEpic(epicName);
             logger.info("selected the epic from the dropdown");
-            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),epicName);
+            getDriver().navigate().refresh();
+            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),defaultEpic);
             System.out.println(authorTestCasePage.getSelectedEpic());
-            logger.info("Verified the desired epic selected successfully");
-
+            logger.info("Verification done...");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
