@@ -8,9 +8,9 @@ import testBase.BaseClass;
 
 import java.util.List;
 
-public class TC008 extends BaseClass {
+public class TC009 extends BaseClass {
     @Test
-    public void verifyEpicSelectionAfterRefresh() throws InterruptedException {
+    public void verifyEpicsWithSpecialCharacter() throws InterruptedException {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
@@ -27,7 +27,7 @@ public class TC008 extends BaseClass {
                     System.out.println(epics.get(i).getText());
                 }
             }
-            Assert.assertTrue(b,"Elements with ' ' , . , ");
+            Assert.assertTrue(b,"Elements with ' ' , . , is not working....");
             logger.info("Verified successfully that elements with space or special character is present");
         }
         catch (AssertionError e) {

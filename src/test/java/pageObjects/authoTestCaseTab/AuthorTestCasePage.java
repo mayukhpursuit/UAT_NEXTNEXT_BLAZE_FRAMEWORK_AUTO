@@ -42,7 +42,6 @@ public class AuthorTestCasePage extends BasePage {
     WebElement tabAuthorTestcase;
 
 
-
     //actions
 
     public void selectEpic(String epicName){
@@ -93,6 +92,10 @@ public class AuthorTestCasePage extends BasePage {
     public String getSelectedEpic(){
         Select s = new Select(dropdownEpic);
         return s.getFirstSelectedOption().getText();
+    }
+
+    public boolean getFeatureVisibility(){
+        return dropdownFeature.isDisplayed();
     }
 
 }
