@@ -8,7 +8,7 @@ import testBase.BaseClass;
 
 public class TC004 extends BaseClass {
     @Test(dataProvider = "tc004", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifySelectionFromEpic(
+    public void verifyAllAvailableEpicsDisplayed(
             String epicName
     ) throws InterruptedException {
         logger.info("****** Starting the Log in Test Case *****************");

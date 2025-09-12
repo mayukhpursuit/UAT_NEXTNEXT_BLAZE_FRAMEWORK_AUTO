@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC007 extends BaseClass {
-    @Test(dataProvider = "tc007", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyAllAvailableEpicsDisplayed(
-            String epicName,String defaultEpic
+public class TC013 extends BaseClass {
+    @Test(dataProvider = "tc011", dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void verifySelectedFeatureDisplayedFields(
+            String epicName , String feature
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -21,10 +21,15 @@ public class TC007 extends BaseClass {
             logger.info("Click on the Epic Drop Down");
             authorTestCasePage.selectEpic(epicName);
             logger.info("selected the epic from the dropdown");
-            getDriver().navigate().refresh();
-            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),defaultEpic);
+            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),epicName);
             System.out.println(authorTestCasePage.getSelectedEpic());
+            logger.info("Verified the desired epic selected successfully");
+            authorTestCasePage.selectFeature(feature);
+            logger.info("selected the feature from the dropdown");
+            Assert.assertEquals(authorTestCasePage.getSelectedFeature(),feature);
+            System.out.println(authorTestCasePage.getSelectedFeature());
             logger.info("Verification done...");
+
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

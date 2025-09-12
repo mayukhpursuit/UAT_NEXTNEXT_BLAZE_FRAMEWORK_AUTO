@@ -5,9 +5,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import java.time.Duration;
 import java.util.List;
 
 public class AuthorTestCasePage extends BasePage {
@@ -24,6 +27,8 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[1]/option")
     List<WebElement> optionsEpic;
 
+    @FindBy(xpath = "(//select[@class='text select-dropdown'])[2]/option")
+    List<WebElement> optionsFeatures;
 
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[2]")
     WebElement dropdownFeature;
@@ -40,6 +45,10 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//span[@id='author']")
     WebElement tabAuthorTestcase;
+
+    @FindBy(xpath = "//div[@class='wrapper']")
+    List<WebElement> rqCountWrapper;
+
 
 
     //actions
@@ -86,16 +95,28 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
         return optionsEpic;
     }
+    public void getAllFeatures() throws InterruptedException {
+        for (WebElement feature : optionsFeatures) {
+            System.out.println("Feature: " + feature.getText());
+        }
+    }
     public void clickEpic(){
         dropdownEpic.click();
+    }
+    public void clickFeature(){
+        dropdownFeature.click();
     }
     public String getSelectedEpic(){
         Select s = new Select(dropdownEpic);
         return s.getFirstSelectedOption().getText();
     }
-
-    public boolean getFeatureVisibility(){
-        return dropdownFeature.isDisplayed();
+    public String getSelectedFeature(){
+        Select s = new Select(dropdownFeature);
+        return s.getFirstSelectedOption().getText();
+    }
+    public int getCountRQInFeature() throws InterruptedException {
+        Thread.sleep(2000);
+        return rqCountWrapper.size();
     }
 
 }
