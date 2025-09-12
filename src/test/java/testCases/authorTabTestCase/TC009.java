@@ -11,7 +11,7 @@ import java.util.List;
 public class TC009 extends BaseClass {
     @Test
     public void verifyEpicsWithSpecialCharacter() throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");

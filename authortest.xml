@@ -15,7 +15,10 @@
 <!--            <class name="testCases.authorTabTestCase.TC007"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC008"/>-->
 
-            <class name="testCases.authorTabTestCase.TC008"/>
+<!--            <class name="testCases.authorTabTestCase.TC010"/>-->
+<!--            <class name="testCases.Demo.AddTestCase"/>-->
+                        <class name="testCases.authorTabTestCase.TC018"/>
+
         </classes>
     </test>
 </suite>

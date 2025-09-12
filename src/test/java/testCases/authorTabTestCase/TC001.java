@@ -11,7 +11,7 @@ public class TC001 extends BaseClass {
     public void verifyEpicVisibility(
             String labelName
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");

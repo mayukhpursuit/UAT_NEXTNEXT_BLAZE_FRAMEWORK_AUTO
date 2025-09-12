@@ -9,7 +9,7 @@ import testBase.BaseClass;
 public class TC002 extends BaseClass {
     @Test
     public void verifyEpicClickFunctionality() throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");

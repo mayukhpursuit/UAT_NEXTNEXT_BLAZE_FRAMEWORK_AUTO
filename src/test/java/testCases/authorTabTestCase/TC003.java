@@ -16,13 +16,14 @@ public class TC003 extends BaseClass {
     public void verifyAllAvailableEpicsDisplayed(
             String expectedEpic
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickEpic();
+            logger.info("Clicked Epic successfully");
             Assert.assertEquals(authorTestCasePage.getCountInEpic()-1,Integer.parseInt(expectedEpic),"Count mismatched ..");
             logger.info("Verified the containing Epics");
         }

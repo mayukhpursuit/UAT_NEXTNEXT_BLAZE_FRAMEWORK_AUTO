@@ -6,25 +6,33 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC007 extends BaseClass {
-    @Test(dataProvider = "tc007", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyEpicSelectionAfterRefresh(
-            String epicName,String defaultEpic
+public class TC018 extends BaseClass {
+    @Test(dataProvider = "tc018", dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void verifyFeatureDropdownClearsValueAfterPageRefresh(
+            String epic,String feature, String expectedSelectedEpic
     ) throws InterruptedException {
-        logger.info("****** Starting the Test Case *****************");
+        logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
-            logger.info("Navigated to Author Test Case tab");
+
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickEpic();
-            logger.info("Click on the Epic Drop Down");
-            authorTestCasePage.selectEpic(epicName);
-            logger.info("selected the epic from the dropdown");
+            logger.info("Navigated to Author Test Case tab");
+
+            authorTestCasePage.selectEpic(epic);
+            logger.info("selected the Epic");
+
+            authorTestCasePage.selectFeature(feature);
+            logger.info("Selected the Feature");
+
             getDriver().navigate().refresh();
-            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),defaultEpic);
-            System.out.println(authorTestCasePage.getSelectedEpic());
-            logger.info("Verification done...");
+            logger.info("Refreshed the page");
+
+            String selectedEpic=authorTestCasePage.getSelectedEpic();
+            Assert.assertEquals(selectedEpic,expectedSelectedEpic);
+            logger.info("Verified Successfully");
+
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

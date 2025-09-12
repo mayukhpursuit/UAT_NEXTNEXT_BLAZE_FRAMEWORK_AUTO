@@ -1,10 +1,8 @@
 package utils;
 
-import org.testng.annotations.DataProvider;
-
 import java.io.IOException;
 
-public class DataProviders {
+public class ExcelDataProviders {
     public static String[][] getExcelData(String sheetName) throws IOException {
         String path = ".\\testData\\testData.xlsx";
         XLUtility utility = new XLUtility(path);
