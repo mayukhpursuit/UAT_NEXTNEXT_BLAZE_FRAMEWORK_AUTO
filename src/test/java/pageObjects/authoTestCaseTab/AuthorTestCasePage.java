@@ -41,6 +41,15 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//span[@id='author']")
     WebElement tabAuthorTestcase;
 
+    @FindBy(xpath = "//div[@class='pagination-item']")
+    WebElement divRequirementPagination;
+
+    @FindBy(xpath = "//img[@alt='Next']")
+    WebElement arrowForwardNextPagination;
+
+    @FindBy(xpath = "//img[@alt='Previous']")
+    WebElement arrowBackwardPrevious;
+
 
     //actions
 
@@ -96,6 +105,18 @@ public class AuthorTestCasePage extends BasePage {
 
     public boolean getFeatureVisibility(){
         return dropdownFeature.isDisplayed();
+    }
+    public String showPaginationOfRequirement(){
+        return divRequirementPagination.getText();
+    }
+
+    public void clickNextArrow() throws InterruptedException {
+        arrowForwardNextPagination.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickPreviousArrow(){
+        arrowBackwardPrevious.click();
     }
 
 }

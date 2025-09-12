@@ -40,10 +40,14 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc018");
     }
 
+    @DataProvider(name="tc028")
+    public static String[][] getDataTC028() throws IOException {
+        return ExcelDataProviders.getExcelData("tc028");
+    }
 
-
-
-
-
+    @DataProvider(name="tc029")
+    public static String[][] getDataTC029() throws IOException {
+        return ExcelDataProviders.getExcelData("tc029");
+    }
 
 }
