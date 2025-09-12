@@ -1,9 +1,6 @@
 package pageObjects.authoTestCaseTab;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -49,6 +46,17 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='wrapper']")
     List<WebElement> rqCountWrapper;
 
+    @FindBy(xpath = "//img[@alt='Previous']")
+    WebElement previousArrowBtn;
+
+    @FindBy(xpath = "//img[@alt='Next']")
+    WebElement nextArrowBtn;
+
+    @FindBy(xpath = "//img[@alt='Last Page']")
+    WebElement lastPageArrowBtn;
+
+    @FindBy(xpath = "//img[@alt='First Page']")
+    WebElement firstPageArrowBtn;
 
 
     //actions
@@ -119,4 +127,55 @@ public class AuthorTestCasePage extends BasePage {
         return rqCountWrapper.size();
     }
 
+    public void clickLastPageArrowBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(lastPageArrowBtn));
+        lastPageArrowBtn.click();
+    }
+
+
+    public String checkIfPreviousButtonIsClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.visibilityOf(previousArrowBtn));
+            String cursorStyle = previousArrowBtn.getCssValue("cursor");
+
+            System.out.println("Cursor style of Previous button: " + cursorStyle);
+
+            if ("pointer".equals(cursorStyle)) {
+                System.out.println("Previous button appears clickable (cursor: pointer).");
+            } else {
+                System.out.println("Previous button appears NOT clickable (cursor: " + cursorStyle + ").");
+            }
+
+            return cursorStyle;
+
+        } catch (TimeoutException e) {
+            System.out.println("Previous button is NOT visible within the timeout.");
+            return "not-visible";
+        }
+    }
+
+
+    public String checkIfNextButtonIsClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.visibilityOf(nextArrowBtn));
+            String cursorStyle = nextArrowBtn.getCssValue("cursor");
+
+            System.out.println("Cursor style of Next button: " + cursorStyle);
+
+            if ("pointer".equals(cursorStyle)) {
+                System.out.println("Next button appears clickable (cursor: pointer).");
+            } else {
+                System.out.println("Next button appears NOT clickable (cursor: " + cursorStyle + ").");
+            }
+
+            return cursorStyle;
+
+        } catch (TimeoutException e) {
+            System.out.println("Previous button is NOT visible within the timeout.");
+            return "not-visible";
+        }
+    }
 }

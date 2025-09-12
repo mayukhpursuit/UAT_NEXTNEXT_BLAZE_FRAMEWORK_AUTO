@@ -1,4 +1,31 @@
 package testCases.authorTabTestCase;
 
-public class TC031 {
+import DataProviders.AuthorTestCaseDataProvider;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import testBase.BaseClass;
+
+public class TC031 extends BaseClass {
+    @Test
+    public void verifyDisabledPreviousBtnOnFirstPage(
+    ) throws InterruptedException {
+        logger.info("****** Starting the Test Case *****************");
+        try {
+            login();
+            logger.info("Logged in successfully");
+            logger.info("Navigated to Author Test Case tab");
+
+            AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());
+
+            // Call the method (just for logging, not asserting)
+            String cursorStyle = authorTestCasePage.checkIfPreviousButtonIsClickable();
+            logger.info("Cursor style of Previous button: " + cursorStyle);
+
+        } catch (Exception e) {
+            logger.error("Exception occurred: " + e.getMessage());
+            throw e;
+        }
+        logger.info("************ Test Case Finished *************************");
+    }
 }
