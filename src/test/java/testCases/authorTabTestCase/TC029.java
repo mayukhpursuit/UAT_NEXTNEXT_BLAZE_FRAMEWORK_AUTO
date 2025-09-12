@@ -9,10 +9,10 @@ import testBase.BaseClass;
 
 public class TC029 extends BaseClass {
     @Test(dataProvider = "tc029", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyFeatureVisibility(
+    public void verifyNextButtonFunctionality(
             String expectedPagination
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");

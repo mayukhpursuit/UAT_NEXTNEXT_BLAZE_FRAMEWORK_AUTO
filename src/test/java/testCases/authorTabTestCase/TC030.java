@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC028 extends BaseClass {
+public class TC030 extends BaseClass {
     @Test(dataProvider = "tc028", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyDefaultPagePagination(
+    public void verifyNextButtonFunctionality(
             String expectedPagination
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
@@ -18,9 +18,15 @@ public class TC028 extends BaseClass {
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
+
+            authorTestCasePage.clickNextArrow();
+            logger.info("Clicked on forward arrow in the requirement");
+
+            authorTestCasePage.clickPreviousArrow();
+            logger.info("Clicked the previous arrow");
+
             Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),expectedPagination);
             logger.info("Expected pagination verified ....");
-
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

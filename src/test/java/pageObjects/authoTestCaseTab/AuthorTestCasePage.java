@@ -106,7 +106,8 @@ public class AuthorTestCasePage extends BasePage {
     public boolean getFeatureVisibility(){
         return dropdownFeature.isDisplayed();
     }
-    public String showPaginationOfRequirement(){
+    public String showPaginationOfRequirement() throws InterruptedException {
+        Thread.sleep(2000);
         return divRequirementPagination.getText();
     }
 

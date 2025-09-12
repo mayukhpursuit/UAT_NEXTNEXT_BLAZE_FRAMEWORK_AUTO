@@ -11,7 +11,7 @@ public class TC018 extends BaseClass {
     public void verifyFeatureDropdownClearsValueAfterPageRefresh(
             String epic,String feature, String expectedSelectedEpic
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
