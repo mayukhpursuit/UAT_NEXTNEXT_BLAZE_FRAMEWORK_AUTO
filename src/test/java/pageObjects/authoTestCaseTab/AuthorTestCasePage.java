@@ -239,4 +239,13 @@ public class AuthorTestCasePage extends BasePage {
         return false;
     }
 
+    public boolean isAddTestCaseButtonVisible1() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 }
