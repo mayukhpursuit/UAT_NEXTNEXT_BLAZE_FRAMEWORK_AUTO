@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class AuthorTestCasePage extends BasePage {
-    public AuthorTestCasePage(WebDriver driver){
+    public AuthorTestCasePage(WebDriver driver) {
         super(driver);
     }
 
@@ -35,7 +35,7 @@ public class AuthorTestCasePage extends BasePage {
     WebElement dropdownFeature;
 
     public WebElement linkRequirement(String reqId) {
-        return driver.findElement(By.xpath("//div[text()='"+ reqId +"']"));
+        return driver.findElement(By.xpath("//div[text()='" + reqId + "']"));
     }
 
     @FindBy(xpath = "//p[@class='supporting-text']")
@@ -94,13 +94,13 @@ public class AuthorTestCasePage extends BasePage {
 
     //actions
 
-    public void selectEpic(String epicName){
-        Select s= new Select(dropdownEpic);
+    public void selectEpic(String epicName) {
+        Select s = new Select(dropdownEpic);
         s.selectByVisibleText(epicName);
     }
 
-    public void selectFeature(String featureName){
-        Select s= new Select(dropdownFeature);
+    public void selectFeature(String featureName) {
+        Select s = new Select(dropdownFeature);
         s.selectByVisibleText(featureName);
     }
 
@@ -110,15 +110,16 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
     }
 
-    public String showRequirementHeader(){
+    public String showRequirementHeader() {
         return headingRequirement.getText();
     }
 
-    public void clickAddTestcase(){
+    public void clickAddTestcase() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", buttonAddTestCase);
     }
-    public void clickAuthorTestcase(){
+
+    public void clickAuthorTestcase() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tabAuthorTestcase);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tabAuthorTestcase);
     }
@@ -127,43 +128,51 @@ public class AuthorTestCasePage extends BasePage {
     public String getEpicLabelName(){
         return labelEpic.getText();
     }
-    public boolean getVisibilityOfEpic(){
+
+    public boolean getVisibilityOfEpic() {
         return dropdownEpic.isDisplayed();
     }
+
     public int getCountInEpic() throws InterruptedException {
         Thread.sleep(2000);
         return optionsEpic.size();
     }
+
     public List<WebElement> getAllEpics() throws InterruptedException {
         Thread.sleep(2000);
         return optionsEpic;
     }
+
     public void getAllFeatures() throws InterruptedException {
         for (WebElement feature : optionsFeatures) {
             System.out.println("Feature: " + feature.getText());
         }
     }
-    public void clickEpic(){
+
+    public void clickEpic() {
         dropdownEpic.click();
     }
-    public void clickFeature(){
+
+    public void clickFeature() {
         dropdownFeature.click();
     }
-    public String getSelectedEpic(){
+
+    public String getSelectedEpic() {
         Select s = new Select(dropdownEpic);
         return s.getFirstSelectedOption().getText();
     }
 
-    public String getSelectedFeature(){
+    public String getSelectedFeature() {
         Select s = new Select(dropdownFeature);
         return s.getFirstSelectedOption().getText();
     }
+
     public int getCountRQInFeature() throws InterruptedException {
         Thread.sleep(2000);
         return rqCountWrapper.size();
     }
 
-    public void clickLastPageArrowBtn(){
+    public void clickLastPageArrowBtn() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(lastPageArrowBtn));
         lastPageArrowBtn.click();
@@ -215,9 +224,10 @@ public class AuthorTestCasePage extends BasePage {
         }
     }
 
-    public boolean getFeatureVisibility(){
+    public boolean getFeatureVisibility() {
         return dropdownFeature.isDisplayed();
     }
+
     public String showPaginationOfRequirement() throws InterruptedException {
         Thread.sleep(2000);
         return divRequirementPagination.getText();
@@ -228,8 +238,18 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
     }
 
-    public void clickPreviousArrow(){
+    public void clickPreviousArrow() {
         arrowBackwardPrevious.click();
+    }
+
+    public boolean isAddTestCaseButtonVisible() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 
     public boolean isCreateTextHeadingVisible() {
