@@ -116,6 +116,29 @@ public class AddTestcasePage extends BasePage {
     public boolean isPreconditionDisplayed(){
         return textPrecondition.isDisplayed();
     }
+    public boolean isNameDisplayed(){
+        return textName.isDisplayed();
+    }
+
+    public boolean isDescriptionDisplayed(){
+        return textDescription.isDisplayed();
+    }
+
+    public boolean isPriorityDropdownDisplayed(){
+        return dropDownPriority.isDisplayed();
+    }
+
+    public boolean isTypeDropdownDisplayed(){
+        return dropDownType.isDisplayed();
+    }
+
+    public boolean isQAUserDropdownDisplayed(){
+        return dropDownQAUser.isDisplayed();
+    }
+
+    public boolean isPreconditionDisplayed(){
+        return textPrecondition.isDisplayed();
+    }
 
     public boolean isAllTypeOptionsVisible(){
         List<String> textOfElements=new ArrayList<>();

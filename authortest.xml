@@ -6,7 +6,7 @@
     </listeners>
     <test verbose="2" preserve-order="true"
           name="Author Test ">
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
 <!--            <class name="testCases.authorTabTestCase.TC001"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC002"/>-->
@@ -22,7 +22,7 @@
 <!--            <class name="testCases.authorTabTestCase.TC014"/>-->
 <!--            <class name="testCases.Demo.AddTestCase"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC018"/>-->
-            <class name="testCases.authorTabTestCase.TC027"/>
+            <class name="testCases.authorTabTestCase.TC044"/>
 <!--            <class name="testCases.authorTabTestCase.TC029"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC030"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC031"/>-->
