@@ -1,5 +1,6 @@
 package pageObjects.authoTestCaseTab;
 
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AuthorTestCasePage extends BasePage {
@@ -63,6 +66,9 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//h3[text()='Create Test Cases']")
     WebElement headingCreateTestCases;
+
+    @FindBy(xpath = "//div[@class='testlistcell']/a")
+    List<WebElement> linkAllTestCaseId;
 
 
     //actions
@@ -213,6 +219,24 @@ public class AuthorTestCasePage extends BasePage {
         } catch (TimeoutException e) {
             return false; // element not visible within wait time
         }
+    }
+
+    public boolean isAllTestIdSorted() throws InterruptedException {
+        Thread.sleep(3000);
+        List<String> name1 = new ArrayList<>();
+        for (WebElement ele : linkAllTestCaseId) {
+            name1.add(ele.getText().trim()); // trim in case of extra spaces
+        }
+
+        // Make a copy and sort it
+        List<String> sortedList = new ArrayList<>(name1);
+        Collections.sort(sortedList);
+
+        // Check if original == sorted
+        if (name1.equals(sortedList)) {
+            return true;
+        }
+        return false;
     }
 
 }
