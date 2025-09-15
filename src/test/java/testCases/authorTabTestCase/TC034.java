@@ -17,16 +17,14 @@ public class TC034 extends BaseClass {
         logger.info("****** Starting TC034: Verify pagination resets properly ******");
         try {
 
-            // Step 1: Login
+
             login();
             logger.info("Logged in successfully");
 
-            // Step 2: Navigate to Author Test Case tab
             AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
 
-            // Step 3: Select Epic & Feature
             authorTestCasePage.clickEpic();
             logger.info("Clicked on Epic Drop Down");
             authorTestCasePage.selectEpic(epicName);
@@ -35,7 +33,7 @@ public class TC034 extends BaseClass {
             authorTestCasePage.selectFeature(featureName);
             logger.info("Selected Feature: " + featureName);
 
-            // Step 4: Move to next page (pagination forward)
+
             int initialPage = Integer.parseInt(authorTestCasePage.showPaginationOfRequirement());
             authorTestCasePage.clickNextArrow();
             int movedPage =Integer.parseInt( authorTestCasePage.showPaginationOfRequirement());
@@ -44,7 +42,7 @@ public class TC034 extends BaseClass {
                     "Pagination did not move to the next page");
             logger.info("Successfully moved from page " + initialPage + " to " + movedPage);
 
-            // Step 5: Re-apply same Epic & Feature filters → should reset pagination
+
             authorTestCasePage.selectFeature(nextFeature);
             logger.info("Re-applied Epic & Feature filters");
 
