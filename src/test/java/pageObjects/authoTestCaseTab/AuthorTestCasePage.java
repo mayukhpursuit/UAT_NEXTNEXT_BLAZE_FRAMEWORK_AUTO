@@ -70,7 +70,12 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
 
-    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    //This will fetch Locator for any linked Test case inside
+    public WebElement linkTestCaseIdFromName(String name){
+        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
+    }
+
+    @FindBy(xpath = "//button[@id='linkTestCaseButton']")
     WebElement LinkTestcase;
 
 
@@ -252,7 +257,8 @@ public class AuthorTestCasePage extends BasePage {
         }
     }
 
-    public void clicklinktestcase(){
+    public void clicklinktestcase() throws InterruptedException {
+        Thread.sleep(3000);
         LinkTestcase.click();
     }
 }
