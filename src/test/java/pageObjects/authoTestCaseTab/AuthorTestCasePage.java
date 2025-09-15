@@ -79,6 +79,15 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
     WebElement LinkTestcase;
 
+    @FindBy(xpath = "//input[@id='searchInputTCModal']")
+    WebElement inputSearchTestCase;
+
+    @FindBy(xpath = "//button[@id='searchTCButton']")
+    WebElement buttonSearch;
+
+    @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
+    WebElement Pid;
+
 
     //actions
 
@@ -261,5 +270,7 @@ public class AuthorTestCasePage extends BasePage {
     public void clicklinktestcase(){
         LinkTestcase.click();
     }
+
+
 
 }
