@@ -213,7 +213,7 @@ public class AuthorTestCasePage extends BasePage {
         arrowBackwardPrevious.click();
     }
 
-    public boolean isAddTestCaseButtonVisible() {
+    public boolean isAddTestCaseButtonVisible1() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));

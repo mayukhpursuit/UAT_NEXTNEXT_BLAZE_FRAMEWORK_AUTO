@@ -18,7 +18,7 @@ public class TC035 extends BaseClass {
             AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
-            boolean isButtonVisible = authorTestCasePage.isAddTestCaseButtonVisible();
+            boolean isButtonVisible = authorTestCasePage.isAddTestCaseButtonVisible1();
             Assert.assertTrue(isButtonVisible,"Add test case button is visible in the testcases section");
             logger.info("verified Add test case button is visible .....................");
 
