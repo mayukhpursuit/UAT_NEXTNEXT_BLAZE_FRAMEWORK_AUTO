@@ -27,6 +27,7 @@
 <!--            <class name="testCases.authorTabTestCase.TC030"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC031"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC032"/>-->
+             <class name="testCases.authorTabTestCase.TC034"/>
 
         </classes>
     </test>

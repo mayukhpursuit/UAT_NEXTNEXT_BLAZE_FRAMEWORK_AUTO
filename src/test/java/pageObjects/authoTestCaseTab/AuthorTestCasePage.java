@@ -61,6 +61,9 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
 
+    @FindBy(xpath = "//h3[text()='Create Test Cases']")
+    WebElement headingCreateTestCases;
+
 
     //actions
 
@@ -200,6 +203,16 @@ public class AuthorTestCasePage extends BasePage {
 
     public void clickPreviousArrow(){
         arrowBackwardPrevious.click();
+    }
+
+    public boolean isCreateTextHeadingVisible() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(headingCreateTestCases));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false; // element not visible within wait time
+        }
     }
 
 }
