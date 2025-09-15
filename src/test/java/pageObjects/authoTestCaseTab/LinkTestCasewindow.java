@@ -22,6 +22,9 @@ public class LinkTestCasewindow extends BasePage {
     @FindBy(xpath = "//*[@id='searchTCButton']")
     WebElement searchButton;
 
+    @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
+    WebElement Pid;
+
     // Actions
     public void enterSearchText(String tcName) {
         searchTC.clear();
@@ -35,5 +38,12 @@ public class LinkTestCasewindow extends BasePage {
     public void searchTestCase(String tcName) {
         enterSearchText(tcName);
         clickSearch();
+    }
+
+    public void clickPid(String pidFromExcel) {
+        WebElement pidElement = driver.findElement(
+                By.xpath("//div[@class='defect-modal-text-wrapper-3' and text()='" + pidFromExcel + "']")
+        );
+        pidElement.click();
     }
 }

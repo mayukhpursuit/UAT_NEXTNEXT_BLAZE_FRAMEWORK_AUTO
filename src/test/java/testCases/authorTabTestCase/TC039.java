@@ -43,6 +43,9 @@ public class TC039 extends BaseClass {
             linkTestCasewindow.searchTestCase(tcId);
             logger.info("Searched Test Case with ID......: " + tcId);
 
+            linkTestCasewindow.clickPid(tcId);
+            logger.info("select Test case"+ tcId);
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
