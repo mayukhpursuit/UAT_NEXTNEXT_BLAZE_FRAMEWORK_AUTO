@@ -17,7 +17,6 @@ public class AuthorTestCasePage extends BasePage {
     public AuthorTestCasePage(WebDriver driver){
         super(driver);
     }
-
     // locators
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[1]")
     WebElement dropdownEpic;
@@ -71,12 +70,7 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
 
-    //This will fetch Locator for any linked Test case inside
-    public WebElement linkTestCaseIdFromName(String name){
-        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
-    }
-
-    @FindBy(xpath = "//button[@id='linkTestCaseButton']")
+    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
     WebElement LinkTestcase;
 
 
@@ -258,9 +252,7 @@ public class AuthorTestCasePage extends BasePage {
         }
     }
 
-    public void clicklinktestcase() throws InterruptedException {
-        Thread.sleep(3000);
+    public void clicklinktestcase(){
         LinkTestcase.click();
     }
-
 }
