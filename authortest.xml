@@ -27,8 +27,8 @@
 <!--            <class name="testCases.authorTabTestCase.TC030"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC031"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC032"/>-->
-<!--             <class name="testCases.authorTabTestCase.TC034"/>-->
-            <class name="testCases.authorTabTestCase.TC035"/>
+<!--             <class name="testCases.authorTabTestCase.TC036"/>-->
+            <class name="testCases.authorTabTestCase.TC037"/>
 
 
         </classes>

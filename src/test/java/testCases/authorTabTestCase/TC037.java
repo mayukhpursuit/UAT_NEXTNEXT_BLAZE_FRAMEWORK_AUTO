@@ -3,13 +3,12 @@ package testCases.authorTabTestCase;
 import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC034 extends BaseClass {
+public class TC037 extends BaseClass {
     @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyAddTestcaseDisplayedNextWindow(
+    public void verifyTestCaseCreation(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,
             String QA
@@ -27,8 +26,7 @@ public class TC034 extends BaseClass {
             logger.info("Selected the feature");
             authorTestCasePage.clickRequirement(requirementId);
             logger.info("Clicked on requirement id "+requirementId);
-            
-            Assert.assertTrue(authorTestCasePage.isCreateTextHeadingVisible());
+            Assert.assertTrue(authorTestCasePage.isAllTestIdSorted());
             logger.info("Verified Successfully");
 
         }

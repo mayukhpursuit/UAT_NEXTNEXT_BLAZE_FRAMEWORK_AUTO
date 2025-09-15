@@ -115,15 +115,15 @@
   C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
 
 12:15:16.624 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
-12:15:23.593 [main] INFO  testCases.authorTabTestCase.TC034 - ****** Starting the Log in Test Case *****************
-12:15:35.138 [main] INFO  testCases.authorTabTestCase.TC034 - Logged in successfully
-12:15:35.186 [main] INFO  testCases.authorTabTestCase.TC034 - Clicked the Author test case
-12:15:35.286 [main] INFO  testCases.authorTabTestCase.TC034 - Selected the epic
-12:15:35.360 [main] INFO  testCases.authorTabTestCase.TC034 - Selected the feature
-12:15:39.430 [main] INFO  testCases.authorTabTestCase.TC034 - Clicked on requirement id RQ-469
-12:15:39.438 [main] INFO  testCases.authorTabTestCase.TC034 - clicked the add test case 
-12:15:39.544 [main] INFO  testCases.authorTabTestCase.TC034 - Verified Successfully
-12:15:39.544 [main] INFO  testCases.authorTabTestCase.TC034 - ************ Test Case Finished *************************
+12:15:23.593 [main] INFO  testCases.authorTabTestCase.TC036 - ****** Starting the Log in Test Case *****************
+12:15:35.138 [main] INFO  testCases.authorTabTestCase.TC036 - Logged in successfully
+12:15:35.186 [main] INFO  testCases.authorTabTestCase.TC036 - Clicked the Author test case
+12:15:35.286 [main] INFO  testCases.authorTabTestCase.TC036 - Selected the epic
+12:15:35.360 [main] INFO  testCases.authorTabTestCase.TC036 - Selected the feature
+12:15:39.430 [main] INFO  testCases.authorTabTestCase.TC036 - Clicked on requirement id RQ-469
+12:15:39.438 [main] INFO  testCases.authorTabTestCase.TC036 - clicked the add test case
+12:15:39.544 [main] INFO  testCases.authorTabTestCase.TC036 - Verified Successfully
+12:15:39.544 [main] INFO  testCases.authorTabTestCase.TC036 - ************ Test Case Finished *************************
 12:15:46.159 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@7a2fce12: 0 ms
 12:42:00.314 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
 12:42:00.319 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
@@ -194,13 +194,13 @@
   C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
 
 12:43:09.696 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 5 ms.
-12:43:12.810 [main] INFO  testCases.authorTabTestCase.TC035 - ****** Starting the Log in Test Case *****************
-12:43:24.824 [main] INFO  testCases.authorTabTestCase.TC035 - Logged in successfully
-12:43:24.879 [main] INFO  testCases.authorTabTestCase.TC035 - Clicked the Author test case
-12:43:24.980 [main] INFO  testCases.authorTabTestCase.TC035 - Selected the epic
-12:43:25.258 [main] INFO  testCases.authorTabTestCase.TC035 - Selected the feature
-12:43:29.306 [main] INFO  testCases.authorTabTestCase.TC035 - Clicked on requirement id RQ-469
-12:43:29.408 [main] ERROR testCases.authorTabTestCase.TC035 - Test case failed ...
+12:43:12.810 [main] INFO  testCases.authorTabTestCase.TC037 - ****** Starting the Log in Test Case *****************
+12:43:24.824 [main] INFO  testCases.authorTabTestCase.TC037 - Logged in successfully
+12:43:24.879 [main] INFO  testCases.authorTabTestCase.TC037 - Clicked the Author test case
+12:43:24.980 [main] INFO  testCases.authorTabTestCase.TC037 - Selected the epic
+12:43:25.258 [main] INFO  testCases.authorTabTestCase.TC037 - Selected the feature
+12:43:29.306 [main] INFO  testCases.authorTabTestCase.TC037 - Clicked on requirement id RQ-469
+12:43:29.408 [main] ERROR testCases.authorTabTestCase.TC037 - Test case failed ...
 12:43:36.280 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@1f66d8e1: 0 ms
 12:45:58.890 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
 12:45:58.894 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
@@ -236,12 +236,12 @@
   C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
 
 12:45:59.054 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 2 ms.
-12:46:02.649 [main] INFO  testCases.authorTabTestCase.TC035 - ****** Starting the Log in Test Case *****************
-12:46:14.499 [main] INFO  testCases.authorTabTestCase.TC035 - Logged in successfully
-12:46:14.549 [main] INFO  testCases.authorTabTestCase.TC035 - Clicked the Author test case
-12:46:14.630 [main] INFO  testCases.authorTabTestCase.TC035 - Selected the epic
-12:46:14.707 [main] INFO  testCases.authorTabTestCase.TC035 - Selected the feature
-12:46:18.763 [main] INFO  testCases.authorTabTestCase.TC035 - Clicked on requirement id RQ-469
-12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC035 - Verified Successfully
-12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC035 - ************ Test Case Finished *************************
+12:46:02.649 [main] INFO  testCases.authorTabTestCase.TC037 - ****** Starting the Log in Test Case *****************
+12:46:14.499 [main] INFO  testCases.authorTabTestCase.TC037 - Logged in successfully
+12:46:14.549 [main] INFO  testCases.authorTabTestCase.TC037 - Clicked the Author test case
+12:46:14.630 [main] INFO  testCases.authorTabTestCase.TC037 - Selected the epic
+12:46:14.707 [main] INFO  testCases.authorTabTestCase.TC037 - Selected the feature
+12:46:18.763 [main] INFO  testCases.authorTabTestCase.TC037 - Clicked on requirement id RQ-469
+12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC037 - Verified Successfully
+12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC037 - ************ Test Case Finished *************************
 12:46:27.342 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@46fc522d: 0 ms
