@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import DataProviders.AuthorTestCaseDataProvider;
 
 public class AddTestCase extends BaseClass {
-    @Test(dataProvider="addTestCase",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyTestCaseCreation(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,

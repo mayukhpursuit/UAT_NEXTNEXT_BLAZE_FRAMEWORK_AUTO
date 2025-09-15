@@ -1,31 +1,34 @@
 package testCases.authorTabTestCase;
 
-import DataProviders.AuthorTestCaseDataProvider;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class TC003 extends BaseClass {
-    @Test(dataProvider = "tc003", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyAllAvailableEpicsDisplayed(
-            String expectedEpic
-    ) throws InterruptedException {
-        logger.info("****** Starting the Test Case *****************");
+public class TC009 extends BaseClass {
+    @Test
+    public void verifyEpicsWithSpecialCharacter() throws InterruptedException {
+        logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickEpic();
-            logger.info("Clicked Epic successfully");
-            Assert.assertEquals(authorTestCasePage.getCountInEpic()-1,Integer.parseInt(expectedEpic),"Count mismatched ..");
-            logger.info("Verified the containing Epics");
+            logger.info("Click on the Epic Drop Down");
+            List<WebElement> epics= authorTestCasePage.getAllEpics();
+            boolean b=false;
+            for (int i=0;i<=epics.size()-1;i++){
+                if (epics.get(i).getText().contains(" ") || epics.get(i).getText().contains("_") || epics.get(i).getText().contains(".")){
+                    b=true;
+                    System.out.println(epics.get(i).getText());
+                }
+            }
+            Assert.assertTrue(b,"Elements with ' ' , . , is not working....");
+            logger.info("Verified successfully that elements with space or special character is present");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
