@@ -3,19 +3,20 @@ package testCases.authorTabTestCase;
 import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.authoTestCaseTab.LinkTestCasewindow;
 import testBase.BaseClass;
 
 public class TC039 extends BaseClass {
+
     @Test(dataProvider = "tc039", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyPaginationReset(
             String epicName,
             String featureName,
-            String rq_id
+            String rq_id,
+            String tcId
     ) throws InterruptedException {
-        logger.info("****** Starting TC039: Verify pagination resets properly ******");
+        logger.info("****** Starting TC039: Verify prevention of duplicate linking ******");
         try {
-
-
             login();
             logger.info("Logged in successfully");
 
@@ -31,10 +32,19 @@ public class TC039 extends BaseClass {
             authorTestCasePage.selectFeature(featureName);
             logger.info("Selected Feature: " + featureName);
 
-            authorTestCasePage.linkRequirement(rq_id);
+            authorTestCasePage.clickRequirement(rq_id);
             logger.info("Selected Requirement: " + rq_id);
 
             authorTestCasePage.clicklinktestcase();
+
+            LinkTestCasewindow linkTestCasewindow = new LinkTestCasewindow(getDriver());
+
+
+            linkTestCasewindow.searchTestCase(tcId);
+            logger.info("Searched Test Case with ID......: " + tcId);
+
+            linkTestCasewindow.clickPid(tcId);
+            logger.info("select Test case"+ tcId);
 
 
         } catch (AssertionError e) {
