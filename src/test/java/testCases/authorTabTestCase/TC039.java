@@ -1,6 +1,7 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.LinkTestCasewindow;
@@ -45,6 +46,12 @@ public class TC039 extends BaseClass {
 
             linkTestCasewindow.clickPid(tcId);
             logger.info("select Test case"+ tcId);
+
+
+            String alertMsg = linkTestCasewindow.getAlertMessage();
+            logger.info("Alert message: " + alertMsg);
+            Assert.assertTrue(linkTestCasewindow.isTestCaseAlreadyLinked(),
+                    "Expected alert not shown after linking TC");
 
 
         } catch (AssertionError e) {
