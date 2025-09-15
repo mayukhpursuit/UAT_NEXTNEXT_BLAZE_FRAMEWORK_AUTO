@@ -76,6 +76,9 @@ public class AuthorTestCasePage extends BasePage {
         return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
     }
 
+    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    WebElement LinkTestcase;
+
 
     //actions
 
@@ -254,4 +257,9 @@ public class AuthorTestCasePage extends BasePage {
             return false;
         }
     }
+
+    public void clicklinktestcase(){
+        LinkTestcase.click();
+    }
+
 }
