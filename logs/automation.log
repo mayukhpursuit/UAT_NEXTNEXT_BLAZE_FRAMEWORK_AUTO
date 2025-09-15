@@ -654,8 +654,8 @@ Session ID: 1b11fc7f67621087db34cfb22b9d4fde
   C:\Users\JulieKumari\Desktop\UAT_NEXT\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
 
 12:40:32.594 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
-12:40:37.983 [main] INFO  testCases.authorTabTestCase.TC0035 - ****** Starting the Test Case *****************
-12:40:49.695 [main] INFO  testCases.authorTabTestCase.TC0035 - Logged in successfully
-12:40:53.948 [main] INFO  testCases.authorTabTestCase.TC0035 - verified Add test case button is visible 
-12:40:53.948 [main] INFO  testCases.authorTabTestCase.TC0035 - ************ Test Case Finished *************************
+12:40:37.983 [main] INFO  testCases.authorTabTestCase.TC035 - ****** Starting the Test Case *****************
+12:40:49.695 [main] INFO  testCases.authorTabTestCase.TC035 - Logged in successfully
+12:40:53.948 [main] INFO  testCases.authorTabTestCase.TC035 - verified Add test case button is visible
+12:40:53.948 [main] INFO  testCases.authorTabTestCase.TC035 - ************ Test Case Finished *************************
 12:41:00.853 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@581b1c08: 0 ms

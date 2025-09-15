@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC0035 extends BaseClass {
+public class TC035 extends BaseClass {
     @Test(dataProvider = "tc035", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void VerifyVisiblityOfAddTestCaseButton(
             String requirementId
