@@ -94,8 +94,6 @@ public class AuthorTestCasePage extends BasePage {
     }
 
 
-
-
     public String getEpicLabelName(){
         return labelEpic.getText();
     }
