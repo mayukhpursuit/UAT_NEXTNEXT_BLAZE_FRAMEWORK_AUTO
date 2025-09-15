@@ -20,7 +20,7 @@ public class TC035 extends BaseClass {
             authorTestCasePage.clickRequirement(requirementId);
             boolean isButtonVisible = authorTestCasePage.isAddTestCaseButtonVisible();
             Assert.assertTrue(isButtonVisible,"Add test case button is visible in the testcases section");
-            logger.info("verified Add test case button is visible ");
+            logger.info("verified Add test case button is visible .....................");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
