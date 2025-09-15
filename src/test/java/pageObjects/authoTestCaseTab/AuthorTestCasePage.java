@@ -270,6 +270,10 @@ public class AuthorTestCasePage extends BasePage {
         }
     }
 
+    public void clicklinktestcase() throws InterruptedException {
+        Thread.sleep(3000);
+        LinkTestcase.click();
+    }
 
 
 

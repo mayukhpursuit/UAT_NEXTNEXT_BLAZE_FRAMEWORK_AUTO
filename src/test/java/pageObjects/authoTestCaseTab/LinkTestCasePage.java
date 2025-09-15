@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.BasePage;
+import org.openqa.selenium.*;
 
 
 public class LinkTestCasePage extends BasePage {
@@ -37,4 +38,11 @@ public class LinkTestCasePage extends BasePage {
         clickSearch();
     }
 
+    public void clickPid(String pidFromExcel) {
+        WebElement pidElement = driver.findElement(
+                By.xpath("//div[@class='defect-modal-text-wrapper-3' and text()='" + pidFromExcel + "']")
+        );
+        pidElement.click();
+    }
 }
+
