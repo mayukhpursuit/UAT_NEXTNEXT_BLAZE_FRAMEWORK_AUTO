@@ -62,6 +62,13 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
 
+    public WebElement linkTestCaseIdFromName(String name){
+        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
+    }
+
+    public WebElement linkTestCaseIdFromId(String id){
+        return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
+    }
 
     //actions
 
@@ -222,5 +229,7 @@ public class AuthorTestCasePage extends BasePage {
             return false;
         }
     }
+
+
 
 }
