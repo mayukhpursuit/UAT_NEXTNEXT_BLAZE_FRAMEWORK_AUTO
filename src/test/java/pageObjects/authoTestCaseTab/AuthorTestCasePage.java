@@ -71,25 +71,13 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
 
+    //This will fetch Locator for any linked Test case inside
     public WebElement linkTestCaseIdFromName(String name){
         return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
     }
 
-    public WebElement linkTestCaseIdFromId(String id){
-        return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
-    }
-
-    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    @FindBy(xpath = "//button[@id='linkTestCaseButton']")
     WebElement LinkTestcase;
-
-    @FindBy(xpath = "//input[@id='searchInputTCModal']")
-    WebElement inputSearchTestCase;
-
-    @FindBy(xpath = "//button[@id='searchTCButton']")
-    WebElement buttonSearch;
-
-    @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
-    WebElement Pid;
 
 
     //actions
@@ -274,7 +262,5 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(3000);
         LinkTestcase.click();
     }
-
-
 
 }
