@@ -6,32 +6,29 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
-public class TC018 extends BaseClass {
-    @Test(dataProvider = "tc018", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyFeatureDropdownClearsValueAfterPageRefresh(
-            String epic,String feature, String expectedSelectedEpic
+public class TC013 extends BaseClass {
+    @Test(dataProvider = "tc011", dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void verifySelectedFeatureDisplayedFields(
+            String epicName , String feature
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
-
+            logger.info("Navigated to Author Test Case tab");
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickEpic();
-            logger.info("Navigated to Author Test Case tab");
-
-            authorTestCasePage.selectEpic(epic);
-            logger.info("selected the Epic");
-
+            logger.info("Click on the Epic Drop Down");
+            authorTestCasePage.selectEpic(epicName);
+            logger.info("selected the epic from the dropdown");
+            Assert.assertEquals(authorTestCasePage.getSelectedEpic(),epicName);
+            System.out.println(authorTestCasePage.getSelectedEpic());
+            logger.info("Verified the desired epic selected successfully");
             authorTestCasePage.selectFeature(feature);
-            logger.info("Selected the Feature");
-
-            getDriver().navigate().refresh();
-            logger.info("Refreshed the page");
-
-            String selectedEpic=authorTestCasePage.getSelectedEpic();
-            Assert.assertEquals(selectedEpic,expectedSelectedEpic);
-            logger.info("Verified Successfully");
+            logger.info("selected the feature from the dropdown");
+            Assert.assertEquals(authorTestCasePage.getSelectedFeature(),feature);
+            System.out.println(authorTestCasePage.getSelectedFeature());
+            logger.info("Verification done...");
 
         }
         catch (AssertionError e) {

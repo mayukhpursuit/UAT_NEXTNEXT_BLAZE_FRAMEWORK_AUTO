@@ -35,6 +35,8 @@ public class AddTestcasePage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='SAVE']")
     WebElement buttonSave;
 
+
+
     public WebElement linkTestCaseIdFromId(String id){
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
     }
@@ -77,5 +79,7 @@ public class AddTestcasePage extends BasePage {
     public String getTestcaseId(String name){
         return linkTestCaseIdFromName(name).getText();
     }
+
+
 
 }

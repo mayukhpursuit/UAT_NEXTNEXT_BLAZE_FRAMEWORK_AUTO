@@ -30,8 +30,12 @@ public class AuthorTestCaseDataProvider {
     public static String[][] getDataTC009() throws IOException {
         return ExcelDataProviders.getExcelData("tc009");
     }
+    @DataProvider(name="tc011")
+    public static String[][] getDataTC011() throws IOException {
+        return ExcelDataProviders.getExcelData("tc011");
+    }
     @DataProvider(name="AddTest")
-    public static String[][] getDataADDtest() throws IOException {
+    public static String[][] getDataAddTest() throws IOException {
         return ExcelDataProviders.getExcelData("AddTest");
     }
 
@@ -40,10 +44,15 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc018");
     }
 
+    @DataProvider(name="tc028")
+    public static String[][] getDataTC028() throws IOException {
+        return ExcelDataProviders.getExcelData("tc028");
+    }
 
-
-
-
+    @DataProvider(name="tc029")
+    public static String[][] getDataTC029() throws IOException {
+        return ExcelDataProviders.getExcelData("tc029");
+    }
 
 
 }
