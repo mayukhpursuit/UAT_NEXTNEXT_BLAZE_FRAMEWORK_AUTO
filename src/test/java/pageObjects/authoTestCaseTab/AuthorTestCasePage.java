@@ -70,6 +70,9 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
 
+    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    WebElement LinkTestcase;
+
 
     //actions
 
@@ -247,5 +250,9 @@ public class AuthorTestCasePage extends BasePage {
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public void clicklinktestcase(){
+        LinkTestcase.click();
     }
 }
