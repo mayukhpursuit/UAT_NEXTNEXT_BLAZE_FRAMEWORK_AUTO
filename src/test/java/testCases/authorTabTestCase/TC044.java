@@ -8,7 +8,7 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
 public class TC044 extends BaseClass {
-    @Test(dataProvider = "tc035", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc044", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void VerifyVisibilityOfAllFieldsInAddTestCase(String requirementId
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

@@ -1,5 +1,6 @@
 package testCases.authorTabTestCase;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
@@ -16,7 +17,6 @@ public class TC034 extends BaseClass {
     ) throws InterruptedException {
         logger.info("****** Starting TC034: Verify pagination resets properly ******");
         try {
-
 
             login();
             logger.info("Logged in successfully");

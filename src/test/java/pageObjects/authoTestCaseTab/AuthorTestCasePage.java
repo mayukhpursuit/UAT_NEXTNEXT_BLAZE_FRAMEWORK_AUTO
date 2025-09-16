@@ -78,6 +78,9 @@ public class AuthorTestCasePage extends BasePage {
         return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
     }
 
+    public WebElement linkTestCaseIdFromId(String id){
+        return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
+    }
 
     //actions
 
@@ -261,5 +264,12 @@ public class AuthorTestCasePage extends BasePage {
     public void clicklinktestcase() throws InterruptedException {
         Thread.sleep(3000);
         LinkTestcase.click();
+    }
+
+    public void clickTestCase(String tcID){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions
+                .elementToBeClickable(linkTestCaseIdFromId(tcID)));
+        element.click();
     }
 }
