@@ -91,6 +91,17 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
     WebElement Pid;
 
+    @FindBy(id = "confirmBtn")
+    WebElement buttonYes;
+
+    @FindBy(id = "cancelBtn")
+    WebElement buttonNo;
+
+    public WebElement actionIconForTestcase(String testCaseId) {
+        return driver.findElement(By.xpath("//a[text()='" + testCaseId + "']/ancestor::div[@class='testlistrow']//div[@class='testlistcell48']//img"));
+    }
+
+
 
     //actions
 
@@ -280,21 +291,39 @@ public class AuthorTestCasePage extends BasePage {
         return false;
     }
 
-    public boolean isAddTestCaseButtonVisible1() {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
-            return element.isDisplayed();
-        } catch (TimeoutException e) {
-            return false;
-        }
-    }
-
     public void clicklinktestcase() throws InterruptedException {
         Thread.sleep(3000);
         LinkTestcase.click();
     }
 
+    public void confirmUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonYes.click();
+        Thread.sleep(2000);
+    }
 
+    public void cancelUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonNo.click();
+        Thread.sleep(2000);
+    }
 
+    public void clickActionIcon(String testCaseId) throws InterruptedException {
+        Thread.sleep(2000);
+        actionIconForTestcase(testCaseId).click();
+        Thread.sleep(2000);
+    }
+
+    public boolean isRowDeleted(String testcaseId)
+    {
+        try{
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            boolean isInvisible = wait.until((ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='testlistcell']/a[text()='"+testcaseId+"']"))));
+            return isInvisible;
+        }
+        catch (Exception e)
+        {
+            return false ;
+        }
+    }
 }
