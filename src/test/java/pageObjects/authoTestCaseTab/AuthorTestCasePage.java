@@ -17,6 +17,7 @@ public class AuthorTestCasePage extends BasePage {
     public AuthorTestCasePage(WebDriver driver){
         super(driver);
     }
+
     // locators
     @FindBy(xpath = "(//select[@class='text select-dropdown'])[1]")
     WebElement dropdownEpic;
@@ -69,6 +70,26 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
+
+    public WebElement linkTestCaseIdFromName(String name){
+        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
+    }
+
+    public WebElement linkTestCaseIdFromId(String id){
+        return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
+    }
+
+    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    WebElement LinkTestcase;
+
+    @FindBy(xpath = "//input[@id='searchInputTCModal']")
+    WebElement inputSearchTestCase;
+
+    @FindBy(xpath = "//button[@id='searchTCButton']")
+    WebElement buttonSearch;
+
+    @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
+    WebElement Pid;
 
 
     //actions
@@ -238,5 +259,22 @@ public class AuthorTestCasePage extends BasePage {
         }
         return false;
     }
+
+    public boolean isAddTestCaseButtonVisible1() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public void clicklinktestcase() throws InterruptedException {
+        Thread.sleep(3000);
+        LinkTestcase.click();
+    }
+
+
 
 }

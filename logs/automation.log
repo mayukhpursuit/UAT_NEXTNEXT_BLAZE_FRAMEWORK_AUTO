@@ -245,3 +245,63 @@
 12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC037 - Verified Successfully
 12:46:21.845 [main] INFO  testCases.authorTabTestCase.TC037 - ************ Test Case Finished *************************
 12:46:27.342 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@46fc522d: 0 ms
+13:38:53.311 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:38:53.341 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 10 ms.
+13:38:53.342 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:38:53.342 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:38:53.345 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:38:53.346 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:38:53.350 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:38:53.350 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:38:53.351 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:38:53.351 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:38:53.363 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MohitAman\Desktop\TestNext\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
+
+13:38:54.359 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 24 ms.
+13:38:57.019 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@7a89a3e1: 0 ms
+13:39:09.785 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+13:39:09.795 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
+13:39:09.799 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.799 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.800 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.800 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.802 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.802 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.814 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 7 ms.
+13:39:09.847 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 32 ms.
+13:39:09.851 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.853 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.855 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.855 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.856 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.857 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.863 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.864 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.865 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.866 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.874 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.874 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.875 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.875 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.877 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+13:39:09.878 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.881 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.881 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.881 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+13:39:09.882 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+13:39:09.891 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MohitAman\Desktop\TestNext\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
+
+13:39:10.370 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 9 ms.
+13:39:21.433 [main] INFO  testCases.authorTabTestCase.TC034 - ****** Starting TC034: Verify pagination resets properly ******
+13:39:38.643 [main] INFO  testCases.authorTabTestCase.TC034 - Logged in successfully
+13:39:38.753 [main] INFO  testCases.authorTabTestCase.TC034 - Navigated to Author Test Case tab
+13:39:38.896 [main] INFO  testCases.authorTabTestCase.TC034 - Clicked on Epic Drop Down
+13:39:39.610 [main] INFO  testCases.authorTabTestCase.TC034 - Selected Epic: Epic Mohit
+13:39:39.769 [main] INFO  testCases.authorTabTestCase.TC034 - Selected Feature: Mohit Feature
+13:39:45.992 [main] INFO  testCases.authorTabTestCase.TC034 - Successfully moved from page 1 to 2
+13:39:46.174 [main] INFO  testCases.authorTabTestCase.TC034 - Re-applied Epic & Feature filters
+13:39:48.211 [main] INFO  testCases.authorTabTestCase.TC034 - Pagination reset successfully to page 1
+13:39:48.211 [main] INFO  testCases.authorTabTestCase.TC034 - ************ TC034 Finished ************
+13:39:56.521 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@67fb5025: 0 ms
