@@ -613,3 +613,147 @@ Session ID: 33d12f6b7e6886c42cc2ac3961623cf2
 12:08:13.507 [main] INFO  testCases.authorTabTestCase.TC045 - Validation successful: Error message displayed - Error: Name is required.
 12:08:13.508 [main] INFO  testCases.authorTabTestCase.TC045 - ************ TC045 Finished ************
 12:08:20.084 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@1e12a5a6: 0 ms
+12:28:20.839 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.847 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
+12:28:20.850 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.850 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.851 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.852 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.853 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.853 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.861 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 6 ms.
+12:28:20.879 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 18 ms.
+12:28:20.881 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+12:28:20.881 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.883 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.883 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.884 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.884 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.887 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.887 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.888 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+12:28:20.888 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.891 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.892 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.892 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.892 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.895 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.895 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.897 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.897 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.898 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:28:20.898 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:28:20.902 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MohitAman\Desktop\TestNext\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
+
+12:28:21.106 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+12:28:26.712 [main] INFO  testCases.authorTabTestCase.TC046 - ****** Starting TC046: Verify dropdown selection for QA and Business User in Add TestCase ******
+12:28:40.008 [main] INFO  testCases.authorTabTestCase.TC046 - Logged in successfully
+12:28:40.131 [main] INFO  testCases.authorTabTestCase.TC046 - Navigated to Author Test Case tab
+12:28:40.284 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on Epic Drop Down
+12:28:40.464 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Epic: Epic Mohit
+12:28:40.693 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Feature: Mohit Feature
+12:28:44.825 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Requirement: RQ-489
+12:28:44.857 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on AddTestCase
+12:28:54.923 [main] ERROR testCases.authorTabTestCase.TC046 - Exception occurred: no such element: Unable to locate element: {"method":"xpath","selector":"(//input[@type='text'])[2]"}
+  (Session info: chrome=140.0.7339.128)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0b73f99f8da22de66840ea5329d4b44f, findElement {using=xpath, value=(//input[@type='text'])[2]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.128, chrome: {chromedriverVersion: 140.0.7339.82 (bc93617e21c3..., userDataDir: C:\Users\MOHITA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58098}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58098/devtoo..., se:cdpVersion: 140.0.7339.128, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0b73f99f8da22de66840ea5329d4b44f
+12:29:09.089 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@55acec99: 0 ms
+12:32:08.715 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+12:32:08.724 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
+12:32:08.727 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.727 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.728 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.728 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.729 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.729 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.738 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 5 ms.
+12:32:08.756 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 16 ms.
+12:32:08.758 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.759 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+12:32:08.761 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.762 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.762 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.762 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.765 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.765 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.766 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.766 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.769 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.770 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.770 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.770 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.771 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.772 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+12:32:08.774 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.775 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.775 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:32:08.775 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:32:08.779 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MohitAman\Desktop\TestNext\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
+
+12:32:08.963 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+12:32:14.748 [main] INFO  testCases.authorTabTestCase.TC046 - ****** Starting TC046: Verify dropdown selection for QA and Business User in Add TestCase ******
+12:32:28.649 [main] INFO  testCases.authorTabTestCase.TC046 - Logged in successfully
+12:32:28.775 [main] INFO  testCases.authorTabTestCase.TC046 - Navigated to Author Test Case tab
+12:32:28.918 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on Epic Drop Down
+12:32:29.142 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Epic: Epic Mohit
+12:32:29.310 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Feature: Mohit Feature
+12:32:33.451 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Requirement: RQ-489
+12:32:33.498 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on AddTestCase
+12:32:33.772 [main] INFO  testCases.authorTabTestCase.TC046 - Entered description successfully
+12:32:34.021 [main] INFO  testCases.authorTabTestCase.TC046 - User able to select QA User from dropdown: Mohit Aman
+12:32:34.021 [main] INFO  testCases.authorTabTestCase.TC046 - ************ TC046 Finished ************
+12:32:41.574 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@5b1efaaf: 0 ms
+12:33:24.816 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.822 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+12:33:24.825 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.826 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.826 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.827 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.828 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.828 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.837 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 6 ms.
+12:33:24.854 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 17 ms.
+12:33:24.856 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.856 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.858 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.858 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.858 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.858 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.862 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.862 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.863 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.863 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.868 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.868 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.868 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.869 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.870 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.871 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.873 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.873 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.873 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:33:24.873 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:33:24.877 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MohitAman\Desktop\TestNext\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO\authortest.xml
+
+12:33:25.068 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+12:33:30.351 [main] INFO  testCases.authorTabTestCase.TC046 - ****** Starting TC046: Verify dropdown selection for QA and Business User in Add TestCase ******
+12:33:43.169 [main] INFO  testCases.authorTabTestCase.TC046 - Logged in successfully
+12:33:43.303 [main] INFO  testCases.authorTabTestCase.TC046 - Navigated to Author Test Case tab
+12:33:43.469 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on Epic Drop Down
+12:33:43.693 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Epic: Epic Mohit
+12:33:43.889 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Feature: Mohit Feature
+12:33:48.020 [main] INFO  testCases.authorTabTestCase.TC046 - Selected Requirement: RQ-489
+12:33:48.036 [main] INFO  testCases.authorTabTestCase.TC046 - Clicked on AddTestCase
+12:33:48.321 [main] INFO  testCases.authorTabTestCase.TC046 - Entered description successfully
+12:33:48.535 [main] INFO  testCases.authorTabTestCase.TC046 - User able to select QA User from dropdown: Mohit Aman
+12:33:48.541 [main] INFO  testCases.authorTabTestCase.TC046 - ************ TC046 Finished ************
+12:33:56.255 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@481b2f10: 7 ms
