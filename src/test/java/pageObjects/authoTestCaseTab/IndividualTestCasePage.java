@@ -107,6 +107,12 @@ public class IndividualTestCasePage extends BasePage {
 
 
 
+    @FindBy(xpath = "(//i[@class='fa-solid fa-circle-plus'])[1]")
+    WebElement buttonAddRow;
+
+    public WebElement labelStepNo(String s){
+        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+s+"']"));
+    }
     //    Actions
     public void ClickCloseButton()
     {
@@ -130,5 +136,12 @@ public class IndividualTestCasePage extends BasePage {
         a.moveToElement(buttonAddTestStep).perform();
         buttonAddTestStep.click();
         Thread.sleep(5000);
+    }
+    public void clickAddRow() {
+        buttonAddRow.click();
+    }
+    public String getStepCount(String s)
+    {
+        return labelStepNo(s).getText();
     }
 }
