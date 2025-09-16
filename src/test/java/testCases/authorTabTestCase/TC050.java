@@ -22,7 +22,7 @@ public class TC050 extends BaseClass {
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
             String beforeCount=individualTestCasePage.getStepCount("1");
-            logger.info("Step count before adding a row"+ beforeCount );
+            logger.info("Step count before adding a row"+ beforeCount);
             individualTestCasePage.clickAddRow();
             String afterCount=individualTestCasePage.getStepCount("2");
             logger.info("Step count before adding a row" + afterCount );
