@@ -8,6 +8,9 @@
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
+<!--            <class name="testCases.TC002_FilterRequirement"/>-->
+<!--            <class name="testCases.TC003_AddTestCase"/>-->
+<!--            <class name="testCases.TC001_LogIn"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC001"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC002"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC003"/>-->
@@ -24,6 +27,8 @@
 <!--            <class name="testCases.authorTabTestCase.TC018"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC028"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC029"/>-->
+
+
 <!--            <class name="testCases.authorTabTestCase.TC030"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC031"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC032"/>-->
@@ -36,6 +41,7 @@
                 <!--<class name="testCases.authorTabTestCase.TC039"/>-->
             <!--            <class name="testCases.authorTabTestCase.TC045"/>-->
             <class name="testCases.authorTabTestCase.TC046"/>
+            <class name="testCases.authorTabTestCase.TC050"/>
 
 
 
