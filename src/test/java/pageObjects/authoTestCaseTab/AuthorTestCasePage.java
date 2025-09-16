@@ -1,6 +1,5 @@
 package pageObjects.authoTestCaseTab;
 
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AuthorTestCasePage extends BasePage {
@@ -64,19 +61,22 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
 
-    @FindBy(xpath = "//h3[text()='Create Test Cases']")
-    WebElement headingCreateTestCases;
 
-    @FindBy(xpath = "//div[@class='testlistcell']/a")
-    List<WebElement> linkAllTestCaseId;
-
-    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
-    WebElement LinkTestcase;
-
-    //This will fetch Locator for any linked Test case inside
-    public WebElement linkTestCaseIdFromName(String name){
-        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
+    public WebElement actionIconForTestcase(String testCaseId) {
+        return driver.findElement(By.xpath("//a[text()='" + testCaseId + "']/ancestor::div[@class='testlistrow']//div[@class='testlistcell48']//img"));
     }
+
+    @FindBy(id = "confirmBtn")
+    WebElement buttonYes;
+
+    @FindBy(id = "cancelBtn")
+    WebElement buttonNo;
+
+    @FindBy(xpath = "//img[@alt='Close Sidebar']")
+    WebElement buttonCollapseToggle;
+
+    @FindBy(xpath = "//img[@alt='Open Sidebar']")
+    WebElement buttonExpandToggle;
 
 
     //actions
@@ -108,6 +108,11 @@ public class AuthorTestCasePage extends BasePage {
     public void clickAuthorTestcase(){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tabAuthorTestcase);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tabAuthorTestcase);
+    }
+    public void clickActionIcon(String testCaseId) throws InterruptedException {
+        Thread.sleep(2000);
+        actionIconForTestcase(testCaseId).click();
+        Thread.sleep(2000);
     }
 
 
@@ -215,51 +220,35 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
     }
 
+
     public void clickPreviousArrow(){
         arrowBackwardPrevious.click();
     }
 
-    public boolean isCreateTextHeadingVisible() {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(headingCreateTestCases));
-            return element.isDisplayed();
-        } catch (TimeoutException e) {
-            return false; // element not visible within wait time
-        }
+    public void confirmUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonYes.click();
+        Thread.sleep(2000);
     }
 
-    public boolean isAllTestIdSorted() throws InterruptedException {
-        Thread.sleep(3000);
-        List<String> name1 = new ArrayList<>();
-        for (WebElement ele : linkAllTestCaseId) {
-            name1.add(ele.getText().trim()); // trim in case of extra spaces
-        }
-
-        // Make a copy and sort it
-        List<String> sortedList = new ArrayList<>(name1);
-        Collections.sort(sortedList);
-
-        // Check if original == sorted
-        if (name1.equals(sortedList)) {
-            return true;
-        }
-        return false;
+    public void cancelUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonNo.click();
+        Thread.sleep(2000);
     }
 
-    public boolean isAddTestCaseButtonVisible1() {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
-            return element.isDisplayed();
-        } catch (TimeoutException e) {
-            return false;
-        }
+    public void clickCollapseToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonCollapseToggle.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickExpandToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonExpandToggle.click();
+        Thread.sleep(2000);
     }
 
 
-    public void clicklinktestcase() throws InterruptedException {
-        Thread.sleep(3000);
-        LinkTestcase.click();
-    }
+
 }
