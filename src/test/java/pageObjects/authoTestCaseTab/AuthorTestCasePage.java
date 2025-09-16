@@ -103,6 +103,9 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
     WebElement Pid;
 
+    @FindBy(xpath = "//div[@class='testlistcell']/a")
+    List<WebElement> linkAllTestCaseId;
+
 
     //actions
 
@@ -329,6 +332,24 @@ public class AuthorTestCasePage extends BasePage {
         WebElement element = wait.until(ExpectedConditions
                 .elementToBeClickable(linkTestCaseIdFromId(tcID)));
         element.click();
+    }
+
+    public boolean isAllTestIdSorted() throws InterruptedException {
+        Thread.sleep(3000);
+        List<String> name1 = new ArrayList<>();
+        for (WebElement ele : linkAllTestCaseId) {
+            name1.add(ele.getText().trim()); // trim in case of extra spaces
+        }
+
+        // Make a copy and sort it
+        List<String> sortedList = new ArrayList<>(name1);
+        Collections.sort(sortedList);
+
+        // Check if original == sorted
+        if (name1.equals(sortedList)) {
+            return true;
+        }
+        return false;
     }
 
 }
