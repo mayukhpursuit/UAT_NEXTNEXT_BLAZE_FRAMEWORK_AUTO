@@ -7,6 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import pageObjects.BasePage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class AddTestcasePage extends BasePage {
     public AddTestcasePage(WebDriver driver){
         super(driver);
@@ -25,6 +30,9 @@ public class AddTestcasePage extends BasePage {
 
     @FindBy(xpath = "(//select)[4]")
     WebElement dropDownType;
+
+    @FindBy(xpath = "(//select)[4]/option")
+    List<WebElement> optionsType;
 
     @FindBy(xpath = "(//select)[5]")
     WebElement dropDownQAUser;
@@ -102,6 +110,24 @@ public class AddTestcasePage extends BasePage {
 
     public boolean isPreconditionDisplayed(){
         return textPrecondition.isDisplayed();
+    }
+
+    public boolean isAllTypeOptionsVisible(){
+        List<String> textOfElements=new ArrayList<>();
+        for (WebElement ele: optionsType){
+            textOfElements.add(ele.getText());
+        }
+        List<String> expected=new ArrayList<>(Arrays.asList("Manual","Automation","Performance","Scenario","Please Select"));
+        Collections.sort(textOfElements);
+        Collections.sort(expected);
+        System.out.println(expected);
+        System.out.println(textOfElements);
+        return textOfElements.equals(expected);
+
+    }
+
+    public boolean isTestCaseVisible(String name){
+        return linkTestCaseIdFromName(name).isDisplayed();
     }
 
 
