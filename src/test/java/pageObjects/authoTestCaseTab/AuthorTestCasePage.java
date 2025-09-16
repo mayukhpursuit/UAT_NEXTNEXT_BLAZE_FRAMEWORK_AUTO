@@ -1,5 +1,6 @@
 package pageObjects.authoTestCaseTab;
 
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AuthorTestCasePage extends BasePage {
@@ -60,6 +63,20 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
+
+    @FindBy(xpath = "//h3[text()='Create Test Cases']")
+    WebElement headingCreateTestCases;
+
+    @FindBy(xpath = "//div[@class='testlistcell']/a")
+    List<WebElement> linkAllTestCaseId;
+
+    @FindBy(xpath = "//div[normalize-space()='LINK TESTCASE']")
+    WebElement LinkTestcase;
+
+    //This will fetch Locator for any linked Test case inside
+    public WebElement linkTestCaseIdFromName(String name){
+        return driver.findElement(By.xpath("//p[text()='"+name+"']/ancestor::div[@class='testlistrow']//a"));
+    }
 
 
     //actions
@@ -202,4 +219,47 @@ public class AuthorTestCasePage extends BasePage {
         arrowBackwardPrevious.click();
     }
 
+    public boolean isCreateTextHeadingVisible() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(headingCreateTestCases));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false; // element not visible within wait time
+        }
+    }
+
+    public boolean isAllTestIdSorted() throws InterruptedException {
+        Thread.sleep(3000);
+        List<String> name1 = new ArrayList<>();
+        for (WebElement ele : linkAllTestCaseId) {
+            name1.add(ele.getText().trim()); // trim in case of extra spaces
+        }
+
+        // Make a copy and sort it
+        List<String> sortedList = new ArrayList<>(name1);
+        Collections.sort(sortedList);
+
+        // Check if original == sorted
+        if (name1.equals(sortedList)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isAddTestCaseButtonVisible1() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonAddTestCase));
+            return element.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+
+    public void clicklinktestcase() throws InterruptedException {
+        Thread.sleep(3000);
+        LinkTestcase.click();
+    }
 }

@@ -1,15 +1,14 @@
-package testCases.Demo;
+package testCases.authorTabTestCase;
 
+import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
-import DataProviders.AuthorTestCaseDataProvider;
 
-public class AddTestCase extends BaseClass {
+public class TC036 extends BaseClass {
     @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyTestCaseCreation(
+    public void verifyAddTestcaseDisplayedNextWindow(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,
             String QA
@@ -17,23 +16,21 @@ public class AddTestCase extends BaseClass {
         logger.info("****** Starting the Log in Test Case *****************");
         try {
             login();
+            logger.info("Logged in successfully");
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
+            logger.info("Clicked the Author test case");
             authorTestCasePage.selectEpic(epic);
+            logger.info("Selected the epic");
             authorTestCasePage.selectFeature(feature);
+            logger.info("Selected the feature");
             authorTestCasePage.clickRequirement(requirementId);
-
+            logger.info("Clicked on requirement id "+requirementId);
             authorTestCasePage.clickAddTestcase();
+            logger.info("Clicked Add test case ..");
+            Assert.assertTrue(authorTestCasePage.isCreateTextHeadingVisible());
+            logger.info("Verified Successfully");
 
-            AddTestcasePage addTestcasePage= new AddTestcasePage(getDriver());
-            addTestcasePage.setTestCaseName(testCaseName);
-            addTestcasePage.setDescription(description);
-            addTestcasePage.selectPriority(priority);
-            addTestcasePage.selectQaUser(QA);
-            addTestcasePage.clickSave();
-            String testCaseId=addTestcasePage.getTestcaseId(testCaseName);
-            System.out.println(testCaseId);
-            Assert.assertFalse(testCaseId.isEmpty());
         }
         catch (Exception | AssertionError e){
             e.printStackTrace();
@@ -42,5 +39,4 @@ public class AddTestCase extends BaseClass {
         }
         logger.info("************ Test Case Finished *************************");
     }
-
 }
