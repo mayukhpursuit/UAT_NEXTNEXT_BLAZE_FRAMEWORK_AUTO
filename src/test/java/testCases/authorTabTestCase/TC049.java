@@ -13,7 +13,7 @@ public class TC049 extends BaseClass {
     public void VerifyCloseInTestcases(
             String requirementId,String TestcaseId
     )throws InterruptedException {
-        logger.info("****** Starting the Test Case *****************");
+        logger.info("****** Starting the Test Case ****************");
         try {
             login();
             logger.info("Logged in successfully");
