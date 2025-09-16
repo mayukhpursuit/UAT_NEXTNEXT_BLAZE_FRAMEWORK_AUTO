@@ -110,9 +110,6 @@ public class IndividualTestCasePage extends BasePage {
     @FindBy(xpath = "(//i[@class='fa-solid fa-circle-plus'])[1]")
     WebElement buttonAddRow;
 
-    public WebElement labelStepNo(String s){
-        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+s+"']"));
-    }
     //    Actions
     public void ClickCloseButton()
     {
