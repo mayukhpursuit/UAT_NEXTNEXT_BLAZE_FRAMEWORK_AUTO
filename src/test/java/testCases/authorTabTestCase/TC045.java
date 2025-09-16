@@ -4,19 +4,19 @@ import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
-import pageObjects.authoTestCaseTab.LinkTestCasewindow;
+import pageObjects.authoTestCaseTab.AddTestcasePage;
 import testBase.BaseClass;
 
-public class TC039 extends BaseClass {
+public class TC045 extends BaseClass {
 
-    @Test(dataProvider = "tc039", dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void verifyPaginationReset(
+    @Test(dataProvider = "tc045", dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void VerifyNamefieldismandatoryinAddTestcase(
             String epicName,
             String featureName,
             String rq_id,
-            String tcId
+            String desc
     ) throws InterruptedException {
-        logger.info("****** Starting TC039: Verify prevention of duplicate linking ******");
+        logger.info("****** Starting TC045: Verify Name field is mandatory in Add Testcase ******");
         try {
             login();
             logger.info("Logged in successfully");
@@ -36,23 +36,28 @@ public class TC039 extends BaseClass {
             authorTestCasePage.clickRequirement(rq_id);
             logger.info("Selected Requirement: " + rq_id);
 
-            authorTestCasePage.clicklinktestcase();
+            authorTestCasePage.clickAddTestcase();
+            logger.info("Clicked on AddTestCase");
 
-            LinkTestCasewindow linkTestCasewindow = new LinkTestCasewindow(getDriver());
+            AddTestcasePage addTestcasePage = new AddTestcasePage(getDriver());
 
+            if (addTestcasePage.isDescriptionDisplayed()) {
+                addTestcasePage.setDescription(desc);
+                logger.info("Entered description successfully");
+            } else {
+                logger.error("Description field not displayed");
+            }
 
-            linkTestCasewindow.searchTestCase(tcId);
-            logger.info("Searched Test Case with ID......: " + tcId);
+            logger.info("Leaving Test Case Name field blank");
 
-            linkTestCasewindow.clickPid(tcId);
-            logger.info("select Test case"+ tcId);
+            addTestcasePage.clickSave();
+            logger.info("Clicked Save button without entering Name");
 
+            String actualError = addTestcasePage.waitForNameFieldRequiredError();
+            Assert.assertEquals(actualError, "Error: Name is required.",
+                    "Error message text mismatch");
 
-            String alertMsg = linkTestCasewindow.getAlertMessage();
-            logger.info("Alert message: " + alertMsg);
-            Assert.assertTrue(linkTestCasewindow.isTestCaseAlreadyLinked(),
-                    "Expected alert not shown after linking TC");
-
+            logger.info("Validation successful: Error message displayed - " + actualError);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
@@ -61,6 +66,6 @@ public class TC039 extends BaseClass {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
-        logger.info("************ TC039 Finished ************");
+        logger.info("************ TC045 Finished ************");
     }
 }

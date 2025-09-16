@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import java.time.Duration;
 
 public class AddTestcasePage extends BasePage {
     public AddTestcasePage(WebDriver driver){
@@ -42,6 +43,9 @@ public class AddTestcasePage extends BasePage {
 
     @FindBy(xpath = "//button[normalize-space()='SAVE']")
     WebElement buttonSave;
+
+    @FindBy(id = "notification")
+    WebElement nameFieldRequiredError;
 
 
 
@@ -131,4 +135,11 @@ public class AddTestcasePage extends BasePage {
     }
 
 
+    public String waitForNameFieldRequiredError() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+        );
+        return element.getText().trim();
+    }
 }
