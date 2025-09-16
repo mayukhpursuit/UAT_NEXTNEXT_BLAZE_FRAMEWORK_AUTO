@@ -4,7 +4,7 @@ import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
-import pageObjects.authoTestCaseTab.LinkTestCasewindow;
+import pageObjects.authoTestCaseTab.LinkTestCasePage;
 import testBase.BaseClass;
 
 public class TC039 extends BaseClass {
@@ -38,7 +38,7 @@ public class TC039 extends BaseClass {
 
             authorTestCasePage.clicklinktestcase();
 
-            LinkTestCasewindow linkTestCasewindow = new LinkTestCasewindow(getDriver());
+            LinkTestCasePage linkTestCasewindow = new LinkTestCasePage(getDriver());
 
 
             linkTestCasewindow.searchTestCase(tcId);
