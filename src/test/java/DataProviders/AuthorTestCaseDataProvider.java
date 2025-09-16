@@ -1,7 +1,7 @@
 package DataProviders;
 
 import org.testng.annotations.DataProvider;
-import utils.DataProviders;
+import utils.ExcelDataProviders;
 
 import java.io.IOException;
 
@@ -9,32 +9,61 @@ public class AuthorTestCaseDataProvider {
 
     @DataProvider(name="tc001")
     public static String[][] getDataTC001() throws IOException {
-        return DataProviders.getExcelData("tc001");
+        return ExcelDataProviders.getExcelData("tc001");
     }
 
     @DataProvider(name="tc003")
     public static String[][] getDataTC002() throws IOException {
-        return DataProviders.getExcelData("tc003");
+        return ExcelDataProviders.getExcelData("tc003");
     }
 
     @DataProvider(name="tc004")
     public static String[][] getDataTC004() throws IOException {
-        return DataProviders.getExcelData("tc004");
+        return ExcelDataProviders.getExcelData("tc004");
     }
     @DataProvider(name="tc007")
     public static String[][] getDataTC007() throws IOException {
-        return DataProviders.getExcelData("tc007");
+        return ExcelDataProviders.getExcelData("tc007");
     }
 
     @DataProvider(name="tc009")
     public static String[][] getDataTC009() throws IOException {
-        return DataProviders.getExcelData("tc009");
+        return ExcelDataProviders.getExcelData("tc009");
+    }
+    @DataProvider(name="tc011")
+    public static String[][] getDataTC011() throws IOException {
+        return ExcelDataProviders.getExcelData("tc011");
+    }
+    @DataProvider(name="AddTest")
+    public static String[][] getDataAddTest() throws IOException {
+        return ExcelDataProviders.getExcelData("AddTest");
     }
 
+    @DataProvider(name="tc018")
+    public static String[][] getDataTC016() throws IOException {
+        return ExcelDataProviders.getExcelData("tc018");
+    }
 
+    @DataProvider(name="tc028")
+    public static String[][] getDataTC028() throws IOException {
+        return ExcelDataProviders.getExcelData("tc028");
+    }
 
-
-
-
+    @DataProvider(name="tc029")
+    public static String[][] getDataTC029() throws IOException {
+        return ExcelDataProviders.getExcelData("tc029");
+    }
+    @DataProvider(name="tc034")
+    public static String[][] getDataTC034() throws IOException {
+        return ExcelDataProviders.getExcelData("tc034");
+    }
+    @DataProvider(name="tc051")
+    public static String[][] getDataTC051() throws IOException {
+        return ExcelDataProviders.getExcelData("tc051");
+    }
+    @DataProvider(name="tc052")
+    public static String[][] getDataTC052() throws IOException {
+        return ExcelDataProviders.getExcelData("tc052");
+    }
 
 }
