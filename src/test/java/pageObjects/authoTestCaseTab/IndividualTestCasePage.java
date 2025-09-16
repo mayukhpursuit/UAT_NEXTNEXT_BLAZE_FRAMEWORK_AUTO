@@ -1,6 +1,7 @@
 package pageObjects.authoTestCaseTab;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 public class IndividualTestCasePage extends BasePage {
@@ -84,25 +86,25 @@ public class IndividualTestCasePage extends BasePage {
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+s+"']"));
     }
 
-    public WebElement textStepDescriptionBeforeClick(String stepNo){
+    public WebElement textStepDescriptionBeforeClick(int stepNo){
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell description']"));
     }
 
-    public WebElement textStepDescriptionAfterClick(String stepNo){
+    public WebElement textStepDescriptionAfterClick(int stepNo){
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell description']//div[@class='ql-editor ql-blank']"));
     }
 
 
-    public WebElement textExpectedResult(String stepNo){
+    public WebElement textExpectedResultBeforeClick(int stepNo){
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell result']"));
     }
 
-    public WebElement textStepResultAfterClick(String stepNo){
+    public WebElement textStepResultAfterClick(int stepNo){
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell result']//div[@class='ql-editor ql-blank']"));
     }
 
-    public WebElement textExpectedAction(String stepNo){
-        return driver.findElement(By.xpath("//span[@class='step-number' and text()='1']/ancestor::div[@class='table-row']//div[@class='table-cell action']//button"));
+    public WebElement buttonDeleteAction(int stepNo){
+        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell action']//button"));
     }
 
     @FindBy(xpath = "(//i[@class='fa-solid fa-circle-plus'])[1]")
@@ -127,10 +129,10 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public void clickAddTestStep() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Actions a= new Actions(driver);
         a.moveToElement(buttonAddTestStep).perform();
         buttonAddTestStep.click();
-        Thread.sleep(5000);
     }
     public void clickAddRow() {
         buttonAddRow.click();
@@ -139,4 +141,71 @@ public class IndividualTestCasePage extends BasePage {
     {
         return labelStepNo(s).getText();
     }
+
+    public void setStepDescription(String description, int step) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Actions actions = new Actions(driver);
+        WebElement beforeClick = wait.until(ExpectedConditions
+                .elementToBeClickable(textStepDescriptionBeforeClick(step)));
+        actions.moveToElement(beforeClick).perform();
+        beforeClick.click();
+        WebElement afterClick = wait.until(ExpectedConditions
+                .elementToBeClickable(textStepDescriptionAfterClick(step)));
+        Thread.sleep(1000);
+        afterClick.clear();
+        afterClick.sendKeys(description);
+    }
+
+    public void setStepExpectedResult(String expectedResult, int step) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Actions actions = new Actions(driver);
+
+        WebElement beforeClick = wait.until(ExpectedConditions
+                .elementToBeClickable(textExpectedResultBeforeClick(step)));
+
+        actions.moveToElement(beforeClick).perform();
+        beforeClick.click();
+
+
+        WebElement afterClick = wait.until(ExpectedConditions
+                .elementToBeClickable(textStepResultAfterClick(step)));
+        Thread.sleep(1000);
+        afterClick.clear();
+        afterClick.sendKeys(expectedResult);
+    }
+
+    public void clickDeleteButton(int stepCount) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Actions actions = new Actions(driver);
+        WebElement deleteButton = wait.until(ExpectedConditions
+                .elementToBeClickable(buttonDeleteAction(stepCount)));
+        actions.moveToElement(deleteButton).click().perform();
+    }
+
+    public void clickSaveButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Actions actions = new Actions(driver);
+        WebElement saveBtn = wait.until(ExpectedConditions
+                .elementToBeClickable(buttonSave));
+        actions.moveToElement(saveBtn).click().perform();
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.xpath("//div[@id='notification']"),
+                "Test Case updated successfully."
+        ));
+    }
+
+
+    public void addTestStepsFromExcelForNewTestCase(String description,String expectedResult) throws InterruptedException {
+        String [] descriptionArray=description.split(",");
+        String [] expectedResultArray=expectedResult.split(",");
+
+        for (int i=0;i<=expectedResultArray.length-1;i++) {
+            clickAddTestStep();
+            setStepDescription(descriptionArray[i], i + 1);
+            Thread.sleep(1000);
+            setStepExpectedResult(expectedResultArray[i], i + 1);
+
+        }
+    }
+
 }
