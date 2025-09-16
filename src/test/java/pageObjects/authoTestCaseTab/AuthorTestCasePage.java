@@ -62,6 +62,23 @@ public class AuthorTestCasePage extends BasePage {
     WebElement firstPageArrowBtn;
 
 
+    public WebElement actionIconForTestcase(String testCaseId) {
+        return driver.findElement(By.xpath("//a[text()='" + testCaseId + "']/ancestor::div[@class='testlistrow']//div[@class='testlistcell48']//img"));
+    }
+
+    @FindBy(id = "confirmBtn")
+    WebElement buttonYes;
+
+    @FindBy(id = "cancelBtn")
+    WebElement buttonNo;
+
+    @FindBy(xpath = "//img[@alt='Close Sidebar']")
+    WebElement buttonCollapseToggle;
+
+    @FindBy(xpath = "//img[@alt='Open Sidebar']")
+    WebElement buttonExpandToggle;
+
+
     //actions
 
     public void selectEpic(String epicName){
@@ -91,6 +108,11 @@ public class AuthorTestCasePage extends BasePage {
     public void clickAuthorTestcase(){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tabAuthorTestcase);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", tabAuthorTestcase);
+    }
+    public void clickActionIcon(String testCaseId) throws InterruptedException {
+        Thread.sleep(2000);
+        actionIconForTestcase(testCaseId).click();
+        Thread.sleep(2000);
     }
 
 
@@ -198,8 +220,35 @@ public class AuthorTestCasePage extends BasePage {
         Thread.sleep(2000);
     }
 
+
     public void clickPreviousArrow(){
         arrowBackwardPrevious.click();
     }
+
+    public void confirmUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonYes.click();
+        Thread.sleep(2000);
+    }
+
+    public void cancelUnlink() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonNo.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickCollapseToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonCollapseToggle.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickExpandToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonExpandToggle.click();
+        Thread.sleep(2000);
+    }
+
+
 
 }
