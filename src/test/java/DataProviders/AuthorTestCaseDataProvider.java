@@ -77,4 +77,9 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc056");
     }
 
+    @DataProvider(name="tc057")
+    public static String[][] getDataTC057() throws IOException {
+        return ExcelDataProviders.getExcelData("tc057");
+    }
+
 }
