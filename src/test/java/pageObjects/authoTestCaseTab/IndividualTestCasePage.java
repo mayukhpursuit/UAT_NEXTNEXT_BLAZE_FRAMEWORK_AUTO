@@ -159,14 +159,10 @@ public class IndividualTestCasePage extends BasePage {
     public void setStepExpectedResult(String expectedResult, int step) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Actions actions = new Actions(driver);
-
         WebElement beforeClick = wait.until(ExpectedConditions
                 .elementToBeClickable(textExpectedResultBeforeClick(step)));
-
         actions.moveToElement(beforeClick).perform();
         beforeClick.click();
-
-
         WebElement afterClick = wait.until(ExpectedConditions
                 .elementToBeClickable(textStepResultAfterClick(step)));
         Thread.sleep(1000);
@@ -204,8 +200,30 @@ public class IndividualTestCasePage extends BasePage {
             setStepDescription(descriptionArray[i], i + 1);
             Thread.sleep(1000);
             setStepExpectedResult(expectedResultArray[i], i + 1);
-
         }
     }
+
+    public void addTestStepsAtEndForExistingTestCase(String description,String expectedResult) throws InterruptedException {
+        int currentStep=allSteps.size();
+        String [] descriptionArray=description.split(",");
+        String [] expectedResultArray=expectedResult.split(",");
+
+        for (int i=0;i<=expectedResultArray.length-1;i++) {
+            clickAddTestStep();
+            setStepDescription(descriptionArray[i], currentStep + 1);
+            Thread.sleep(1000);
+            setStepExpectedResult(expectedResultArray[i], currentStep + 1);
+            currentStep=currentStep+1;
+        }
+    }
+
+   public void editSpecificTestStep(int stepNo,String description,String expectedResult) throws InterruptedException {
+        if (description!=null){
+            setStepDescription(description,stepNo);
+        }
+        if (expectedResult!=null){
+            setStepExpectedResult(expectedResult,stepNo);
+        }
+   }
 
 }
