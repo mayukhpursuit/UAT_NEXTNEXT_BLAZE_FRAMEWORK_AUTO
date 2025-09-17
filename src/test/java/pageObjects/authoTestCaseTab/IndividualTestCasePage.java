@@ -208,4 +208,21 @@ public class IndividualTestCasePage extends BasePage {
         }
     }
 
+    public void setTestCaseName(String newName) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement nameField = wait.until(ExpectedConditions.elementToBeClickable(headingTestCaseName));
+        nameField.clear();
+        nameField.sendKeys(newName);
+    }
+
+
+    public String getTestCaseName() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        return wait.until(ExpectedConditions.visibilityOf(headingTestCaseName)).getAttribute("value").trim();
+    }
+
+    public void closebutton(){
+        buttonClose.click();
+    }
+
 }
