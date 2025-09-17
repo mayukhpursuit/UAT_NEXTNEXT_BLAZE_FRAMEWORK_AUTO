@@ -11,7 +11,7 @@ public class TC007 extends BaseClass {
     public void verifyAllAvailableEpicsDisplayed(
             String epicName,String defaultEpic
     ) throws InterruptedException {
-        logger.info("****** Starting the Log in Test Case *****************");
+        logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");

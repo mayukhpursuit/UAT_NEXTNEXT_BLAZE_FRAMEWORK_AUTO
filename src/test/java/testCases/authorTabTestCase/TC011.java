@@ -14,7 +14,6 @@ public class TC011 extends BaseClass {
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
-
             login();
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");

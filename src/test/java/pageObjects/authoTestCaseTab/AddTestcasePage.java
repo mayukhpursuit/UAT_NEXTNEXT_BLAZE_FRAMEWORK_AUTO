@@ -4,8 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class AddTestcasePage extends BasePage {
     public AddTestcasePage(WebDriver driver){
@@ -26,6 +34,9 @@ public class AddTestcasePage extends BasePage {
     @FindBy(xpath = "(//select)[4]")
     WebElement dropDownType;
 
+    @FindBy(xpath = "(//select)[4]/option")
+    List<WebElement> optionsDropDownType;
+
     @FindBy(xpath = "(//select)[5]")
     WebElement dropDownQAUser;
 
@@ -34,6 +45,8 @@ public class AddTestcasePage extends BasePage {
 
     @FindBy(xpath = "//button[normalize-space()='SAVE']")
     WebElement buttonSave;
+
+
 
     public WebElement linkTestCaseIdFromId(String id){
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='"+id+"']"));
@@ -76,6 +89,49 @@ public class AddTestcasePage extends BasePage {
 
     public String getTestcaseId(String name){
         return linkTestCaseIdFromName(name).getText();
+    }
+
+    public boolean isNameDisplayed(){
+        return textName.isDisplayed();
+    }
+
+    public boolean isDescriptionDisplayed(){
+        return textDescription.isDisplayed();
+    }
+
+    public boolean isPriorityDropdownDisplayed(){
+        return dropDownPriority.isDisplayed();
+    }
+
+    public boolean isTypeDropdownDisplayed(){
+        return dropDownType.isDisplayed();
+    }
+
+    public boolean isQAUserDropdownDisplayed(){
+        return dropDownQAUser.isDisplayed();
+    }
+
+    public boolean isPreconditionDisplayed(){
+        return textPrecondition.isDisplayed();
+    }
+
+    public boolean isAllTypeOptionsVisible(){
+        List<String>  actual= new ArrayList<>();
+        for (WebElement ele : optionsDropDownType){
+            actual.add(ele.getText());
+        }
+        List<String> expected= new ArrayList<>(Arrays.asList("Manual","Automation","Performance","Scenario","Please Select"));
+        Collections.sort(actual);
+        Collections.sort(expected);
+        return actual.equals(expected);
+    }
+
+    public String waitForNameFieldRequiredError() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+        );
+        return element.getText().trim();
     }
 
 }
