@@ -1,12 +1,12 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
-
-public class TC030 extends BaseClass {
+public class TC030 extends BaseClass{
     @Test(dataProvider = "tc028", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyNextButtonFunctionality(
             String expectedPagination
