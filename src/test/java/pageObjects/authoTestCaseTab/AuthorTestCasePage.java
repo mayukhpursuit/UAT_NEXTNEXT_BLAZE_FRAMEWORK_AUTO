@@ -85,7 +85,6 @@ WebElement totalEntryConutOfTestcases;
     WebElement rqTitleText;
 
 
-
     //actions
 
     public void selectEpic(String epicName){
@@ -289,5 +288,14 @@ WebElement totalEntryConutOfTestcases;
         return rqTitleText.getText();
     }
 
-
+    public void clickTestCasesId(String testCaseID) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            String xpath = "//a[contains(text(), '" + testCaseID + "')]";
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            element.click();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }
