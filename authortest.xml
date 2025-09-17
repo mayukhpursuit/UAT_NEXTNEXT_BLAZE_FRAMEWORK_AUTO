@@ -43,7 +43,10 @@
 <!--            <class name="testCases.authorTabTestCase.TC046"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC050"/>-->
 
-            <class name="testCases.Demo.AddTestStep"/>
+<!--              <class name="testCases.authorTabTestCase.TC053"/>-->
+            <class name="testCases.authorTabTestCase.TC058"/>
+
+<!--            <class name="testCases.Demo.AddTestStep"/>-->
 
 
         </classes>

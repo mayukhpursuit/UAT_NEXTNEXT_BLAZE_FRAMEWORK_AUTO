@@ -62,7 +62,7 @@ public class IndividualTestCasePage extends BasePage {
     WebElement dropdownAutomationProgress;
 
     @FindBy(xpath = "//div[@id='automation']//select[@class='testcase-select value']/option")
-    WebElement OptionsDropdownAutomationProgress;
+    List<WebElement> OptionsDropdownAutomationProgress;
 
     @FindBy(xpath = "//div[@id='qa-user']//select[@class='testcase-select value']")
     WebElement dropDownQaUser;
@@ -225,5 +225,22 @@ public class IndividualTestCasePage extends BasePage {
             setStepExpectedResult(expectedResult,stepNo);
         }
    }
+
+   public int getCountPriorityOptions(){
+        return OptionsDropDownPriority.size();
+   }
+
+    public int getCountStatusOptions(){
+        return OptionsDropdownStatus.size();
+    }
+
+    public int getCountTypeOptions(){
+        return OptionsDropdownType.size();
+    }
+
+    public int getCountTypeAutomationProgress(){
+        return OptionsDropdownAutomationProgress.size();
+    }
+
 
 }
