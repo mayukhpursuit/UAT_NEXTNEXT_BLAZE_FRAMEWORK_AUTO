@@ -137,11 +137,14 @@ public class IndividualTestCasePage extends BasePage {
         a.moveToElement(buttonAddTestStep).perform();
         buttonAddTestStep.click();
     }
-    public void clickAddRow() {
+    public void clickAddRow()
+    {
+
         buttonAddRow.click();
     }
     public String getStepCount(String s)
     {
+
         return labelStepNo(s).getText();
     }
 
@@ -311,5 +314,11 @@ public class IndividualTestCasePage extends BasePage {
         }
     }
 
+
+    public int getStepCountInt()
+    {
+
+        return allSteps.size();
+    }
 
 }

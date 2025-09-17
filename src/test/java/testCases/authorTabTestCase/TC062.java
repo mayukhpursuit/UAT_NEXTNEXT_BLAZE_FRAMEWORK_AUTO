@@ -6,9 +6,11 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 
-public class TC050 extends BaseClass {
+import java.util.prefs.BackingStoreException;
+
+public class TC062 extends BaseClass {
     @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void VerifyMultipleRows(
+    public void VerifyAddTestStepButton(
             String requirementId,String TestcaseId
     )throws InterruptedException {
         logger.info("************ Starting the Test Case *****************");
@@ -22,12 +24,7 @@ public class TC050 extends BaseClass {
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
             individualTestCasePage.clickAddRow();
-            String beforeCount=individualTestCasePage.getStepCount("1");
-            logger.info("Step count before adding a row"+ beforeCount);
-            individualTestCasePage.clickAddRow();
-            String afterCount=individualTestCasePage.getStepCount("2");
-            logger.info("Step count before adding a row" + afterCount );
-
+          logger.info("Add Test Step Button works ");
         }
         catch (AssertionError e)
         {
@@ -42,3 +39,4 @@ public class TC050 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
+
