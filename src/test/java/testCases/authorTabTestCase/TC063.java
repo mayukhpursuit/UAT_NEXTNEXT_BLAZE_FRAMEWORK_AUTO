@@ -1,14 +1,17 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 
-public class TC050 extends BaseClass {
-    @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void VerifyMultipleRows(
+import java.time.Duration;
+
+public class TC063 extends BaseClass {
+    @Test(dataProvider = "tc063",dataProviderClass = AuthorTestCaseDataProvider.class)
+    public void VerifyDeleteSteps(
             String requirementId,String TestcaseId
     )throws InterruptedException {
         logger.info("************ Starting the Test Case *****************");
@@ -21,12 +24,16 @@ public class TC050 extends BaseClass {
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
-            individualTestCasePage.clickAddRow();
-            String beforeCount=individualTestCasePage.getStepCount("1");
-            logger.info("Step count before adding a row"+ beforeCount);
-            individualTestCasePage.clickAddRow();
-            String afterCount=individualTestCasePage.getStepCount("2");
-            logger.info("Step count before adding a row" + afterCount );
+            int beforeCount = individualTestCasePage.getStepCountInt();
+            logger.info("befor count was"+beforeCount);
+            individualTestCasePage.clickDeleteButton(beforeCount);
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            wait.until(webDriver -> individualTestCasePage.getStepCountInt()==beforeCount -1);
+
+            int afterCount = individualTestCasePage.getStepCountInt();
+            logger.info("after count is - "+afterCount);
+            assert  afterCount == beforeCount -1 :"Row was not deleted";
+            individualTestCasePage.clickSaveButton();
 
         }
         catch (AssertionError e)
@@ -41,4 +48,5 @@ public class TC050 extends BaseClass {
         }
         logger.info("************ Test Case Finished *************************");
     }
+
 }
