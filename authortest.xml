@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <listeners>
-        <listener class-name="utils.ExtentReportManager"/>
-    </listeners>
+<!--    <listeners>-->
+<!--        <listener class-name="utils.ExtentReportManager"/>-->
+<!--    </listeners>-->
     <test verbose="2" preserve-order="true"
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
+<!--            <class name="testCases.TC002_FilterRequirement"/>-->
+<!--            <class name="testCases.TC003_AddTestCase"/>-->
+<!--            <class name="testCases.TC001_LogIn"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC001"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC002"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC003"/>-->
@@ -22,23 +25,35 @@
 <!--            <class name="testCases.authorTabTestCase.TC014"/>-->
 <!--            <class name="testCases.Demo.AddTestCase"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC018"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC028"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC054"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC029"/>-->
+
 <!--            <class name="testCases.authorTabTestCase.TC030"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC031"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC032"/>-->
-            <!--<class name="testCases.authorTabTestCase.TC034"/>-->
-<!--             <class name="testCases.authorTabTestCase.TC036"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC036"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC037"/>-->
-            <class name="testCases.authorTabTestCase.TC051"/>
-            <class name="testCases.authorTabTestCase.TC052"/>
+<!--            <class name="testCases.authorTabTestCase.TC034"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC047"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC048"/>-->
+                <!-- <class name="testCases.authorTabTestCase.TC034"/>-->
+                <!--<class name="testCases.authorTabTestCase.TC039"/>-->
+                <!--<class name="testCases.authorTabTestCase.TC045"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC046"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC050"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC063"/>-->
 
-            <class name="testCases.authorTabTestCase.TC059"/>
-            <class name="testCases.authorTabTestCase.TC060"/>
+<!--               <class name="testCases.Demo.AddTestStep"/>-->
+<!--              <class name="testCases.authorTabTestCase.TC053"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC058"/>-->
+
+            <class name="testCases.Demo.AddTestStep"/>
+
+<!--               <class name="testCases.authorTabTestCase.TC056"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC057"/>-->
 
 
 
-
-        </classes>
-    </test>
-</suite>
+                </classes>
+            </test>
+        </suite>

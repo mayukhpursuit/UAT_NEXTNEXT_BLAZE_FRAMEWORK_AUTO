@@ -1,13 +1,14 @@
 package testCases.Demo;
 
+import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
-import DataProviders.AuthorTestCaseDataProvider;
 
-public class AddTestCase extends BaseClass {
+public class AddTestStep extends BaseClass {
     @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyTestCaseCreation(
             String epic,String feature,String requirementId,
@@ -19,21 +20,14 @@ public class AddTestCase extends BaseClass {
             login();
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
-            authorTestCasePage.selectEpic(epic);
-            authorTestCasePage.selectFeature(feature);
-            authorTestCasePage.clickRequirement(requirementId);
+            authorTestCasePage.clickRequirement("RQ-437");
+            authorTestCasePage.clickTestCase("TC-369");
+            IndividualTestCasePage individualTestCasePage= new IndividualTestCasePage(getDriver());
+            individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
+            //individualTestCasePage.addTestStepsAtEndForExistingTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
+            //individualTestCasePage.editSpecificTestStep(3,"Hi this Mayukhjit","Yes It is expected");
+            individualTestCasePage.clickSaveButton();
 
-            authorTestCasePage.clickAddTestcase();
-
-            AddTestcasePage addTestcasePage= new AddTestcasePage(getDriver());
-            addTestcasePage.setTestCaseName(testCaseName);
-            addTestcasePage.setDescription(description);
-            addTestcasePage.selectPriority(priority);
-            addTestcasePage.selectQaUser(QA);
-            addTestcasePage.clickSave();
-            String testCaseId=addTestcasePage.getTestcaseId(testCaseName);
-            System.out.println(testCaseId);
-            Assert.assertFalse(testCaseId.isEmpty());
         }
         catch (Exception | AssertionError e){
             e.printStackTrace();
@@ -42,5 +36,4 @@ public class AddTestCase extends BaseClass {
         }
         logger.info("************ Test Case Finished *************************");
     }
-
 }

@@ -26,7 +26,8 @@ public class TC036 extends BaseClass {
             logger.info("Selected the feature");
             authorTestCasePage.clickRequirement(requirementId);
             logger.info("Clicked on requirement id "+requirementId);
-
+            authorTestCasePage.clickAddTestcase();
+            logger.info("Clicked Add test case ..");
             Assert.assertTrue(authorTestCasePage.isCreateTextHeadingVisible());
             logger.info("Verified Successfully");
 
