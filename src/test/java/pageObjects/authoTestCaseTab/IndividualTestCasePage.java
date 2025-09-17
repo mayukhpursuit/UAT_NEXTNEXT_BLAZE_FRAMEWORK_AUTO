@@ -49,7 +49,7 @@ public class IndividualTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@id='status']//select[@class='testcase-select value']")
     WebElement dropdownStatus;
 
-    @FindBy(xpath = "//div[@id='status']//select[@class='testcase-select value']")
+    @FindBy(xpath = "//div[@id='status']//select[@class='testcase-select value']/option")
     List<WebElement> OptionsDropdownStatus;
 
     @FindBy(xpath = "//div[@id='type']//select[@class='testcase-select value']")
@@ -229,7 +229,8 @@ public class IndividualTestCasePage extends BasePage {
         }
    }
 
-   public int getCountPriorityOptions(){
+   public int getCountPriorityOptions() throws InterruptedException {
+        Thread.sleep(2000);
         return OptionsDropDownPriority.size();
    }
 
