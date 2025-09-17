@@ -110,6 +110,9 @@ public class IndividualTestCasePage extends BasePage {
     @FindBy(xpath = "(//i[@class='fa-solid fa-circle-plus'])[1]")
     WebElement buttonAddRow;
 
+    @FindBy(xpath = "//div[contains(text(), 'CANCEL')]")
+    WebElement cancelBtn;
+
     //    Actions
     public void ClickCloseButton()
     {
@@ -242,5 +245,18 @@ public class IndividualTestCasePage extends BasePage {
         return OptionsDropdownAutomationProgress.size();
     }
 
-
+    public boolean clickAddCalledTestcaseBtn() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement button = wait.until(ExpectedConditions.elementToBeClickable(buttonAddCalledTestCase));
+            button.click();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public void clickCancelBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(cancelBtn)).click();
+    }
 }

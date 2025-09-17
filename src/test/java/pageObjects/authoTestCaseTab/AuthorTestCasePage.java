@@ -106,6 +106,20 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='testlistcell']/a")
     List<WebElement> linkAllTestCaseId;
 
+    @FindBy(xpath = "//input[@id='searchInput']")
+    WebElement searchInput;
+
+    @FindBy(xpath="//i[@class='fas fa-search search-icon']")
+    WebElement searchBtn;
+    //span[@class="entry-info"]
+    @FindBy(xpath="//span[@class='entry-info']")
+    WebElement totalEntryConutOfTestcases;
+
+    @FindBy(xpath="//div[@class='text-wrapper-8']")
+    WebElement rqIdText;
+    @FindBy(xpath="//div[@class='text-wrapper-7']")
+    WebElement rqTitleText;
+
 
     //actions
 
@@ -351,6 +365,38 @@ public class AuthorTestCasePage extends BasePage {
         }
         return false;
     }
+
+    public void searchRq(String Rq){
+        searchInput.click();
+        searchInput.clear();
+        searchInput.sendKeys(Rq);
+        searchBtn.click();
+
+    }
+    public String totalNoOfTestcasesInsideRq(){
+        return totalEntryConutOfTestcases.getText();
+    }
+    public int extractNumber(String text) {
+        return Integer.parseInt(text.replaceAll("[^0-9]", ""));
+    }
+    public String getRQId(){
+        return rqIdText.getText();
+    }
+    public String getRQTitle(){
+        return rqTitleText.getText();
+    }
+
+    public void clickTestCasesId(String testCaseID) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            String xpath = "//a[contains(text(), '" + testCaseID + "')]";
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            element.click();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
 
 }
 
