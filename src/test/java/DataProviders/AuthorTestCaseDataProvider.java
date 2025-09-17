@@ -78,4 +78,10 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc058");
     }
 
+    @DataProvider(name="tc066")
+    public static String[][] getDataTC066() throws IOException {
+        return ExcelDataProviders.getExcelData("tc066");
+    }
+
+
 }
