@@ -8,7 +8,7 @@ import testBase.BaseClass;
 
 public class TC050 extends BaseClass {
     @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void VerifyCloseInTestcases(
+    public void VerifyMultipleRows(
             String requirementId,String TestcaseId
     )throws InterruptedException {
         logger.info("************ Starting the Test Case *****************");
@@ -21,6 +21,7 @@ public class TC050 extends BaseClass {
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
+            individualTestCasePage.clickAddRow();
             String beforeCount=individualTestCasePage.getStepCount("1");
             logger.info("Step count before adding a row"+ beforeCount);
             individualTestCasePage.clickAddRow();

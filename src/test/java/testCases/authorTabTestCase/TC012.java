@@ -23,7 +23,7 @@ public class TC012 extends BaseClass {
             logger.info("selected the epic from the dropdown");
             //  getDriver().navigate().refresh();
             System.out.println(authorTestCasePage.getSelectedEpic());
-            //  authorTestCasePage.clickFeature();
+          //  authorTestCasePage.clickFeature();
             logger.info("selected the feature from the dropdown");
             authorTestCasePage.getAllFeatures();
             logger.info("Verification done...");

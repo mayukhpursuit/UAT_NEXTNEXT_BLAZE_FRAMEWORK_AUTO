@@ -103,6 +103,26 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//div[@class='defect-modal-text-wrapper-3']")
     WebElement Pid;
 
+    @FindBy(xpath = "//div[@class='testlistcell']/a")
+    List<WebElement> linkAllTestCaseId;
+
+    @FindBy(xpath = "//input[@id='searchInput']")
+    WebElement searchInput;
+
+    @FindBy(xpath="//i[@class='fas fa-search search-icon']")
+    WebElement searchBtn;
+
+    @FindBy(xpath="//span[@class='entry-info']")
+    WebElement totalEntryConutOfTestcases;
+
+    @FindBy(xpath="//div[@class='text-wrapper-8']")
+    WebElement rqIdText;
+    @FindBy(xpath="//div[@class='text-wrapper-7']")
+    WebElement rqTitleText;
+
+    @FindBy(id = "existingTestCasesTable")
+    WebElement linkedTestCaseTable;
+
 
     //actions
 
@@ -331,4 +351,59 @@ public class AuthorTestCasePage extends BasePage {
         element.click();
     }
 
+    public boolean isAllTestIdSorted() throws InterruptedException {
+        Thread.sleep(3000);
+        List<String> name1 = new ArrayList<>();
+        for (WebElement ele : linkAllTestCaseId) {
+            name1.add(ele.getText().trim()); // trim in case of extra spaces
+        }
+
+        // Make a copy and sort it
+        List<String> sortedList = new ArrayList<>(name1);
+        Collections.sort(sortedList);
+
+        // Check if original == sorted
+        if (name1.equals(sortedList)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void searchRq(String Rq){
+        searchInput.click();
+        searchInput.clear();
+        searchInput.sendKeys(Rq);
+        searchBtn.click();
+
+    }
+    public String totalNoOfTestcasesInsideRq(){
+        return totalEntryConutOfTestcases.getText();
+    }
+    public int extractNumber(String text) {
+        return Integer.parseInt(text.replaceAll("[^0-9]", ""));
+    }
+    public String getRQId(){
+        return rqIdText.getText();
+    }
+    public String getRQTitle(){
+        return rqTitleText.getText();
+    }
+
+    public void clickTestCasesId(String testCaseID) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            String xpath = "//a[contains(text(), '" + testCaseID + "')]";
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            element.click();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public boolean isLinkedTestCaseTableVisible() {
+        return linkedTestCaseTable.isDisplayed();
+    }
+
+
 }
+
