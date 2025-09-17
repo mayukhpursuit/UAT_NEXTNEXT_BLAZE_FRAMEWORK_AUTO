@@ -23,9 +23,9 @@ public class AddTestStep extends BaseClass {
             authorTestCasePage.clickRequirement("RQ-437");
             authorTestCasePage.clickTestCase("TC-369");
             IndividualTestCasePage individualTestCasePage= new IndividualTestCasePage(getDriver());
-            //individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
+            individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
             //individualTestCasePage.addTestStepsAtEndForExistingTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
-            individualTestCasePage.editSpecificTestStep(3,"Hi this Mayukhjit","Yes It is expected");
+            //individualTestCasePage.editSpecificTestStep(3,"Hi this Mayukhjit","Yes It is expected");
             individualTestCasePage.clickSaveButton();
 
         }
