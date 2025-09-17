@@ -114,7 +114,7 @@ public class IndividualTestCasePage extends BasePage {
     WebElement cancelBtn;
 
     //    Actions
-    public void ClickCloseButton()
+    public void clickCloseButton()
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(buttonClose)).click();
@@ -276,5 +276,40 @@ public class IndividualTestCasePage extends BasePage {
     public void closebutton(){
         buttonClose.click();
     }
+
+    public boolean verifyTestCaseDetailsVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOf(textDescriptionBeforeClick));
+        wait.until(ExpectedConditions.visibilityOf(textPrecondition));
+        wait.until(ExpectedConditions.visibilityOf(dropDownPriority));
+        wait.until(ExpectedConditions.visibilityOf(dropdownStatus));
+
+        return textDescriptionBeforeClick.isDisplayed()
+                && textPrecondition.isDisplayed()
+                && dropDownPriority.isDisplayed()
+                && dropdownStatus.isDisplayed();
+    }
+
+    public boolean isSaveButtonClickable() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(buttonSave));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isCloseButtonClickable() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(buttonClose));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
 }

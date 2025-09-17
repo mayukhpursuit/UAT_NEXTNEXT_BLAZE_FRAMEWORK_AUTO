@@ -111,7 +111,7 @@ public class AuthorTestCasePage extends BasePage {
 
     @FindBy(xpath="//i[@class='fas fa-search search-icon']")
     WebElement searchBtn;
-    //span[@class="entry-info"]
+
     @FindBy(xpath="//span[@class='entry-info']")
     WebElement totalEntryConutOfTestcases;
 
@@ -119,6 +119,9 @@ public class AuthorTestCasePage extends BasePage {
     WebElement rqIdText;
     @FindBy(xpath="//div[@class='text-wrapper-7']")
     WebElement rqTitleText;
+
+    @FindBy(id = "existingTestCasesTable")
+    WebElement linkedTestCaseTable;
 
 
     //actions
@@ -395,6 +398,10 @@ public class AuthorTestCasePage extends BasePage {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public boolean isLinkedTestCaseTableVisible() {
+        return linkedTestCaseTable.isDisplayed();
     }
 
 
