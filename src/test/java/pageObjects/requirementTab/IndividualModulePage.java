@@ -24,5 +24,4 @@ public class IndividualModulePage extends BasePage {
         buttonAddRequirement.click();
     }
 
-
 }
