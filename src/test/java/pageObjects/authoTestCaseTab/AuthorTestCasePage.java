@@ -427,5 +427,3 @@ public class AuthorTestCasePage extends BasePage {
 }
 
 
-}
-
