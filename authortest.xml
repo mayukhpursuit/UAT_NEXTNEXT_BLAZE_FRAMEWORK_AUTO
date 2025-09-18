@@ -38,21 +38,20 @@
 <!--            <class name="testCases.authorTabTestCase.TC048"/>-->
                 <!-- <class name="testCases.authorTabTestCase.TC034"/>-->
                 <!--<class name="testCases.authorTabTestCase.TC039"/>-->
-                <!--<class name="testCases.authorTabTestCase.TC045"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC046"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC050"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC063"/>-->
+            <!--<class name="testCases.authorTabTestCase.TC045"/>-->
+<!--             <class name="testCases.authorTabTestCase.TC046"/>-->
+<!--             <class name="testCases.authorTabTestCase.TC050"/>-->
+<!--             <class name="testCases.authorTabTestCase.TC063"/>-->
 
-<!--               <class name="testCases.Demo.AddTestStep"/>-->
-<!--              <class name="testCases.authorTabTestCase.TC053"/>-->
-<!--            <class name="testCases.authorTabTestCase.TC058"/>-->
+<!--             <class name="testCases.Demo.AddTestStep"/>-->
+<!--             <class name="testCases.authorTabTestCase.TC053"/>-->
+<!--             <class name="testCases.authorTabTestCase.TC058"/>-->
+<!--             <class name="testCases.Demo.AddTestStep"/>-->
 
-            <class name="testCases.Demo.AddTestStep"/>
-
-<!--               <class name="testCases.authorTabTestCase.TC056"/>-->
+<!--            <class name="testCases.authorTabTestCase.TC056"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC057"/>-->
 
-
+            <class name="testCases.Demo.FinalFlow"/>
 
                 </classes>
             </test>

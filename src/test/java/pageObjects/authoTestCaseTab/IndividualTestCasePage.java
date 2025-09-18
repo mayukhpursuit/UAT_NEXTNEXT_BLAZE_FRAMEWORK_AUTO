@@ -317,7 +317,6 @@ public class IndividualTestCasePage extends BasePage {
 
     public int getStepCountInt()
     {
-
         return allSteps.size();
     }
 
