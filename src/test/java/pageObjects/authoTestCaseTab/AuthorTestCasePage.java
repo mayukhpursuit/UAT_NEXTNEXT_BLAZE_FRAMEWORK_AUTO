@@ -123,6 +123,11 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(id = "existingTestCasesTable")
     WebElement linkedTestCaseTable;
 
+    @FindBy(xpath = "//table[@id='newTestCasesTable']//tr[1]/td[1]/input")
+    WebElement inputName;
+
+    @FindBy(xpath = "//table[@id='newTestCasesTable']//tr[1]/td[2]/input")
+    WebElement inputDescription;
 
     //actions
 
@@ -404,6 +409,53 @@ public class AuthorTestCasePage extends BasePage {
         return linkedTestCaseTable.isDisplayed();
     }
 
+    public void enterName(String name) {
+        inputName.clear();
+        inputName.sendKeys(name);
+    }
 
+    public void enterDescription(String description) {
+        inputDescription.clear();
+        inputDescription.sendKeys(description);
+    }
+
+    public String getTestCaseNameById(String testCaseId) {
+        try {
+            String xpath = "//div[@id='existingTestCasesTable']//div[contains(@class,'testlistrow')]" +
+                "[.//div[@class='testlistcell']/a[normalize-space(text())='" + testCaseId + "']]" +
+                "//div[contains(@class,'testlistcell2') and contains(@class,'table-name')]//p";
+            WebElement nameP = driver.findElement(By.xpath(xpath));
+            return nameP.getText().trim();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
+    }
+ 
+    public String getFirstLinkedTestCaseName() {
+        WebElement nameCell = driver.findElement(By.xpath("//table[@id='existingTestCasesTable']//tr[2]/td[2]"));
+        return nameCell.getText().trim();
+    }
+
+    public String getFirstLinkedTestCaseId() {
+        WebElement idCell = driver.findElement(By.xpath("//table[@id='existingTestCasesTable']//tr[2]/td[1]/a"));
+        return idCell.getText().trim();
+    }
+
+    public void enterTestCaseNameInEditModal(String name) {
+        WebElement nameInput = driver.findElement(By.id("testCaseName"));
+        nameInput.clear();
+        nameInput.sendKeys(name);
+    }
+
+    public void clickCloseButtonOnEditModal() {
+        WebElement closeBtn = driver.findElement(By.xpath("//button[@id='closeButton' or contains(@class,'close-button')]"));
+        closeBtn.click();
+    }
+
+    public void confirmCloseDiscardChanges() {
+        WebElement yesBtn = driver.findElement(By.xpath("//button[contains(@id,'confirmBtn') or normalize-space(text())='Yes']"));
+        yesBtn.click();
+    }
+    
 }
 
