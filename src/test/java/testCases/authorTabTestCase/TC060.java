@@ -8,7 +8,6 @@ import testBase.BaseClass;
 
 public class TC060 extends BaseClass {
     @Test(dataProvider = "tc059", dataProviderClass = AuthorTestCaseDataProvider.class)
-
     public void verifyDialogBoxAfterClickingAddCalledTestcaseButton
             (String rqName, String tcId) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
