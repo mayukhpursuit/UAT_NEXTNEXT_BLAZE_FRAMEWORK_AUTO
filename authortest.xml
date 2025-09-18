@@ -56,6 +56,9 @@
            <class name="testCases.authorTabTestCase.TC057"/>
 
 
+               <class name="testCases.authorTabTestCase.TC065"/>
+<!--            <class name="testCases.authorTabTestCase.TC057"/>-->
+
 
 
                 </classes>
