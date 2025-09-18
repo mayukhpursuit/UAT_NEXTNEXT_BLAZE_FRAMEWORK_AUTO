@@ -16,6 +16,8 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[@class='label-3']")
     WebElement buttonAddRequirement;
 
+
+
     //Actions
 
     public void clickAddRequirement(){
