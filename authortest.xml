@@ -47,9 +47,9 @@
 <!--              <class name="testCases.authorTabTestCase.TC053"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC058"/>-->
 
-            <class name="testCases.Demo.AddTestStep"/>
 
-<!--               <class name="testCases.authorTabTestCase.TC056"/>-->
+
+               <class name="testCases.authorTabTestCase.TC065"/>
 <!--            <class name="testCases.authorTabTestCase.TC057"/>-->
 
 

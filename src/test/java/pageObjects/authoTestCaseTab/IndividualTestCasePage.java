@@ -321,4 +321,24 @@ public class IndividualTestCasePage extends BasePage {
         return allSteps.size();
     }
 
+    public boolean isCreateTestRunVisible() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(buttonCreateTestRun));
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isCreateTestRunClickable() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(buttonCreateTestRun));
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
