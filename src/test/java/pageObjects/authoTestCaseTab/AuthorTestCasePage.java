@@ -64,6 +64,12 @@ public class AuthorTestCasePage extends BasePage {
     @FindBy(xpath = "//h3[text()='Create Test Cases']")
     WebElement headingCreateTestCases;
 
+    @FindBy(xpath = "//button[normalize-space(text())='SAVE']")
+    WebElement buttonSubmitTestCaseModal;
+
+    @FindBy(id = "notification")
+    WebElement notificationDiv;
+
 
     public WebElement actionIconForTestcase(String testCaseId) {
         return driver.findElement(By.xpath("//a[text()='" + testCaseId + "']/ancestor::div[@class='testlistrow']//div[@class='testlistcell48']//img"));
@@ -457,5 +463,20 @@ public class AuthorTestCasePage extends BasePage {
         yesBtn.click();
     }
     
+    public void clickSubmitButtonOnAddTestCaseModal() {
+        buttonSubmitTestCaseModal.click();
+    }
+
+    public boolean isErrorDisplayedForField(String fieldName) {
+        try {
+            new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(5))
+                .until(d -> notificationDiv.getAttribute("class").contains("show"));
+            String errorMsg = notificationDiv.getText().trim();
+            System.out.println("Error message for required field '" + fieldName + "': " + errorMsg);
+            return true;
+        } catch (org.openqa.selenium.TimeoutException e) {
+            return false;
+        }
+    }
 }
 
