@@ -68,7 +68,7 @@ public class RequirementTabPage extends BasePage {
     public void clickNewModule() throws InterruptedException {
         Thread.sleep(1000);
         iconNewModule.click();
-       Thread.sleep(2000);
+       Thread.sleep(1000);
 
     }
     public void setModuleName(String moduleName){

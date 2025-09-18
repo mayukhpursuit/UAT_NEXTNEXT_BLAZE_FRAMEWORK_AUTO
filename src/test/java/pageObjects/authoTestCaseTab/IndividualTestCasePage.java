@@ -277,7 +277,8 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public void closebutton(){
-        buttonClose.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(buttonClose)).click();
     }
 
     public boolean verifyTestCaseDetailsVisible() {

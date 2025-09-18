@@ -21,7 +21,7 @@ public class TC040 extends BaseClass {
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage closebutton = new IndividualTestCasePage(getDriver());
-            closebutton.ClickCloseButton();
+            closebutton.closebutton();
             logger.info("Close button is been able to close the testcase successfully");
         }
         catch (AssertionError e)

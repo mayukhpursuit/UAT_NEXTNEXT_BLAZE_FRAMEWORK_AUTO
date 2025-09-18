@@ -1514,3 +1514,134 @@ Session ID: 9c08fa41211b7ba4f5c058a5f30025a8
 14:31:18.344 [main] INFO  testCases.Demo.FinalFlow - ****** Starting the Filter Requirement Test Case *****************
 14:32:07.211 [main] INFO  testCases.Demo.FinalFlow - ************ Test Case Finished *************************
 14:32:11.080 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@544e8149: 0 ms
+14:51:24.676 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.680 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.684 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.685 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 11 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:51:24.697 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:51:24.711 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
+
+14:51:24.903 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 0 ms.
+14:51:30.418 [main] INFO  testCases.authorTabTestCase.TC040 - ************ Starting the Test Case *****************
+14:51:42.868 [main] INFO  testCases.authorTabTestCase.TC040 - Logged in successfully
+14:51:47.151 [main] ERROR testCases.authorTabTestCase.TC040 - Exception occurred: stale element reference: stale element not found in the current frame
+  (Session info: chrome=140.0.7339.81)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [86d12291bdb9cfdd36e4c5124a609613, clickElement {id=f.E31CA020E96C07F1FB04F44AC346F3BE.d.08E29D776CED2EDCF165DD309372B6E7.e.83}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: C:\Users\MAYUKH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57017}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57017/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (86d12291bdb9cfdd36e4c5124a609613)] -> xpath: //div[normalize-space()='CLOSE']]
+Session ID: 86d12291bdb9cfdd36e4c5124a609613
+14:51:52.098 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@5ad6cc21: 0 ms
+14:53:01.946 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.959 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.961 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.961 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.961 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.961 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.962 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.962 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.962 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.977 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 14 ms.
+14:53:01.977 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.977 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 4 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.981 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.986 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.988 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
+14:53:01.988 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.988 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.988 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:53:01.988 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:53:01.992 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
+
+14:53:02.122 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+14:53:05.887 [main] INFO  testCases.authorTabTestCase.TC040 - ************ Starting the Test Case *****************
+14:53:18.571 [main] INFO  testCases.authorTabTestCase.TC040 - Logged in successfully
+14:53:23.339 [main] INFO  testCases.authorTabTestCase.TC040 - Close button is been able to close the testcase successfully
+14:53:23.339 [main] INFO  testCases.authorTabTestCase.TC040 - ************ Test Case Finished *************************
+14:53:27.562 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@3592c1c4: 0 ms
+14:56:17.895 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.895 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.908 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.910 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.910 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.925 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.925 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.927 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.927 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.927 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.927 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+14:56:17.929 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\authortest.xml
+
+14:56:18.054 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 0 ms.
+14:56:23.210 [main] INFO  testCases.Demo.FinalFlow - ****** Starting the Filter Requirement Test Case *****************
+14:57:04.330 [main] ERROR testCases.Demo.FinalFlow - Exception occurred: no such element: Unable to locate element: {"method":"xpath","selector":"//span[@class='step-number' and text()='1']/ancestor::div[@class='table-row']//div[@class='table-cell result']//div[@class='ql-editor ql-blank']"}
+  (Session info: chrome=140.0.7339.81)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f652997a50e801b5f4778889fe6c183e, findElement {value=//span[@class='step-number' and text()='1']/ancestor::div[@class='table-row']//div[@class='table-cell result']//div[@class='ql-editor ql-blank'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.81, chrome: {chromedriverVersion: 140.0.7339.185 (eeea00e459e..., userDataDir: C:\Users\MAYUKH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54378}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54378/devtoo..., se:cdpVersion: 140.0.7339.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f652997a50e801b5f4778889fe6c183e
+14:57:09.004 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@32118208: 0 ms

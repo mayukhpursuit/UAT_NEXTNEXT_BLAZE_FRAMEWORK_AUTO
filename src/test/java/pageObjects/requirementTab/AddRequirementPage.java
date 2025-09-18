@@ -3,7 +3,11 @@ package pageObjects.requirementTab;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+
+import java.time.Duration;
 
 public class AddRequirementPage extends BasePage {
     public AddRequirementPage(WebDriver driver){
@@ -30,9 +34,16 @@ public class AddRequirementPage extends BasePage {
     }
 
     public void setDescription(String description) throws InterruptedException {
-       textRequirementDescriptionBeforeClick.click();
-        Thread.sleep(1000);
-        textRequirementDescriptionAfterClick.sendKeys(description);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Click on the description (readonly)
+        textRequirementDescriptionBeforeClick.click();
+
+        // Wait until editable input/textarea is visible
+        WebElement editableField = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
+
+        // Send description
+        editableField.sendKeys(description);
     }
     public void clickSave(){
         buttonSave.click();
