@@ -60,3 +60,7 @@
                 </classes>
             </test>
         </suite>
+            <class name="testCases.authorTabTestCase.TC008"/>
+        </classes>
+    </test>
+</suite>
