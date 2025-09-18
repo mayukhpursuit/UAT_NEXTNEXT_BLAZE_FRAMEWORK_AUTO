@@ -6,14 +6,12 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 
-import java.util.prefs.BackingStoreException;
-
-public class TC062 extends BaseClass {
+public class TC040 extends BaseClass {
     @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
-    public void VerifyAddTestStepButton(
+    public void VerifyCloseButton(
             String requirementId,String TestcaseId
     )throws InterruptedException {
-        logger.info("************ Starting the Test Case ****************");
+        logger.info("************ Starting the Test Case *****************");
         try
         {
             login();
@@ -22,9 +20,9 @@ public class TC062 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
-            IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
-            individualTestCasePage.clickAddRow();
-          logger.info("Add Test Step Button works ");
+            IndividualTestCasePage closebutton = new IndividualTestCasePage(getDriver());
+            closebutton.ClickCloseButton();
+            logger.info("Close button is been able to close the testcase successfully");
         }
         catch (AssertionError e)
         {
@@ -39,4 +37,3 @@ public class TC062 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
-

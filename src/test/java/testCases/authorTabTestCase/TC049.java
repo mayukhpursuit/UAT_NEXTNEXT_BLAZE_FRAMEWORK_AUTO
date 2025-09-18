@@ -21,7 +21,7 @@ public class TC049 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.clickActionIcon(TestcaseId);
-            logger.info("Clicked unlink icon for test case TC-358");
+            logger.info("Clicked unlink icon for test case ");
             authorTestCasePage.confirmUnlink();
             logger.info("Clicked Yes to unlink the test case successfully");
 
