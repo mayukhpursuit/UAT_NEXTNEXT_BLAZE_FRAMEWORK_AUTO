@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-<!--    <listeners>-->
-<!--        <listener class-name="utils.ExtentReportManager"/>-->
-<!--    </listeners>-->
+    <listeners>
+        <listener class-name="utils.ExtentReportManager"/>
+    </listeners>
     <test verbose="2" preserve-order="true"
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
@@ -59,8 +59,4 @@
 
                 </classes>
             </test>
-        </suite>
-            <class name="testCases.authorTabTestCase.TC008"/>
-        </classes>
-    </test>
 </suite>
