@@ -13,7 +13,7 @@ public class AuthorTestCaseDataProvider {
     }
 
     @DataProvider(name="tc003")
-    public static String[][] getDataTC002() throws IOException {
+    public static String[][] getDataTC003() throws IOException {
         return ExcelDataProviders.getExcelData("tc003");
     }
 
@@ -21,6 +21,7 @@ public class AuthorTestCaseDataProvider {
     public static String[][] getDataTC004() throws IOException {
         return ExcelDataProviders.getExcelData("tc004");
     }
+
     @DataProvider(name="tc007")
     public static String[][] getDataTC007() throws IOException {
         return ExcelDataProviders.getExcelData("tc007");
@@ -30,17 +31,14 @@ public class AuthorTestCaseDataProvider {
     public static String[][] getDataTC009() throws IOException {
         return ExcelDataProviders.getExcelData("tc009");
     }
+
     @DataProvider(name="tc011")
     public static String[][] getDataTC011() throws IOException {
         return ExcelDataProviders.getExcelData("tc011");
     }
-    @DataProvider(name="AddTest")
-    public static String[][] getDataAddTest() throws IOException {
-        return ExcelDataProviders.getExcelData("AddTest");
-    }
 
     @DataProvider(name="tc018")
-    public static String[][] getDataTC016() throws IOException {
+    public static String[][] getDataTC018() throws IOException {
         return ExcelDataProviders.getExcelData("tc018");
     }
 
@@ -53,6 +51,7 @@ public class AuthorTestCaseDataProvider {
     public static String[][] getDataTC029() throws IOException {
         return ExcelDataProviders.getExcelData("tc029");
     }
+
     @DataProvider(name="tc034")
     public static String[][] getDataTC034() throws IOException {
         return ExcelDataProviders.getExcelData("tc034");
@@ -63,24 +62,14 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc039");
     }
 
-    @DataProvider(name="tc049")
-    public static String[][] getDataTC049() throws IOException {
-        return ExcelDataProviders.getExcelData("tc049");
+    @DataProvider(name="tc040")
+    public static String[][] getDataTC040() throws IOException {
+        return ExcelDataProviders.getExcelData("tc040");
     }
 
-    @DataProvider(name="tc047")
-    public static String[][] getDataTC047() throws IOException {
-        return ExcelDataProviders.getExcelData("tc047");
-    }
-
-    @DataProvider(name="tc053")
-    public static String[][] getDataTC053() throws IOException {
-        return ExcelDataProviders.getExcelData("tc053");
-    }
-
-    @DataProvider(name="tc058")
-    public static String[][] getDataTC058() throws IOException {
-        return ExcelDataProviders.getExcelData("tc058");
+    @DataProvider(name="tc042")
+    public static String[][] getDataTC042() throws IOException {
+        return ExcelDataProviders.getExcelData("tc042");
     }
 
     @DataProvider(name="tc044")
@@ -98,14 +87,9 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc046");
     }
 
-    @DataProvider(name="tc056")
-    public static String[][] getDataTC056() throws IOException {
-        return ExcelDataProviders.getExcelData("tc056");
-    }
-
-    @DataProvider(name="tc057")
-    public static String[][] getDataTC057() throws IOException {
-        return ExcelDataProviders.getExcelData("tc057");
+    @DataProvider(name="tc047")
+    public static String[][] getDataTC047() throws IOException {
+        return ExcelDataProviders.getExcelData("tc047");
     }
 
     @DataProvider(name="tc048")
@@ -113,24 +97,14 @@ public class AuthorTestCaseDataProvider {
         return ExcelDataProviders.getExcelData("tc048");
     }
 
-    @DataProvider(name="tc040")
+    @DataProvider(name="tc049")
+    public static String[][] getDataTC049() throws IOException {
+        return ExcelDataProviders.getExcelData("tc049");
+    }
+
+    @DataProvider(name="tc050")
     public static String[][] getDataTC050() throws IOException {
-        return ExcelDataProviders.getExcelData("tc040");
-    }
-
-    @DataProvider(name="tc042")
-    public static String[][] getDataTC042() throws IOException {
-        return ExcelDataProviders.getExcelData("tc042");
-    }
-
-    @DataProvider(name="tc063")
-    public static String[][] getDataTC063() throws IOException {
-        return ExcelDataProviders.getExcelData("tc063");
-    }
-
-    @DataProvider(name="tc059")
-    public static String[][] getDataTC059() throws IOException {
-        return ExcelDataProviders.getExcelData("tc059");
+        return ExcelDataProviders.getExcelData("tc050");
     }
 
     @DataProvider(name="tc051")
@@ -142,5 +116,41 @@ public class AuthorTestCaseDataProvider {
     public static String[][] getDataTC052() throws IOException {
         return ExcelDataProviders.getExcelData("tc052");
     }
+
+    @DataProvider(name="tc053")
+    public static String[][] getDataTC053() throws IOException {
+        return ExcelDataProviders.getExcelData("tc053");
+    }
+
+    @DataProvider(name="tc056")
+    public static String[][] getDataTC056() throws IOException {
+        return ExcelDataProviders.getExcelData("tc056");
+    }
+
+    @DataProvider(name="tc057")
+    public static String[][] getDataTC057() throws IOException {
+        return ExcelDataProviders.getExcelData("tc057");
+    }
+
+    @DataProvider(name="tc058")
+    public static String[][] getDataTC058() throws IOException {
+        return ExcelDataProviders.getExcelData("tc058");
+    }
+
+    @DataProvider(name="tc059")
+    public static String[][] getDataTC059() throws IOException {
+        return ExcelDataProviders.getExcelData("tc059");
+    }
+
+    @DataProvider(name="tc063")
+    public static String[][] getDataTC063() throws IOException {
+        return ExcelDataProviders.getExcelData("tc063");
+    }
+
+    @DataProvider(name="AddTest")
+    public static String[][] getDataAddTest() throws IOException {
+        return ExcelDataProviders.getExcelData("AddTest");
+    }
+
 
 }
