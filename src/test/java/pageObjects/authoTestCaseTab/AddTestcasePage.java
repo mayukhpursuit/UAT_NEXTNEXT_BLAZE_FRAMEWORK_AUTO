@@ -46,6 +46,8 @@ public class AddTestcasePage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='SAVE']")
     WebElement buttonSave;
 
+    @FindBy(xpath = "//div[contains(text(), 'Error: Name is required.')]")
+    WebElement tcNameRequiredWarningMessage;
 
 
     public WebElement linkTestCaseIdFromId(String id){
@@ -133,5 +135,20 @@ public class AddTestcasePage extends BasePage {
         );
         return element.getText().trim();
     }
+
+    public String getTcNameRequiredWarningMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(tcNameRequiredWarningMessage));
+        return tcNameRequiredWarningMessage.getText();
+    }
+
+    public String verifyTestCaseNameMaxLength() {
+        String longName = "A".repeat(600);
+        textName.clear();
+        textName.sendKeys(longName);
+        return textName.getAttribute("value");
+    }
+
+
 
 }

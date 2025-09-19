@@ -8,7 +8,7 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
 public class TC041 extends BaseClass {
-    @Test(dataProvider = "tc051", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc041", dataProviderClass = AuthorTestCaseDataProvider.class)
 
     public void verifyUpdatedCountoftestcase(String rqName, String tcName, String description, String priority, String type, String qaUser, String preCondition) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
