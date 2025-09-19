@@ -478,6 +478,28 @@ public class AuthorTestCasePage extends BasePage {
             return false;
         }
     }
+    
+    public void toggleRequirementPanel(String requirementId) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        String xpath = "//div[@class='frame-5'][.//div[@class='text-3' and normalize-space()='" +
+                requirementId + "']]//img[@id='rotatable-image']";
+
+        WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", toggle);
+        toggle.click();
+    }
+
+    public boolean isRequirementPanelExpanded(String requirementId) {
+        String xpath = "//div[@class='frame-5'][.//div[@class='text-3' and normalize-space()='" +
+                requirementId + "']]//img[@id='rotatable-image']";
+
+        WebElement toggle = driver.findElement(By.xpath(xpath));
+        String style = toggle.getAttribute("style");
+
+        // Expanded if rotate(0deg), Collapsed if rotate(180deg)
+        return style != null && style.contains("rotate(0deg)");
+    }
 }
 
 
