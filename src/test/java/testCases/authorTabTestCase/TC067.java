@@ -8,7 +8,7 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 
 public class TC067 extends BaseClass {
-    @Test(dataProvider = "tc066", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc067", dataProviderClass = AuthorTestCaseDataProvider.class)
 
     public void verifyMaxLengthOfTcName(String rqName) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
