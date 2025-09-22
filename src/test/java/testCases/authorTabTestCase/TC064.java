@@ -8,7 +8,7 @@ import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 
 public class TC064 extends BaseClass {
-    @Test(dataProvider = "tc042",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc055",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void VerifySaveAndCloseButton(
             String requirementId,String TestcaseId
     )throws InterruptedException {

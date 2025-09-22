@@ -185,7 +185,7 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public void clickSaveButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         Actions actions = new Actions(driver);
         WebElement saveBtn = wait.until(ExpectedConditions
                 .elementToBeClickable(buttonSave));

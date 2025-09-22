@@ -1,6 +1,7 @@
 package pageObjects.authoTestCaseTab;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -486,7 +487,9 @@ public class AuthorTestCasePage extends BasePage {
                 requirementId + "']]//img[@id='rotatable-image']";
 
         WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", toggle);
+        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", toggle);
+        Actions a= new Actions(driver);
+        a.moveToElement(toggle).perform();
         toggle.click();
     }
 

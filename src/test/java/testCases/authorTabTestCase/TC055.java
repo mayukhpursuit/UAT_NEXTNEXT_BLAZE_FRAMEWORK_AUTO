@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import org.testng.Assert;
 
 public class TC055 extends BaseClass {
-    @Test(dataProvider = "tc042",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc055",dataProviderClass = AuthorTestCaseDataProvider.class)
     public void VerifyLinkedTestcases(
             String requirementId,String TestcaseId
     )throws InterruptedException {
