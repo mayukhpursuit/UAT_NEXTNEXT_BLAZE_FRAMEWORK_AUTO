@@ -2,8 +2,11 @@ package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.annotations.Test;
+import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.authoTestCaseTab.LinkTestCasePage;
 import testBase.BaseClass;
+import testCases.Demo.AddTestCase;
 
 public class TC042 extends BaseClass {
     @Test(dataProvider = "tc042", dataProviderClass = AuthorTestCaseDataProvider.class)
@@ -17,8 +20,13 @@ public class TC042 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickRequirement(requirementId);
-            authorTestCasePage.clickActionIcon(TestcaseId);
-            logger.info("Clicked unlink icon for test case TC-358");
+            authorTestCasePage.clickAddTestcase();
+            AddTestcasePage addTestCase=new AddTestcasePage(getDriver());
+            addTestCase.setTestCaseName("For unlink");
+            addTestCase.clickSave();
+            String testCaseId=addTestCase.getTestcaseId("For unlink");
+            authorTestCasePage.clickActionIcon(testCaseId);
+            logger.info("Clicked unlink icon for test case ");
             authorTestCasePage.confirmUnlink();
             logger.info("Clicked Yes to unlink the test case successfully");
 

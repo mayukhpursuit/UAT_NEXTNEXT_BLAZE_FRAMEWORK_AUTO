@@ -20,13 +20,18 @@ public class TC049 extends BaseClass {
             AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
-            authorTestCasePage.clickActionIcon(TestcaseId);
+            authorTestCasePage.clickAddTestcase();
+            AddTestcasePage addTestCase=new AddTestcasePage(getDriver());
+            addTestCase.setTestCaseName("For unlink");
+            addTestCase.clickSave();
+            String testCaseId=addTestCase.getTestcaseId("For unlink");
+            authorTestCasePage.clickActionIcon(testCaseId);
             logger.info("Clicked unlink icon for test case ");
 
             authorTestCasePage.confirmUnlink();
             logger.info("Clicked Yes to unlink the test case successfully");
 
-            boolean isDelete= authorTestCasePage.isRowDeleted(TestcaseId);
+            boolean isDelete= authorTestCasePage.isRowDeleted(testCaseId);
             Assert.assertTrue(isDelete,"Row not deleted");
             logger.info("Row deleted");
 

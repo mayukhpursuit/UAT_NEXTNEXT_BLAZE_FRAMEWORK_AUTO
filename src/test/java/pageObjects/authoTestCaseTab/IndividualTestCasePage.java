@@ -189,7 +189,8 @@ public class IndividualTestCasePage extends BasePage {
         Actions actions = new Actions(driver);
         WebElement saveBtn = wait.until(ExpectedConditions
                 .elementToBeClickable(buttonSave));
-        actions.moveToElement(saveBtn).click().perform();
+        actions.moveToElement(saveBtn).perform();
+        saveBtn.click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(
                 By.xpath("//div[@id='notification']"),
                 "Test Case updated successfully."
