@@ -62,6 +62,8 @@ public class RequirementTabPage extends BasePage {
 
     //Actions
 
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
     public void clickRequirementTab(){
         tabRequirements.click();
     }
@@ -71,7 +73,7 @@ public class RequirementTabPage extends BasePage {
     public void clickNewModule() throws InterruptedException {
         Thread.sleep(1000);
         iconNewModule.click();
-       Thread.sleep(1000);
+        Thread.sleep(1000);
 
     }
     public void setModuleName(String moduleName){
@@ -80,11 +82,15 @@ public class RequirementTabPage extends BasePage {
     }
 
     public void saveModule(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         buttonSave.click();
         WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@id='notification' and normalize-space(text())='Module created successfully.']")
         ));
+    }
+
+    public void clickDeleteModule(){
+        wait.until(d -> iconDelete.getCssValue("cursor").equalsIgnoreCase("pointer"));
+        iconDelete.click();
     }
 
 
