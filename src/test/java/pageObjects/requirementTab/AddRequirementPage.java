@@ -103,5 +103,4 @@ public class AddRequirementPage extends BasePage {
         requirementExpandCollapseArrow.click();
     }
 
-
 }
