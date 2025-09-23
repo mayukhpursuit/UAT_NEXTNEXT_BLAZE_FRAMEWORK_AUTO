@@ -38,6 +38,15 @@ public class TestPlanLandingPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]")
     private WebElement projectCaret;
+     
+    @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Releases']/following-sibling::div[@class='card-value']")
+    private WebElement totalReleasesValue;
+
+    @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Test Cycles']/following-sibling::div[@class='card-value']")
+    private WebElement totalTestCyclesValue;
+
+    @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Test Suites']/following-sibling::div[@class='card-value']")
+    private WebElement totalTestSuitesValue;
 
     // --- Actions ---
     public void selectTestPlanTab() {
@@ -96,4 +105,17 @@ public class TestPlanLandingPage extends BasePage {
     public void toggleHamburgerMenu() {
         btnHamburgerMenu.click();
     }
+
+    public int getTotalReleases() {
+        return Integer.parseInt(totalReleasesValue.getText().trim());
+    }
+
+    public int getTotalTestCycles() {
+        return Integer.parseInt(totalTestCyclesValue.getText().trim());
+    }
+
+    public int getTotalTestSuites() {
+        return Integer.parseInt(totalTestSuitesValue.getText().trim());
+    }
+    
 }
