@@ -17,8 +17,15 @@ public class RequirementTabPage extends BasePage {
     }
 
     //Locators
+
     @FindBy(xpath = "//span[@id='requirements']")
     WebElement tabRequirements;
+
+    @FindBy(xpath = "//img[@alt='Close Sidebar']")
+    WebElement closeSideBar;
+
+    @FindBy(xpath = "//img[@alt='Open Sidebar']")
+    WebElement openSideBar;
 
     @FindBy(xpath = "//span[@title='<p></p>']")
     WebElement leftPanelProjectName;
@@ -39,10 +46,6 @@ public class RequirementTabPage extends BasePage {
 
     @FindBy(xpath = "//input[@class='supporting-text']")
     WebElement textModuleName;
-
-
-    @FindBy(xpath = "(//input[@type='text'])[3]")
-    WebElement textName;
 
     @FindBy(xpath = "//div[normalize-space()='SAVE']")
     WebElement buttonSave;
@@ -83,5 +86,6 @@ public class RequirementTabPage extends BasePage {
                 By.xpath("//div[@id='notification' and normalize-space(text())='Module created successfully.']")
         ));
     }
+
 
 }

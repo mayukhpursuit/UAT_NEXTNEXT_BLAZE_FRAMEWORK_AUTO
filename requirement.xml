@@ -5,11 +5,10 @@
         <listener class-name="utils.ExtentReportManager"/>
     </listeners>
     <test verbose="2" preserve-order="true"
-          name="Author Test ">
+          name="requirement Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
              <class name="testCases.requirementTabTestCase.TC001"/>
-
         </classes>
     </test>
 </suite>
