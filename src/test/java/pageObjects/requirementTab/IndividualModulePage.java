@@ -17,7 +17,6 @@ public class IndividualModulePage extends BasePage {
     WebElement buttonAddRequirement;
 
 
-
     //Actions
 
     public void clickAddRequirement(){

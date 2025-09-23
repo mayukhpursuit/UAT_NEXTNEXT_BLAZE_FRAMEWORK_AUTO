@@ -1,17 +1,12 @@
-package testCases.Demo;
+package testCases.demo;
 
-import DataProviders.AuthorTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
-import pageObjects.authoTestCaseTab.AuthorTestCasePage;
-import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
-public class FinalFlow extends BaseClass {
+public class AddRequirement extends BaseClass {
     @Test
     public void verifyRequirementFlow() throws InterruptedException {
         logger.info("****** Starting the Filter Requirement Test Case *****************");
@@ -32,26 +27,6 @@ public class FinalFlow extends BaseClass {
             addRequirementPage.setRequirementId("RQ-114");
             addRequirementPage.setDescription("Hello new requirement");
             addRequirementPage.clickSave();
-            AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
-            authorTestCasePage.clickAuthorTestcase();
-            authorTestCasePage.selectEpic("Epic Mayukhjit");
-            authorTestCasePage.selectFeature("Feature Mohit");
-            authorTestCasePage.clickRequirement("RQ-114");
-
-            authorTestCasePage.clickAddTestcase();
-
-            AddTestcasePage addTestcasePage= new AddTestcasePage(getDriver());
-            addTestcasePage.setTestCaseName("tc-0142");
-            addTestcasePage.setDescription("As a tester , I want to what and why ");
-            addTestcasePage.selectPriority("Low");
-            addTestcasePage.selectQaUser("Mayukhjit Chakraborty");
-            addTestcasePage.clickSave();
-            String testCaseId=addTestcasePage.getTestcaseId("tc-0142");
-            System.out.println(testCaseId);
-            authorTestCasePage.clickTestCase(testCaseId);
-            IndividualTestCasePage individualTestCasePage= new IndividualTestCasePage(getDriver());
-            individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
-            individualTestCasePage.clickSaveButton();
 
         }
         catch (AssertionError e) {

@@ -4,9 +4,7 @@ import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
-import pageObjects.authoTestCaseTab.LinkTestCasePage;
 import testBase.BaseClass;
-import testCases.Demo.AddTestCase;
 
 public class TC042 extends BaseClass {
     @Test(dataProvider = "tc042", dataProviderClass = AuthorTestCaseDataProvider.class)

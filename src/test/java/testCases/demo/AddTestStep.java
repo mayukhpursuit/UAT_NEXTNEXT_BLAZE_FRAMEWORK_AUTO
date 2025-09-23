@@ -1,9 +1,7 @@
-package testCases.Demo;
+package testCases.demo;
 
 import DataProviders.AuthorTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
