@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+import java.util.List;
 
 import java.time.Duration;
 
@@ -104,5 +105,23 @@ public class RequirementTabPage extends BasePage {
         leftModuleNameByName(moduleName).click();
     }
 
+    public void clickProjectName() throws InterruptedException {
+        clickOnTheProjectName();
+    }
+
+    public String getProjectNameText() {
+        return leftPanelProjectName.getText().trim();
+    }
+
+    public List<String> getRequirementIDs() {
+        List<WebElement> rows = getRequirementsFromModuleTable();
+        return rows.stream().map(row -> row.findElement(By.cssSelector("div.testlistcell a.text-wrapper-14")).getText()).toList();
+    }
+
+    public List<WebElement> getRequirementsFromModuleTable() {
+        WebElement tableContainer = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("existingTestCasesInnerTable"))));
+        return tableContainer.findElements(By.cssSelector("div.testlistrow"));
+    }
+    
 
 }
