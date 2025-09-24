@@ -3,6 +3,7 @@ package pageObjects.requirementTab;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class IndividualModulePage extends BasePage {
 
-    public IndividualModulePage(WebDriver driver){
+    public IndividualModulePage(WebDriver driver) {
         super(driver);
     }
 
@@ -65,6 +66,15 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
 
+    @FindBy(xpath = "//div[@class='testcase-div-2']//div[1]//div[2]//select[1]")
+    WebElement priority;
+
+    @FindBy(xpath = "//button[@id='closeButton']//div[@class='test-execution-clear'][normalize-space()='CLOSE']")
+    WebElement closebutton;
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement notificationMessage;
+
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
     }
@@ -76,11 +86,9 @@ public class IndividualModulePage extends BasePage {
     }
 
 
-
-
     //Actions
 
-    public void clickAddRequirement(){
+    public void clickAddRequirement() {
         buttonAddRequirement.click();
     }
 
@@ -94,7 +102,7 @@ public class IndividualModulePage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOf(inputTitle)).getAttribute("value").trim();
     }
 
-    public String getModuleId(){
+    public String getModuleId() {
         return headingModuleId.getText();
     }
 
@@ -200,7 +208,7 @@ public class IndividualModulePage extends BasePage {
         }
     }
 
-    public void clickPreviousArrow(){
+    public void clickPreviousArrow() {
         arrowBackwardPrevious.click();
     }
 
@@ -210,7 +218,39 @@ public class IndividualModulePage extends BasePage {
         lastPageArrowBtn.click();
     }
 
+    public void setPriority(String priorityValue) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(priority));
+            Select select = new Select(priority);
+            select.selectByVisibleText(priorityValue);
+            System.out.println("Priority set to: " + priorityValue);
+        } catch (Exception e) {
+            System.out.println("Failed to select priority: " + e.getMessage());
+        }
+    }
 
+    public void clickCloseButton() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(closebutton));
+            closebutton.click();
+            System.out.println("Close button clicked successfully.");
+        } catch (Exception e) {
+            System.out.println("Failed to click Close button: " + e.getMessage());
+        }
+    }
 
+    public boolean isRequirementUpdatedSuccessfully() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(notificationMessage));
+
+            String messageText = notificationMessage.getText().trim();
+            return messageText.equals("Requirement updated successfully.");
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }
