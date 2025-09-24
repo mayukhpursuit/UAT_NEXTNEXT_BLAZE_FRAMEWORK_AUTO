@@ -66,8 +66,6 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
 
-    @FindBy(xpath = "//div[@class='testcase-div-2']//div[1]//div[2]//select[1]")
-    WebElement priority;
 
     @FindBy(xpath = "//button[@id='closeButton']//div[@class='test-execution-clear'][normalize-space()='CLOSE']")
     WebElement closebutton;
@@ -85,6 +83,14 @@ public class IndividualModulePage extends BasePage {
         ));
     }
 
+    @FindBy(xpath = "//div[contains(text(),'Priority')]")
+    WebElement priority;
+
+    @FindBy(xpath = "//div[contains(text(),'Status')]")
+    WebElement status;
+
+    @FindBy(xpath = "//div[contains(text(),'Type')]")
+    WebElement type;
 
     //Actions
 
@@ -229,6 +235,10 @@ public class IndividualModulePage extends BasePage {
             System.out.println("Failed to select priority: " + e.getMessage());
         }
     }
+    public WebElement PriorityField()
+    {
+        return priority;
+    }
 
     public void clickCloseButton() {
         try {
@@ -239,6 +249,10 @@ public class IndividualModulePage extends BasePage {
         } catch (Exception e) {
             System.out.println("Failed to click Close button: " + e.getMessage());
         }
+    }
+    public WebElement StatusField()
+    {
+        return status;
     }
 
     public boolean isRequirementUpdatedSuccessfully() {
@@ -253,4 +267,8 @@ public class IndividualModulePage extends BasePage {
         }
     }
 
+    public WebElement TypeField()
+    {
+        return type;
+    }
 }

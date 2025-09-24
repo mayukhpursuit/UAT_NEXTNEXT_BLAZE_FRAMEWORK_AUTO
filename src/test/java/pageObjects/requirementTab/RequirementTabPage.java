@@ -122,6 +122,17 @@ public class RequirementTabPage extends BasePage {
         WebElement tableContainer = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("existingTestCasesInnerTable"))));
         return tableContainer.findElements(By.cssSelector("div.testlistrow"));
     }
-    
+
+    public boolean isRequirementVisible(String requirementId) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            String xpath = "(//p[normalize-space()='" + requirementId + "'])[1]";
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
 }

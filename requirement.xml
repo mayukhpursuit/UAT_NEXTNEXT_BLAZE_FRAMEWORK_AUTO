@@ -10,6 +10,7 @@
         <classes>
              <class name="testCases.requirementTabTestCase.TC001"/>
             <class name="testCases.requirementTabTestCase.TC002"/>
+             <class name="testCases.requirementTabTestCase.TC010"/>
         </classes>
     </test>
 </suite>
