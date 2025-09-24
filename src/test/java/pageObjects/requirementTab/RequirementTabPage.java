@@ -29,6 +29,8 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "//span[@title='<p></p>']")
     WebElement leftPanelProjectName;
 
+
+
     public WebElement arrowBeforeExpandRightPointing(String moduleName){
         return driver.findElement(By.xpath("//span[text()='"+moduleName+"']/..//i[@class='fa-solid tree-arrow fa-caret-right']"));
     }
@@ -54,6 +56,8 @@ public class RequirementTabPage extends BasePage {
 
     @FindBy(xpath = "//div[@id='notification' and text()='Module updated successfully.']")
     WebElement notificationAfterModuleUpdation;
+    @FindBy(xpath = "(//a[@class='text-wrapper-14'])[last()]")
+    WebElement getNewRqIdText;
 
     public WebElement leftModuleNameByName(String name){
         return driver.findElement(By.xpath("//div[@class='tree-node tree-node expanded']//span[normalize-space()='"+name+"']"));
@@ -102,6 +106,9 @@ public class RequirementTabPage extends BasePage {
 
     public void clickOnModule(String moduleName){
         leftModuleNameByName(moduleName).click();
+    }
+    public String getNewCreatedRqIdText(){
+        return getNewRqIdText.getText();
     }
 
 
