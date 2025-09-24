@@ -4,6 +4,7 @@ import DataProviders.RequirementDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
 public class TC001 extends BaseClass {
@@ -14,6 +15,8 @@ public class TC001 extends BaseClass {
         try {
             login();
             logger.info("Logged in successfully");
+            RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
+
 
         }
         catch (AssertionError e) {

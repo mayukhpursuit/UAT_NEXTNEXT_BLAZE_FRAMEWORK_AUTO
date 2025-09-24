@@ -92,5 +92,17 @@ public class RequirementTabPage extends BasePage {
         iconDelete.click();
     }
 
+    public void clickArrowRightPointingForExpandModule(String moduleName){
+        arrowBeforeExpandRightPointing(moduleName).click();
+    }
+
+    public void clickArrowDownPointingForCollapseModule(String moduleName){
+        arrowAfterExpandDownPointing(moduleName).click();
+    }
+
+    public void clickOnModule(String moduleName){
+        leftModuleNameByName(moduleName).click();
+    }
+
 
 }
