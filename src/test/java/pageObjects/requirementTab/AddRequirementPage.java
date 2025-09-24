@@ -16,6 +16,9 @@ public class AddRequirementPage extends BasePage {
     }
     //locators
 
+    @FindBy(xpath = "//div[@class='testcase-text-3']")
+    WebElement getTextRequirementId;
+
     @FindBy(xpath = "//input[@id='testCaseName']")
     WebElement textRequirementId;
 
@@ -101,6 +104,9 @@ public class AddRequirementPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(requirementExpandCollapseArrow));
         requirementExpandCollapseArrow.click();
+    }
+    public String getRequirementIdName(){
+        return getTextRequirementId.getText();
     }
 
     public boolean isModulePageReopened() {
