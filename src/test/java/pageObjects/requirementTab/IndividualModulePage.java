@@ -66,8 +66,14 @@ public class IndividualModulePage extends BasePage {
         ));
     }
 
+    @FindBy(xpath = "//div[contains(text(),'Priority')]")
+    WebElement priority;
 
+    @FindBy(xpath = "//div[contains(text(),'Status')]")
+    WebElement status;
 
+    @FindBy(xpath = "//div[contains(text(),'Type')]")
+    WebElement type;
 
     //Actions
 
@@ -170,7 +176,18 @@ public class IndividualModulePage extends BasePage {
         lastPageArrowBtn.click();
     }
 
+    public WebElement PriorityField()
+    {
+        return priority;
+    }
 
+    public WebElement StatusField()
+    {
+        return status;
+    }
 
-
+    public WebElement TypeField()
+    {
+        return type;
+    }
 }
