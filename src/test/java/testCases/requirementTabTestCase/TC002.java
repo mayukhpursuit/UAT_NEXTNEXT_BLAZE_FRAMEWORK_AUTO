@@ -7,14 +7,14 @@ import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
-public class TC001 extends BaseClass {
-    @Test(dataProvider = "tc001", dataProviderClass = RequirementDataProvider.class)
-    public void verifyRequire(
+public class TC002 extends BaseClass {
+    @Test(dataProvider = "tc002", dataProviderClass = RequirementDataProvider.class)
+    public void verifyEpicVisibility(
             String project,
             String epic,
             String feature,
-            String moduleName,
-            String moduleId
+            String description
+
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -23,17 +23,24 @@ public class TC001 extends BaseClass {
             RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
             requirementTabPage.clickRequirementTab();
             logger.info("Navigated to Requirement page");
-            requirementTabPage.clickArrowRightPointingForExpandModule(project);
-            logger.info("Navigated to the project");
-            requirementTabPage.clickArrowRightPointingForExpandModule(epic);
-            logger.info("Navigated to Module");
-            requirementTabPage.clickOnModule(feature);
-            logger.info("clicked on specific module");
             IndividualModulePage individualModulePage= new IndividualModulePage(getDriver());
-            Assert.assertEquals(individualModulePage.getModuleId(),moduleId);
-            logger.info("Module Id Verified Successfully");
-            Assert.assertEquals(individualModulePage.getModuleName(),moduleName);
-            logger.info("Module Title verified Successfully");
+            for (int i=0;i<=1;i++){
+                requirementTabPage.clickArrowRightPointingForExpandModule(project);
+                logger.info("Navigated to the project");
+                requirementTabPage.clickArrowRightPointingForExpandModule(epic);
+                logger.info("Navigated to Module");
+                requirementTabPage.clickOnModule(feature);
+                logger.info("clicked on specific module");
+                if (i==0){
+                    individualModulePage.setActualDescription(description);
+                    logger.info("Typed new description");
+                    individualModulePage.clickSave();
+                    logger.info("Clicked Save Button");
+                    getDriver().navigate().refresh();
+                }
+            }
+            Assert.assertEquals(individualModulePage.getActualDescription(),description);
+            logger.info("Verified the description successfully..");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

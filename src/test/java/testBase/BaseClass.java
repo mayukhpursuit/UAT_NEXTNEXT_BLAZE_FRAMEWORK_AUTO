@@ -81,7 +81,7 @@ public class BaseClass {
         ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();",getDriver().findElement(By.xpath("//img[@id='chevron-logout']")));
         WebElement logOut=getDriver().findElement(By.xpath("//a[normalize-space()='Logout']"));
         ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();",logOut);
-        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();",getDriver().findElement(By.xpath("//div[@data-bind='text: ((session.isSignedIn || session.isSamsungSso) && session.unsafe_fullName) || session.unsafe_displayName']")));
+//        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();",getDriver().findElement(By.xpath("//div[@data-bind='text: ((session.isSignedIn || session.isSamsungSso) && session.unsafe_fullName) || session.unsafe_displayName']")));
 
     }
     //log in to site

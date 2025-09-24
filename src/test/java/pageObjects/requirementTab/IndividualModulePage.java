@@ -20,6 +20,12 @@ public class IndividualModulePage extends BasePage {
 
     // Locators
 
+    @FindBy(xpath = "//div[@class='text-2']")
+    WebElement headingModuleId;
+
+    @FindBy(xpath = "//p[@class='supporting-text']")
+    WebElement headingModuleName;
+
     @FindBy(xpath = "//div[@class='label-3']")
     WebElement buttonAddRequirement;
 
@@ -34,6 +40,12 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(xpath = "(//input[@class='testcase-select value'])[1]")
     WebElement inputDescription;
+
+    @FindBy(xpath = "//div[@class='rich-editor-scrollable']")
+    WebElement descriptionBeforeClick;
+
+    @FindBy(xpath = "//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']")
+    WebElement descriptionAfterClick;
 
     @FindBy(id = "rotatable-image")
     WebElement toggleSectionIcon;
@@ -80,6 +92,15 @@ public class IndividualModulePage extends BasePage {
         inputTitle.sendKeys(title);
     }
 
+    public String getModuleName() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        return wait.until(ExpectedConditions.visibilityOf(inputTitle)).getAttribute("value").trim();
+    }
+
+    public String getModuleId(){
+        return headingModuleId.getText();
+    }
+
     public void enterName(String name) {
         inputName.clear();
         inputName.sendKeys(name);
@@ -92,6 +113,19 @@ public class IndividualModulePage extends BasePage {
     public void enterDescription(String description) {
         inputDescription.clear();
         inputDescription.sendKeys(description);
+    }
+
+    public void setActualDescription(String description) throws InterruptedException {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+            descriptionBeforeClick.click();
+
+            descriptionAfterClick.clear();
+            descriptionAfterClick.sendKeys(description);
+
+    }
+
+    public String getActualDescription(){
+        return descriptionBeforeClick.getText();
     }
 
     public void clickToggleSection() {
