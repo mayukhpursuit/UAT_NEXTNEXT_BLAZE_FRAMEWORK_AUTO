@@ -1,8 +1,10 @@
 package testCases.requirementTabTestCase;
 
 import DataProviders.RequirementDataProvider;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.requirementTab.RequirementTabPage;
+import pageObjects.requirementTab.IndividualModulePage;
 import testBase.BaseClass;
 
 import java.util.logging.Logger;
@@ -11,7 +13,10 @@ public class TC011 extends BaseClass {
     @Test (dataProvider = "tc011", dataProviderClass = RequirementDataProvider.class)
     public void VerifySavebuttonfunctionalityintherequirements(
             String project,
-            String epic
+            String epic,
+            String rq,
+            String pri,
+            String pri1
     ) throws InterruptedException {
         logger.info("****** Starting the TC:11 Verify Save button functionality in the requirements  *************");
         try {
@@ -27,6 +32,31 @@ public class TC011 extends BaseClass {
 
             reqPage.clickOnModule(epic);
             logger.info("Selected epic"+epic);
+
+            IndividualModulePage req = new IndividualModulePage(getDriver());
+            req.clickRequirement(rq);
+            logger.info("Selected Requirement"+rq);
+
+            req.setPriority(pri);
+            logger.info("Priority changed"+pri);
+
+            req.clickSave();
+            logger.info("Clicked saved");
+
+            if (req.isRequirementUpdatedSuccessfully()) {
+                logger.info("Requirement updated successfully is visible.");
+            } else {
+                logger.error("Requirement update Unsuccessfully.");
+                Assert.fail("Requirement update Unsuccessfully.");
+            }
+
+            req.clickCloseButton();
+            logger.info("Close button clicked");
+
+            req.clickRequirement(rq);
+            req.setPriority(pri1);
+            req.clickSave();
+
 
 
         }
