@@ -1,9 +1,6 @@
 package pageObjects.requirementTab;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -108,6 +105,10 @@ public class IndividualModulePage extends BasePage {
 
     public void clickSave() {
         btnSave.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement notification = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+        );
     }
 
     public void enterDescription(String description) {
@@ -116,11 +117,16 @@ public class IndividualModulePage extends BasePage {
     }
 
     public void setActualDescription(String description) throws InterruptedException {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-            descriptionBeforeClick.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-            descriptionAfterClick.clear();
-            descriptionAfterClick.sendKeys(description);
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
+        descriptionBeforeClick.click();
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
+        descriptionAfterClick.sendKeys(description);
 
     }
 
