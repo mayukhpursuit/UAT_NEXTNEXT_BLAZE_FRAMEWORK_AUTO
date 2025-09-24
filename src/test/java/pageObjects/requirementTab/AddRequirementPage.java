@@ -103,4 +103,14 @@ public class AddRequirementPage extends BasePage {
         requirementExpandCollapseArrow.click();
     }
 
+    public boolean isModulePageReopened() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(addRequirementBtn));
+            return addRequirementBtn.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

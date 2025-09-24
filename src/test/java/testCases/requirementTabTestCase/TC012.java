@@ -5,12 +5,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.IndividualModulePage;
+import pageObjects.requirementTab.AddRequirementPage;
 import testBase.BaseClass;
 
 import java.util.logging.Logger;
 
 public class TC012 extends BaseClass {
-    @Test (dataProvider = "tc011", dataProviderClass = RequirementDataProvider.class)
+    @Test (dataProvider = "tc012", dataProviderClass = RequirementDataProvider.class)
     public void verifytheclosebuttonfunctionalityintherequirements (
             String project,
             String epic,
@@ -37,6 +38,10 @@ public class TC012 extends BaseClass {
 
             req.clickCloseButton();
             logger.info("Close button clicked");
+
+            AddRequirementPage addreqPage = new AddRequirementPage(getDriver());
+            addreqPage.isModulePageReopened();
+            logger.info("Module page reopened sucessfully");
 
 
         }
