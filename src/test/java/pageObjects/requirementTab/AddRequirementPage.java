@@ -52,6 +52,9 @@ public class AddRequirementPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Requirement updated successfully.')]")
     WebElement requirementUpdatedSuccessMessage;
 
+    @FindBy(id = "notification")
+    WebElement errorNotification;
+
     //actions
 
     public void setRequirementId(String id){
@@ -103,6 +106,10 @@ public class AddRequirementPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(buttonClose));
         buttonClose.click();
     }    public void requirementDetailsVisibility(){
+        wait.until(ExpectedConditions.elementToBeClickable(buttonClose)).click();
+        wait.until(ExpectedConditions.invisibilityOf(buttonClose));
+    }
+    public void requirementDetailsVisibility(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(requirementExpandCollapseArrow));
         requirementExpandCollapseArrow.click();
@@ -127,5 +134,11 @@ public class AddRequirementPage extends BasePage {
     }
 
 
+
+    public String getErrorMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(errorNotification));
+        return errorNotification.getText().trim();
+    }
 
 }

@@ -225,4 +225,15 @@ public class RequirementTabPage extends BasePage {
         return allModulesIncludeProject.size()-1;
     }
 
+    public void unlinkRequirementById(String requirementId, int previousCount) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        String xpath = "//div[@class='testlistrow']//a[normalize-space(text())='" + requirementId
+                + "']/ancestor::div[@class='testlistrow']//button[contains(@class,'deleteRowButton')]";
+        WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        deleteBtn.click();
+        WebElement yesBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("confirmBtn")));
+        yesBtn.click();
+        wait.until(driver -> getRequirementIDs().size() < previousCount);
+    }
+
 }
