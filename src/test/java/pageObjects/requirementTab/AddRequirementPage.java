@@ -27,6 +27,9 @@ public class AddRequirementPage extends BasePage {
     @FindBy(xpath = "//button[@id='saveButton']")
     WebElement buttonSave;
 
+    @FindBy(xpath = "//div[contains(text(),'Requirement updated successfully.')]")
+    WebElement requirementUpdatedSuccessMessage;
+
     //actions
 
     public void setRequirementId(String id){
@@ -47,6 +50,12 @@ public class AddRequirementPage extends BasePage {
     }
     public void clickSave(){
         buttonSave.click();
+    }
+
+    public String getRequirementUpdatedSuccessMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(requirementUpdatedSuccessMessage));
+        return requirementUpdatedSuccessMessage.getText();
     }
 
 
