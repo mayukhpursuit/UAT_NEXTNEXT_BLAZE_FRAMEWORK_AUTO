@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
 import java.util.Arrays;
@@ -14,17 +15,26 @@ import java.util.stream.Collectors;
 public class TC003 extends BaseClass {
     @Test(dataProvider = "tc003", dataProviderClass = AuthorTestCaseDataProvider.class)
     public void verifyAllAvailableEpicsDisplayed(
-            String expectedEpic
+            String projectName
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");
+            RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());
+            requirementTabPage.clickRequirementTab();
+            logger.info("Navigated to Requirement page");
+            requirementTabPage.clickArrowRightPointingForExpandModule(projectName);
+            logger.info("Navigated to the project");
+            int expectedEpic=requirementTabPage.getAllModulesOnly();
+            authorTestCasePage.clickAuthorTestcase();
+
             authorTestCasePage.clickEpic();
             logger.info("Clicked Epic successfully");
-            Assert.assertEquals(authorTestCasePage.getCountInEpic()-1,Integer.parseInt(expectedEpic),"Count mismatched ..");
+
+            Assert.assertEquals(authorTestCasePage.getCountInEpic()-1,expectedEpic,"Count mismatched ..");
             logger.info("Verified the containing Epics");
         }
         catch (AssertionError e) {

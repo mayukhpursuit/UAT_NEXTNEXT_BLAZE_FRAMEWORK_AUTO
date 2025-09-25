@@ -84,6 +84,9 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Type')]")
     WebElement type;
 
+    @FindBy(xpath = "//span[@class='tree-label']")
+    List<WebElement> allModulesIncludeProject;
+
 
     //Actions
 
@@ -218,5 +221,8 @@ public class RequirementTabPage extends BasePage {
         return priority.isDisplayed();
     }
 
+    public int getAllModulesOnly(){
+        return allModulesIncludeProject.size()-1;
+    }
 
 }
