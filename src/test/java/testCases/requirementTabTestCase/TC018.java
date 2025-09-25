@@ -2,7 +2,6 @@ package testCases.requirementTabTestCase;
 
 import DataProviders.RequirementDataProvider;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,19 +13,21 @@ import testBase.BaseClass;
 
 import java.time.Duration;
 
-public class TC010 extends BaseClass {
-    @Test(dataProvider = "tc010", dataProviderClass = RequirementDataProvider.class)
-    public void verifyFieldDetails(
+public class TC018 extends BaseClass {
+    @Test(dataProvider = "tc018", dataProviderClass = RequirementDataProvider.class)
+    public void verifyNameAndDescription3(
             String project,
             String epic,
             String feature,
-            String id
+            String name,
+            String descri
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully");
-            RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
+            RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
+            AddRequirementPage addRequirementPage=new AddRequirementPage(getDriver());
             requirementTabPage.clickRequirementTab();
             logger.info("Navigated to Requirement page");
             requirementTabPage.clickArrowRightPointingForExpandModule(project);
@@ -35,24 +36,14 @@ public class TC010 extends BaseClass {
             logger.info("Navigated to Module");
             requirementTabPage.clickOnModule(feature);
             logger.info("clicked on specific module");
-            AddRequirementPage addRequirementPage=new AddRequirementPage(getDriver());
-            addRequirementPage.clickAddRequirementBtn();
-            logger.info("Add a requirement");
-            addRequirementPage.setRequirementId(id);
-            IndividualModulePage modulePage=new IndividualModulePage(getDriver());
-            WebDriverWait wait =new WebDriverWait(getDriver(),Duration.ofSeconds(10));
-            logger.info("Verify all the fields");
-            Assert.assertTrue(modulePage.isPriorityFieldVisible(),"Priority field is not visible");
-            Assert.assertTrue(modulePage.isStatusFieldVisible(),"Status field is not Visisble");
-            Assert.assertTrue(modulePage.isTypeFieldVisible(),"Type field is not Visible");
-            logger.info("Fields have been verified");
-            addRequirementPage.clickSave();
+            IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());
+            indivisualModulePage.enterName(name);
+            indivisualModulePage.setActualDescription(descri);
+            indivisualModulePage.clickSave();
             logger.info("click on save btn" );
             WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
             wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='notification']")));
             logger.info("Success msg appears");
-            addRequirementPage.clickClose();
-            logger.info("Fields have been verified and the requirement has been save successfully");
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
@@ -65,3 +56,5 @@ public class TC010 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
+
+

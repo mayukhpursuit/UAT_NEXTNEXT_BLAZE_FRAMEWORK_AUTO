@@ -75,6 +75,16 @@ public class RequirementTabPage extends BasePage {
         ));
     }
 
+    @FindBy(xpath = "//div[contains(text(),'Priority')]")
+    WebElement priority;
+
+    @FindBy(xpath = "//div[contains(text(),'Status')]")
+    WebElement status;
+
+    @FindBy(xpath = "//div[contains(text(),'Type')]")
+    WebElement type;
+
+
     //Actions
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -192,4 +202,21 @@ public class RequirementTabPage extends BasePage {
         Assert.assertTrue(closeSideBar.isDisplayed(), "Sidebar did not expand");
         System.out.println("Sidebar opened successfully");
     }
+    public boolean isTypeFieldVisible()
+    {
+        return type.isDisplayed();
+    }
+
+    public boolean isStatusFieldVisible()
+
+    {
+        return status.isDisplayed();
+    }
+
+    public boolean isPriorityFieldVisible()
+    {
+        return priority.isDisplayed();
+    }
+
+
 }
