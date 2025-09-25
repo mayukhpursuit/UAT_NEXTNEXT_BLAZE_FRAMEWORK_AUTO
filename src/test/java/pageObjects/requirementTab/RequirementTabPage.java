@@ -3,6 +3,7 @@ package pageObjects.requirementTab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -61,7 +62,10 @@ public class RequirementTabPage extends BasePage {
     WebElement getNewRqIdText;
 
     public WebElement leftModuleNameByName(String name){
-        return driver.findElement(By.xpath("//div[@class='tree-node tree-node expanded']//span[normalize-space()='"+name+"']"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='tree-node tree-node expanded']//span[normalize-space()='" + name + "']")
+        ));
     }
 
     //Actions
@@ -72,7 +76,10 @@ public class RequirementTabPage extends BasePage {
         tabRequirements.click();
     }
     public void clickOnTheProjectName() throws InterruptedException {
+
         leftPanelProjectName.click();
+        wait.until(ExpectedConditions.visibilityOf(buttonSave));
+
     }
     public void clickNewModule() throws InterruptedException {
         Thread.sleep(1000);
@@ -99,15 +106,25 @@ public class RequirementTabPage extends BasePage {
 
     public void clickArrowRightPointingForExpandModule(String moduleName){
         arrowBeforeExpandRightPointing(moduleName).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='tree-children']") // children of the project
+        ));
     }
 
     public void clickArrowDownPointingForCollapseModule(String moduleName){
         arrowAfterExpandDownPointing(moduleName).click();
     }
 
-    public void clickOnModule(String moduleName){
-        leftModuleNameByName(moduleName).click();
+    public void clickOnModule(String moduleName) throws InterruptedException {
+        try {
+            Actions a= new Actions(driver);
+            a.moveToElement(leftModuleNameByName(moduleName)).perform();
+            leftModuleNameByName(moduleName).click();
+        } catch (Exception e) {
+            driver.findElement(By.xpath(" //div[@class='tree-node tree-node collapsed']//span[normalize-space()='"+moduleName+"']")).click();
+        }
     }
+
     public String getNewCreatedRqIdText(){
         return getNewRqIdText.getText();
     }

@@ -142,6 +142,7 @@ public class IndividualModulePage extends BasePage {
         // Wait until the description input is clickable
         wait.until(ExpectedConditions.elementToBeClickable(inputDescription));
         inputDescription.sendKeys(Keys.chord(Keys.CONTROL,"A"));
+        inputDescription.sendKeys(Keys.BACK_SPACE);
         inputDescription.sendKeys(description);
     }
 
