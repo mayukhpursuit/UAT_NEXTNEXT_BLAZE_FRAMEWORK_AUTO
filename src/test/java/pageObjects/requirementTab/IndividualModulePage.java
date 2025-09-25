@@ -55,6 +55,8 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
+    @FindBy(xpath = "//p[contains(text(), 'Please enter a module name to proceed.')]")
+    WebElement AlertMessageForModuleName;
 
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
@@ -170,7 +172,9 @@ public class IndividualModulePage extends BasePage {
         lastPageArrowBtn.click();
     }
 
-
+public String getAlertMessage(){
+        return AlertMessageForModuleName.getText();
+}
 
 
 }

@@ -61,8 +61,9 @@
 <!--             <class name="testCases.authorTabTestCase.TC070"/>-->
 <!--             <class name="testCases.authorTabTestCase.TC071"/>-->
 <!--             <class name="testCases.authorTabTestCase.TC072"/>-->
+            <class name="testCases.requirementTabTestCase.TC021"/>
 
-             <class name="testCases.requirementTabTestCase.TC008"/>
+            <class name="testCases.requirementTabTestCase.TC022"/>
 
 <!--            <class name="testCases.demo.FinalFlow"/>-->
 

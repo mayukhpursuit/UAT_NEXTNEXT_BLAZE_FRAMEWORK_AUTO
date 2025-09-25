@@ -28,6 +28,8 @@ public class RequirementTabPage extends BasePage {
 
     @FindBy(xpath = "//span[@title='<p></p>']")
     WebElement leftPanelProjectName;
+    @FindBy(xpath = "//span[@class='entry-info']")
+    WebElement totalEntriesRqCount;
 
 
 
@@ -110,6 +112,14 @@ public class RequirementTabPage extends BasePage {
     public String getNewCreatedRqIdText(){
         return getNewRqIdText.getText();
     }
+    public String totalCountOfAvailabelRq(){
+        return totalEntriesRqCount.getText().trim();
+    }
+    public int extractNumber(String text) {
+        return Integer.parseInt(text.replaceAll("[^0-9]", ""));
+    }
+
+
 
 
 }
