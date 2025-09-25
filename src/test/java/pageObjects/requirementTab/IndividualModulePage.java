@@ -101,6 +101,9 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Type')]")
     WebElement type;
 
+    @FindBy(xpath = "//span[@class='entry-info']")
+    WebElement requirementCountFooter;
+
     //Actions
 
     public void clickAddRequirement() {
@@ -283,5 +286,10 @@ public class IndividualModulePage extends BasePage {
     public WebElement TypeField()
     {
         return type;
+    }
+
+    public int getRequirementCountFromFooter() {
+        String footerText = requirementCountFooter.getText(); // e.g. "Total 37 entries"
+        return Integer.parseInt(footerText.replaceAll("[^0-9]", ""));
     }
 }

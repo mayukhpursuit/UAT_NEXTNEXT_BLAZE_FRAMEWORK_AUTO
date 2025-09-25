@@ -102,8 +102,7 @@ public class AddRequirementPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(buttonClose));
         buttonClose.click();
-    }
-    public void requirementDetailsVisibility(){
+    }    public void requirementDetailsVisibility(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(requirementExpandCollapseArrow));
         requirementExpandCollapseArrow.click();
@@ -126,6 +125,7 @@ public class AddRequirementPage extends BasePage {
                 .until(ExpectedConditions.visibilityOf(requirementUpdatedSuccessMessage));
         return requirementUpdatedSuccessMessage.getText();
     }
+
 
 
 }
