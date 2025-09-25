@@ -73,6 +73,15 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[@id='notification']")
     WebElement notificationMessage;
 
+    @FindBy(xpath = "//div[@class='rich-editor-scrollable']")
+    WebElement textDescriptionBeforeClick;
+
+    @FindBy(xpath = "//div[@class='ql-editor ql-blank']")
+    WebElement textDescriptionAfterClick;
+
+    @FindBy(id = "existingTestCasesTable")
+    WebElement linkedRequirementTable;
+
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
     }
@@ -239,6 +248,10 @@ public class IndividualModulePage extends BasePage {
     {
         return priority;
     }
+    public boolean isLinkedRequirementTableVisible() {
+        return linkedRequirementTable.isDisplayed();
+    }
+
 
     public void clickCloseButton() {
         try {
