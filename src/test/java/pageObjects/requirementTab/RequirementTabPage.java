@@ -158,11 +158,21 @@ public class RequirementTabPage extends BasePage {
 
     public void clicktoggleSidebar() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(closeSideBar)).click();
-        Assert.assertTrue(openSideBar.isDisplayed(), "Sidebar did not close properly");
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.elementToBeClickable(closeSideBar)
+        )).click();
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.visibilityOf(openSideBar)
+        ));
+        Assert.assertTrue(openSideBar.isDisplayed(), "Sidebar did not collapse");
         System.out.println("Sidebar closed successfully");
-        wait.until(ExpectedConditions.elementToBeClickable(openSideBar)).click();
-        Assert.assertTrue(closeSideBar.isDisplayed(), "Sidebar did not open properly");
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.elementToBeClickable(openSideBar)
+        )).click();
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.visibilityOf(closeSideBar)
+        ));
+        Assert.assertTrue(closeSideBar.isDisplayed(), "Sidebar did not expand");
         System.out.println("Sidebar opened successfully");
     }
 }

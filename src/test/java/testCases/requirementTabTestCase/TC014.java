@@ -16,9 +16,8 @@ public class TC014 extends BaseClass {
             reqPage.clickRequirementTab();
             logger.info("clicked on requirement tab");
 
-            reqPage.clicktoggleSidebar();
+           reqPage.clicktoggleSidebar();
             logger.info("Verified that Toggle button are clickable");
-
 
     }
         catch (AssertionError e) {
