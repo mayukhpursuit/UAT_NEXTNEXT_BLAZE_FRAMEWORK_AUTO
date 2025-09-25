@@ -122,7 +122,10 @@ public class IndividualModulePage extends BasePage {
     }
 
     public void enterName(String name) {
-        inputName.clear();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        // Wait until the description input is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(inputTitle));
+        inputName.sendKeys(Keys.chord(Keys.CONTROL,"A"));
         inputName.sendKeys(name);
     }
 
@@ -135,7 +138,10 @@ public class IndividualModulePage extends BasePage {
     }
 
     public void enterDescription(String description) {
-        inputDescription.clear();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        // Wait until the description input is clickable
+        wait.until(ExpectedConditions.elementToBeClickable(inputDescription));
+        inputDescription.sendKeys(Keys.chord(Keys.CONTROL,"A"));
         inputDescription.sendKeys(description);
     }
 
@@ -279,9 +285,25 @@ public class IndividualModulePage extends BasePage {
             return false;
         }
     }
+    public boolean isModuleUpdatedSuccessfully() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(notificationMessage));
+
+            String messageText = notificationMessage.getText().trim();
+            return messageText.equals("Module updated successfully.");
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
     public WebElement TypeField()
     {
         return type;
+    }
+
+    public boolean isModuleIdClickable(){
+        String editable =headingModuleId.getAttribute("contenteditable");
+        return "true".equalsIgnoreCase(editable);
     }
 }
