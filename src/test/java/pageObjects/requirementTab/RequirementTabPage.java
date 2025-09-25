@@ -64,6 +64,16 @@ public class RequirementTabPage extends BasePage {
         return driver.findElement(By.xpath("//div[@class='tree-node tree-node expanded']//span[normalize-space()='"+name+"']"));
     }
 
+    @FindBy(xpath = "//div[contains(text(),'Priority')]")
+    WebElement priority;
+
+    @FindBy(xpath = "//div[contains(text(),'Status')]")
+    WebElement status;
+
+    @FindBy(xpath = "//div[contains(text(),'Type')]")
+    WebElement type;
+
+
     //Actions
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -139,6 +149,23 @@ public class RequirementTabPage extends BasePage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+
+    public boolean isTypeFieldVisible()
+    {
+        return type.isDisplayed();
+    }
+
+    public boolean isStatusFieldVisible()
+
+    {
+        return status.isDisplayed();
+    }
+
+    public boolean isPriorityFieldVisible()
+    {
+        return priority.isDisplayed();
     }
 
 

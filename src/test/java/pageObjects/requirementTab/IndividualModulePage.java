@@ -101,6 +101,10 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Type')]")
     WebElement type;
 
+    @FindBy(xpath = "//div[@class='requirements testcase-text-6']")
+    WebElement noLinkedRequirement;
+
+
     //Actions
 
     public void clickAddRequirement() {
@@ -244,9 +248,9 @@ public class IndividualModulePage extends BasePage {
             System.out.println("Failed to select priority: " + e.getMessage());
         }
     }
-    public WebElement PriorityField()
+    public boolean isPriorityFieldVisible()
     {
-        return priority;
+        return priority.isDisplayed();
     }
     public boolean isLinkedRequirementTableVisible() {
         return linkedRequirementTable.isDisplayed();
@@ -263,9 +267,10 @@ public class IndividualModulePage extends BasePage {
             System.out.println("Failed to click Close button: " + e.getMessage());
         }
     }
-    public WebElement StatusField()
+    public boolean isStatusFieldVisible()
+
     {
-        return status;
+        return status.isDisplayed();
     }
 
     public boolean isRequirementUpdatedSuccessfully() {
@@ -280,8 +285,14 @@ public class IndividualModulePage extends BasePage {
         }
     }
 
-    public WebElement TypeField()
+    public boolean isTypeFieldVisible()
     {
-        return type;
+        return type.isDisplayed();
     }
+
+    public boolean noLinkedRequirementVisibility()
+    {
+        return noLinkedRequirement.isDisplayed();
+    }
+
 }
