@@ -49,6 +49,9 @@ public class AddRequirementPage extends BasePage {
     @FindBy(xpath = "//img[@id='rotatable-image']")
     WebElement requirementExpandCollapseArrow;
 
+    @FindBy(id = "notification")
+    WebElement errorNotification;
+
     //actions
 
     public void setRequirementId(String id){
@@ -97,8 +100,8 @@ public class AddRequirementPage extends BasePage {
     }
     public void clickClose(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(buttonClose));
-        buttonClose.click();
+        wait.until(ExpectedConditions.elementToBeClickable(buttonClose)).click();
+        wait.until(ExpectedConditions.invisibilityOf(buttonClose));
     }
     public void requirementDetailsVisibility(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -119,4 +122,10 @@ public class AddRequirementPage extends BasePage {
         }
     }
 
+    public String getErrorMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(errorNotification));
+        return errorNotification.getText().trim();
+    }
+    
 }

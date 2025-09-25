@@ -50,5 +50,13 @@ public class RequirementDataProvider {
         return ExcelDataProviders.getExcelDataForRequirement("tc010");
     }
 
-
+    @DataProvider(name="tc015")
+    public static String[][] getDataTC015() throws IOException {
+        return ExcelDataProviders.getExcelDataForRequirement("tc015");
+    }
+    
+    @DataProvider(name="tc025")
+    public static String[][] getDataTC025() throws IOException {
+        return ExcelDataProviders.getExcelDataForRequirement("tc025");
+    }
 }

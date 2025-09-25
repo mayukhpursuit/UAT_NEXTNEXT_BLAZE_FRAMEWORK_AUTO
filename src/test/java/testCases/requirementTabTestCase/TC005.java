@@ -9,7 +9,7 @@ import testBase.BaseClass;
 public class TC005 extends BaseClass {
 
     @Test(dataProvider = "tc005", dataProviderClass = RequirementDataProvider.class)
-    public void verifyProjectNameIsVisible(String expectedProjectName) throws InterruptedException {
+    public void verifyProjectNameIsVisible(String ProjectName) throws InterruptedException {
         logger.info("************ Starting Test Case: Verify that the project name is visible *****************");
 
         try {
@@ -23,11 +23,11 @@ public class TC005 extends BaseClass {
             logger.info("Clicked on Requirements tab");
 
             requirementTabPage.clickProjectName();
-            logger.info("Clicked on project: " + expectedProjectName);
+            logger.info("Clicked on project: " + ProjectName);
 
             String isProjectVisible = requirementTabPage.getProjectNameText();
             Assert.assertTrue(!(isProjectVisible.equals(null)), "Project name is not visible beside the label");
-            logger.info("Project name is displayed correctly: " + expectedProjectName);
+            logger.info("Project name is displayed correctly: " + ProjectName);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
