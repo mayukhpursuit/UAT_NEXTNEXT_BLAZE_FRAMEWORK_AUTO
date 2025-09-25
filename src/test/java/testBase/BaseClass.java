@@ -45,6 +45,7 @@ public class BaseClass {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--incognito");
+//                options.addArguments("--headless=new");
                 wd = new ChromeDriver(options);
                 break;
             case "firefox":

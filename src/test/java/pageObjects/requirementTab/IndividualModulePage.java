@@ -12,7 +12,7 @@ import java.util.List;
 
 public class IndividualModulePage extends BasePage {
 
-    public IndividualModulePage(WebDriver driver) {
+    public IndividualModulePage(WebDriver driver){
         super(driver);
     }
 

@@ -9,7 +9,7 @@ import testBase.BaseClass;
 
 public class TC002 extends BaseClass {
     @Test(dataProvider = "tc002", dataProviderClass = RequirementDataProvider.class)
-    public void verifyEpicVisibility(
+    public void verifyDescriptionInModule(
             String project,
             String epic,
             String feature,
