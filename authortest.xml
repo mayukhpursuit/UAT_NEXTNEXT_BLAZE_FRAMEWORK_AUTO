@@ -8,7 +8,6 @@
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
-
              <class name="testCases.authorTabTestCase.TC001"/>
              <class name="testCases.authorTabTestCase.TC002"/>
              <class name="testCases.authorTabTestCase.TC003"/>
