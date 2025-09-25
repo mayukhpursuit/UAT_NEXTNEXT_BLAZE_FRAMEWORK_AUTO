@@ -65,6 +65,8 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(xpath = "//img[@alt='First Page']")
     WebElement firstPageArrowBtn;
+    @FindBy(xpath = "//p[contains(text(), 'Please enter a module name to proceed.')]")
+    WebElement AlertMessageForModuleName;
 
 
     @FindBy(xpath = "//button[@id='closeButton']//div[@class='test-execution-clear'][normalize-space()='CLOSE']")
@@ -315,6 +317,9 @@ public class IndividualModulePage extends BasePage {
     {
         return noLinkedRequirement.isDisplayed();
     }
+public String getAlertMessage(){
+        return AlertMessageForModuleName.getText();
+}
 
     public boolean isModuleIdClickable(){
         String editable =headingModuleId.getAttribute("contenteditable");
