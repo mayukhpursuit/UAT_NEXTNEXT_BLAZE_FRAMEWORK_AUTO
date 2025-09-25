@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import pageObjects.BasePage;
 import java.util.List;
 
@@ -31,6 +32,12 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "//span[@title='<p></p>']")
     WebElement leftPanelProjectName;
 
+
+    @FindBy(xpath = "//button[normalize-space()='Help?']")
+    WebElement clickHelp;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[1]")
+    WebElement helpDropdown;
 
 
     public WebElement arrowBeforeExpandRightPointing(String moduleName){
@@ -159,4 +166,30 @@ public class RequirementTabPage extends BasePage {
     }
 
 
+    public void verifyHelpDropdown(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(clickHelp)).click();
+        wait.until(ExpectedConditions.visibilityOf(helpDropdown));
+        Assert.assertTrue(helpDropdown.isDisplayed(), "Help dropdown is not visible");
+    }
+
+    public void clicktoggleSidebar() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.elementToBeClickable(closeSideBar)
+        )).click();
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.visibilityOf(openSideBar)
+        ));
+        Assert.assertTrue(openSideBar.isDisplayed(), "Sidebar did not collapse");
+        System.out.println("Sidebar closed successfully");
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.elementToBeClickable(openSideBar)
+        )).click();
+        wait.until(ExpectedConditions.refreshed(
+                ExpectedConditions.visibilityOf(closeSideBar)
+        ));
+        Assert.assertTrue(closeSideBar.isDisplayed(), "Sidebar did not expand");
+        System.out.println("Sidebar opened successfully");
+    }
 }
