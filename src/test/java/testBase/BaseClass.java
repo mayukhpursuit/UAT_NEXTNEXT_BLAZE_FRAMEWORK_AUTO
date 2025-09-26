@@ -39,7 +39,6 @@ public class BaseClass {
         p = new Properties();
         p.load(config);
 
-
         WebDriver wd = null;
         switch (br.toLowerCase()) {
             case "chrome":

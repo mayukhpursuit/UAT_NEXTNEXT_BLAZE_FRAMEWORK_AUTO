@@ -105,9 +105,6 @@ public class AddRequirementPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(buttonClose));
         buttonClose.click();
-    }    public void requirementDetailsVisibility(){
-        wait.until(ExpectedConditions.elementToBeClickable(buttonClose)).click();
-        wait.until(ExpectedConditions.invisibilityOf(buttonClose));
     }
     public void requirementDetailsVisibility(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
