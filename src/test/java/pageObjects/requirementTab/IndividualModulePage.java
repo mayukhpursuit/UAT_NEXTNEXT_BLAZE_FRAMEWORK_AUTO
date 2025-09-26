@@ -169,8 +169,8 @@ public class IndividualModulePage extends BasePage {
 
     }
 
-    public String getActualDescription(){
-        return descriptionBeforeClick.getText();
+    public String getActualDescription() {
+        return descriptionBeforeClick.getText().trim();
     }
 
     public void clickToggleSection() {
