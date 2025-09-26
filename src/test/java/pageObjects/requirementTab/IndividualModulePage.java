@@ -110,6 +110,20 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//span[@class='entry-info']")
     WebElement requirementCountFooter;
 
+    @FindBy(xpath = "//i[@class='fa-solid fa-trash' and @title='Delete']")
+    private WebElement deleteModuleIcon;
+
+    @FindBy(id = "actionDialog-message")
+    private WebElement confirmationMessage;
+
+    @FindBy(id = "confirmBtn")
+    private WebElement confirmYesButton;
+
+    @FindBy(id = "cancelBtn")
+    private WebElement confirmNoButton;
+
+    private By actionDialog = By.id("actionDialog");
+
     //Actions
 
     public void clickAddRequirement() {
@@ -330,5 +344,50 @@ public String getAlertMessage(){
     public int getRequirementCountFromFooter() {
         String footerText = requirementCountFooter.getText(); // e.g. "Total 37 entries"
         return Integer.parseInt(footerText.replaceAll("[^0-9]", ""));
+    }
+
+    public void clickDeleteModuleIcon() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteModuleIcon)).click();
+    }
+
+    public String getDeleteConfirmationMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
+        return modal.findElement(By.id("actionDialog-message")).getText().trim();
+    }
+
+    public void confirmDelete() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        try {
+            WebElement dialog = wait.until(driver -> driver.findElement(By.id("actionDialog")));
+            wait.until(driver -> {
+                int w = dialog.getSize().getWidth();
+                int h = dialog.getSize().getHeight();
+                return w > 0 && h > 0;
+            });
+            WebElement yesButton = dialog.findElement(By.id("confirmBtn"));
+            js.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", yesButton);
+            wait.until(ExpectedConditions.invisibilityOf(dialog));
+            System.out.println("Module deletion confirmed successfully!");
+        } catch (TimeoutException e) {
+            System.err.println("Delete confirmation dialog did not appear or could not be clicked: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    private By successNotification = By.id("notification");
+
+    public String getSuccessNotificationMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        try {
+            WebElement notificationElement = wait
+                    .until(ExpectedConditions.visibilityOfElementLocated(successNotification));
+            return notificationElement.getText().trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get success notification message", e);
+        }
     }
 }
