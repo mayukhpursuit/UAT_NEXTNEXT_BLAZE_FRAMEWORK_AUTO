@@ -12,13 +12,13 @@ import testBase.BaseClass;
 
 import java.time.Duration;
 
-public class TC026 extends BaseClass {
-    @Test(dataProvider = "tc026", dataProviderClass = RequirementDataProvider.class)
-    public void verifyPlaceholderOfDescription(
+public class TC030 extends BaseClass {
+    @Test(dataProvider = "tc030", dataProviderClass = RequirementDataProvider.class)
+    public void verifyDeleteRequirementButton(
             String project,
             String epic,
             String feature,
-            String descri
+            String requiName
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *******");
         try {
@@ -34,14 +34,12 @@ public class TC026 extends BaseClass {
             logger.info("Navigated to Module");
             requirementTabPage.clickOnModule(feature);
             logger.info("clicked on specific module");
-            WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
-            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//em[normalize-space()='Click to add description']")));
-            logger.info("Placeholder-Click to add description is verified ");
             IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());
-            indivisualModulePage.setActualDescription(descri);
-            logger.info("Description has been added using the data-sheet");
-            indivisualModulePage.clickSave();
-            logger.info("Module saved successfully" );
+            indivisualModulePage.clickDeleteRequirement(requiName);
+            WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='partialTestCaseContainer']//p[@id='actionDialog-message']")));
+            logger.info("Requirement Deletion Confirmation messgae appears successfully");
+
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
@@ -54,5 +52,6 @@ public class TC026 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
+
 
 
