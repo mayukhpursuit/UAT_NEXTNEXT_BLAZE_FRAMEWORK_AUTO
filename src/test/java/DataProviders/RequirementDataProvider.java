@@ -66,4 +66,9 @@ public class RequirementDataProvider {
         return ExcelDataProviders.getExcelDataForRequirement("tc027");
     }
 
+    @DataProvider(name="tc036")
+    public static String[][] getDataTC036() throws IOException {
+        return ExcelDataProviders.getExcelDataForRequirement("tc036");
+    }
+
 }

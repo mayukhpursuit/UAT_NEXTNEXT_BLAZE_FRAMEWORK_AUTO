@@ -60,6 +60,12 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "(//a[@class='text-wrapper-14'])[last()]")
     WebElement getNewRqIdText;
 
+    @FindBy(id = "actionDialog-message")
+    WebElement deleteMessage;
+
+    @FindBy(id = "cancelBtn")
+    WebElement btnNoInDeleteNotification;
+
     public WebElement leftModuleNameByName(String name){
         return driver.findElement(By.xpath("//div[@class='tree-node tree-node expanded']//span[normalize-space()='"+name+"']"));
     }
@@ -139,6 +145,18 @@ public class RequirementTabPage extends BasePage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public String getDeleteModuleAlertMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(deleteMessage));
+        return deleteMessage.getText();
+    }
+
+    public void clickNoInDeleteNotification() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(btnNoInDeleteNotification));
+        btnNoInDeleteNotification.click();
     }
 
 

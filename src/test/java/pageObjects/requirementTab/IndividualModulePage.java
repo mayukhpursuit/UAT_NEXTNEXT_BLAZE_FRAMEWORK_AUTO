@@ -21,8 +21,8 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[@class='text-2']")
     WebElement headingModuleId;
 
-    @FindBy(xpath = "//p[@class='supporting-text']")
-    WebElement headingModuleName;
+    @FindBy(xpath = "//p[@class='supporting-text']/input")
+    WebElement moduleNameInput;
 
     @FindBy(xpath = "//div[@class='label-3']")
     WebElement buttonAddRequirement;
@@ -82,6 +82,9 @@ public class IndividualModulePage extends BasePage {
     @FindBy(id = "existingTestCasesTable")
     WebElement linkedRequirementTable;
 
+    @FindBy(id = "actionDialogtp-message")
+    WebElement moduleNameAlertMessage;
+
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
     }
@@ -103,6 +106,9 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(xpath = "//span[@class='entry-info']")
     WebElement requirementCountFooter;
+
+    @FindBy(id = "cancelBtnClose")
+    WebElement cancelButton;
 
     //Actions
 
@@ -131,9 +137,10 @@ public class IndividualModulePage extends BasePage {
 
     public void clickSave() {
         btnSave.click();
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement notification = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+        WebElement alertMessage = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("actionDialogtp-message"))
         );
     }
 
@@ -291,5 +298,21 @@ public class IndividualModulePage extends BasePage {
     public int getRequirementCountFromFooter() {
         String footerText = requirementCountFooter.getText(); // e.g. "Total 37 entries"
         return Integer.parseInt(footerText.replaceAll("[^0-9]", ""));
+    }
+
+    public void clearModuleName() {
+        moduleNameInput.clear(); // now works
+    }
+
+    public String getModuleNameAlertMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(moduleNameAlertMessage));
+        return moduleNameAlertMessage.getText();
+    }
+
+    public void clickCancelButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(cancelButton));
+        cancelButton.click();
     }
 }
