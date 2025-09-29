@@ -122,4 +122,9 @@ public class RequirementDataProvider {
     public static String[][] getDataTC030() throws IOException {
         return ExcelDataProviders.getExcelDataForRequirement("tc030");
     }
+
+    @DataProvider(name="tc028")
+    public static String[][] getDataTC028() throws IOException {
+        return ExcelDataProviders.getExcelDataForRequirement("tc028");
+    }
 }
