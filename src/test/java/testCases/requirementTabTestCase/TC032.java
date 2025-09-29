@@ -1,10 +1,12 @@
 package testCases.requirementTabTestCase;
 
+import DataProviders.RequirementDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
+import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
 public class TC032 extends BaseClass {
@@ -14,6 +16,7 @@ public class TC032 extends BaseClass {
         logger.info("************ Starting Test Case: Verify module deletion flow *****************");
 
         try {
+            logger.info("************ Test Case Started *************************");
 
             login();
             logger.info("Logged in successfully");
@@ -47,12 +50,12 @@ public class TC032 extends BaseClass {
             logger.info("Verified module is deleted and requirements page is reloaded");
 
         } catch (AssertionError e) {
-            logger.error("Assertion failed: " + e.getMessage());
             throw e;
         } catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage(), e);
         }
 
         logger.info("************ Test Case Finished *************************");
+
     }
 }

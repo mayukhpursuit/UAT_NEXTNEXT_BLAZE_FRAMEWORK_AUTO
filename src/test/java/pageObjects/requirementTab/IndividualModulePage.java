@@ -23,8 +23,8 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//div[@class='text-2']")
     WebElement headingModuleId;
 
-    @FindBy(xpath = "//p[@class='supporting-text']")
-    WebElement headingModuleName;
+    @FindBy(xpath = "//p[@class='supporting-text']/input")
+    WebElement moduleNameInput;
 
     @FindBy(xpath = "//div[@class='label-3']")
     WebElement buttonAddRequirement;
@@ -91,6 +91,9 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "(//div[contains(text(),'CLOSE')])[1]")
     WebElement alertBoxCloseBtnForModule;
 
+    @FindBy(id = "actionDialogtp-message")
+    WebElement moduleNameAlertMessage;
+
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
     }
@@ -116,6 +119,9 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(xpath = "//span[@class='entry-info']")
     WebElement requirementCountFooter;
+
+    @FindBy(id = "cancelBtnClose")
+    WebElement cancelButton;
 
     @FindBy(xpath = "//i[@class='fa-solid fa-trash' and @title='Delete']")
     private WebElement deleteModuleIcon;
@@ -174,6 +180,11 @@ public class IndividualModulePage extends BasePage {
 //        WebElement notification = wait.until(
 //                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
 //        );
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement alertMessage = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("actionDialogtp-message"))
+        );
     }
 
     public void enterDescription(String description) {
@@ -369,6 +380,23 @@ public String getAlertMessage(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(deleteModuleIcon)).click();
     }
+
+    public void clearModuleName() {
+        moduleNameInput.clear(); // now works
+    }
+
+    public String getModuleNameAlertMessage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(moduleNameAlertMessage));
+        return moduleNameAlertMessage.getText();
+    }
+
+    public void clickCancelButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(cancelButton));
+        cancelButton.click();
+    }
+
 
     public String getDeleteConfirmationMessage() throws InterruptedException {
         Thread.sleep(1500);
