@@ -127,7 +127,15 @@ public class IndividualModulePage extends BasePage {
     @FindBy(id = "cancelBtn")
     private WebElement confirmNoButton;
 
+    @FindBy(xpath = "//div[@id='partialTestCaseContainer']//div[@class='test-execution-label-3'][normalize-space()='YES']")
+    WebElement buttonYesConfirmationUnsavedChanges;
+
+    @FindBy(xpath = "//div[@id='partialTestCaseContainer']//div[@class='test-execution-clear'][normalize-space()='NO']")
+    WebElement buttonNoConfirmationUnsavedChanges;
+
     private By actionDialog = By.id("actionDialog");
+
+    private By inputTitleLocator = By.xpath("//input[@class='supporting-text']");
 
     //Actions
 
@@ -141,6 +149,7 @@ public class IndividualModulePage extends BasePage {
     }
 
     public String getModuleName() throws InterruptedException {
+        Thread.sleep(2000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         return wait.until(ExpectedConditions.visibilityOf(inputTitle)).getAttribute("value").trim();
     }
@@ -182,6 +191,7 @@ public class IndividualModulePage extends BasePage {
 
 
         wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        descriptionAfterClick.clear();
         descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
         descriptionAfterClick.sendKeys(description);
@@ -402,5 +412,11 @@ public String getAlertMessage(){
         } catch (Exception e) {
             throw new RuntimeException("Failed to get success notification message", e);
         }
+    }
+    public void clickButtonConfirmationYesForUnsavedChanges(){
+        buttonYesConfirmationUnsavedChanges.click();
+    }
+    public void clickButtonConfirmationNoForUnsavedChanges(){
+        buttonNoConfirmationUnsavedChanges.click();
     }
 }

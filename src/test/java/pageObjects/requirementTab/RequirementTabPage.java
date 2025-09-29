@@ -143,12 +143,14 @@ public class RequirementTabPage extends BasePage {
     }
 
     public void clickOnModule(String moduleName) throws InterruptedException {
+        Actions a= new Actions(driver);
         try {
-            Actions a= new Actions(driver);
             a.moveToElement(leftModuleNameByName(moduleName)).perform();
             leftModuleNameByName(moduleName).click();
         } catch (Exception e) {
-            driver.findElement(By.xpath(" //div[@class='tree-node tree-node collapsed']//span[contains(text(),'"+moduleName+"')]")).click();
+            WebElement ele=driver.findElement(By.xpath("//div[@class='tree-node tree-node collapsed']//span[contains(text(),'"+moduleName+"')]"));
+            a.moveToElement(ele).perform();
+            ele.click();
         }
     }
 
