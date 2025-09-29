@@ -2,13 +2,15 @@ package testCases.testPlanTabTestCase;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
-public class TC001 extends BaseClass {
-    @Test
-    public void verifyProjectDropdownVisibility() throws InterruptedException {
-        logger.info("****** Starting Test Case: Verify Project Dropdown Visibility *****************");
+public class TC002 extends BaseClass {
+
+    @Test(dataProvider = "tc002", dataProviderClass = TestPlanDataProvider.class)
+    public void verifyProjectSelectionFromDropdown(String projectName) throws InterruptedException {
+        logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -23,12 +25,12 @@ public class TC001 extends BaseClass {
             testPlanPage.expandProjectSTG();
             logger.info("Expanded the project dropdown");
 
-            String transform = getDriver().findElement(org.openqa.selenium.By.xpath(
-                    "//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]"))
-                    .getAttribute("style");
+            testPlanPage.selectProjectByName(projectName);
+            logger.info("Selected project: " + projectName);
 
-            Assert.assertTrue(transform.contains("90deg"), "Project dropdown is not expanded/visible!");
-            logger.info("Project dropdown is visible and expanded successfully");
+            Assert.assertTrue(testPlanPage.isProjectSelected(projectName),
+                    "Project '" + projectName + "' was not selected successfully!");
+            logger.info("Project '" + projectName + "' is selected and active");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
