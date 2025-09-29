@@ -41,6 +41,11 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[1]")
     WebElement helpDropdown;
 
+    @FindBy(xpath = "//button[@id='confirmBtn']")
+    WebElement yesBtnConfirmationPopUp;
+    @FindBy(xpath = "//button[@id='cancelBtn']")
+    WebElement noBtnConfirmationPopUp;
+
 
     public WebElement arrowBeforeExpandRightPointing(String moduleName){
         return driver.findElement(By.xpath("//span[text()='"+moduleName+"']/..//i[@class='fa-solid tree-arrow fa-caret-right']"));
@@ -143,7 +148,7 @@ public class RequirementTabPage extends BasePage {
             a.moveToElement(leftModuleNameByName(moduleName)).perform();
             leftModuleNameByName(moduleName).click();
         } catch (Exception e) {
-            driver.findElement(By.xpath(" //div[@class='tree-node tree-node collapsed']//span[normalize-space()='"+moduleName+"']")).click();
+            driver.findElement(By.xpath(" //div[@class='tree-node tree-node collapsed']//span[contains(text(),'"+moduleName+"')]")).click();
         }
     }
 
@@ -245,5 +250,14 @@ public class RequirementTabPage extends BasePage {
         yesBtn.click();
         wait.until(driver -> getRequirementIDs().size() < previousCount);
     }
+    public void clickYesBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        yesBtnConfirmationPopUp.click();
 
+    }
+    public void clickNoBtn(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        noBtnConfirmationPopUp.click();
+
+    }
 }

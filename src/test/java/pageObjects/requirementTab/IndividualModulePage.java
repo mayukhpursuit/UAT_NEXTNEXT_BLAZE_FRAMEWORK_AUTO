@@ -68,6 +68,9 @@ public class IndividualModulePage extends BasePage {
     @FindBy(xpath = "//p[contains(text(), 'Please enter a module name to proceed.')]")
     WebElement AlertMessageForModuleName;
 
+    @FindBy(xpath = "(//p[@id='actionDialog-message'])[1]")
+    WebElement alertMessageWhenTryToDeleteModule;
+
 
     @FindBy(xpath = "//button[@id='closeButton']//div[@class='test-execution-clear'][normalize-space()='CLOSE']")
     WebElement closebutton;
@@ -83,6 +86,8 @@ public class IndividualModulePage extends BasePage {
 
     @FindBy(id = "existingTestCasesTable")
     WebElement linkedRequirementTable;
+    @FindBy(xpath = "(//div[contains(text(),'CLOSE')])[1]")
+    WebElement alertBoxCloseBtnForModule;
 
     public WebElement linkRequirementIdFromId(String id) {
         return driver.findElement(By.xpath("//div[@class='testlistcell']/a[text()='" + id + "']"));
@@ -154,10 +159,10 @@ public class IndividualModulePage extends BasePage {
 
     public void clickSave() {
         btnSave.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement notification = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
-        );
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement notification = wait.until(
+//                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+//        );
     }
 
     public void enterDescription(String description) {
@@ -355,6 +360,14 @@ public String getAlertMessage(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
         return modal.findElement(By.id("actionDialog-message")).getText().trim();
+    }
+
+    public String alretMeaasgeForDeletingModule(){
+        return alertMessageWhenTryToDeleteModule.getText();
+    }
+
+    public void clickCloseBtnOfALertModuleName(){
+        alertBoxCloseBtnForModule.click();
     }
 
     public void confirmDelete() {
