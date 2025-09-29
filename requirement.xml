@@ -8,10 +8,12 @@
           name="requirement Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.requirementTabTestCase.TC020"/>
-            <class name="testCases.requirementTabTestCase.TC019"/>
-             <class name="testCases.requirementTabTestCase.TC001"/>
-            <class name="testCases.requirementTabTestCase.TC002"/>
+<!--            <class name="testCases.requirementTabTestCase.TC020"/>-->
+<!--            <class name="testCases.requirementTabTestCase.TC019"/>-->
+<!--             <class name="testCases.requirementTabTestCase.TC001"/>-->
+<!--            <class name="testCases.requirementTabTestCase.TC002"/>-->
+<!--            <class name="testCases.requirementTabTestCase.TC026"/>-->
+            <class name="testCases.requirementTabTestCase.TC030"/>
         </classes>
     </test>
 </suite>
