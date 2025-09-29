@@ -10,4 +10,9 @@ public class TestPlanDataProvider {
     public static String[][] getDataTC001() throws IOException {
         return ExcelDataProviders.getExcelDataForTestPlan("tc001");
     }
+    
+    @DataProvider(name="tc002")
+    public static String[][] getDataTC002() throws IOException {
+        return ExcelDataProviders.getExcelDataForTestPlan("tc002");
+    }
 }

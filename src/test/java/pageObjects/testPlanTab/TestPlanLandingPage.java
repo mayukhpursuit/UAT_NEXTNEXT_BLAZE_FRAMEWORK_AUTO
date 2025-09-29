@@ -8,9 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestPlanLandingPage extends BasePage {
-    public TestPlanLandingPage(WebDriver driver){
+    public TestPlanLandingPage(WebDriver driver) {
         super(driver);
     }
 
@@ -38,7 +40,7 @@ public class TestPlanLandingPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]")
     private WebElement projectCaret;
-     
+
     @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Releases']/following-sibling::div[@class='card-value']")
     private WebElement totalReleasesValue;
 
@@ -47,6 +49,9 @@ public class TestPlanLandingPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Test Suites']/following-sibling::div[@class='card-value']")
     private WebElement totalTestSuitesValue;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')]")
+    private java.util.List<WebElement> allProjects;
 
     // --- Actions ---
     public void selectTestPlanTab() {
@@ -117,5 +122,34 @@ public class TestPlanLandingPage extends BasePage {
     public int getTotalTestSuites() {
         return Integer.parseInt(totalTestSuitesValue.getText().trim());
     }
+
     
+    public void selectProjectByName(String projectName) {
+        for (WebElement project : allProjects) {
+            if (project.getText().trim().equalsIgnoreCase(projectName)) {
+                project.click();
+                return;
+            }
+        }
+        throw new RuntimeException("Project '" + projectName + "' not found in the dropdown!");
+    }
+
+    public boolean isProjectSelected(String projectName) {
+        for (WebElement project : allProjects) {
+            if (project.getText().trim().equalsIgnoreCase(projectName)) {
+                String classAttr = project.getAttribute("class");
+                return classAttr.contains("active");
+            }
+        }
+        return false;
+    }
+
+    public List<String> getAllProjectNames() {
+        List<String> projectNames = new ArrayList<>();
+        for (WebElement project : allProjects) {
+            projectNames.add(project.getText().trim());
+        }
+        return projectNames;
+    }
+
 }
