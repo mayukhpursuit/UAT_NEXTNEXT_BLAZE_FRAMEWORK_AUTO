@@ -6,7 +6,7 @@ import testBase.BaseClass;
 
 public class TC014 extends BaseClass {
     @Test
-    public void verifytheexpand_collapseontheleftpannel () throws InterruptedException {
+    public void verifytheexpandcollapseontheleftpannel () throws InterruptedException {
         logger.info("****** Starting the TC:14 verify the expand/collapse on the left pannel   *************");
         try {
             login();
@@ -16,16 +16,16 @@ public class TC014 extends BaseClass {
             reqPage.clickRequirementTab();
             logger.info("clicked on requirement tab");
 
-           reqPage.clicktoggleSidebar();
+            reqPage.clicktoggleSidebar();
             logger.info("Verified that Toggle button are clickable");
 
     }
         catch (AssertionError e) {
-        logger.error("Assertion failed: " + e.getMessage());
+            logger.error("Assertion failed: {}", e.getMessage());
         throw e;
     }
         catch (Exception e) {
-        logger.error("Exception occurred: " + e.getMessage());
+            logger.error("Exception occurred: {}", e.getMessage());
         throw e;
     }
         logger.info("************ TC:14 Finished *************************");

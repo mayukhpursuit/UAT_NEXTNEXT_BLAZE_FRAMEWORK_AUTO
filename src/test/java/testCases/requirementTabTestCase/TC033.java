@@ -22,7 +22,12 @@ public class TC033 extends BaseClass {
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
             AddRequirementPage addRequirementPage = new AddRequirementPage(getDriver());
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
-
+            requirementTabPage.clickRequirementTab();
+            requirementTabPage.clickOnTheProjectName();
+            requirementTabPage.clickNewModule();
+            requirementTabPage.setModuleName(moduleName);
+            requirementTabPage.saveModule();
+            getDriver().navigate().refresh();
             requirementTabPage.clickRequirementTab();
             logger.info("Clicked on Requirements tab");
 

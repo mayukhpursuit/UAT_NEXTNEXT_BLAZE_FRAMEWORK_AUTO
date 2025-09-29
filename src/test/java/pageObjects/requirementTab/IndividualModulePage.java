@@ -1,12 +1,14 @@
 package pageObjects.requirementTab;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import javax.swing.*;
 import java.time.Duration;
 import java.util.List;
 
@@ -362,12 +364,15 @@ public String getAlertMessage(){
     }
 
     public void clickDeleteModuleIcon() {
+        Actions a= new Actions(driver);
+        a.moveToElement(deleteModuleIcon).perform();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(deleteModuleIcon)).click();
     }
 
-    public String getDeleteConfirmationMessage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    public String getDeleteConfirmationMessage() throws InterruptedException {
+        Thread.sleep(1500);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
         WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
         return modal.findElement(By.id("actionDialog-message")).getText().trim();
     }

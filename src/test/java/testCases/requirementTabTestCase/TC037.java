@@ -11,7 +11,7 @@ import testBase.BaseClass;
 public class TC037 extends BaseClass {
     @Test(dataProvider = "tc037", dataProviderClass = RequirementDataProvider.class)
 
-    public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module, String newmodulename
+    public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -38,8 +38,8 @@ public class TC037 extends BaseClass {
 
             Thread.sleep(5000);
 
-            requirementTabPage.setModuleName(newmodulename);
-            logger.info("Entered module name: " + newmodulename);
+            requirementTabPage.setModuleName("");
+            logger.info("Entered module name: " + " ");
 
             individualModulePage.clickSave();
             logger.info("Clicked the 'Save' button");
