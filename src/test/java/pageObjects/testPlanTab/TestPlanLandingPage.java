@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
@@ -53,9 +54,34 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class,'releases')]")
     private java.util.List<WebElement> allProjects;
 
+    @FindBy(xpath = "//div[contains(@class,'test-plan-releases-name-parent')]/input")
+    private WebElement inputReleaseName;
+
+    @FindBy(xpath = "//select[contains(@class,'testcase-select')]")
+    private WebElement dropdownReleaseStatus;
+
+    @FindBy(xpath = "//div[.//div[text()='Start Date']]//input[@type='date']")
+    private WebElement inputStartDate;
+
+    @FindBy(xpath = "//div[.//div[text()='End Date']]//input[@type='date']")
+    private WebElement inputEndDate;
+
+    @FindBy(xpath = "//div[contains(@class,'rich-editor-scrollable')]//div[contains(@class,'test-plan-releases-prototype')]//div[em]")
+    private WebElement inputDescription;
+
+    @FindBy(id = "precondition")
+    private WebElement inputReleaseNotes;
+
+    @FindBy(xpath = "//button[.//div[text()='SAVE']]")
+    private WebElement btnSaveRelease;
+
+    @FindBy(xpath = "//div[@class='project ']")
+    WebElement leftPanelProjectName;
+
     // --- Actions ---
-    public void selectTestPlanTab() {
+    public void selectTestPlanTab() throws InterruptedException {
         tabTestPlan.click();
+        Thread.sleep(2000);
     }
 
     public void expandSidebarIfCollapsed() {
@@ -91,8 +117,10 @@ public class TestPlanLandingPage extends BasePage {
         }
     }
 
-    public void clickNewRelease() {
+    public void clickNewRelease() throws InterruptedException {
+        Thread.sleep(1500);
         btnNewRelease.click();
+        Thread.sleep(1500);
     }
 
     public void clickNewTestCycle() {
@@ -152,4 +180,89 @@ public class TestPlanLandingPage extends BasePage {
         return projectNames;
     }
 
+    
+    private String releaseChildNodesXpath(String releaseName) {
+        return "//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName + "')]"
+                + "/following-sibling::ul//div[contains(@class,'test-cycle-row')]";
+    }
+
+    public List<String> getChildNodesOfRelease(String releaseName) {
+        List<WebElement> children = driver.findElements(By.xpath(releaseChildNodesXpath(releaseName)));
+        List<String> childNames = new ArrayList<>();
+        for (WebElement child : children) {
+            childNames.add(child.getText().trim());
+        }
+        return childNames;
+    }
+
+    public void enterReleaseName(String releaseName) {
+        inputReleaseName.clear();
+        inputReleaseName.sendKeys(releaseName);
+    }
+
+    public void selectReleaseStatus(String status) {
+        Select select = new Select(dropdownReleaseStatus);
+        select.selectByVisibleText(status);
+    }
+
+    public String convertToHTML5Date(String dateDDMMYYYY) {
+        String[] parts = dateDDMMYYYY.split("-");
+        return parts[2] + "-" + parts[1] + "-" + parts[0]; // yyyy-MM-dd
+    }
+
+    public void selectStartDate(String dateDDMMYYYY) {
+        String html5Date = convertToHTML5Date(dateDDMMYYYY);
+        inputStartDate.sendKeys(html5Date);
+    }
+
+    public void selectEndDate(String dateDDMMYYYY) {
+        String html5Date = convertToHTML5Date(dateDDMMYYYY);
+        inputEndDate.sendKeys(html5Date);
+    }
+
+    public void enterDescription(String description) {
+        WebElement descriptionEditor = driver.findElement(By.cssSelector(".ql-editor"));
+        descriptionEditor.click();
+        descriptionEditor.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionEditor.sendKeys(Keys.BACK_SPACE);
+        descriptionEditor.sendKeys("This is the new release description.");
+    }
+
+    public void enterReleaseNotes(String notes) {
+        inputReleaseNotes.clear();
+        inputReleaseNotes.sendKeys(notes);
+    }
+
+    public void clickSaveRelease() {
+        btnSaveRelease.click();
+    }
+
+    public void clickOnTheProjectName(String projectName) {
+        leftPanelProjectName.click();
+    }
+
+    public void clickDeleteProjectIcon(String projectName) {
+        WebElement deleteIcon = driver.findElement(By.xpath(
+                "//div[contains(@class,'project') and normalize-space(text())='" + projectName
+                        + "']//following-sibling::i[@title='Delete']"));
+        deleteIcon.click();
+    }
+
+    public void confirmDelete() {
+
+        driver.switchTo().alert().accept();
+
+    }
+
+    public boolean isReleasePresentInList(String releaseName) {
+        try {
+            String releaseXpath = "//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName
+                    + "')]";
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(releaseXpath)));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 }
