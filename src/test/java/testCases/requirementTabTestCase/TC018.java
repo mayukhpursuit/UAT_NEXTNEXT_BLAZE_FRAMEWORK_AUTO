@@ -34,6 +34,10 @@ public class TC018 extends BaseClass {
             logger.info("Navigate to the project");
             requirementTabPage.clickArrowRightPointingForExpandModule(epic);
             logger.info("Navigated to Module");
+            requirementTabPage.clickOnModule(epic);
+            requirementTabPage.clickNewModule();
+            requirementTabPage.setModuleName(feature);
+            requirementTabPage.saveModule();
             requirementTabPage.clickOnModule(feature);
             logger.info("clicked on specific module");
             IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());

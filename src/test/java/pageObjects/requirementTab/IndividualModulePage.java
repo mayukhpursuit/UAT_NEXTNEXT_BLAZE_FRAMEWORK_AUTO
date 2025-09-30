@@ -176,15 +176,16 @@ public class IndividualModulePage extends BasePage {
 
     public void clickSave() {
         btnSave.click();
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        WebElement notification = wait.until(
-//                ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
-//        );
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement alertMessage = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.id("actionDialogtp-message"))
-        );
+        try {
+            WebElement notification = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.id("notification"))
+            );
+        } catch (Exception e) {
+            WebElement alertMessage = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.id("actionDialogtp-message"))
+            );
+        }
     }
 
     public void enterDescription(String description) {
@@ -209,6 +210,17 @@ public class IndividualModulePage extends BasePage {
         descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
         descriptionAfterClick.sendKeys(description);
 
+    }
+    public void clearActualDescription(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
+        descriptionBeforeClick.click();
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        descriptionAfterClick.clear();
+        inputTitle.click();
     }
 
     public String getActualDescription() {
@@ -283,6 +295,24 @@ public class IndividualModulePage extends BasePage {
 
     public void clickPreviousArrow() {
         arrowBackwardPrevious.click();
+    }
+
+    public boolean isClickableNextArrow(){
+        new Actions(driver).moveToElement(arrowForwardNextPagination).perform();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.visibilityOf(arrowForwardNextPagination));
+            String cursorStyle = arrowForwardNextPagination.getCssValue("cursor");
+
+            System.out.println("Cursor style of Previous button: " + cursorStyle);
+
+            return "pointer".equals(cursorStyle);
+
+
+        } catch (TimeoutException e) {
+            System.out.println("Previous button is NOT visible within the timeout.");
+            return false;
+        }
     }
 
     public void clickLastPageArrowBtn() {

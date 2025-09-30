@@ -1,7 +1,10 @@
 package testCases.requirementTabTestCase;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.AddRequirementPage;
 import testBase.BaseClass;
@@ -33,8 +36,14 @@ public class TC025 extends BaseClass {
             requirementTabPage.clickOnModule(moduleName);
             logger.info("Opened module: " + moduleName);
 
+
+            IndividualModulePage individualModulePage= new IndividualModulePage(getDriver());
+            if(individualModulePage.isClickableNextArrow()){
+                individualModulePage.clickLastPageArrowBtn();
+            }
+            WebElement countBeforeAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             List<String> beforeList = requirementTabPage.getRequirementIDs();
-            int beforeCount = beforeList.size();
+            int beforeCount = Integer.parseInt(countBeforeAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Initial requirement count: " + beforeCount);
 
             addRequirementPage.clickAddRequirementBtn();
@@ -42,12 +51,18 @@ public class TC025 extends BaseClass {
             addRequirementPage.setRequirementId(newRequirementName);
             addRequirementPage.clickSave();
 
+
             Thread.sleep(2000);
             addRequirementPage.clickClose();
-            Thread.sleep(2000);
+            Thread.sleep(4000);
+
+            if(individualModulePage.isClickableNextArrow()){
+                individualModulePage.clickLastPageArrowBtn();
+            }
 
             List<String> afterAddList = requirementTabPage.getRequirementIDs();
-            int afterAddCount = afterAddList.size();
+            WebElement countAfterAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
+            int afterAddCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Requirement count after adding: " + afterAddCount);
 
             Assert.assertEquals(afterAddCount, beforeCount + 1, "Requirement count did not increase after adding");
@@ -57,9 +72,12 @@ public class TC025 extends BaseClass {
 
             requirementTabPage.unlinkRequirementById(newRequirementId, afterAddCount);
             logger.info("Unlinked requirement: " + newRequirementId);
+            Thread.sleep(3000);
 
             List<String> afterRemoveList = requirementTabPage.getRequirementIDs();
-            int afterRemoveCount = afterRemoveList.size();
+            WebElement afterRemove = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
+            int afterRemoveCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
+
             logger.info("Requirement count after unlink: " + afterRemoveCount);
 
             Assert.assertEquals(afterRemoveCount, beforeCount, "Requirement count did not decrease after unlinking");

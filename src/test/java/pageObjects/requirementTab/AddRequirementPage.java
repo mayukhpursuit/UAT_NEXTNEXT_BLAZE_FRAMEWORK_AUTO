@@ -1,5 +1,6 @@
 package pageObjects.requirementTab;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,6 +28,9 @@ public class AddRequirementPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='ql-editor ql-blank']")
     WebElement textRequirementDescriptionAfterClick;
+
+    @FindBy(xpath = "//div[@class='ql-editor']")
+    WebElement textRequirementDescriptionAfterClickWhenItIsNotBlank;
 
     @FindBy(xpath = "//button[@id='saveButton']")
     WebElement buttonSave;
@@ -62,16 +66,24 @@ public class AddRequirementPage extends BasePage {
     }
 
     public void setDescription(String description) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         // Click on the description (readonly)
-        textRequirementDescriptionBeforeClick.click();
-
-        // Wait until editable input/textarea is visible
-        WebElement editableField = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
-
-        // Send description
-        editableField.sendKeys(description);
+        Thread.sleep(1000);
+        if (textRequirementDescriptionBeforeClick.getText().equalsIgnoreCase("")){
+            textRequirementDescriptionBeforeClick.click();
+            Thread.sleep(2000);
+            WebElement editableField = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
+            editableField.sendKeys(description);
+        }
+        else{
+            textRequirementDescriptionBeforeClick.click();
+            Thread.sleep(2000);
+            WebElement editableField1 = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClickWhenItIsNotBlank));
+            editableField1.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+            editableField1.sendKeys(Keys.BACK_SPACE);
+            wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
+            textRequirementDescriptionAfterClick.sendKeys(description);
+        }
     }
     public void clickAddRequirementBtn(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -136,6 +148,16 @@ public class AddRequirementPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(errorNotification));
         return errorNotification.getText().trim();
+    }
+
+    public String getRequirementDescription(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement editableField = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionBeforeClick));
+        return editableField.getText();
+    }
+
+    public void clickOnRequirementIdLabel(){
+        textRequirementId.click();
     }
 
 }

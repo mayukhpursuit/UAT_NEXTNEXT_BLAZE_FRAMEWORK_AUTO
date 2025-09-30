@@ -3,6 +3,7 @@ package testCases.requirementTabTestCase;
 import DataProviders.RequirementDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
@@ -36,27 +37,30 @@ public class TC028 extends BaseClass {
             req.clickRequirement(rq);
             logger.info("Selected Requirement"+rq);
 
-            String currentdesc=req.getActualDescription();
+            AddRequirementPage addRequirementPage= new AddRequirementPage(getDriver());
+
+            String currentdesc=addRequirementPage.getRequirementDescription();
             logger.info("current description name:"+currentdesc);
 
-            req.clickCloseButton();
+            addRequirementPage.clickClose();
             logger.info("clicked on close button");
 
 
             req.clickRequirement(serq1);
             logger.info("Again clicked on the same req"+serq1);
 
-            req.enterDescription(c_name);
-            String changedescription=req.getActualDescription();
+            addRequirementPage.setDescription(c_name);
+            addRequirementPage.clickOnRequirementIdLabel();
+            String changedescription=addRequirementPage.getRequirementDescription();
             logger.info("changed desc:"+changedescription);
 
-            req.clickCloseButton();
+            addRequirementPage.clickClose();
             logger.info("clicked on close button");
 
 
             req.clickRequirement(serq2);
             logger.info("Again clicked on the same req"+serq2);
-            String changedes=req.getActualDescription();
+            String changedes=addRequirementPage.getRequirementDescription();
             logger.info("changed desc:"+changedes);
 
 

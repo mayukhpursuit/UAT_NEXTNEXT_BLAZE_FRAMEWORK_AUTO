@@ -32,7 +32,6 @@ public class TC037 extends BaseClass {
             requirementTabPage.clickArrowRightPointingForExpandModule(mainProject);
             logger.info("Expanded the main project: " + mainProject);
 
-            Thread.sleep(9000);
             requirementTabPage.clickOnModule(module);
             logger.info("Clicked on the module: " + module);
 
