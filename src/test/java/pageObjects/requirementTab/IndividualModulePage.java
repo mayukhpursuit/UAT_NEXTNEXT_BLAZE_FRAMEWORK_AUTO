@@ -104,13 +104,13 @@ public class IndividualModulePage extends BasePage {
         ));
     }
 
-    @FindBy(xpath = "//div[contains(text(),'Priority')]")
+    @FindBy(xpath = "(//select[@class='testcase-select value'])[1]")
     WebElement priority;
 
-    @FindBy(xpath = "//div[contains(text(),'Status')]")
+    @FindBy(xpath = "(//select[@class='testcase-select value'])[2]")
     WebElement status;
 
-    @FindBy(xpath = "//div[contains(text(),'Type')]")
+    @FindBy(xpath = "(//select[@class='testcase-select value'])[3]")
     WebElement type;
 
     @FindBy(xpath = "//div[@class='requirements testcase-text-6']")
@@ -198,27 +198,29 @@ public class IndividualModulePage extends BasePage {
     }
 
     public void setActualDescription(String description) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
         descriptionBeforeClick.click();
-
-
+//        Thread.sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
-        descriptionAfterClick.clear();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
         descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
+        descriptionAfterClick.clear();
         descriptionAfterClick.sendKeys(description);
 
     }
     public void clearActualDescription(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
         descriptionBeforeClick.click();
-
-
+//        Thread.sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
+        descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
         descriptionAfterClick.clear();
         inputTitle.click();
     }

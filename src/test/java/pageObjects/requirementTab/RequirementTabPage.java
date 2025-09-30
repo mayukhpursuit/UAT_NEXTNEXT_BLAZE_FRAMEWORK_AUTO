@@ -221,7 +221,8 @@ public class RequirementTabPage extends BasePage {
         Assert.assertTrue(helpDropdown.isDisplayed(), "Help dropdown is not visible");
     }
 
-    public void clicktoggleSidebar() {
+    public void clicktoggleSidebar() throws InterruptedException {
+        Thread.sleep(1000);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.refreshed(
                 ExpectedConditions.elementToBeClickable(closeSideBar)

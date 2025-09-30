@@ -1,5 +1,6 @@
 package pageObjects.requirementTab;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +27,7 @@ public class AddRequirementPage extends BasePage {
     @FindBy(xpath = "//div[@class='testcase-prototype']")
     WebElement textRequirementDescriptionBeforeClick;
 
-    @FindBy(xpath = "//div[@class='ql-editor ql-blank']")
+    @FindBy(xpath = "//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']")
     WebElement textRequirementDescriptionAfterClick;
 
     @FindBy(xpath = "//div[@class='ql-editor']")
@@ -67,23 +68,15 @@ public class AddRequirementPage extends BasePage {
 
     public void setDescription(String description) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        // Click on the description (readonly)
-        Thread.sleep(1000);
-        if (textRequirementDescriptionBeforeClick.getText().equalsIgnoreCase("")){
-            textRequirementDescriptionBeforeClick.click();
-            Thread.sleep(2000);
-            WebElement editableField = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
-            editableField.sendKeys(description);
-        }
-        else{
-            textRequirementDescriptionBeforeClick.click();
-            Thread.sleep(2000);
-            WebElement editableField1 = wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClickWhenItIsNotBlank));
-            editableField1.sendKeys(Keys.chord(Keys.CONTROL,"a"));
-            editableField1.sendKeys(Keys.BACK_SPACE);
-            wait.until(ExpectedConditions.visibilityOf(textRequirementDescriptionAfterClick));
-            textRequirementDescriptionAfterClick.sendKeys(description);
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(textRequirementDescriptionBeforeClick));
+        textRequirementDescriptionBeforeClick.click();
+//        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(textRequirementDescriptionAfterClick));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", textRequirementDescriptionAfterClick);
+        textRequirementDescriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        textRequirementDescriptionAfterClick.sendKeys(Keys.BACK_SPACE);
+        textRequirementDescriptionAfterClick.clear();
+        textRequirementDescriptionAfterClick.sendKeys(description);
     }
     public void clickAddRequirementBtn(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
