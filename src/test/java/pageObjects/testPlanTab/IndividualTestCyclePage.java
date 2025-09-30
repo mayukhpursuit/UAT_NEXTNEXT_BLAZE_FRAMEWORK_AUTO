@@ -1,9 +1,15 @@
 package pageObjects.testPlanTab;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+
+import java.time.Duration;
 
 public class IndividualTestCyclePage extends BasePage {
     public IndividualTestCyclePage(WebDriver driver) {
@@ -17,17 +23,20 @@ public class IndividualTestCyclePage extends BasePage {
     @FindBy(xpath = "(//div[@class='test-plan-test-cycles-text-3'])[1]")
     WebElement testCycleHeader;
 
-    @FindBy(xpath ="(//div[@class='testcase-input-3'])[1]")
-    WebElement targetRelease;
+    @FindBy(xpath ="//input[@class='testcase-select']")
+    WebElement inputTargetRelease;
 
-    @FindBy(xpath = "(//div[@class='test-plan-test-cycles-prototype'])[1]")
+    @FindBy(xpath = "//div[@class='test-plan-test-cycles-prototype']")
     WebElement descriptionBeforeClick;
 
-    @FindBy(xpath ="(//div[@class='rte-editor ql-container ql-snow'])[1]" )
+    @FindBy(xpath ="//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']" )
     WebElement descriptionAfterClick;
 
     @FindBy(xpath = "(//button[@id='submitButton'])[1]")
     WebElement saveButton;
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement notificationAfterClickSave;
 
     //Actions
 
@@ -36,7 +45,7 @@ public class IndividualTestCyclePage extends BasePage {
         return testCycleHeader.getText();
     }
 
-    public void setGetTestCycleName(String cycleName)
+    public void setTestCycleName(String cycleName)
     {
         testCycleNameInput.clear(); //as input not div
         testCycleNameInput.sendKeys(cycleName);
@@ -44,13 +53,20 @@ public class IndividualTestCyclePage extends BasePage {
 
     public String getTargetRelease()
     {
-        return targetRelease.getText();
+        return inputTargetRelease.getAttribute("value");
     }
 
 
-    public void setDescriptionAfter(String description)
+    public void setDescription(String description)
     {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
         descriptionBeforeClick.click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
+        descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
         descriptionAfterClick.clear();
         descriptionAfterClick.sendKeys(description);
     }
@@ -59,6 +75,8 @@ public class IndividualTestCyclePage extends BasePage {
     public void clickSave()
     {
         saveButton.click();
+        WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(notificationAfterClickSave));
     }
 
 }

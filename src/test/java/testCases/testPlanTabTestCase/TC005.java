@@ -23,7 +23,7 @@ public class TC005 extends BaseClass {
             testPlanPage.expandSidebarIfCollapsed();
             logger.info("Sidebar expanded if it was collapsed");
 
-            testPlanPage.clickOnTheProjectName(projectName);
+            testPlanPage.clickOnTheProjectName();
             logger.info("Selected project: " + projectName);
 
             testPlanPage.clickNewRelease();

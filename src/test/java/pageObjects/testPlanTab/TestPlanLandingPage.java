@@ -33,6 +33,12 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//i[@title='Delete']")
     private WebElement btnDelete;
 
+    @FindBy(xpath = "//button[@id='confirmBtn']")
+    WebElement buttonConfirmDelete;
+
+    @FindBy(xpath = "//button[@id='cancelBtn']")
+    WebElement buttonCancelDelete;
+
     @FindBy(xpath = "//img[@class='menu-open' and @alt='Close Sidebar']")
     private WebElement btnHamburgerMenu;
 
@@ -79,10 +85,18 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='project ']")
     WebElement leftPanelProjectName;
 
+    public WebElement releaseTestCycleTestSuite(String releaseOrTestCycleOrTestSuite){
+        return driver.findElement(By.xpath("//div[text()='"+releaseOrTestCycleOrTestSuite+"']"));
+    }
+
     // --- Actions ---
+
+    public void clickOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
+        releaseTestCycleTestSuite(releaseOrTestCycleOrTestSuite).click();
+    }
     public void selectTestPlanTab() throws InterruptedException {
         tabTestPlan.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 
     public void expandSidebarIfCollapsed() {
@@ -105,16 +119,27 @@ public class TestPlanLandingPage extends BasePage {
         Thread.sleep(1500);
     }
 
-    public void clickNewTestCycle() {
+    public void clickNewTestCycle() throws InterruptedException {
+        Thread.sleep(1500);
         btnNewTestCycle.click();
+        Thread.sleep(1500);
     }
 
-    public void clickNewTestSuite() {
+    public void clickNewTestSuite() throws InterruptedException {
+        Thread.sleep(1500);
         btnNewTestSuite.click();
+        Thread.sleep(1500);
     }
 
-    public void clickDelete() {
+    public void clickDelete() throws InterruptedException {
+        Thread.sleep(1500);
         btnDelete.click();
+        Thread.sleep(1500);
+    }
+    public void clickOnConfirmDeleteYes(String releaseCycleSuiteName){
+        WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        buttonConfirmDelete.click();
+        wait.until(ExpectedConditions.invisibilityOf(releaseTestCycleTestSuite(releaseCycleSuiteName)));
     }
 
     public void toggleHamburgerMenu() {
@@ -219,22 +244,11 @@ public class TestPlanLandingPage extends BasePage {
         btnSaveRelease.click();
     }
 
-    public void clickOnTheProjectName(String projectName) {
+    public void clickOnTheProjectName() {
         leftPanelProjectName.click();
     }
 
-    public void clickDeleteProjectIcon(String projectName) {
-        WebElement deleteIcon = driver.findElement(By.xpath(
-                "//div[contains(@class,'project') and normalize-space(text())='" + projectName
-                        + "']//following-sibling::i[@title='Delete']"));
-        deleteIcon.click();
-    }
 
-    public void confirmDelete() {
-
-        driver.switchTo().alert().accept();
-
-    }
 
     public boolean isReleasePresentInList(String releaseName) {
         try {
