@@ -21,10 +21,10 @@ public class IndividualTestCyclePage extends BasePage {
     WebElement targetRelease;
 
     @FindBy(xpath = "(//div[@class='test-plan-test-cycles-prototype'])[1]")
-    WebElement DescriptionBeforeclick;
+    WebElement descriptionBeforeClick;
 
     @FindBy(xpath ="(//div[@class='rte-editor ql-container ql-snow'])[1]" )
-    WebElement DescriptionAfterClick;
+    WebElement descriptionAfterClick;
 
     @FindBy(xpath = "(//button[@id='submitButton'])[1]")
     WebElement saveButton;
@@ -50,9 +50,9 @@ public class IndividualTestCyclePage extends BasePage {
 
     public void setDescriptionAfter(String description)
     {
-        DescriptionBeforeclick.click();
-        DescriptionAfterClick.clear();
-        DescriptionAfterClick.sendKeys(description);
+        descriptionBeforeClick.click();
+        descriptionAfterClick.clear();
+        descriptionAfterClick.sendKeys(description);
     }
 
 

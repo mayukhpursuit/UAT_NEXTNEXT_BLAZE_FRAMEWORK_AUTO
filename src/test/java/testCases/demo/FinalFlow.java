@@ -15,11 +15,20 @@ public class FinalFlow extends BaseClass {
         logger.info("****** Starting the Filter Requirement Test Case *****************");
         try {
             login();
+            logger.info("Logged in successfully...");
+
             RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
             requirementTabPage.clickRequirementTab();
+            logger.info("navigated to requirement tab");
+
             requirementTabPage.clickOnTheProjectName();
+            logger.info("clicked on the project name");
+
             requirementTabPage.clickNewModule();
+            logger.info("clicked on new module ");
+
             requirementTabPage.setModuleName("Epic Mayukhjit");
+
             requirementTabPage.saveModule();
             requirementTabPage.clickNewModule();
             requirementTabPage.setModuleName("Feature Mohit");

@@ -39,8 +39,9 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(id = "sidebar")
     private WebElement sidebar;
 
-    @FindBy(xpath = "//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]")
-    private WebElement projectCaret;
+    public WebElement expandArrow(String name){
+        return driver.findElement(By.xpath("//div[text()='"+name+"']/span/i"));
+    }
 
     @FindBy(xpath = "//div[@class='dashboard-card']//div[text()='Total Releases']/following-sibling::div[@class='card-value']")
     private WebElement totalReleasesValue;
@@ -52,7 +53,7 @@ public class TestPlanLandingPage extends BasePage {
     private WebElement totalTestSuitesValue;
 
     @FindBy(xpath = "//div[contains(@class,'releases')]")
-    private java.util.List<WebElement> allProjects;
+    private List<WebElement> allProjects;
 
     @FindBy(xpath = "//div[contains(@class,'test-plan-releases-name-parent')]/input")
     private WebElement inputReleaseName;
@@ -90,31 +91,12 @@ public class TestPlanLandingPage extends BasePage {
         }
     }
 
-    public void expandProjectSTG() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(projectCaret));
-
-        String transform = projectCaret.getAttribute("style");
-        if (transform.contains("0deg")) {
-            projectCaret.click();
-            // wait until it rotates to 90deg
-            wait.until(driver -> projectCaret.getAttribute("style").contains("90deg"));
-        }
+    public void expandProjectSTG(String projectName) {
+        expandArrow(projectName).click();
     }
 
     public void expandRelease(String releaseName) {
-        String releaseXpath = "//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName
-                + "')]"
-                + "/span/i[contains(@class,'toggle-icon')]";
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement releaseCaret = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(releaseXpath)));
-
-        // Only click if not already expanded (rotate(90deg))
-        String style = releaseCaret.getAttribute("style");
-        if (style.contains("rotate(0deg)")) {
-            releaseCaret.click();
-        }
+        expandArrow(releaseName).click();
     }
 
     public void clickNewRelease() throws InterruptedException {

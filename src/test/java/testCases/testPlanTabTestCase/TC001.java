@@ -20,7 +20,7 @@ public class TC001 extends BaseClass {
             testPlanPage.expandSidebarIfCollapsed();
             logger.info("Sidebar expanded if it was collapsed");
 
-            testPlanPage.expandProjectSTG();
+            testPlanPage.expandProjectSTG("STG- PulseCodeOnAzureCloud");
             logger.info("Expanded the project dropdown");
 
             String transform = getDriver().findElement(org.openqa.selenium.By.xpath(

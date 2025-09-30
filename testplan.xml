@@ -8,9 +8,9 @@
           name="test plan Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.testPlanTabTestCase.TC001"/>
-            <class name="testCases.testPlanTabTestCase.TC002"/>
-            <class name="testCases.testPlanTabTestCase.TC003"/>
+<!--            <class name="testCases.testPlanTabTestCase.TC001"/>-->
+<!--            <class name="testCases.testPlanTabTestCase.TC002"/>-->
+            <class name="testCases.testPlanTabTestCase.TC004"/>
         </classes>
     </test>
 </suite>

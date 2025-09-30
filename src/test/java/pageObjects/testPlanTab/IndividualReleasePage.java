@@ -37,7 +37,7 @@ public class IndividualReleasePage extends BasePage
     WebElement releaseNote;
 
     @FindBy(xpath = "//button[@id='submitButton']")
-    WebElement savebutton;
+    WebElement saveButton;
 
 
     //Actions
@@ -76,7 +76,7 @@ public class IndividualReleasePage extends BasePage
     public boolean SaveButton() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(savebutton));
+            wait.until(ExpectedConditions.elementToBeClickable(saveButton));
             return true;
         } catch (Exception e) {
             return false;
