@@ -45,6 +45,8 @@ public class TC014 extends BaseClass {
 
             logger.info("************ Test Case Finished Successfully *************************");
 
+            testPlanPage.expandRelease(releaseName);
+            testPlanPage.clickDelete();
         } catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
