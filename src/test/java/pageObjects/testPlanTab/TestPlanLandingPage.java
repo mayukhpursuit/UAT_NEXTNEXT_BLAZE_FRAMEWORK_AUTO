@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import java.security.PrivateKey;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,9 @@ public class TestPlanLandingPage extends BasePage {
 
     @FindBy(id = "sidebar")
     private WebElement sidebar;
+
+    @FindBy(xpath = "//div[@id='notification']")
+    private WebElement notification;
 
     public WebElement expandArrow(String name){
         return driver.findElement(By.xpath("//div[text()='"+name+"']/span/i"));
@@ -280,5 +284,20 @@ public class TestPlanLandingPage extends BasePage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public String getNotificationMessage() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.visibilityOf(notification));
+            return notification.getText().trim();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public boolean isReleaseCreatedSuccessfully() {
+        String message = getNotificationMessage();
+        return message != null && message.contains("Release created successfully");
     }
 }
