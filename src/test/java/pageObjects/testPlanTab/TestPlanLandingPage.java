@@ -85,6 +85,8 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='project ']")
     WebElement leftPanelProjectName;
 
+
+
     public WebElement releaseTestCycleTestSuite(String releaseOrTestCycleOrTestSuite){
         return driver.findElement(By.xpath("//div[text()='"+releaseOrTestCycleOrTestSuite+"']"));
     }
@@ -269,4 +271,5 @@ public class TestPlanLandingPage extends BasePage {
             return false;
         }
     }
+
 }
