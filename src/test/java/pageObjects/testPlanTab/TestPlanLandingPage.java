@@ -261,4 +261,24 @@ public class TestPlanLandingPage extends BasePage {
             return false;
         }
     }
+
+    public boolean isTestingCycleVisible(String releaseName, String cycleName) {
+        try {
+            String xpath = "//div[text()='" + releaseName + "']/following::div[text()='" + cycleName + "']";
+            WebElement cycleElement = driver.findElement(By.xpath(xpath));
+            return cycleElement.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isTestingSuiteVisible(String cycleName, String suiteName) {
+        try {
+            String xpath = "//div[text()='" + cycleName + "']/following::div[text()='" + suiteName + "']";
+            WebElement suiteElement = driver.findElement(By.xpath(xpath));
+            return suiteElement.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
