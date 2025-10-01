@@ -94,6 +94,10 @@ public class TestPlanLandingPage extends BasePage {
     public void clickOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
         releaseTestCycleTestSuite(releaseOrTestCycleOrTestSuite).click();
     }
+
+    public void expandOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
+        expandArrow(releaseOrTestCycleOrTestSuite).click();
+    }
     public void selectTestPlanTab() throws InterruptedException {
         tabTestPlan.click();
         Thread.sleep(1000);

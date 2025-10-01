@@ -4,21 +4,27 @@ import DataProviders.TestPlanDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.IndividualTestCyclePage;
+import pageObjects.testPlanTab.IndividualTestSuitePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
-public class TC008 extends BaseClass {
-    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class)
-    public void verifyCreationOfNewTestCycle(
+public class TC010 extends BaseClass {
+    @Test(dataProvider = "tc010", dataProviderClass = TestPlanDataProvider.class)
+    public void verifyCreationOfTestSuite(
             String projectName,
             String releaseName,
             String testCycleName,
-            String testDescription
+            String testDescription,
+            String suiteName,
+            String startDate,
+            String endDate,
+            String executionType
     )
             throws InterruptedException {
         logger.info(
                 "****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************");
         try {
+
             login();
             logger.info("Logged in successfully");
 
@@ -51,6 +57,35 @@ public class TC008 extends BaseClass {
 
             individualTestCyclePage.clickSave();
             logger.info("Clicked on the save button");
+
+            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleName);
+            logger.info("navigated to the created cycle");
+
+            testPlanPage.clickNewTestSuite();
+            logger.info("Clicked on the new test suite icon ");
+
+            IndividualTestSuitePage individualTestSuitePage=new IndividualTestSuitePage(getDriver());
+
+            individualTestSuitePage.enterTestSuiteName(suiteName);
+            logger.info("Entered the suite name");
+
+            individualTestSuitePage.enterDescription(testDescription);
+            logger.info("entered the description");
+
+            individualTestSuitePage.setPlannedStartDate(startDate);
+            individualTestSuitePage.setPlannedEndDate(endDate);
+            logger.info("Entered the date");
+
+            individualTestSuitePage.selectExecutionType(executionType);
+            logger.info("selected the execution type");
+
+            individualTestSuitePage.clickSaveButton();
+            logger.info("clicked on save button");
+
+
+            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(suiteName);
+            Assert.assertEquals(individualTestSuitePage.getTargetRelease(),releaseName);
+            logger.info("release note verified successfully");
 
 
         } catch (AssertionError e) {

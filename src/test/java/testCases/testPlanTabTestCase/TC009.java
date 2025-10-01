@@ -8,7 +8,7 @@ import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
 public class TC009 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class)
     public void verifyDeletionOfCycle(
             String projectName,
             String releaseName,

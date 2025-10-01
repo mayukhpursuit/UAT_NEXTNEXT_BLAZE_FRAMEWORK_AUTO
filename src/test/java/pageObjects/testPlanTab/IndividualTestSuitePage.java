@@ -1,11 +1,22 @@
 package pageObjects.testPlanTab;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Arrays;
+
+@Slf4j
 public class IndividualTestSuitePage extends BasePage {
     public IndividualTestSuitePage(WebDriver driver){
         super(driver);
@@ -21,8 +32,11 @@ public class IndividualTestSuitePage extends BasePage {
     @FindBy(id = "submitButton")
     private WebElement saveButton;
 
-    @FindBy(xpath = "//div[@class='test-plan-test-suites-prototype']//em[contains(text(),'Click to add description')]")
-    private WebElement descriptionEditor;
+    @FindBy(xpath = "//div[@class='test-plan-test-suites-prototype']")
+    private WebElement descriptionBeforeClick;
+
+    @FindBy(xpath = "//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']")
+    WebElement descriptionAfterClick;
 
     @FindBy(xpath = "(//input[@type='date'])[1]")
     private WebElement plannedStartDateInput;
@@ -30,17 +44,20 @@ public class IndividualTestSuitePage extends BasePage {
     @FindBy(xpath = "(//input[@type='date'])[2]")
     private WebElement plannedEndDateInput;
 
-    @FindBy(id = "testcase-select")
+    @FindBy(xpath = "//input[@name='name']")
     private WebElement targetReleaseInput;
 
-    @FindBy(xpath = "(//select[@class='test-execution-text'])[1]")
+    @FindBy(xpath = "(//select[@class='test-execution-text select-dropdown'])[1]")
     private WebElement environmentDropdown;
 
-    @FindBy(xpath = "(//select[@class='test-execution-text'])[2]")
+    @FindBy(xpath = "(//select[@class='test-execution-text select-dropdown'])[2]")
     private WebElement executionTypeDropdown;
 
-    @FindBy(xpath = "(//select[@class='test-execution-text'])[3]")
+    @FindBy(xpath = "(//select[@class='test-execution-text select-dropdown'])[3]")
     private WebElement testDataSourceDropdown;
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement notificationDeletionUpdation;
 
     // actions
     public String getTestSuiteId() {
@@ -54,23 +71,34 @@ public class IndividualTestSuitePage extends BasePage {
 
     public void clickSaveButton() {
         saveButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(notificationDeletionUpdation));
     }
 
     public void enterDescription(String desc) {
-        descriptionEditor.click();
-        descriptionEditor.clear();
-        descriptionEditor.sendKeys(desc);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
+        descriptionBeforeClick.click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
+        descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
+        descriptionAfterClick.clear();
+        descriptionAfterClick.sendKeys(desc);
     }
 
-    public void setPlannedStartDate(String date) {
-        plannedStartDateInput.sendKeys(date);
+    public void setPlannedStartDate(String yyyymmdd) {
+
+        plannedStartDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
     }
 
-    public void setPlannedEndDate(String date) {
-        plannedEndDateInput.sendKeys(date);
+    public void setPlannedEndDate(String yyyymmdd) {
+        plannedEndDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
     }
 
-    public String getTargetRelease() {
+    public String getTargetRelease() throws InterruptedException {
+        Thread.sleep(1000);
         return targetReleaseInput.getAttribute("value");
     }
 
