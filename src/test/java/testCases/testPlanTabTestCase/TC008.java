@@ -7,9 +7,9 @@ import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
-public class TC007 extends BaseClass {
+public class TC008 extends BaseClass {
     @Test(dataProvider = "tc006", dataProviderClass = TestPlanDataProvider.class)
-    public void verifyDeletionOfCycle(
+    public void verifyCreationOfNewTestCycle(
             String projectName,
             String releaseName,
             String testCycleName,
@@ -19,7 +19,6 @@ public class TC007 extends BaseClass {
         logger.info(
                 "****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************");
         try {
-
             login();
             logger.info("Logged in successfully");
 
@@ -52,16 +51,6 @@ public class TC007 extends BaseClass {
 
             individualTestCyclePage.clickSave();
             logger.info("Clicked on the save button");
-
-            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleName);
-            logger.info("navigated to the created cycle");
-
-            testPlanPage.clickDelete();
-            logger.info("Clicked on the delete button");
-
-            testPlanPage.clickOnConfirmDeleteYes(testCycleName);
-            logger.info("Deleted the module successfully");
-
 
 
         } catch (AssertionError e) {
