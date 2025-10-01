@@ -51,9 +51,14 @@ public class TC005 extends BaseClass {
 
             logger.info("************ Test Case Finished Successfully *************************");
 
+        } catch (AssertionError e) {
+            logger.error("Assertion failed: " + e.getMessage());
+            throw e;
         } catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
+        logger.info(
+                "************ Test Case Finished: Verify Deleting a Release Removes It from the UI *****************");
     }
 }

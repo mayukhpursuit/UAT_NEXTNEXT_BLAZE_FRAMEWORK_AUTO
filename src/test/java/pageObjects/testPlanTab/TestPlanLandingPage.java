@@ -89,6 +89,10 @@ public class TestPlanLandingPage extends BasePage {
         return driver.findElement(By.xpath("//div[text()='"+releaseOrTestCycleOrTestSuite+"']"));
     }
 
+    @FindBy(xpath = "//body/div[@class='requirements']/div[@class='frame']" +
+            "/div[@id='sidebar']/div[@id='project']/ul[@class='sidebar-tree']/li")
+    private List<WebElement> projectReleaseNodes;
+
     // --- Actions ---
 
     public void clickOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
@@ -258,6 +262,21 @@ public class TestPlanLandingPage extends BasePage {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(releaseXpath)));
             return true;
         } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean areCyclesDisplayedUnderRelease(String releaseName) {
+        try {
+            for (WebElement node : projectReleaseNodes) {
+                if (node.getText().contains(releaseName)) {
+                    List<WebElement> cycles = node.findElements(By.xpath(".//ul/li"));
+                    return cycles.size() > 0;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            System.out.println("Exception in areCyclesDisplayedUnderRelease: " + e.getMessage());
             return false;
         }
     }
