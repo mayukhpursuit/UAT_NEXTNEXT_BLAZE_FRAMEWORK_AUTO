@@ -116,6 +116,10 @@ public class TestPlanLandingPage extends BasePage {
     public void expandRelease(String releaseName) {
         expandArrow(releaseName).click();
     }
+    public void expandTestCycle(String testcycle)
+    {
+        expandArrow(testcycle).click();
+    }
 
     public void clickNewRelease() throws InterruptedException {
         Thread.sleep(1500);
