@@ -38,6 +38,9 @@ public class IndividualTestCyclePage extends BasePage {
     @FindBy(xpath = "//div[@id='notification']")
     WebElement notificationAfterClickSave;
 
+    @FindBy(xpath = "//div[contains(text(),'Test Cycle created successfully.')]")
+    WebElement testCycleCreatedSuccessMessage;
+
     //Actions
 
     public String getTestCycleHeader()
@@ -77,6 +80,12 @@ public class IndividualTestCyclePage extends BasePage {
         saveButton.click();
         WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(notificationAfterClickSave));
+    }
+
+    public String getTestCycleCreatedSuccessMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(testCycleCreatedSuccessMessage));
+        return testCycleCreatedSuccessMessage.getText();
     }
 
 }
