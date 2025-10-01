@@ -54,11 +54,6 @@ public class TestPlanDataProvider {
         return ExcelDataProviders.getExcelDataForTestPlan("tc011");
     }
 
-    @DataProvider(name = "tc012")
-    public static String[][] getDataTC012() throws IOException {
-        return ExcelDataProviders.getExcelDataForTestPlan("tc012");
-    }
-
     @DataProvider(name = "tc013")
     public static String[][] getDataTC013() throws IOException {
         return ExcelDataProviders.getExcelDataForTestPlan("tc013");
