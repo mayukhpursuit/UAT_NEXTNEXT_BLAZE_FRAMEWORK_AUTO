@@ -385,4 +385,18 @@ public class TestPlanLandingPage extends BasePage {
     public String getLeftPanelProjectName() {
         return leftPanelProjectName.getText().trim();
     }
+
+    public List<String> getExpectedProjectsFromSidebar() {
+        List<WebElement> projectElements = driver.findElements(
+                By.xpath("//div[@id='project']//div[contains(@class,'releases')]"));
+
+        List<String> expectedProjects = new ArrayList<>();
+        for (WebElement el : projectElements) {
+            String text = el.getText().trim();
+            if (!text.isEmpty()) {
+                expectedProjects.add(text);
+            }
+        }
+        return expectedProjects;
+    }
 }
