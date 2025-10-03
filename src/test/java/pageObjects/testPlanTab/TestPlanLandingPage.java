@@ -266,11 +266,19 @@ public class TestPlanLandingPage extends BasePage {
     }
 
     public void enterDescription(String description) {
-        WebElement descriptionEditor = driver.findElement(By.cssSelector(".ql-editor"));
-        descriptionEditor.click();
-        descriptionEditor.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        descriptionEditor.sendKeys(Keys.BACK_SPACE);
-        descriptionEditor.sendKeys("This is the new release description.");
+        WebElement descriptionBeforeClick = driver.findElement(By.xpath("//div[@class='test-plan-releases-prototype']"));
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
+        descriptionBeforeClick.click();
+
+        WebElement descriptionAfterClick=driver.findElement(By.xpath("//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']"));
+        wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
+        descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
+        descriptionAfterClick.clear();
+        descriptionAfterClick.sendKeys(description);
     }
 
     public void enterReleaseNotes(String notes) {

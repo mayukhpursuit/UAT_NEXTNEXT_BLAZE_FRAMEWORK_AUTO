@@ -1,9 +1,15 @@
 package testCases.testPlanTabTestCase;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+
+import java.time.Duration;
 
 public class TC001 extends BaseClass {
     @Test
@@ -23,12 +29,17 @@ public class TC001 extends BaseClass {
             testPlanPage.expandProjectSTG("STG- PulseCodeOnAzureCloud");
             logger.info("Expanded the project dropdown");
 
-            String transform = getDriver().findElement(org.openqa.selenium.By.xpath(
-                    "//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]"))
-                    .getAttribute("style");
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
+            WebElement toggleIcon = wait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//div[contains(@class,'project') and contains(.,'STG- PulseCodeOnAzureCloud')]//i[contains(@class,'toggle-icon')]")
+            ));
+
+            wait.until(driver -> toggleIcon.getAttribute("style").contains("90deg"));
+
+            String transform = toggleIcon.getAttribute("style");
             Assert.assertTrue(transform.contains("90deg"), "Project dropdown is not expanded/visible!");
-            logger.info("Project dropdown is visible and expanded successfully");
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

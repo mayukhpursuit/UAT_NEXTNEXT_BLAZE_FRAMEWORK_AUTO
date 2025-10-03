@@ -9,7 +9,8 @@ import testBase.BaseClass;
 public class TC002 extends BaseClass {
 
     @Test(dataProvider = "tc002", dataProviderClass = TestPlanDataProvider.class)
-    public void verifyProjectSelectionFromDropdown(String projectName) throws InterruptedException {
+    public void verifyProjectSelectionFromDropdown(String projectName,
+                                                   String releaseName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
@@ -25,12 +26,12 @@ public class TC002 extends BaseClass {
             testPlanPage.expandProjectSTG(projectName);
             logger.info("Expanded the project dropdown");
 
-            testPlanPage.selectProjectByName(projectName);
-            logger.info("Selected project: " + projectName);
+            testPlanPage.selectProjectByName(releaseName);
+            logger.info("Selected project: " + releaseName);
 
-            Assert.assertTrue(testPlanPage.isProjectSelected(projectName),
-                    "Project '" + projectName + "' was not selected successfully!");
-            logger.info("Project '" + projectName + "' is selected and active");
+            Assert.assertTrue(testPlanPage.isProjectSelected(releaseName),
+                    "Project '" + releaseName + "' was not selected successfully!");
+            logger.info("Project '" + releaseName + "' is selected and active");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

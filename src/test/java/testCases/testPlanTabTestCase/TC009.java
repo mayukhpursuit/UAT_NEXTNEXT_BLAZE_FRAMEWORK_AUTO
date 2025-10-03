@@ -41,7 +41,7 @@ public class TC009 extends BaseClass {
             logger.info("Clicked on the new testCycle");
 
             IndividualTestCyclePage individualTestCyclePage=new IndividualTestCyclePage(getDriver());
-            individualTestCyclePage.setTestCycleName(testCycleName);
+            individualTestCyclePage.setTestCycleName(testCycleName+"1");
             logger.info("added the test cycle name");
 
             individualTestCyclePage.setDescription(testDescription);
@@ -53,13 +53,13 @@ public class TC009 extends BaseClass {
             individualTestCyclePage.clickSave();
             logger.info("Clicked on the save button");
 
-            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleName);
+            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleName+"1");
             logger.info("navigated to the created cycle");
 
             testPlanPage.clickDelete();
             logger.info("Clicked on the delete button");
 
-            testPlanPage.clickOnConfirmDeleteYes(testCycleName);
+            testPlanPage.clickOnConfirmDeleteYes(testCycleName+"1");
             logger.info("Deleted the module successfully");
 
 
