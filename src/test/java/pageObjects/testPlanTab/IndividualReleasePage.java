@@ -18,48 +18,68 @@ public class IndividualReleasePage extends BasePage
     }
 
     //locators
+
+    @FindBy(xpath = "//div[@class='test-plan-releases-text-3']")
+    WebElement releaseId;
+
     @FindBy(xpath = "//input[@class='test-plan-releases-supporting-text']")
     WebElement releaseName;
 
     @FindBy(xpath = "//select[@class='testcase-select value']")
     WebElement releaseStatus;
 
-    @FindBy(xpath = "//div[@class='requirement-grid-template']//div[2]//div[2]//input[1]")
+    @FindBy(xpath = "(//input[@type='date'])[1]")
     WebElement releaseStartDate;
 
-    @FindBy(xpath = "//div[3]//div[2]//input[1]")
+    @FindBy(xpath = "(//input[@type='date'])[2]")
     WebElement releaseEndDate;
 
     @FindBy(xpath = "//div[@class='ql-editor ql-blank']")
     WebElement releaseDescription;
 
+    @FindBy(xpath = "//div[@class='rich-editor-scrollable']")
+    WebElement releaseDescriptionContainer;
+
+    @FindBy(xpath = "//div[@class='ql-editor ql-blank']")
+    WebElement releaseDescriptionBlank;
+
+    @FindBy(xpath = "//div[@class='ql-editor']")
+    WebElement releaseDescriptionEditor;
+
     @FindBy(xpath = "//textarea[@id='precondition']")
     WebElement releaseNote;
 
-    @FindBy(xpath = "//button[@id='submitButton']")
+    @FindBy(xpath = "//div[@class='test-plan-releases-save']")
     WebElement saveButton;
-
 
     //Actions
 
-    public void setReleaseName(String ReleaseName)
-    {
-        releaseName.sendKeys(ReleaseName);
+    public String getReleaseId() {
+        return releaseId.getText();
     }
 
-    public void setStatus(String statusValue)
-    {
+    public void setReleaseName(String Releasename) {
+        releaseName.clear();
+        releaseName.sendKeys(Releasename);
+    }
+
+    public void setReleaseStatus(String statusValue) {
         Select select = new Select(releaseStatus);
         select.selectByVisibleText(statusValue);
     }
 
-    public void setDescription(String description)
-    {
-        releaseDescription.sendKeys(description);
+    public void setDescription(String descriptionText) {
+        try {
+            if (releaseDescriptionBlank.isDisplayed()) {
+                releaseDescriptionBlank.sendKeys(descriptionText);
+            }
+        } catch (Exception e) {
+            releaseDescriptionEditor.sendKeys(descriptionText);
+        }
     }
 
-    public void setReleaseNote(String releasenote)
-    {
+    public void setReleaseNote(String releasenote) {
+        releaseNote.clear();
         releaseNote.sendKeys(releasenote);
     }
 
@@ -83,5 +103,5 @@ public class IndividualReleasePage extends BasePage
         }
     }
 
-
+    
 }

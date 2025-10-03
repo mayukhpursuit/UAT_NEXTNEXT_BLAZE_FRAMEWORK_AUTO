@@ -89,11 +89,13 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='project ']")
     WebElement leftPanelProjectName;
 
-
-
     public WebElement releaseTestCycleTestSuite(String releaseOrTestCycleOrTestSuite){
         return driver.findElement(By.xpath("//div[text()='"+releaseOrTestCycleOrTestSuite+"']"));
     }
+
+    @FindBy(xpath = "//body/div[@class='requirements']/div[@class='frame']" +
+            "/div[@id='sidebar']/div[@id='project']/ul[@class='sidebar-tree']/li")
+    private List<WebElement> projectReleaseNodes;
 
     // --- Actions ---
 
@@ -310,5 +312,20 @@ public class TestPlanLandingPage extends BasePage {
     public boolean isReleaseCreatedSuccessfully() {
         String message = getNotificationMessage();
         return message != null && message.contains("Release created successfully");
+    }
+
+    public boolean areCyclesDisplayedUnderRelease(String releaseName) {
+        try {
+            for (WebElement node : projectReleaseNodes) {
+                if (node.getText().contains(releaseName)) {
+                    List<WebElement> cycles = node.findElements(By.xpath(".//ul/li"));
+                    return cycles.size() > 0;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            System.out.println("Exception in areCyclesDisplayedUnderRelease: " + e.getMessage());
+            return false;
+        }
     }
 }
