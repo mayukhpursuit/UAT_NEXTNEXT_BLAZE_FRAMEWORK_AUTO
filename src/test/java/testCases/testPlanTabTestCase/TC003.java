@@ -2,6 +2,8 @@ package testCases.testPlanTabTestCase;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 import java.util.List;
@@ -9,8 +11,8 @@ import java.util.Arrays;
 
 public class TC003 extends BaseClass {
 
-    @Test
-    public void verifyListingOfAllConfiguredProjects() throws InterruptedException {
+    @Test(dataProvider = "tc003", dataProviderClass = TestPlanDataProvider.class)
+    public void verifyListingOfAllConfiguredProjects(String projectName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Listing of All Configured Projects *****************");
         try {
             login();
@@ -23,24 +25,14 @@ public class TC003 extends BaseClass {
             testPlanPage.expandSidebarIfCollapsed();
             logger.info("Sidebar expanded if it was collapsed");
 
-            testPlanPage.expandProjectSTG("STG- PulseCodeOnAzureCloud");
+            testPlanPage.expandProjectSTG(projectName);
             logger.info("Expanded the project dropdown");
 
             List<String> actualProjects = testPlanPage.getAllProjectNames();
             logger.info("Projects listed in dropdown: " + actualProjects);
 
-            List<String> expectedProjects = Arrays.asList(
-                    "SET- DRV",
-                    "New Release 3-9-2025",
-                    "New Release 3 September",
-                    "Release 039",
-                    "New Releasessss",
-                    "New Release 11",
-                    "Mayukh_Release",
-                    "New Release 123",
-                    "New Release 10-9-2025",
-                    "New Release 10-9-2025",
-                    "New Release 12-09-2025");
+            List<String> expectedProjects = testPlanPage.getExpectedProjectsFromSidebar();
+            logger.info("Expected Projects fetched dynamically: " + expectedProjects);
 
             Assert.assertEquals(actualProjects, expectedProjects,
                     "Project list in dropdown does not match expected configuration!");
