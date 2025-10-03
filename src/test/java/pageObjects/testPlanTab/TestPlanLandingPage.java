@@ -328,4 +328,19 @@ public class TestPlanLandingPage extends BasePage {
             return false;
         }
     }
+
+    public int getDuplicateReleaseCount(String releaseName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement sidebarTree = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='sidebar-tree']")));
+
+            List<WebElement> releases = sidebarTree.findElements(
+                    By.xpath(".//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName + "')]")
+            );
+            return releases.size();
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
 }
