@@ -41,11 +41,14 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//button[@id='cancelBtn']")
     WebElement buttonCancelDelete;
 
-    @FindBy(xpath = "//img[@class='menu-open' and @alt='Close Sidebar']")
-    private WebElement btnHamburgerMenu;
+    @FindBy(xpath = "//img[@alt='Close Sidebar']")
+    WebElement buttonCollapseToggle;
 
-    @FindBy(id = "sidebar")
-    private WebElement sidebar;
+    @FindBy(xpath = "//img[@alt='Open Sidebar']")
+    WebElement buttonExpandToggle;
+
+    @FindBy(xpath = "//ul[@class='sidebar-tree']")
+    WebElement sidebarTree;
 
     @FindBy(xpath = "//div[@id='notification']")
     private WebElement notification;
@@ -119,9 +122,25 @@ public class TestPlanLandingPage extends BasePage {
     }
 
     public void expandSidebarIfCollapsed() {
-        if (!sidebar.isDisplayed()) {
-            btnHamburgerMenu.click();
+        if (!sidebarTree.isDisplayed()) {
+            buttonExpandToggle.click();
         }
+    }
+
+    public void clickCollapseToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonCollapseToggle.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickExpandToggle() throws InterruptedException {
+        Thread.sleep(1000);
+        buttonExpandToggle.click();
+        Thread.sleep(2000);
+    }
+
+    public boolean getSidebarVisibility() {
+        return sidebarTree.isDisplayed();
     }
 
     public void expandProjectSTG(String projectName) {
@@ -163,10 +182,6 @@ public class TestPlanLandingPage extends BasePage {
         WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
         buttonConfirmDelete.click();
         wait.until(ExpectedConditions.invisibilityOf(releaseTestCycleTestSuite(releaseCycleSuiteName)));
-    }
-
-    public void toggleHamburgerMenu() {
-        btnHamburgerMenu.click();
     }
 
     public int getTotalReleases() {

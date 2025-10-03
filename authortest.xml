@@ -8,9 +8,9 @@
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="testCases.requirementTabTestCase.TC031"/>
+            <class name="testCases.requirementTabTestCase.TC001"/>
             <class name="testCases.requirementTabTestCase.TC035"/>
-            <class name="testCases.requirementTabTestCase.TC037"/>
+<!--            <class name="testCases.requirementTabTestCase.TC037"/>-->
         </classes>
     </test>
 </suite>
