@@ -54,6 +54,6 @@ public class TC020 extends BaseClass {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
-         }
+    }
 }
 
