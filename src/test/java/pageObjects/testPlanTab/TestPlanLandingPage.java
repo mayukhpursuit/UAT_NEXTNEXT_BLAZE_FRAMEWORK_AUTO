@@ -90,6 +90,12 @@ public class TestPlanLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='project ']")
     WebElement leftPanelProjectName;
 
+    @FindBy(xpath = "//span[@class='text-wrapper-22 project-selector']")
+    private WebElement projectDropdown;
+
+    @FindBy(xpath = "//div[@class='project-dropdown-menu']")
+    private WebElement projectDropdownMenu;
+
     public WebElement releaseTestCycleTestSuite(String releaseOrTestCycleOrTestSuite){
         return driver.findElement(By.xpath("//div[text()='"+releaseOrTestCycleOrTestSuite+"']"));
     }
@@ -344,4 +350,16 @@ public class TestPlanLandingPage extends BasePage {
         }
     }
 
+
+    public void selectProjectFromDropdown(String projectName) {
+
+        projectDropdown.click();
+
+        WebElement projectOption = driver.findElement(By.xpath("//div[@class='project-dropdown-menu']//div[@class='project-dropdown-item' and normalize-space(text())='"+ projectName + "']"));
+        projectOption.click();
+    }
+
+    public String getLeftPanelProjectName() {
+        return leftPanelProjectName.getText().trim();
+    }
 }
