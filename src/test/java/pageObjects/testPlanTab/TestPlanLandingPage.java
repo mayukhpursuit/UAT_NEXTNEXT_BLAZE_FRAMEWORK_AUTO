@@ -207,9 +207,11 @@ public class TestPlanLandingPage extends BasePage {
         throw new RuntimeException("Project '" + projectName + "' not found in the dropdown!");
     }
 
-    public boolean isProjectSelected(String projectName) {
+    public boolean isProjectSelected(String projectName) throws InterruptedException {
         for (WebElement project : allProjects) {
             if (project.getText().trim().equalsIgnoreCase(projectName)) {
+                project.click();
+                Thread.sleep(1000);
                 String classAttr = project.getAttribute("class");
                 return classAttr.contains("active");
             }
