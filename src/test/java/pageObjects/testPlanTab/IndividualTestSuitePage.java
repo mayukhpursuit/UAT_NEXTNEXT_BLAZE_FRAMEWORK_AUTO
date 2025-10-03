@@ -59,6 +59,9 @@ public class IndividualTestSuitePage extends BasePage {
     @FindBy(xpath = "//div[@id='notification']")
     WebElement notificationDeletionUpdation;
 
+    @FindBy(xpath = "//div[contains(text(),'Test Suite created successfully.')]")
+    WebElement testSuiteCreatedSuccessMessage;
+
     // actions
     public String getTestSuiteId() {
         return testSuiteIdText.getText();
@@ -117,5 +120,11 @@ public class IndividualTestSuitePage extends BasePage {
     public void selectTestDataSource(String source) {
         Select select = new Select(testDataSourceDropdown);
         select.selectByVisibleText(source);
+    }
+
+    public String getTestSuiteCreatedSuccessMessage() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(testSuiteCreatedSuccessMessage));
+        return testSuiteCreatedSuccessMessage.getText();
     }
 }
