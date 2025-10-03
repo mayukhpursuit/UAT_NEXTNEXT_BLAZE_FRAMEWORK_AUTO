@@ -92,7 +92,6 @@ public class IndividualTestSuitePage extends BasePage {
     }
 
     public void setPlannedStartDate(String yyyymmdd) {
-
         plannedStartDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
     }
 

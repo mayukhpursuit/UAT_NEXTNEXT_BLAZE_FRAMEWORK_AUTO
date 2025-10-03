@@ -26,6 +26,8 @@ public class TC010 extends BaseClass {
         try {
 
             login();
+//            getDriver().navigate().refresh();
+//            Thread.sleep(2000);
             logger.info("Logged in successfully");
 
             TestPlanLandingPage testPlanPage = new TestPlanLandingPage(getDriver());
@@ -89,10 +91,10 @@ public class TC010 extends BaseClass {
 
 
         } catch (AssertionError e) {
-            logger.error("Assertion failed: " + e.getMessage());
+            logger.error("Assertion failed: {}", e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.error("Exception occurred: " + e.getMessage());
+            logger.error("Exception occurred: {}", e.getMessage());
             throw e;
         }
 

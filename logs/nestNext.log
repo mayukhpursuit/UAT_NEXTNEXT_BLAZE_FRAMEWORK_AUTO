@@ -294,3 +294,58 @@
 12:24:32.084 [main] INFO  testCases.testPlanTabTestCase.TC014 - Release created successfully notification displayed
 12:24:32.084 [main] INFO  testCases.testPlanTabTestCase.TC014 - ************ Test Case Finished Successfully *************************
 12:24:36.472 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@39b626e5: 0 ms
+12:44:51.149 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.154 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+12:44:51.156 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.156 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.156 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.157 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.157 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.157 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.162 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 3 ms.
+12:44:51.176 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 14 ms.
+12:44:51.177 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.179 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.180 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.180 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.180 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.180 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.182 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.182 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.182 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.183 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.185 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.185 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.186 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.186 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.187 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.188 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.190 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.190 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.190 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:44:51.190 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:44:51.193 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\MayukhjitChakraborty\Desktop\UAT_TESTNEXT\UAT_NEXT_FRAMEWORK\testplan.xml
+
+12:44:51.357 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+12:44:58.213 [main] INFO  testCases.testPlanTabTestCase.TC010 - ****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************
+12:45:11.046 [main] INFO  testCases.testPlanTabTestCase.TC010 - Logged in successfully
+12:45:12.132 [main] INFO  testCases.testPlanTabTestCase.TC010 - Navigated to Test Plan tab
+12:45:12.152 [main] INFO  testCases.testPlanTabTestCase.TC010 - Sidebar expanded if it was collapsed
+12:45:12.196 [main] INFO  testCases.testPlanTabTestCase.TC010 - Expanded STG Project
+12:45:12.369 [main] INFO  testCases.testPlanTabTestCase.TC010 - Clicked on the module 
+12:45:15.417 [main] INFO  testCases.testPlanTabTestCase.TC010 - Clicked on the new testCycle
+12:45:15.535 [main] INFO  testCases.testPlanTabTestCase.TC010 - added the test cycle name
+12:45:17.065 [main] INFO  testCases.testPlanTabTestCase.TC010 - added the description for cycle
+12:45:17.082 [main] INFO  testCases.testPlanTabTestCase.TC010 - verified the targeted release 
+12:45:17.663 [main] INFO  testCases.testPlanTabTestCase.TC010 - Clicked on the save button
+12:45:17.706 [main] INFO  testCases.testPlanTabTestCase.TC010 - navigated to the created cycle
+12:45:20.767 [main] INFO  testCases.testPlanTabTestCase.TC010 - Clicked on the new test suite icon 
+12:45:20.844 [main] INFO  testCases.testPlanTabTestCase.TC010 - Entered the suite name
+12:45:21.292 [main] INFO  testCases.testPlanTabTestCase.TC010 - entered the description
+12:45:21.362 [main] INFO  testCases.testPlanTabTestCase.TC010 - Entered the date
+12:45:21.443 [main] INFO  testCases.testPlanTabTestCase.TC010 - selected the execution type
+12:45:22.014 [main] INFO  testCases.testPlanTabTestCase.TC010 - clicked on save button
+12:45:22.609 [main] INFO  testCases.testPlanTabTestCase.TC010 - release note verified successfully
+12:45:22.610 [main] INFO  testCases.testPlanTabTestCase.TC010 - ************ Test Case Finished *************************
+12:45:27.422 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@72465eb2: 0 ms
