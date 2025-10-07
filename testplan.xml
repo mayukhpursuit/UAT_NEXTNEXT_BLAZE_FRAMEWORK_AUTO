@@ -7,6 +7,7 @@
     <test verbose="2" preserve-order="true"
           name="test plan Test ">
         <parameter name="browser" value="chrome"/>
+        <parameter name="mode" value="headless"/>
         <classes>
                 <class name="testCases.testPlanTabTestCase.TC001"/>
                 <class name="testCases.testPlanTabTestCase.TC002"/>
