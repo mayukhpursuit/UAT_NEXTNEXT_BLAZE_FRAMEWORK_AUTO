@@ -36,8 +36,8 @@ public class BaseClass {
     }
 
     @BeforeClass
-    @Parameters({"browser"})
-    public void setUp(String br) throws IOException, InterruptedException {
+    @Parameters({"browser","mode"})
+    public void setUp(String br,String mode) throws IOException, InterruptedException {
         FileReader config = new FileReader(".//src//test//resources//config.properties");
         p = new Properties();
         p.load(config);
@@ -56,7 +56,9 @@ public class BaseClass {
                 case "chrome":
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--incognito");
-                    options.addArguments("--headless=new");
+                    if (mode.equalsIgnoreCase("headless")){
+                        options.addArguments("--headless=new");
+                    }
                     wd = new ChromeDriver(options);
                     break;
                 case "firefox":
@@ -77,6 +79,9 @@ public class BaseClass {
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().get(p.getProperty("appURL"));
         getDriver().manage().window().maximize();
+        if (mode.equalsIgnoreCase("headless")){
+            getDriver().manage().window().setSize(new Dimension(1920, 1080));
+        }
 
     }
 
