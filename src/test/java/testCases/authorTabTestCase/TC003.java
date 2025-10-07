@@ -21,6 +21,7 @@ public class TC003 extends BaseClass {
         try {
             login();
             logger.info("Logged in successfully");
+            getDriver().manage().window().maximize();
             logger.info("Navigated to Author Test Case tab");
             RequirementTabPage requirementTabPage= new RequirementTabPage(getDriver());
             AuthorTestCasePage authorTestCasePage= new AuthorTestCasePage(getDriver());

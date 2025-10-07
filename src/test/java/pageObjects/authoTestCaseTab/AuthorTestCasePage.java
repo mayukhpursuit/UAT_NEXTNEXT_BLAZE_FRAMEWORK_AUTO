@@ -356,12 +356,43 @@ public class AuthorTestCasePage extends BasePage {
             return false ;
         }
     }
-    public void clickTestCase(String tcID){
+    public void clickTestCase(String tcID) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions
-                .elementToBeClickable(linkTestCaseIdFromId(tcID)));
-        element.click();
+
+        while (true) {
+            // Re-fetch the test case elements each time (to avoid stale elements)
+            List<WebElement> allCases = driver.findElements(By.xpath("//div[@class='testlistcell']/a"));
+
+            boolean found = false;
+            for (WebElement ele : allCases) {
+                String id = ele.getText().trim();
+                if (id.equalsIgnoreCase(tcID)) {
+                    WebElement clickable = wait.until(ExpectedConditions.elementToBeClickable(ele));
+                    clickable.click();
+                    System.out.println("Clicked on Test Case: " + tcID);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) break;
+
+            // Locate the next button fresh each time
+            WebElement nextButton = driver.findElement(By.xpath("//div[@id='rd_paginationContainer']//img[@alt='Next']"));
+
+            // Stop if pagination ends
+            if (nextButton.getCssValue("cursor").equalsIgnoreCase("default")) {
+                System.out.println("Reached last page. Test case not found: " + tcID);
+                break;
+            }
+
+            nextButton.click();
+
+            // Wait for page reload before rechecking
+            Thread.sleep(1000);
+        }
     }
+
 
     public boolean isAllTestIdSorted() throws InterruptedException {
         Thread.sleep(3000);
