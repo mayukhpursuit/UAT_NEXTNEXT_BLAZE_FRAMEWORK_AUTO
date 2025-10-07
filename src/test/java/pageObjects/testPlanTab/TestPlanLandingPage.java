@@ -395,9 +395,8 @@ public class TestPlanLandingPage extends BasePage {
         List<String> expectedProjects = new ArrayList<>();
         for (WebElement el : projectElements) {
             String text = el.getText().trim();
-            if (!text.isEmpty()) {
-                expectedProjects.add(text);
-            }
+            expectedProjects.add(text);
+
         }
         return expectedProjects;
     }
