@@ -92,11 +92,22 @@ public class IndividualTestSuitePage extends BasePage {
     }
 
     public void setPlannedStartDate(String yyyymmdd) {
-        plannedStartDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
+        try {
+            plannedStartDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
+        }
+        catch (Exception e){
+            plannedStartDateInput.sendKeys(yyyymmdd);
+        }
     }
 
     public void setPlannedEndDate(String yyyymmdd) {
-        plannedEndDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
+
+        try{
+            plannedEndDateInput.sendKeys(new SimpleDateFormat("MM/dd/yyyy").format(DateUtil.getJavaDate(Double.parseDouble(yyyymmdd))));
+        }
+        catch (Exception e){
+            plannedStartDateInput.sendKeys(yyyymmdd);
+        }
     }
 
     public String getTargetRelease() throws InterruptedException {

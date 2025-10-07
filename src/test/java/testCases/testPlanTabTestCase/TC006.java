@@ -7,7 +7,7 @@ import testBase.BaseClass;
 
 public class TC006 extends BaseClass {
     @Test(dataProvider = "tc006", dataProviderClass = DataProviders.TestPlanDataProvider.class)
-    public void verifyDeletingReleaseRemovesItFromUI(String projectName, String releaseName)
+    public void verifyDeletingReleaseRemovesItFromUI(String projectName, String releaseName1)
             throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Deleting a Release Removes It from the UI *****************");
         try {
@@ -21,9 +21,12 @@ public class TC006 extends BaseClass {
 
             testPlanPage.expandSidebarIfCollapsed();
             logger.info("Sidebar expanded if it was collapsed");
+            testPlanPage.clickOnTheProjectName();
+            testPlanPage.clickNewRelease();
+            String releaseName=releaseName1+"_2";
+            testPlanPage.enterReleaseName(releaseName);
+            testPlanPage.clickSaveRelease();
 
-            testPlanPage.expandProjectSTG(projectName);
-            logger.info("Expanded the project: " + projectName);
 
             testPlanPage.selectProjectByName(releaseName);
             logger.info("Selected project: " + releaseName);

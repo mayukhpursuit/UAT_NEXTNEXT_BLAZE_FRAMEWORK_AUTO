@@ -109,15 +109,19 @@ public class TestPlanLandingPage extends BasePage {
 
     // --- Actions ---
 
-    public void clickOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
+    public void clickOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite) throws InterruptedException {
         releaseTestCycleTestSuite(releaseOrTestCycleOrTestSuite).click();
+
     }
 
     public void expandOnReleaseOrTestCycleOrTestSuite(String releaseOrTestCycleOrTestSuite){
         expandArrow(releaseOrTestCycleOrTestSuite).click();
     }
     public void selectTestPlanTab() throws InterruptedException {
-
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+        Thread.sleep(1000);
+        tabTestPlan.click();
+        Thread.sleep(2000);
     }
 
     public void expandSidebarIfCollapsed() {
@@ -287,8 +291,10 @@ public class TestPlanLandingPage extends BasePage {
         inputReleaseNotes.sendKeys(notes);
     }
 
-    public void clickSaveRelease() {
+    public void clickSaveRelease() throws InterruptedException {
         btnSaveRelease.click();
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(notification));
+        Thread.sleep(2000);
     }
 
     public void clickOnTheProjectName() {
@@ -395,8 +401,10 @@ public class TestPlanLandingPage extends BasePage {
         for (WebElement el : projectElements) {
             String text = el.getText().trim();
             expectedProjects.add(text);
-
         }
+//        if (!text.isEmpty()) {
+//
+//            }
         return expectedProjects;
     }
 }
