@@ -3,6 +3,7 @@
 <suite name="All Test Suite">
     <listeners>
         <listener class-name="utils.ExtentReportManager"/>
+        <listener class-name="utils.ExtentSuiteListener"/>
     </listeners>
     <test verbose="2" preserve-order="true"
           name="requirement Test ">

@@ -80,6 +80,7 @@ public class BaseClass {
         getDriver().get(p.getProperty("appURL"));
         getDriver().manage().window().maximize();
         if (mode.equalsIgnoreCase("headless")){
+            Thread.sleep(1000);
             getDriver().manage().window().setSize(new Dimension(1920, 1080));
         }
 

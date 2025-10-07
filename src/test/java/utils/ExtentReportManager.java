@@ -19,41 +19,40 @@ import java.util.concurrent.TimeUnit;
 
 public class ExtentReportManager implements ITestListener
 {
-		public ExtentSparkReporter sparkReporter;
-		public ExtentReports extent;
-		public ExtentTest test;
-
+	public static ExtentReports extent;
+	public static ExtentSparkReporter sparkReporter;
+	public static ExtentTest test;
+	public static String repName;
 		
-		String repName;
-		
-		public void onStart(ITestContext testContext)
-		{		
-			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
-			repName="Test-Report-"+timeStamp+".html";
-			
-			System.out.println(repName);
-					
-			sparkReporter=new ExtentSparkReporter(".\\reports\\"+repName);//specify location of the report
-					
-			sparkReporter.config().setDocumentTitle("UAT Test Next Automation Report"); // Title of report
-			sparkReporter.config().setReportName("TestNext Functional Testing"); // name of the report
-			sparkReporter.config().setTheme(Theme.DARK);
-					
-			extent=new ExtentReports();
-			extent.attachReporter(sparkReporter);
-			extent.setSystemInfo("Application", "TestNext");
-			extent.setSystemInfo("Module", "Admin");
-			extent.setSystemInfo("Sub Module", "Author test");
-			extent.setSystemInfo("User Name", System.getProperty("user.name"));
-			extent.setSystemInfo("Environment","Stage");
-			extent.setSystemInfo("Operating System","windows");
+		public synchronized void onStart(ITestContext testContext) {
+			if (extent == null) {
+				String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
+				repName = "Test-Report-" + timeStamp + ".html";
 
-			String browser=testContext.getCurrentXmlTest().getParameter("browser");
-			extent.setSystemInfo("Browser",browser);
+				System.out.println(repName);
 
-			List<String> includedGroups=testContext.getCurrentXmlTest().getIncludedGroups();
-			if (!includedGroups.isEmpty()){
-				extent.setSystemInfo("Groups",includedGroups.toString());
+				sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);//specify location of the report
+
+				sparkReporter.config().setDocumentTitle("UAT Test Next Automation Report"); // Title of report
+				sparkReporter.config().setReportName("TestNext Functional Testing"); // name of the report
+				sparkReporter.config().setTheme(Theme.DARK);
+
+				extent = new ExtentReports();
+				extent.attachReporter(sparkReporter);
+				extent.setSystemInfo("Application", "TestNext");
+				extent.setSystemInfo("Module", "Admin");
+				extent.setSystemInfo("Sub Module", "Author test");
+				extent.setSystemInfo("User Name", System.getProperty("user.name"));
+				extent.setSystemInfo("Environment", "Stage");
+				extent.setSystemInfo("Operating System", "windows");
+
+				String browser = testContext.getCurrentXmlTest().getParameter("browser");
+				extent.setSystemInfo("Browser", browser);
+
+				List<String> includedGroups = testContext.getCurrentXmlTest().getIncludedGroups();
+				if (!includedGroups.isEmpty()) {
+					extent.setSystemInfo("Groups", includedGroups.toString());
+				}
 			}
 		}
 
@@ -122,8 +121,7 @@ public class ExtentReportManager implements ITestListener
 			test.log(Status.INFO, result.getThrowable().getMessage());
 		}
 		
-		public void onFinish(ITestContext context)
-		{
+//		public synchronized void onFinish(ITestContext context) {
 //			// Class execution time
 //			long classStart = context.getStartDate().getTime();
 //			long classEnd = context.getEndDate().getTime();
@@ -135,17 +133,19 @@ public class ExtentReportManager implements ITestListener
 //			test = extent.createTest("Class Execution Summary: " + context.getName());
 //			test.log(Status.INFO, "Total execution time: " + classDuration + " ms (" + (classDuration / 1000.0) + " sec)");
 
-			// Flush the report
-			extent.flush();
+//			if (context.getSuite().getAllMethods().size() ==
+//					context.getSuite().getAllInvokedMethods().size()) {
+				// Flush the report
+//				extent.flush();
 
-			// Automatically open report
-			String pathOfExtentReport = System.getProperty("user.dir") + "\\reports\\" + repName;
-			File extentReport = new File(pathOfExtentReport);
-			try {
-				Desktop.getDesktop().browse(extentReport.toURI());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				// Automatically open report
+//				String pathOfExtentReport = System.getProperty("user.dir") + "\\reports\\" + repName;
+//				File extentReport = new File(pathOfExtentReport);
+//				try {
+//					Desktop.getDesktop().browse(extentReport.toURI());
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
 //			try {
 //			URL url = new URL("file:///"+System.getProperty("user.dir")+"\\reports\\"+repName);
 //
@@ -168,5 +168,6 @@ public class ExtentReportManager implements ITestListener
 //			{
 //				e.printStackTrace();
 //			}
-			}
+//			}
+//		}
 	}

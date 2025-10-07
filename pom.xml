@@ -20,11 +20,14 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <logFileName>${logFileName}</logFileName>
+                        <browser>${browser}</browser>
+                        <mode>${mode}</mode>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 
 
