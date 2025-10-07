@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -17,6 +19,7 @@ import org.testng.annotations.Parameters;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -39,27 +42,36 @@ public class BaseClass {
         p = new Properties();
         p.load(config);
 
-        WebDriver wd = null;
-        switch (br.toLowerCase()) {
-            case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--incognito");
-//                options.addArguments("--headless=new");
-                wd = new ChromeDriver(options);
-                break;
-            case "firefox":
-                wd = new FirefoxDriver();
-                break;
-            case "edge":
-                System.setProperty("webdriver.edge.driver", "C:\\msedgedriver.exe");
-                wd = new EdgeDriver();
-                break;
-            default:
-                System.out.println("Invalid browser...");
-                return;
+        if (p.getProperty("execution_environment").equalsIgnoreCase("remote")){
+            DesiredCapabilities dc= new DesiredCapabilities();
+            dc.setBrowserName(br);
+            dc.setPlatform(Platform.WIN11);
+            URL url=new URL("http://localhost:4444/wd/hub");
+            RemoteWebDriver remoteDriver= new RemoteWebDriver(url,dc);
+            driver.set(remoteDriver);
         }
-        driver.set(wd);
-
+        else {
+            WebDriver wd = null;
+            switch (br.toLowerCase()) {
+                case "chrome":
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--incognito");
+                    options.addArguments("--headless=new");
+                    wd = new ChromeDriver(options);
+                    break;
+                case "firefox":
+                    wd = new FirefoxDriver();
+                    break;
+                case "edge":
+                    System.setProperty("webdriver.edge.driver", "C:\\msedgedriver.exe");
+                    wd = new EdgeDriver();
+                    break;
+                default:
+                    System.out.println("Invalid browser...");
+                    return;
+            }
+            driver.set(wd);
+        }
         getDriver().manage().deleteAllCookies();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         getDriver().get(p.getProperty("appURL"));

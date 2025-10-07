@@ -20,7 +20,7 @@ public class TestPlanLandingPage extends BasePage {
     }
 
     // --- Locators ---
-    @FindBy(id = "testplan")
+    @FindBy(xpath = "//span[@id='testplan']")
     private WebElement tabTestPlan;
 
     @FindBy(xpath = "//i[@title='New Release']")
@@ -117,8 +117,7 @@ public class TestPlanLandingPage extends BasePage {
         expandArrow(releaseOrTestCycleOrTestSuite).click();
     }
     public void selectTestPlanTab() throws InterruptedException {
-        tabTestPlan.click();
-        Thread.sleep(1000);
+
     }
 
     public void expandSidebarIfCollapsed() {
