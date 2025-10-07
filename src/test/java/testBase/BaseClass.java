@@ -71,6 +71,7 @@ public class BaseClass {
                     return;
             }
             driver.set(wd);
+
         }
         getDriver().manage().deleteAllCookies();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
