@@ -58,6 +58,7 @@ public class BaseClass {
                     options.addArguments("--incognito");
                     if (mode.equalsIgnoreCase("headless")){
                         options.addArguments("--headless=new");
+                        options.addArguments("--window-size=1920,1080");
                     }
                     wd = new ChromeDriver(options);
                     break;

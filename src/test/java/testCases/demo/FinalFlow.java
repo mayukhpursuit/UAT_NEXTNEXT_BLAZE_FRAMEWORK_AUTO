@@ -1,5 +1,6 @@
 package testCases.demo;
 
+import org.openqa.selenium.Dimension;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
@@ -12,7 +13,7 @@ import testBase.BaseClass;
 public class FinalFlow extends BaseClass {
     @Test
     public void verifyRequirementFlow() throws InterruptedException {
-        logger.info("****** Starting the Filter Requirement Test Case *****************");
+        logger.info("****** Starting the Demo flow Test Case *****************");
         try {
             login();
             logger.info("Logged in successfully...");
@@ -31,7 +32,7 @@ public class FinalFlow extends BaseClass {
 
             requirementTabPage.saveModule();
             requirementTabPage.clickNewModule();
-            requirementTabPage.setModuleName("Feature Mohit");
+            requirementTabPage.setModuleName("Feature Mayukhjit");
             requirementTabPage.saveModule();
             IndividualModulePage individualModulePage= new IndividualModulePage(getDriver());
             individualModulePage.clickAddRequirement();
@@ -42,7 +43,7 @@ public class FinalFlow extends BaseClass {
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.selectEpic("Epic Mayukhjit");
-            authorTestCasePage.selectFeature("Feature Mohit");
+            authorTestCasePage.selectFeature("Feature Mayukhjit");
             authorTestCasePage.clickRequirement("RQ-114");
 
             authorTestCasePage.clickAddTestcase();
@@ -57,6 +58,7 @@ public class FinalFlow extends BaseClass {
             System.out.println(testCaseId);
             authorTestCasePage.clickTestCase(testCaseId);
             IndividualTestCasePage individualTestCasePage= new IndividualTestCasePage(getDriver());
+            logger.info("debugging successfully");
             individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
             individualTestCasePage.clickSaveButton();
 

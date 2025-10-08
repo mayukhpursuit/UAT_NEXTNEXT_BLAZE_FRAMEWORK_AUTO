@@ -91,7 +91,7 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public WebElement textStepDescriptionAfterClick(int stepNo){
-        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell description']//div[@class='ql-editor ql-blank']"));
+        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell description']//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']"));
     }
 
 
@@ -100,7 +100,7 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public WebElement textStepResultAfterClick(int stepNo){
-        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell result']//div[@class='ql-editor ql-blank']"));
+        return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell result']//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']"));
     }
 
     public WebElement buttonDeleteAction(int stepNo){
@@ -163,16 +163,16 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public void setStepExpectedResult(String expectedResult, int step) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         Actions actions = new Actions(driver);
         WebElement beforeClick = wait.until(ExpectedConditions
                 .elementToBeClickable(textExpectedResultBeforeClick(step)));
-        actions.moveToElement(beforeClick).perform();
+        actions.moveToElement(beforeClick).click().perform();
         beforeClick.click();
         WebElement afterClick = wait.until(ExpectedConditions
-                .elementToBeClickable(textStepResultAfterClick(step)));
+                .visibilityOf(textStepResultAfterClick(step)));
         Thread.sleep(1000);
-        afterClick.clear();
+//        afterClick.clear();
         afterClick.sendKeys(expectedResult);
     }
 
@@ -205,7 +205,7 @@ public class IndividualTestCasePage extends BasePage {
         for (int i=0;i<=expectedResultArray.length-1;i++) {
             clickAddTestStep();
             setStepDescription(descriptionArray[i], i + 1);
-            Thread.sleep(1000);
+            Thread.sleep(1500);
             setStepExpectedResult(expectedResultArray[i], i + 1);
         }
     }
