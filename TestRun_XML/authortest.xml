@@ -8,9 +8,13 @@
     <test verbose="2" preserve-order="true"
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headless"/>
-            <packages>
-                <package name="testCases.authorTabTestCase"/>
-            </packages>
+        <parameter name="mode" value="headed"/>
+<!--            <packages>-->
+<!--                <package name="testCases.authorTabTestCase"/>-->
+<!--            </packages>-->
+        <classes>
+            <class name="testCases.authorTabTestCase.TC064"/>
+            <class name="testCases.authorTabTestCase.TC065"/>
+        </classes>
     </test>
 </suite>

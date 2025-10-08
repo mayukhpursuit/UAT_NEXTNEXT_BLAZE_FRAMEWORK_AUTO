@@ -385,11 +385,11 @@ public class AuthorTestCasePage extends BasePage {
                 System.out.println("Reached last page. Test case not found: " + tcID);
                 break;
             }
-
+            Thread.sleep(1000);
             nextButton.click();
 
             // Wait for page reload before rechecking
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         }
     }
 
