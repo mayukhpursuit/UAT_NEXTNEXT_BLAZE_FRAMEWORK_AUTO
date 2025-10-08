@@ -163,16 +163,16 @@ public class IndividualTestCasePage extends BasePage {
     }
 
     public void setStepExpectedResult(String expectedResult, int step) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Actions actions = new Actions(driver);
         WebElement beforeClick = wait.until(ExpectedConditions
                 .elementToBeClickable(textExpectedResultBeforeClick(step)));
-        actions.moveToElement(beforeClick).click().perform();
+        actions.moveToElement(beforeClick).perform();
         beforeClick.click();
         WebElement afterClick = wait.until(ExpectedConditions
-                .visibilityOf(textStepResultAfterClick(step)));
+                .elementToBeClickable(textStepResultAfterClick(step)));
         Thread.sleep(1000);
-//        afterClick.clear();
+        afterClick.clear();
         afterClick.sendKeys(expectedResult);
     }
 
