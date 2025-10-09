@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class ExcelDataProviders {
     public static String[][] getExcelData(String sheetName) throws IOException {
-        String path = ".\\testData\\authorTestTabTestData\\authorTestCaseTab_testData.xlsx";
+        String path = System.getProperty("user.dir") + "/testData/authorTestTabTestData/authorTestCaseTab_testData.xlsx";
         XLUtility utility = new XLUtility(path);
 
         int totalRows = utility.getRowCount(sheetName);
@@ -21,7 +21,7 @@ public class ExcelDataProviders {
     }
 
     public static String[][] getExcelDataForRequirement(String sheetName) throws IOException {
-        String path = ".\\testData\\requirementTabTestData\\requirementTab_testData.xlsx";
+        String path = System.getProperty("user.dir") + "/testData/requirementTabTestData/requirementTab_testData.xlsx";
         XLUtility utility = new XLUtility(path);
 
         int totalRows = utility.getRowCount(sheetName);
@@ -38,7 +38,7 @@ public class ExcelDataProviders {
     }
 
     public static String[][] getExcelDataForTestPlan(String sheetName) throws IOException {
-        String path = ".\\testData\\testPlanTabTestData\\testPlanTab_TestData.xlsx";
+        String path = System.getProperty("user.dir") + "/testData/testPlanTabTestData/testPlanTab_TestData.xlsx";
         XLUtility utility = new XLUtility(path);
 
         int totalRows = utility.getRowCount(sheetName);
