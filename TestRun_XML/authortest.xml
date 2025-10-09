@@ -9,12 +9,8 @@
           name="Author Test ">
         <parameter name="browser" value="chrome"/>
         <parameter name="mode" value="headed"/>
-<!--            <packages>-->
-<!--                <package name="testCases.authorTabTestCase"/>-->
-<!--            </packages>-->
-        <classes>
-            <class name="testCases.authorTabTestCase.TC064"/>
-            <class name="testCases.authorTabTestCase.TC065"/>
-        </classes>
+            <packages>
+                <package name="testCases.authorTabTestCase"/>
+            </packages>
     </test>
 </suite>

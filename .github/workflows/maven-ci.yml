@@ -1,27 +1,14 @@
-name: CI - Run TestNG Suites with Maven
-
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
-  workflow_dispatch:
-
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - suite: testplan.xml
-            logName: testPlan
-          - suite: requirement.xml
-            logName: requirementLog
-          - suite: authortest.xml
-            logName: authorLog
-          - suite: main.xml
-            logName: mainLog
-
+        suite:
+          - testplan.xml
+          - requirement.xml
+          - authortest.xml
+          - main.xml
+    name: Run TestNG Suite ${{ matrix.suite }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,19 +29,18 @@ jobs:
             -DsuiteXmlFile=TestRun_XML/${{ matrix.suite }} \
             -Dbrowser=chrome \
             -Dmode=headless \
-            -DlogName=${{ matrix.logName }}
+            -DlogName=${{ matrix.suite }}
 
-      - name: Upload Surefire Reports - ${{ matrix.suite }}
+      - name: Upload Surefire Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports-${{ matrix.suite }}
           path: target/surefire-reports/
 
-      - name: Upload Extent HTML Reports - ${{ matrix.suite }}
+      - name: Upload Extent HTML Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: extent-html-reports-${{ matrix.suite }}
           path: reports/
-

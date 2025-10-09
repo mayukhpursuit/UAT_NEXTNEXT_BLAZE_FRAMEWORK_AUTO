@@ -10,7 +10,6 @@
         <parameter name="mode" value="headless"/>
         <classes>
             <class name="testCases.demo.FinalFlow"/>
-
         </classes>
     </test>
 
