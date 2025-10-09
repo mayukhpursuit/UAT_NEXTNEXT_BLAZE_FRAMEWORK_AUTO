@@ -44,13 +44,12 @@ jobs:
             -Dbrowser=chrome \
             -Dmode=headless \
             -DlogName=${{ matrix.logName }}
+      
 
-
-          - name: Upload Surefire Reports - ${{ matrix.suite }}
-            if: always()
-            uses: actions/upload-artifact@v4
-            with:
-              name: surefire-reports-${{ matrix.suite }}
-              path: target/surefire-reports-${{ matrix.suite }}/emailable-report.html
-        
+      - name: Upload Surefire Reports - ${{ matrix.suite }}
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports-${{ matrix.suite }}
+          path: target/surefire-reports-${{ matrix.suite }}/emailable-report.html
 
