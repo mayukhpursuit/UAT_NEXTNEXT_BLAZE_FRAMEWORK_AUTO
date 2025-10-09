@@ -44,3 +44,4 @@ jobs:
         with:
           name: extent-html-reports-${{ matrix.suite }}
           path: reports/
+
