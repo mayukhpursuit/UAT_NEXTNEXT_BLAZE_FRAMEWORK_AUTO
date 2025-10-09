@@ -26,7 +26,7 @@ jobs:
         run: mvn -B clean install -DskipTests
 
       - name: Run TestNG - Main Suite
-        run: mvn test -DsuiteXmlFile=TestRun_XML/testplan.xml -Dbrowser=chrome -Dmode=local
+        run: mvn test -DsuiteXmlFile=TestRun_XML/testplan.xml -Dbrowser=chrome -Dmode=headless
 
       - name: Upload Surefire Reports
         if: always()
