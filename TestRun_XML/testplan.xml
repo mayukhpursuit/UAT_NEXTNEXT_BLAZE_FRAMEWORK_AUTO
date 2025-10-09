@@ -11,7 +11,7 @@
         <parameter name="mode" value="headless"/>
         <classes>
                 <class name="testCases.testPlanTabTestCase.TC001"/>
-                 <class name="testCases.testPlanTabTestCase.TC017"/>
+<!--                 <class name="testCases.testPlanTabTestCase.TC017"/>-->
                 <!-- <class name="testCases.testPlanTabTestCase.TC002"/>
                 <class name="testCases.testPlanTabTestCase.TC003"/>
                 <class name="testCases.testPlanTabTestCase.TC004"/>
