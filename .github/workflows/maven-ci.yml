@@ -46,10 +46,18 @@ jobs:
             -DlogName=${{ matrix.logName }}
       
 
-      - name: Upload Surefire Reports - ${{ matrix.suite }}
+      - name: Prepare Surefire Report for Upload - ${{ matrix.suite }}
+        if: always()
+        run: |
+          mkdir -p reports/${{ matrix.suite }}
+          cp target/surefire-reports/emailable-report.html reports/${{ matrix.suite }}/
+
+      - name: Upload Surefire Report - ${{ matrix.suite }}
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: surefire-reports-${{ matrix.suite }}
-          path: target/surefire-reports-${{ matrix.suite }}/emailable-report.html
+          name: surefire-report-${{ matrix.suite }}
+          path: reports/${{ matrix.suite }}/emailable-report.html
+
+
 
