@@ -13,6 +13,7 @@ import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 
 public class FinalFlow extends BaseClass {
+    public boolean check=false;
     @Test
     public void verifyRequirementFlow() throws InterruptedException {
         logger.info("****** Starting the Demo flow Test Case *****************");
@@ -72,23 +73,26 @@ public class FinalFlow extends BaseClass {
 
         }
         catch (AssertionError e) {
+            check=true;
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
         }
         catch (Exception e) {
+            check=true;
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
-
         logger.info("************ Test Case Finished *************************");
     }
     @AfterClass
     public void deleteModule() throws InterruptedException {
-        RequirementTabPage requirementTabPage1= new RequirementTabPage(getDriver());
-        requirementTabPage1.clickRequirementTab();
-        requirementTabPage1.clickArrowRightPointingForExpandModule("STG- PulseCodeOnAzureCloud");
-        requirementTabPage1.clickOnModule("Epic Mayukhjit");
-        requirementTabPage1.clickDeleteModule();
-        requirementTabPage1.clickConfirmDelete();
+        if (check){
+            RequirementTabPage requirementTabPage1= new RequirementTabPage(getDriver());
+            requirementTabPage1.clickRequirementTab();
+            requirementTabPage1.clickArrowRightPointingForExpandModule("STG- PulseCodeOnAzureCloud");
+            requirementTabPage1.clickOnModule("Epic Mayukhjit");
+            requirementTabPage1.clickDeleteModule();
+            requirementTabPage1.clickConfirmDelete();
+        }
     }
 }

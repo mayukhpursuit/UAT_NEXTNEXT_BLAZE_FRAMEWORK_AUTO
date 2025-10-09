@@ -288,6 +288,7 @@ public class RequirementTabPage extends BasePage {
 
     }
     public void clickConfirmDelete(){
+        new Actions(driver).moveToElement(buttonYesConfirmDelete);
         buttonYesConfirmDelete.click();
         new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(notificationPopUp));
     }

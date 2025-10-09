@@ -205,6 +205,7 @@ public class IndividualTestCasePage extends BasePage {
         for (int i=0;i<=expectedResultArray.length-1;i++) {
             clickAddTestStep();
             setStepDescription(descriptionArray[i], i + 1);
+            driver.findElement(By.xpath("//div[@class='table-header-cell description']")).click();
             Thread.sleep(1500);
             setStepExpectedResult(expectedResultArray[i], i + 1);
         }
