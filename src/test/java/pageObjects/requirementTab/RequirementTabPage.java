@@ -34,6 +34,12 @@ public class RequirementTabPage extends BasePage {
     @FindBy(xpath = "//span[@class='entry-info']")
     WebElement totalEntriesRqCount;
 
+    @FindBy(id = "confirmBtn")
+    WebElement buttonYesConfirmDelete;
+
+    @FindBy(id="notification")
+    WebElement notificationPopUp;
+
 
     @FindBy(xpath = "//button[normalize-space()='Help?']")
     WebElement clickHelp;
@@ -281,4 +287,9 @@ public class RequirementTabPage extends BasePage {
         noBtnConfirmationPopUp.click();
 
     }
+    public void clickConfirmDelete(){
+        buttonYesConfirmDelete.click();
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(notificationPopUp));
+    }
+
 }

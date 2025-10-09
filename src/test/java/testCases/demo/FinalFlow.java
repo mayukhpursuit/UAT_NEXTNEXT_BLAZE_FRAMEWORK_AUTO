@@ -1,6 +1,8 @@
 package testCases.demo;
 
 import org.openqa.selenium.Dimension;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
@@ -61,6 +63,12 @@ public class FinalFlow extends BaseClass {
             logger.info("debugging successfully");
             individualTestCasePage.addTestStepsFromExcelForNewTestCase("step 1,step 2, step 3","expected 1 ,expected 2 ,expected 3");
             individualTestCasePage.clickSaveButton();
+            RequirementTabPage requirementTabPage1= new RequirementTabPage(getDriver());
+            requirementTabPage1.clickRequirementTab();
+            requirementTabPage1.clickArrowRightPointingForExpandModule("STG- PulseCodeOnAzureCloud");
+            requirementTabPage1.clickOnModule("Epic Mayukhjit");
+            requirementTabPage1.clickDeleteModule();
+            requirementTabPage1.clickConfirmDelete();
 
         }
         catch (AssertionError e) {
@@ -73,5 +81,14 @@ public class FinalFlow extends BaseClass {
         }
 
         logger.info("************ Test Case Finished *************************");
+    }
+    @AfterClass
+    public void deleteModule() throws InterruptedException {
+        RequirementTabPage requirementTabPage1= new RequirementTabPage(getDriver());
+        requirementTabPage1.clickRequirementTab();
+        requirementTabPage1.clickArrowRightPointingForExpandModule("STG- PulseCodeOnAzureCloud");
+        requirementTabPage1.clickOnModule("Epic Mayukhjit");
+        requirementTabPage1.clickDeleteModule();
+        requirementTabPage1.clickConfirmDelete();
     }
 }
