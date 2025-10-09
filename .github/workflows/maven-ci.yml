@@ -37,11 +37,12 @@ jobs:
         run: mvn -B clean install -DskipTests
 
       - name: Run TestNG Suite - ${{ matrix.suite }}
-        run: mvn test \
-          -DsuiteXmlFile=TestRun_XML/${{ matrix.suite }} \
-          -Dbrowser=chrome \
-          -Dmode=headless \
-          -DlogName=${{ matrix.logName }}
+        run: |
+          mvn test \
+            -DsuiteXmlFile=TestRun_XML/${{ matrix.suite }} \
+            -Dbrowser=chrome \
+            -Dmode=headless \
+            -DlogName=${{ matrix.logName }}
 
       - name: Upload Surefire Reports - ${{ matrix.suite }}
         if: always()
@@ -56,3 +57,4 @@ jobs:
         with:
           name: extent-html-reports-${{ matrix.suite }}
           path: reports/
+
