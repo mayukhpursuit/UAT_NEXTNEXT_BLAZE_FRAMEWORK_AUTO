@@ -43,7 +43,8 @@ public class TC025 extends BaseClass {
             }
             WebElement countBeforeAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             RequirementTabPage requirementTabPage2= new RequirementTabPage(getDriver());
-            List<String> beforeList = requirementTabPage2.getRequirementIDs();
+            Thread.sleep(2000);
+            List<String> beforeList = requirementTabPage.getRequirementIDs();
             int beforeCount = Integer.parseInt(countBeforeAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Initial requirement count: " + beforeCount);
 
@@ -61,6 +62,7 @@ public class TC025 extends BaseClass {
                 individualModulePage.clickLastPageArrowBtn();
             }
             RequirementTabPage requirementTabPage1= new RequirementTabPage(getDriver());
+            Thread.sleep(1500);
             List<String> afterAddList = requirementTabPage1.getRequirementIDs();
             WebElement countAfterAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             int afterAddCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
@@ -76,6 +78,7 @@ public class TC025 extends BaseClass {
             Thread.sleep(3000);
 
             RequirementTabPage requirementTabPage3= new RequirementTabPage(getDriver());
+            Thread.sleep(1500);
             List<String> afterRemoveList = requirementTabPage3.getRequirementIDs();
             WebElement afterRemove = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             int afterRemoveCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));

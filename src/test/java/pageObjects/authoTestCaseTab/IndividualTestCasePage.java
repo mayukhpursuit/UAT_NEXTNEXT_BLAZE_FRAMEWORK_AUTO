@@ -135,7 +135,8 @@ public class IndividualTestCasePage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Actions a= new Actions(driver);
         a.moveToElement(buttonAddTestStep).perform();
-        buttonAddTestStep.click();
+        Thread.sleep(1000);
+        a.click(buttonAddTestStep).perform();
     }
     public void clickAddRow() throws InterruptedException {
         Thread.sleep(2000);
