@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC072 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyCloseFunctionalityDiscardsChanges() throws InterruptedException {
         logger.info("************ Starting the Test Case: Verify close functionality discards changes in test cases form *****************");
         try {

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC065 extends BaseClass {
-    @Test(dataProvider = "tc042",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc042",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyCreateTestRun(
             String requirementId,String TestcaseId
     )throws InterruptedException {

@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC011 extends BaseClass {
-    @Test(dataProvider = "tc011", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc011", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyTestSuits(
             String projectName,
             String release,

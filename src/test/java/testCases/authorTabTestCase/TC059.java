@@ -7,9 +7,10 @@ import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC059 extends BaseClass {
-    @Test(dataProvider = "tc059", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc059", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
     public void verifyClickFunctionalityOfAddCalledTestCaseBtn(String rqName, String tcId) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

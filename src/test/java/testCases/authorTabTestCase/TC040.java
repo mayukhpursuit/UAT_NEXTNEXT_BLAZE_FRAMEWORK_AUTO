@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC040 extends BaseClass {
-    @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyCloseButton(
             String requirementId,String TestcaseId
     )throws InterruptedException {

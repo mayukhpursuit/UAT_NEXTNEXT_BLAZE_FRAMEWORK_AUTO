@@ -7,9 +7,10 @@ import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.IndividualTestSuitePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC010 extends BaseClass {
-    @Test(dataProvider = "tc010", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc010", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyCreationOfTestSuite(
             String projectName,
             String releaseName,

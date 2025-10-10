@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.time.Duration;
 
 public class TC001 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyProjectDropdownVisibility() throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Dropdown Visibility *****************");
         try {

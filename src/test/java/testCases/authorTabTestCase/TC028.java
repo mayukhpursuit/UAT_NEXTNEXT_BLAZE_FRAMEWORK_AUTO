@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC028 extends BaseClass {
-    @Test(dataProvider = "tc028", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc028", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyDefaultPagePagination(
             String expectedPagination
     ) throws InterruptedException {

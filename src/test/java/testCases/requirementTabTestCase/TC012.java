@@ -7,11 +7,12 @@ import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.AddRequirementPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.logging.Logger;
 
 public class TC012 extends BaseClass {
-    @Test (dataProvider = "tc012", dataProviderClass = RequirementDataProvider.class)
+    @Test (dataProvider = "tc012", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifytheclosebuttonfunctionalityintherequirements (
             String project,
             String epic,

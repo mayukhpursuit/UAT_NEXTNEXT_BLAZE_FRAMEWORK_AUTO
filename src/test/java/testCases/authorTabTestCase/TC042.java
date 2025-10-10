@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC042 extends BaseClass {
-    @Test(dataProvider = "tc042", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc042", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyVisibilityOfAllFieldsInAddTestCase(String requirementId,String TestcaseId
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

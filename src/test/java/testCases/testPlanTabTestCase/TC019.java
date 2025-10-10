@@ -5,10 +5,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC019 extends BaseClass {
 
-    @Test(dataProvider = "tc019", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc019", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyDuplicateReleaseNames(String projectName, String release) throws InterruptedException {
         logger.info("****** Test Case 19: Verify duplicate release names *****************");
         try {

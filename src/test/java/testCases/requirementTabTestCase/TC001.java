@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC001 extends BaseClass {
-    @Test(dataProvider = "tc001", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc001", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyRequirementModuleDetails(
             String project,
             String epic,

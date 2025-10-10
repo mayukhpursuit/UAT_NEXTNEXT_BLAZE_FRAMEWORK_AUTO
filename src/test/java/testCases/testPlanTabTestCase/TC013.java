@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC013 extends BaseClass {
 
-    @Test(dataProvider = "tc013", dataProviderClass = DataProviders.TestPlanDataProvider.class)
+    @Test(dataProvider = "tc013", dataProviderClass = DataProviders.TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void Verifycollapsefunctionalityforreleaseandcycle(
             String projectName,
             String releaseName,

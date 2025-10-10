@@ -8,12 +8,13 @@ import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.AddRequirementPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.List;
 
 public class TC025 extends BaseClass {
 
-    @Test(dataProvider = "tc025", dataProviderClass = DataProviders.RequirementDataProvider.class, description = "Verify linked requirement count increases and decreases")
+    @Test(dataProvider = "tc025", dataProviderClass = DataProviders.RequirementDataProvider.class, description = "Verify linked requirement count increases and decreases",retryAnalyzer = RetryAnalyzer.class)
     public void verifyLinkedRequirementCountIncreasesAndDecreases(String projectName, String moduleName)
             throws InterruptedException {
         logger.info(

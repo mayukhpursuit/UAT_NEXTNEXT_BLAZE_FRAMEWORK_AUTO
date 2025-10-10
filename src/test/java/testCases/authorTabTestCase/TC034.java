@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 import DataProviders.AuthorTestCaseDataProvider;
+import utils.RetryAnalyzer;
 
 public class TC034 extends BaseClass {
 
-    @Test(dataProvider = "tc034", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc034", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyPaginationReset(
             String epicName,
             String featureName,

@@ -7,9 +7,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC022 extends BaseClass {
-    @Test(dataProvider = "tc022", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc022", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
     public void verifyWhitespaceNotAllowedInModuleNameAndDescription(String mainProject, String module, String newmodulename
     ) throws InterruptedException {

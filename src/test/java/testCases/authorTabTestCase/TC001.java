@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC001 extends BaseClass {
-    @Test(dataProvider = "tc001", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc001", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyEpicVisibility(
             String labelName
     ) throws InterruptedException {

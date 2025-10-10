@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.Random;
 
 public class TC009 extends BaseClass {
-    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyDeletionOfCycle(
             String projectName,
             String releaseName,

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.BasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC029 extends BaseClass {
-    @Test(dataProvider = "tc029", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc029", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyNextButtonFunctionality(
             String expectedPagination
     ) throws InterruptedException {

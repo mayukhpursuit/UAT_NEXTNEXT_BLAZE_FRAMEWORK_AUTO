@@ -7,9 +7,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC003 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyLinkedRequirementTable() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {

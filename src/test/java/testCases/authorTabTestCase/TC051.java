@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC051 extends BaseClass {
-    @Test(dataProvider = "tc051", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc051", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
     public void addNewTestcaseInsideRq(String rqName,String tcName,String description,String priority,String type,String qaUser,String preCondition) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

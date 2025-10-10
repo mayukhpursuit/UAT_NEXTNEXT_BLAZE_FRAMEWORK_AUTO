@@ -7,9 +7,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC027 extends BaseClass {
-    @Test(dataProvider = "tc027", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc027", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 public void verifyRequirementEntriesUpdate(String project,
                                            String epic, String description, String priority, String status, String type
 ) throws InterruptedException {

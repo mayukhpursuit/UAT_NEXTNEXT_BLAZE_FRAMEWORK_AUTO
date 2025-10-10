@@ -4,11 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.Random;
 
 public class TC006 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = DataProviders.TestPlanDataProvider.class)
+    @Test(dataProvider = "tc006", dataProviderClass = DataProviders.TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyDeletingReleaseRemovesItFromUI(String projectName, String releaseName1)
             throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Deleting a Release Removes It from the UI *****************");

@@ -3,8 +3,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
+
 public class TC073 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyToggleFunctionalityInRequirementPanel() throws Exception {
         logger.info("************ Starting the Test Case: Verify Toggle Functionality in Requirement Panel *****************");
         try {

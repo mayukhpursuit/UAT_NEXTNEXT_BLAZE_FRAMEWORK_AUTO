@@ -114,11 +114,11 @@ public class ExtentReportManager implements ITestListener
 		
 		public void onTestSkipped(ITestResult result)
 		{
-			test=extent.createTest(result.getTestClass().getName()); //test=extent.createTest(result.getTestContext().getName());
-			//test.createNode(result.getName());
-			test.assignCategory(result.getMethod().getGroups());
-			test.log(Status.SKIP,result.getName()+ " test Skipped");
-			test.log(Status.INFO, result.getThrowable().getMessage());
+//			test=extent.createTest(result.getTestClass().getName()); //test=extent.createTest(result.getTestContext().getName());
+
+//			test.assignCategory(result.getMethod().getGroups());
+//			test.log(Status.SKIP,result.getName()+ " test Skipped");
+//			test.log(Status.INFO, result.getThrowable().getMessage());
 		}
 		
 //		public synchronized void onFinish(ITestContext context) {

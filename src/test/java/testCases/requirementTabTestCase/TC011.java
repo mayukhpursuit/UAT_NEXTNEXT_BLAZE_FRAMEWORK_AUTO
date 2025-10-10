@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.logging.Logger;
 
 public class TC011 extends BaseClass {
-    @Test (dataProvider = "tc011", dataProviderClass = RequirementDataProvider.class)
+    @Test (dataProvider = "tc011", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifySavebuttonfunctionalityintherequirements(
             String project,
             String epic,

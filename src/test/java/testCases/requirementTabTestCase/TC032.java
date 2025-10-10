@@ -8,10 +8,11 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC032 extends BaseClass {
 
-    @Test(dataProvider = "tc032", dataProviderClass = DataProviders.RequirementDataProvider.class)
+    @Test(dataProvider = "tc032", dataProviderClass = DataProviders.RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyModuleDeletionFlow(String projectName, String moduleName) {
         logger.info("************ Starting Test Case: Verify module deletion flow *****************");
 

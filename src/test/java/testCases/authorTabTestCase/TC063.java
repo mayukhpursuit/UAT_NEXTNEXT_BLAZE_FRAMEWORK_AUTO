@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.time.Duration;
 
 public class TC063 extends BaseClass {
-    @Test(dataProvider = "tc063",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc063",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyDeleteSteps(
             String requirementId,String TestcaseId
     )throws InterruptedException {

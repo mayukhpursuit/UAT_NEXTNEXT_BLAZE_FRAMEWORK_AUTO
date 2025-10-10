@@ -5,11 +5,12 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.prefs.BackingStoreException;
 
 public class TC062 extends BaseClass {
-    @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyAddTestStepButton(
             String requirementId,String TestcaseId
     )throws InterruptedException {

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC047 extends BaseClass {
-    @Test(dataProvider = "tc047", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc047", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyTypeDropdown(String requirementId
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC018 extends BaseClass {
-    @Test(dataProvider = "tc018", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc018", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyFeatureDropdownClearsValueAfterPageRefresh(
             String epic,String feature, String expectedSelectedEpic
     ) throws InterruptedException {

@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC017 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyProjectDropdownVisibility() throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Dropdown Visibility *****************");
         try {

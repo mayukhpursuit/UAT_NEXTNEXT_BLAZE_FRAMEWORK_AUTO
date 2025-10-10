@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
@@ -35,7 +36,7 @@ public class BaseClass {
         return driver.get();
     }
 
-    @BeforeClass
+    @BeforeMethod
     @Parameters({"browser","mode"})
     public void setUp(String br,String mode) throws IOException, InterruptedException {
         FileReader config = new FileReader(".//src//test//resources//config.properties");

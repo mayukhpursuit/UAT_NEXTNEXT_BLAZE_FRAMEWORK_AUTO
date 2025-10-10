@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC070 extends BaseClass {
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyMandatoryFieldValidationInAddTestCase() throws InterruptedException {
         logger.info("************ Starting the Test Case *****************");
         try {

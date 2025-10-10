@@ -7,9 +7,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC037 extends BaseClass {
-    @Test(dataProvider = "tc037", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc037", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
     public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module
     ) throws InterruptedException {

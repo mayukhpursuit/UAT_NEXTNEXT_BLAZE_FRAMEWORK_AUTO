@@ -8,9 +8,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC007 extends BaseClass {
-    @Test(dataProvider = "tc007", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc007", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyAddRequirements(String rQid, String description, String priority, String status, String type
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

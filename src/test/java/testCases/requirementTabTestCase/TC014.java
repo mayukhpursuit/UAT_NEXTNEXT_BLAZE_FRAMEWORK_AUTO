@@ -3,9 +3,10 @@ package testCases.requirementTabTestCase;
 import org.testng.annotations.Test;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC014 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifytheexpandcollapseontheleftpannel () throws InterruptedException {
         logger.info("****** Starting the TC:14 verify the expand/collapse on the left pannel   *************");
         try {

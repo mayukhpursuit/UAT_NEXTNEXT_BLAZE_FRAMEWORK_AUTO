@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC004 extends BaseClass {
-    @Test(dataProvider = "tc004", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc004", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifySelectionFromEpic(String epicName) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {

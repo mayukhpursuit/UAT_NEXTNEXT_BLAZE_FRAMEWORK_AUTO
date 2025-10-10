@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC056 extends BaseClass {
 
-    @Test(dataProvider = "tc056", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc056", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyTestCaseNamefieldisupdatableinTestCaseForm(
             String epicName,
             String featureName,

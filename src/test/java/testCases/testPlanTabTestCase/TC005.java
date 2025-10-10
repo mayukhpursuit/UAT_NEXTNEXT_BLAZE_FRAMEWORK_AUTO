@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC005 extends BaseClass {
 
-    @Test(dataProvider = "tc005", dataProviderClass = DataProviders.TestPlanDataProvider.class)
+    @Test(dataProvider = "tc005", dataProviderClass = DataProviders.TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyAddingNewReleaseUnderProject(String projectName, String releaseName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Adding a New Release Under a Project *****************");
 

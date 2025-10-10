@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC048 extends BaseClass {
-    @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyTheSaveButton(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,

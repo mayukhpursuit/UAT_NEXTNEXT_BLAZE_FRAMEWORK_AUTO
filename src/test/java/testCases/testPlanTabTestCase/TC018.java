@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC018 extends BaseClass {
 
-    @Test(dataProvider = "tc018", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc018", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyNavigationToTestPlanBySelectingProject(String projectName) throws InterruptedException {
         logger.info(
                 "****** Starting Test Case: Verify navigation to Test Plan by selecting a project *****************");

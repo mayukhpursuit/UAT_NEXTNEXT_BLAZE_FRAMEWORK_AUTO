@@ -6,12 +6,13 @@ import org.testng.annotations.Test;
 import DataProviders.RequirementDataProvider;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.List;
 
 public class TC006 extends BaseClass {
 
-    @Test(dataProvider = "tc006", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc006", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyRequirementListUnderModule(String projectName, String moduleName) throws InterruptedException {
 
         logger.info("************ Starting Test Case: Verify Requirement list under module *****************");

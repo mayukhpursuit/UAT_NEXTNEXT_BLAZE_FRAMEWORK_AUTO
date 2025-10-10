@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC008 extends BaseClass {
-    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyCreationOfNewTestCycle(
             String projectName,
             String releaseName,

@@ -6,12 +6,14 @@ import org.testng.annotations.Test;
 import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
+
 import java.util.List;
 import java.util.Arrays;
 
 public class TC003 extends BaseClass {
 
-    @Test(dataProvider = "tc003", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc003", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyListingOfAllConfiguredProjects(String projectName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Listing of All Configured Projects *****************");
         try {

@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC020 extends BaseClass {
 
-    @Test(dataProvider = "tc020", dataProviderClass = DataProviders.TestPlanDataProvider.class)
+    @Test(dataProvider = "tc020", dataProviderClass = DataProviders.TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyEmptyReleaseName(
             String projectName,
             String releaseName

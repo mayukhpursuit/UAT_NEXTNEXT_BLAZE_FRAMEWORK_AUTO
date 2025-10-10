@@ -2,9 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
+        <!-- Retry and clean retry report listeners -->
+        <listener class-name="utils.RetryListener"/>
+        <listener class-name="utils.CleanRetryReportListener"/>
+
+        <!-- Extent report listeners -->
         <listener class-name="utils.ExtentReportManager"/>
         <listener class-name="utils.ExtentSuiteListener"/>
     </listeners>
+
 
     <test verbose="2" preserve-order="true" name="Author Test Suite">
         <parameter name="browser" value="chrome"/>

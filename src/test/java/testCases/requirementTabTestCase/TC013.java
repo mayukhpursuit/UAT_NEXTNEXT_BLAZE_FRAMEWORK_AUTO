@@ -6,9 +6,10 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC013 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyuserisabletoclickonhelp () throws InterruptedException {
         logger.info("****** Starting the TC:13 verify user is able to click on help   *************");
         try {

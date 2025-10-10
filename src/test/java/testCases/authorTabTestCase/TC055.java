@@ -6,9 +6,10 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 import org.testng.Assert;
+import utils.RetryAnalyzer;
 
 public class TC055 extends BaseClass {
-    @Test(dataProvider = "tc059",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc059",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyLinkedTestcases(
             String requirementId,String TestcaseId
     )throws InterruptedException {

@@ -7,9 +7,10 @@ import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC049 extends BaseClass {
-    @Test(dataProvider = "tc049",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc049",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyCloseInTestcases(
             String requirementId,String TestcaseId
     )throws InterruptedException {

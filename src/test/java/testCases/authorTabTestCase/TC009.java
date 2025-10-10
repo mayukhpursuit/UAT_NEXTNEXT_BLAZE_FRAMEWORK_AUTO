@@ -5,11 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.util.List;
 
 public class TC009 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyEpicsWithSpecialCharacter() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC053 extends BaseClass {
-    @Test(dataProvider = "tc053", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc053", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyTheDropDownsInLeftPane(String epic,
                                    String feature,
                                    String requirementId,

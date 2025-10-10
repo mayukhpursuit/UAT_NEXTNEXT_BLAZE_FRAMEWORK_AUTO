@@ -6,11 +6,13 @@ import org.testng.annotations.Test;
 import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
+
 import java.util.List;
 
 public class TC004 extends BaseClass {
 
-    @Test(dataProvider = "tc004", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc004", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyReleaseListUpdatesBasedOnProjectSelection(String ReleaseName, String SecondReleaseName)
             throws InterruptedException {
         logger.info(

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC020 extends BaseClass {
-    @Test(dataProvider = "tc020", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc020", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyUserCanUpdateNameAndDescription(
             String project,
             String epic

@@ -6,9 +6,10 @@ import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC057 extends BaseClass {
-    @Test(dataProvider = "tc057", dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider = "tc057", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyDescriptionandPreconditionfieldsInTestCaseForm(
             String epicName,
             String featureName,

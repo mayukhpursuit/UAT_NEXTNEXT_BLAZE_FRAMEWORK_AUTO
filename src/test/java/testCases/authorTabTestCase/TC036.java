@@ -5,9 +5,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC036 extends BaseClass {
-    @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class)
+    @Test(dataProvider="AddTest",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyAddTestcaseDisplayedNextWindow(
             String epic,String feature,String requirementId,
             String testCaseName,String description,String priority,

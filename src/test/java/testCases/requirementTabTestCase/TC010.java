@@ -11,11 +11,12 @@ import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 import java.time.Duration;
 
 public class TC010 extends BaseClass {
-    @Test(dataProvider = "tc010", dataProviderClass = RequirementDataProvider.class)
+    @Test(dataProvider = "tc010", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyFieldDetails(
             String project,
             String epic,

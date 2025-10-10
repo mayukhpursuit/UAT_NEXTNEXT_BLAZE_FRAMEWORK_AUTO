@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 import DataProviders.TestPlanDataProvider;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC002 extends BaseClass {
 
-    @Test(dataProvider = "tc002", dataProviderClass = TestPlanDataProvider.class)
+    @Test(dataProvider = "tc002", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void verifyProjectSelectionFromDropdown(String projectName,
                                                    String releaseName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");

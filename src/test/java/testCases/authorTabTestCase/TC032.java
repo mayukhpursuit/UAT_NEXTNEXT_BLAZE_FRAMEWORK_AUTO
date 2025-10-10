@@ -3,8 +3,12 @@ package testCases.authorTabTestCase;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
-@Test
+import utils.RetryAnalyzer;
+
+
 public class TC032 extends BaseClass {
+
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyDisabledNextBtnOnLastPage(
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

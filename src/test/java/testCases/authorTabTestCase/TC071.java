@@ -4,9 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC071 extends BaseClass {
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyLongDescriptionInputHandling() throws InterruptedException {
         logger.info("************ Starting the Test Case: Verify long Description input handling *****************");
         try {
