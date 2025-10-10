@@ -22,8 +22,10 @@ public class TC062 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
+            Thread.sleep(5000);
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
-            individualTestCasePage.clickAddRow();
+
+            individualTestCasePage.clickAddTestStep();
           logger.info("Add Test Step Button works ");
         }
         catch (AssertionError e)

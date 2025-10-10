@@ -137,10 +137,11 @@ public class IndividualTestCasePage extends BasePage {
         a.moveToElement(buttonAddTestStep).perform();
         buttonAddTestStep.click();
     }
-    public void clickAddRow()
-    {
-
-        buttonAddRow.click();
+    public void clickAddRow() throws InterruptedException {
+        Thread.sleep(2000);
+        Actions a=new Actions(driver);
+        a.moveToElement(buttonAddTestStep).perform();
+        buttonAddTestStep.click();
     }
     public String getStepCount(String s)
     {
@@ -181,7 +182,8 @@ public class IndividualTestCasePage extends BasePage {
         Actions actions = new Actions(driver);
         WebElement deleteButton = wait.until(ExpectedConditions
                 .elementToBeClickable(buttonDeleteAction(stepCount)));
-        actions.moveToElement(deleteButton).click().perform();
+        actions.moveToElement(deleteButton).perform();
+        deleteButton.click();
     }
 
     public void clickSaveButton() {

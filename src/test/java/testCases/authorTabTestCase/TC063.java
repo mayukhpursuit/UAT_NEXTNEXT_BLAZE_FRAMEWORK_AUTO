@@ -23,6 +23,7 @@ public class TC063 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
+            Thread.sleep(3000);
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
             int beforeCount = individualTestCasePage.getStepCountInt();
             logger.info("before count was "+beforeCount);
