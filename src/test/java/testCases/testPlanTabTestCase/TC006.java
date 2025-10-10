@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
+import java.util.Random;
+
 public class TC006 extends BaseClass {
     @Test(dataProvider = "tc006", dataProviderClass = DataProviders.TestPlanDataProvider.class)
     public void verifyDeletingReleaseRemovesItFromUI(String projectName, String releaseName1)
@@ -23,7 +25,7 @@ public class TC006 extends BaseClass {
             logger.info("Sidebar expanded if it was collapsed");
             testPlanPage.clickOnTheProjectName();
             testPlanPage.clickNewRelease();
-            String releaseName=releaseName1+"_2";
+            String releaseName=releaseName1+String.valueOf((100 + new Random().nextInt(900)));
             testPlanPage.enterReleaseName(releaseName);
             testPlanPage.clickSaveRelease();
 
