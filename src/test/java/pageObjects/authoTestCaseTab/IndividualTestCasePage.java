@@ -107,7 +107,7 @@ public class IndividualTestCasePage extends BasePage {
         return driver.findElement(By.xpath("//span[@class='step-number' and text()='"+stepNo+"']/ancestor::div[@class='table-row']//div[@class='table-cell action']//button"));
     }
 
-    @FindBy(xpath = "(//i[@class='fa-solid fa-circle-plus'])[1]")
+    @FindBy(xpath = "//i[@class='fa-solid fa-circle-plus']")
     WebElement buttonAddRow;
 
     @FindBy(xpath = "//div[contains(text(), 'CANCEL')]")
@@ -140,7 +140,10 @@ public class IndividualTestCasePage extends BasePage {
     public void clickAddRow()
     {
 
-        buttonAddRow.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement addRowBtn = wait.until(ExpectedConditions
+                .elementToBeClickable(buttonAddRow));
+        addRowBtn.click();
     }
     public String getStepCount(String s)
     {

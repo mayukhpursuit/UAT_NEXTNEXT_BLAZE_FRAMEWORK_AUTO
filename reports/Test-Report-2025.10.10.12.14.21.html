@@ -1,0 +1,2778 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>UAT Test Next Automation Report</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa -report dark">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">TestNext Functional Testing</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Oct 10, 2025 12:14:21 pm</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="skip" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC001</p>
+            <p class="text-sm">
+              <span>12:14:28 pm</span> / <span>00:00:00:008</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">testCases.authorTabTestCase.TC001</h5>
+<span class='badge badge-success'>10.10.2025 12:14:28 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:14:28 pm</span>
+<span class='badge badge-default'>00:00:00:008</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>12:14:28 pm</td>
+        <td>
+          verifyEpicVisibility test Skipped
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:14:28 pm</td>
+        <td>
+          Could not start a new session. Response code 500. Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir 
+Host info: host: 'PSDLAP349', ip: '10.240.23.96'
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--incognito], binary: C:\Program Files\Google\Chr..., extensions: []}}]}]
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC002</p>
+            <p class="text-sm">
+              <span>12:14:39 pm</span> / <span>00:00:16:028</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC002</h5>
+<span class='badge badge-success'>10.10.2025 12:14:39 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:14:55 pm</span>
+<span class='badge badge-default'>00:00:16:028</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:14:55 pm</td>
+        <td>
+          verifyEpicClickFunctionality Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:14:55 pm</td>
+        <td>
+          Execution Time: 16023 ms (16.023 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC003</p>
+            <p class="text-sm">
+              <span>12:15:02 pm</span> / <span>00:00:16:305</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC003</h5>
+<span class='badge badge-success'>10.10.2025 12:15:02 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:15:18 pm</span>
+<span class='badge badge-default'>00:00:16:305</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:15:18 pm</td>
+        <td>
+          verifyAllAvailableEpicsDisplayed Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:15:18 pm</td>
+        <td>
+          Execution Time: 16303 ms (16.303 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC004</p>
+            <p class="text-sm">
+              <span>12:15:25 pm</span> / <span>00:00:13:645</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC004</h5>
+<span class='badge badge-success'>10.10.2025 12:15:25 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:15:38 pm</span>
+<span class='badge badge-default'>00:00:13:645</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:15:38 pm</td>
+        <td>
+          verifySelectionFromEpic Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:15:38 pm</td>
+        <td>
+          Execution Time: 13644 ms (13.644 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC007</p>
+            <p class="text-sm">
+              <span>12:15:45 pm</span> / <span>00:00:14:867</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC007</h5>
+<span class='badge badge-success'>10.10.2025 12:15:45 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:16:00 pm</span>
+<span class='badge badge-default'>00:00:14:867</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:16:00 pm</td>
+        <td>
+          verifyAllAvailableEpicsDisplayed Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:16:00 pm</td>
+        <td>
+          Execution Time: 14866 ms (14.866 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC009</p>
+            <p class="text-sm">
+              <span>12:16:06 pm</span> / <span>00:00:17:170</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC009</h5>
+<span class='badge badge-success'>10.10.2025 12:16:06 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:16:23 pm</span>
+<span class='badge badge-default'>00:00:17:170</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:16:23 pm</td>
+        <td>
+          verifyEpicsWithSpecialCharacter Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:16:23 pm</td>
+        <td>
+          Execution Time: 17170 ms (17.17 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC010</p>
+            <p class="text-sm">
+              <span>12:16:30 pm</span> / <span>00:00:13:575</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC010</h5>
+<span class='badge badge-success'>10.10.2025 12:16:30 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:16:44 pm</span>
+<span class='badge badge-default'>00:00:13:575</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:16:44 pm</td>
+        <td>
+          verifyFeatureVisibility Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:16:44 pm</td>
+        <td>
+          Execution Time: 13575 ms (13.575 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC011</p>
+            <p class="text-sm">
+              <span>12:16:50 pm</span> / <span>00:00:13:604</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC011</h5>
+<span class='badge badge-success'>10.10.2025 12:16:50 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:17:04 pm</span>
+<span class='badge badge-default'>00:00:13:604</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:17:04 pm</td>
+        <td>
+          verifyClickFunctionalityOfFeaturesDropdown Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:17:04 pm</td>
+        <td>
+          Execution Time: 13604 ms (13.604 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC012</p>
+            <p class="text-sm">
+              <span>12:17:13 pm</span> / <span>00:00:13:789</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC012</h5>
+<span class='badge badge-success'>10.10.2025 12:17:13 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:17:27 pm</span>
+<span class='badge badge-default'>00:00:13:789</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:17:27 pm</td>
+        <td>
+          verifyClickFunctionOfFeaturesDropdown Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:17:27 pm</td>
+        <td>
+          Execution Time: 13788 ms (13.788 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC013</p>
+            <p class="text-sm">
+              <span>12:17:33 pm</span> / <span>00:00:18:239</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC013</h5>
+<span class='badge badge-success'>10.10.2025 12:17:33 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:17:52 pm</span>
+<span class='badge badge-default'>00:00:18:239</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:17:52 pm</td>
+        <td>
+          verifySelectedFeatureDisplayedFields Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:17:52 pm</td>
+        <td>
+          Execution Time: 18239 ms (18.239 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC014</p>
+            <p class="text-sm">
+              <span>12:17:58 pm</span> / <span>00:00:17:705</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC014</h5>
+<span class='badge badge-success'>10.10.2025 12:17:58 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:18:16 pm</span>
+<span class='badge badge-default'>00:00:17:705</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:18:16 pm</td>
+        <td>
+          verifyRQListBasedOnfFeature Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:18:16 pm</td>
+        <td>
+          Execution Time: 17704 ms (17.704 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="12"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC018</p>
+            <p class="text-sm">
+              <span>12:18:23 pm</span> / <span>00:00:15:021</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC018</h5>
+<span class='badge badge-success'>10.10.2025 12:18:23 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:18:38 pm</span>
+<span class='badge badge-default'>00:00:15:021</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:18:38 pm</td>
+        <td>
+          verifyFeatureDropdownClearsValueAfterPageRefresh Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:18:38 pm</td>
+        <td>
+          Execution Time: 15020 ms (15.02 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="13"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC027</p>
+            <p class="text-sm">
+              <span>12:18:44 pm</span> / <span>00:00:15:578</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC027</h5>
+<span class='badge badge-success'>10.10.2025 12:18:44 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:18:59 pm</span>
+<span class='badge badge-default'>00:00:15:578</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:18:59 pm</td>
+        <td>
+          verifyVisibilityOfPaginationControls Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:18:59 pm</td>
+        <td>
+          Execution Time: 15577 ms (15.577 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="14"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC028</p>
+            <p class="text-sm">
+              <span>12:19:05 pm</span> / <span>00:00:15:438</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC028</h5>
+<span class='badge badge-success'>10.10.2025 12:19:05 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:19:20 pm</span>
+<span class='badge badge-default'>00:00:15:438</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:19:20 pm</td>
+        <td>
+          verifyDefaultPagePagination Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:19:20 pm</td>
+        <td>
+          Execution Time: 15438 ms (15.438 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="15"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC029</p>
+            <p class="text-sm">
+              <span>12:19:27 pm</span> / <span>00:00:17:261</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC029</h5>
+<span class='badge badge-success'>10.10.2025 12:19:27 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:19:45 pm</span>
+<span class='badge badge-default'>00:00:17:261</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:19:45 pm</td>
+        <td>
+          verifyNextButtonFunctionality Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:19:45 pm</td>
+        <td>
+          Execution Time: 17260 ms (17.26 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="16"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC030</p>
+            <p class="text-sm">
+              <span>12:19:51 pm</span> / <span>00:00:17:863</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC030</h5>
+<span class='badge badge-success'>10.10.2025 12:19:51 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:20:09 pm</span>
+<span class='badge badge-default'>00:00:17:863</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:20:09 pm</td>
+        <td>
+          verifyNextButtonFunctionality Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:20:09 pm</td>
+        <td>
+          Execution Time: 17863 ms (17.863 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="17"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC031</p>
+            <p class="text-sm">
+              <span>12:20:15 pm</span> / <span>00:00:14:160</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC031</h5>
+<span class='badge badge-success'>10.10.2025 12:20:15 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:20:29 pm</span>
+<span class='badge badge-default'>00:00:14:160</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:20:29 pm</td>
+        <td>
+          verifyDisabledPreviousBtnOnFirstPage Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:20:29 pm</td>
+        <td>
+          Execution Time: 14159 ms (14.159 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="18"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC032</p>
+            <p class="text-sm">
+              <span>12:20:36 pm</span> / <span>00:00:18:915</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC032</h5>
+<span class='badge badge-success'>10.10.2025 12:20:36 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:20:55 pm</span>
+<span class='badge badge-default'>00:00:18:915</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=18</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:20:55 pm</td>
+        <td>
+          verifyDisabledNextBtnOnLastPage Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:20:55 pm</td>
+        <td>
+          Execution Time: 18914 ms (18.914 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="19"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC034</p>
+            <p class="text-sm">
+              <span>12:21:01 pm</span> / <span>00:00:22:439</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC034</h5>
+<span class='badge badge-success'>10.10.2025 12:21:01 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:21:23 pm</span>
+<span class='badge badge-default'>00:00:22:439</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:21:23 pm</td>
+        <td>
+          verifyPaginationReset Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:21:23 pm</td>
+        <td>
+          Execution Time: 22439 ms (22.439 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="20"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC035</p>
+            <p class="text-sm">
+              <span>12:21:30 pm</span> / <span>00:00:17:473</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC035</h5>
+<span class='badge badge-success'>10.10.2025 12:21:30 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:21:48 pm</span>
+<span class='badge badge-default'>00:00:17:473</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=20</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:21:48 pm</td>
+        <td>
+          VerifyVisiblityOfAddTestCaseButton Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:21:48 pm</td>
+        <td>
+          Execution Time: 17473 ms (17.473 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="21"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC036</p>
+            <p class="text-sm">
+              <span>12:21:55 pm</span> / <span>00:00:20:106</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC036</h5>
+<span class='badge badge-success'>10.10.2025 12:21:55 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:22:15 pm</span>
+<span class='badge badge-default'>00:00:20:106</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=21</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:22:15 pm</td>
+        <td>
+          verifyAddTestcaseDisplayedNextWindow Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:22:15 pm</td>
+        <td>
+          Execution Time: 20105 ms (20.105 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="22"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC037</p>
+            <p class="text-sm">
+              <span>12:22:21 pm</span> / <span>00:00:21:858</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC037</h5>
+<span class='badge badge-success'>10.10.2025 12:22:21 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:22:43 pm</span>
+<span class='badge badge-default'>00:00:21:858</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=22</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:22:43 pm</td>
+        <td>
+          verifyTestCaseCreation Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:22:43 pm</td>
+        <td>
+          Execution Time: 21857 ms (21.857 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="23"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC039</p>
+            <p class="text-sm">
+              <span>12:22:50 pm</span> / <span>00:00:25:387</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC039</h5>
+<span class='badge badge-success'>10.10.2025 12:22:50 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:23:15 pm</span>
+<span class='badge badge-default'>00:00:25:387</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:23:15 pm</td>
+        <td>
+          verifyPaginationReset Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:23:15 pm</td>
+        <td>
+          Execution Time: 25387 ms (25.387 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="24"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC040</p>
+            <p class="text-sm">
+              <span>12:23:22 pm</span> / <span>00:00:19:111</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC040</h5>
+<span class='badge badge-success'>10.10.2025 12:23:22 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:23:41 pm</span>
+<span class='badge badge-default'>00:00:19:111</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=24</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:23:41 pm</td>
+        <td>
+          VerifyCloseButton Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:23:41 pm</td>
+        <td>
+          Execution Time: 19110 ms (19.11 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="25"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC041</p>
+            <p class="text-sm">
+              <span>12:23:48 pm</span> / <span>00:00:27:234</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC041</h5>
+<span class='badge badge-success'>10.10.2025 12:23:48 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:24:15 pm</span>
+<span class='badge badge-default'>00:00:27:234</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=25</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:24:15 pm</td>
+        <td>
+          verifyUpdatedCountoftestcase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:24:15 pm</td>
+        <td>
+          Execution Time: 27233 ms (27.233 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="26"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC042</p>
+            <p class="text-sm">
+              <span>12:24:22 pm</span> / <span>00:00:27:165</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC042</h5>
+<span class='badge badge-success'>10.10.2025 12:24:22 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:24:49 pm</span>
+<span class='badge badge-default'>00:00:27:165</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=26</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:24:49 pm</td>
+        <td>
+          VerifyVisibilityOfAllFieldsInAddTestCase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:24:49 pm</td>
+        <td>
+          Execution Time: 27164 ms (27.164 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="27"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC044</p>
+            <p class="text-sm">
+              <span>12:24:55 pm</span> / <span>00:00:18:044</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC044</h5>
+<span class='badge badge-success'>10.10.2025 12:24:55 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:25:13 pm</span>
+<span class='badge badge-default'>00:00:18:044</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=27</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:25:13 pm</td>
+        <td>
+          VerifyVisibilityOfAllFieldsInAddTestCase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:25:13 pm</td>
+        <td>
+          Execution Time: 18043 ms (18.043 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="28"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC045</p>
+            <p class="text-sm">
+              <span>12:25:19 pm</span> / <span>00:00:19:175</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC045</h5>
+<span class='badge badge-success'>10.10.2025 12:25:19 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:25:38 pm</span>
+<span class='badge badge-default'>00:00:19:175</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=28</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:25:38 pm</td>
+        <td>
+          VerifyNamefieldismandatoryinAddTestcase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:25:38 pm</td>
+        <td>
+          Execution Time: 19175 ms (19.175 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="29"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC046</p>
+            <p class="text-sm">
+              <span>12:25:45 pm</span> / <span>00:00:22:060</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC046</h5>
+<span class='badge badge-success'>10.10.2025 12:25:45 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:26:07 pm</span>
+<span class='badge badge-default'>00:00:22:060</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=29</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:26:07 pm</td>
+        <td>
+          VerifydropdownselectionforQAandBusinessUserinAddTestCase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:26:07 pm</td>
+        <td>
+          Execution Time: 22060 ms (22.06 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="30"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC047</p>
+            <p class="text-sm">
+              <span>12:26:14 pm</span> / <span>00:00:17:534</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC047</h5>
+<span class='badge badge-success'>10.10.2025 12:26:14 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:26:31 pm</span>
+<span class='badge badge-default'>00:00:17:534</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=30</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:26:31 pm</td>
+        <td>
+          VerifyTypeDropdown Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:26:31 pm</td>
+        <td>
+          Execution Time: 17533 ms (17.533 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="31"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC048</p>
+            <p class="text-sm">
+              <span>12:26:38 pm</span> / <span>00:00:18:885</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC048</h5>
+<span class='badge badge-success'>10.10.2025 12:26:38 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:26:57 pm</span>
+<span class='badge badge-default'>00:00:18:885</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=31</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:26:57 pm</td>
+        <td>
+          verifyTheSaveButton Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:26:57 pm</td>
+        <td>
+          Execution Time: 18885 ms (18.885 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="32"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC049</p>
+            <p class="text-sm">
+              <span>12:27:03 pm</span> / <span>00:00:39:857</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC049</h5>
+<span class='badge badge-success'>10.10.2025 12:27:03 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:27:43 pm</span>
+<span class='badge badge-default'>00:00:39:857</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=32</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:27:43 pm</td>
+        <td>
+          VerifyCloseInTestcases Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:27:43 pm</td>
+        <td>
+          Execution Time: 39856 ms (39.856 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="33"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC050</p>
+            <p class="text-sm">
+              <span>12:28:09 pm</span> / <span>00:00:00:284</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">testCases.authorTabTestCase.TC050</h5>
+<span class='badge badge-success'>10.10.2025 12:28:09 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:28:09 pm</span>
+<span class='badge badge-default'>00:00:00:284</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=33</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyMultipleRows_20251010122809.png' src="C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyMultipleRows_20251010122809.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>12:28:09 pm</td>
+        <td>
+          VerifyMultipleRows : Test Failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:28:09 pm</td>
+        <td>
+          stale element reference: stale element not found in the current frame
+  (Session info: chrome=141.0.7390.54)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [aba12c8e6533ab64ef21a2816a3043e7, clickElement {id=f.60414775C8B69DA2F685527C85CADFB1.d.AA1247087E8F1EE08569CE081E98FD2A.e.64}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.54, chrome: {chromedriverVersion: 141.0.7390.76 (d6fcfbb51aac..., userDataDir: C:\Users\VIVEKR~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51016}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51016/devtoo..., se:cdpVersion: 141.0.7390.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (aba12c8e6533ab64ef21a2816a3043e7)] -> xpath: //div[@class='testlistcell']/a[text()='TC-447']]
+Session ID: aba12c8e6533ab64ef21a2816a3043e7
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="34"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC051</p>
+            <p class="text-sm">
+              <span>12:28:17 pm</span> / <span>00:00:20:522</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC051</h5>
+<span class='badge badge-success'>10.10.2025 12:28:17 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:28:38 pm</span>
+<span class='badge badge-default'>00:00:20:522</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=34</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:28:38 pm</td>
+        <td>
+          addNewTestcaseInsideRq Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:28:38 pm</td>
+        <td>
+          Execution Time: 20521 ms (20.521 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="35"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC052</p>
+            <p class="text-sm">
+              <span>12:28:44 pm</span> / <span>00:00:14:204</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC052</h5>
+<span class='badge badge-success'>10.10.2025 12:28:44 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:28:58 pm</span>
+<span class='badge badge-default'>00:00:14:204</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=35</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:28:58 pm</td>
+        <td>
+          verifyRQSearchFunctionality Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:28:58 pm</td>
+        <td>
+          Execution Time: 14203 ms (14.203 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="36"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC053</p>
+            <p class="text-sm">
+              <span>12:29:07 pm</span> / <span>00:00:22:050</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC053</h5>
+<span class='badge badge-success'>10.10.2025 12:29:07 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:29:29 pm</span>
+<span class='badge badge-default'>00:00:22:050</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=36</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:29:29 pm</td>
+        <td>
+          VerifyTheDropDownsInLeftPane Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:29:29 pm</td>
+        <td>
+          Execution Time: 22050 ms (22.05 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="37"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC054</p>
+            <p class="text-sm">
+              <span>12:29:36 pm</span> / <span>00:00:19:734</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC054</h5>
+<span class='badge badge-success'>10.10.2025 12:29:36 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:29:55 pm</span>
+<span class='badge badge-default'>00:00:19:734</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=37</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:29:55 pm</td>
+        <td>
+          verifyVisibilityOfPaginationControls Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:29:55 pm</td>
+        <td>
+          Execution Time: 19734 ms (19.734 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="38"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC055</p>
+            <p class="text-sm">
+              <span>12:30:02 pm</span> / <span>00:00:19:077</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC055</h5>
+<span class='badge badge-success'>10.10.2025 12:30:02 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:30:21 pm</span>
+<span class='badge badge-default'>00:00:19:077</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=38</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:30:21 pm</td>
+        <td>
+          VerifyLinkedTestcases Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:30:21 pm</td>
+        <td>
+          Execution Time: 19076 ms (19.076 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="39"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC056</p>
+            <p class="text-sm">
+              <span>12:30:27 pm</span> / <span>00:00:21:456</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC056</h5>
+<span class='badge badge-success'>10.10.2025 12:30:27 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:30:49 pm</span>
+<span class='badge badge-default'>00:00:21:456</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=39</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:30:49 pm</td>
+        <td>
+          VerifyTestCaseNamefieldisupdatableinTestCaseForm Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:30:49 pm</td>
+        <td>
+          Execution Time: 21456 ms (21.456 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="40"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC057</p>
+            <p class="text-sm">
+              <span>12:30:55 pm</span> / <span>00:00:18:549</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC057</h5>
+<span class='badge badge-success'>10.10.2025 12:30:55 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:31:14 pm</span>
+<span class='badge badge-default'>00:00:18:549</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=40</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:31:14 pm</td>
+        <td>
+          VerifyDescriptionandPreconditionfieldsInTestCaseForm Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:31:14 pm</td>
+        <td>
+          Execution Time: 18548 ms (18.548 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="41"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC058</p>
+            <p class="text-sm">
+              <span>12:31:21 pm</span> / <span>00:00:19:753</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC058</h5>
+<span class='badge badge-success'>10.10.2025 12:31:21 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:31:40 pm</span>
+<span class='badge badge-default'>00:00:19:753</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=41</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:31:40 pm</td>
+        <td>
+          VerifyTheDropDownsInLeftPane Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:31:40 pm</td>
+        <td>
+          Execution Time: 19753 ms (19.753 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="42"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC059</p>
+            <p class="text-sm">
+              <span>12:31:47 pm</span> / <span>00:00:23:673</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC059</h5>
+<span class='badge badge-success'>10.10.2025 12:31:47 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:32:10 pm</span>
+<span class='badge badge-default'>00:00:23:673</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=42</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:32:10 pm</td>
+        <td>
+          verifyClickFunctionalityOfAddCalledTestCaseBtn Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:32:10 pm</td>
+        <td>
+          Execution Time: 23673 ms (23.673 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="43"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC060</p>
+            <p class="text-sm">
+              <span>12:32:17 pm</span> / <span>00:00:22:132</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC060</h5>
+<span class='badge badge-success'>10.10.2025 12:32:17 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:32:39 pm</span>
+<span class='badge badge-default'>00:00:22:132</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=43</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:32:39 pm</td>
+        <td>
+          verifyDialogBoxAfterClickingAddCalledTestcaseButton Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:32:39 pm</td>
+        <td>
+          Execution Time: 22131 ms (22.131 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="44"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC062</p>
+            <p class="text-sm">
+              <span>12:33:05 pm</span> / <span>00:00:00:235</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">testCases.authorTabTestCase.TC062</h5>
+<span class='badge badge-success'>10.10.2025 12:33:05 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:33:06 pm</span>
+<span class='badge badge-default'>00:00:00:235</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=44</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyAddTestStepButton_20251010123305.png' src="C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyAddTestStepButton_20251010123305.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>12:33:05 pm</td>
+        <td>
+          VerifyAddTestStepButton : Test Failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:33:05 pm</td>
+        <td>
+          element click intercepted: Element is not clickable at point (364, 1836)
+  (Session info: chrome=141.0.7390.54)
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3f265f78f978cf08fdefc99ec21f2b25, clickElement {id=f.EF2A4DFA963C4687D6B4F9894CEF8A84.d.1DCB97E8BC504C1B0FCCCC5B87B2E625.e.86}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.54, chrome: {chromedriverVersion: 141.0.7390.76 (d6fcfbb51aac..., userDataDir: C:\Users\VIVEKR~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57345}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57345/devtoo..., se:cdpVersion: 141.0.7390.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (3f265f78f978cf08fdefc99ec21f2b25)] -> xpath: (//i[@class='fa-solid fa-circle-plus'])[1]]
+Session ID: 3f265f78f978cf08fdefc99ec21f2b25
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="45"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC063</p>
+            <p class="text-sm">
+              <span>12:33:50 pm</span> / <span>00:00:00:237</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">testCases.authorTabTestCase.TC063</h5>
+<span class='badge badge-success'>10.10.2025 12:33:50 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:33:51 pm</span>
+<span class='badge badge-default'>00:00:00:237</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=45</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyDeleteSteps_20251010123350.png' src="C:\Users\VivekRajput\UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO_1\screenshots\VerifyDeleteSteps_20251010123350.png">
+    
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>12:33:50 pm</td>
+        <td>
+          VerifyDeleteSteps : Test Failed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:33:50 pm</td>
+        <td>
+          no such element: Unable to locate element: {"method":"xpath","selector":"//span[@class='step-number' and text()='0']/ancestor::div[@class='table-row']//div[@class='table-cell action']//button"}
+  (Session info: chrome=141.0.7390.54)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ccb4b6659cb48ac6c101b17154807912, findElement {using=xpath, value=//span[@class='step-number' and text()='0']/ancestor::div[@class='table-row']//div[@class='table-cell action']//button}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.54, chrome: {chromedriverVersion: 141.0.7390.76 (d6fcfbb51aac..., userDataDir: C:\Users\VIVEKR~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60850}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60850/devtoo..., se:cdpVersion: 141.0.7390.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ccb4b6659cb48ac6c101b17154807912
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="46"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC064</p>
+            <p class="text-sm">
+              <span>12:33:57 pm</span> / <span>00:00:25:979</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC064</h5>
+<span class='badge badge-success'>10.10.2025 12:33:57 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:34:23 pm</span>
+<span class='badge badge-default'>00:00:25:979</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=46</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:23 pm</td>
+        <td>
+          VerifySaveAndCloseButton Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:23 pm</td>
+        <td>
+          Execution Time: 25979 ms (25.979 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="47"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC065</p>
+            <p class="text-sm">
+              <span>12:34:29 pm</span> / <span>00:00:23:992</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC065</h5>
+<span class='badge badge-success'>10.10.2025 12:34:29 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:34:53 pm</span>
+<span class='badge badge-default'>00:00:23:992</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=47</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:34:53 pm</td>
+        <td>
+          VerifyCreateTestRun Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:34:53 pm</td>
+        <td>
+          Execution Time: 23991 ms (23.991 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="48"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC066</p>
+            <p class="text-sm">
+              <span>12:34:59 pm</span> / <span>00:00:18:910</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC066</h5>
+<span class='badge badge-success'>10.10.2025 12:34:59 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:35:18 pm</span>
+<span class='badge badge-default'>00:00:18:910</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=48</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:35:18 pm</td>
+        <td>
+          addNewTestcaseWithoutTcName Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:35:18 pm</td>
+        <td>
+          Execution Time: 18909 ms (18.909 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="49"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC067</p>
+            <p class="text-sm">
+              <span>12:35:25 pm</span> / <span>00:00:19:118</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC067</h5>
+<span class='badge badge-success'>10.10.2025 12:35:25 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:35:44 pm</span>
+<span class='badge badge-default'>00:00:19:118</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=49</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:35:44 pm</td>
+        <td>
+          verifyMaxLengthOfTcName Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:35:44 pm</td>
+        <td>
+          Execution Time: 19118 ms (19.118 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="50"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC070</p>
+            <p class="text-sm">
+              <span>12:35:49 pm</span> / <span>00:00:18:451</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC070</h5>
+<span class='badge badge-success'>10.10.2025 12:35:49 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:36:08 pm</span>
+<span class='badge badge-default'>00:00:18:451</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=50</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:36:08 pm</td>
+        <td>
+          verifyMandatoryFieldValidationInAddTestCase Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:36:08 pm</td>
+        <td>
+          Execution Time: 18450 ms (18.45 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="51"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC071</p>
+            <p class="text-sm">
+              <span>12:36:15 pm</span> / <span>00:00:22:922</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC071</h5>
+<span class='badge badge-success'>10.10.2025 12:36:15 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:36:37 pm</span>
+<span class='badge badge-default'>00:00:22:922</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=51</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:36:37 pm</td>
+        <td>
+          verifyLongDescriptionInputHandling Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:36:37 pm</td>
+        <td>
+          Execution Time: 22922 ms (22.922 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="52"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC072</p>
+            <p class="text-sm">
+              <span>12:36:44 pm</span> / <span>00:00:21:891</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC072</h5>
+<span class='badge badge-success'>10.10.2025 12:36:44 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:37:06 pm</span>
+<span class='badge badge-default'>00:00:21:891</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=52</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:37:06 pm</td>
+        <td>
+          verifyCloseFunctionalityDiscardsChanges Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:37:06 pm</td>
+        <td>
+          Execution Time: 21891 ms (21.891 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="53"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">testCases.authorTabTestCase.TC073</p>
+            <p class="text-sm">
+              <span>12:37:12 pm</span> / <span>00:00:34:014</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">testCases.authorTabTestCase.TC073</h5>
+<span class='badge badge-success'>10.10.2025 12:37:12 pm</span>
+<span class='badge badge-danger'>10.10.2025 12:37:46 pm</span>
+<span class='badge badge-default'>00:00:34:014</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=53</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>12:37:46 pm</td>
+        <td>
+          verifyToggleFunctionalityInRequirementPanel Got Successfully Executed
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>12:37:46 pm</td>
+        <td>
+          Execution Time: 34014 ms (34.014 sec)
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Oct 10, 2025 12:14:21 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Oct 10, 2025 12:37:49 pm</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Tests Passed</p>
+<h3>49</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Tests Failed</p>
+<h3>3</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Tests</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='92%'>
+<b>49</b> tests passed
+</small>
+</div>
+<div>
+<small data-tooltip='5%'><b>3</b> tests failed,
+<b>1</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='46%'><b>49</b> events passed</small></div>
+<div>
+<small data-tooltip='2%'><b>3</b> events failed,
+<b data-tooltip='%'>54</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"testCases.authorTabTestCase.TC001":0.008,"testCases.authorTabTestCase.TC002":16.028,"testCases.authorTabTestCase.TC003":16.305,"testCases.authorTabTestCase.TC004":13.645,"testCases.authorTabTestCase.TC007":14.867,"testCases.authorTabTestCase.TC009":17.17,"testCases.authorTabTestCase.TC010":13.575,"testCases.authorTabTestCase.TC011":13.604,"testCases.authorTabTestCase.TC012":13.789,"testCases.authorTabTestCase.TC013":18.239,"testCases.authorTabTestCase.TC014":17.705,"testCases.authorTabTestCase.TC018":15.021,"testCases.authorTabTestCase.TC027":15.578,"testCases.authorTabTestCase.TC028":15.438,"testCases.authorTabTestCase.TC029":17.261,"testCases.authorTabTestCase.TC030":17.863,"testCases.authorTabTestCase.TC031":14.16,"testCases.authorTabTestCase.TC032":18.915,"testCases.authorTabTestCase.TC034":22.439,"testCases.authorTabTestCase.TC035":17.473,"testCases.authorTabTestCase.TC036":20.106,"testCases.authorTabTestCase.TC037":21.858,"testCases.authorTabTestCase.TC039":25.387,"testCases.authorTabTestCase.TC040":19.111,"testCases.authorTabTestCase.TC041":27.234,"testCases.authorTabTestCase.TC042":27.165,"testCases.authorTabTestCase.TC044":18.044,"testCases.authorTabTestCase.TC045":19.175,"testCases.authorTabTestCase.TC046":22.06,"testCases.authorTabTestCase.TC047":17.534,"testCases.authorTabTestCase.TC048":18.885,"testCases.authorTabTestCase.TC049":39.857,"testCases.authorTabTestCase.TC050":0.284,"testCases.authorTabTestCase.TC051":20.522,"testCases.authorTabTestCase.TC052":14.204,"testCases.authorTabTestCase.TC053":22.05,"testCases.authorTabTestCase.TC054":19.734,"testCases.authorTabTestCase.TC055":19.077,"testCases.authorTabTestCase.TC056":21.456,"testCases.authorTabTestCase.TC057":18.549,"testCases.authorTabTestCase.TC058":19.753,"testCases.authorTabTestCase.TC059":23.673,"testCases.authorTabTestCase.TC060":22.132,"testCases.authorTabTestCase.TC062":0.235,"testCases.authorTabTestCase.TC063":0.237,"testCases.authorTabTestCase.TC064":25.979,"testCases.authorTabTestCase.TC065":23.992,"testCases.authorTabTestCase.TC066":18.91,"testCases.authorTabTestCase.TC067":19.118,"testCases.authorTabTestCase.TC070":18.451,"testCases.authorTabTestCase.TC071":22.922,"testCases.authorTabTestCase.TC072":21.891,"testCases.authorTabTestCase.TC073":34.014
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>TestNext</td>
+</tr>
+<tr>
+<td>Module</td>
+<td>Admin</td>
+</tr>
+<tr>
+<td>Sub Module</td>
+<td>Author test</td>
+</tr>
+<tr>
+<td>User Name</td>
+<td>VivekRajput</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>Stage</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>windows</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>chrome</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 49,
+failParent: 3,
+warningParent: 0,
+skipParent: 1,
+childCount: 5,
+passChild: 0,
+failChild: 0,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 0,
+failGrandChild: 0,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+passEvents: 49,
+failEvents: 3,
+warningEvents: 0,
+skipEvents: 1,
+infoEvents: 53
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

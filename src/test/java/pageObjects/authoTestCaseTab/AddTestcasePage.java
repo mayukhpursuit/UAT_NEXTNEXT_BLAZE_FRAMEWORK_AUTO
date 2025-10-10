@@ -61,7 +61,10 @@ public class AddTestcasePage extends BasePage {
     //Actions
 
     public void setTestCaseName(String testCaseName){
-        textName.sendKeys(testCaseName);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement nameField = wait.until(ExpectedConditions.visibilityOf(textName));
+        nameField.clear(); // Optional: clear existing text before entering
+        nameField.sendKeys(testCaseName);
     }
 
     public void setDescription(String description){

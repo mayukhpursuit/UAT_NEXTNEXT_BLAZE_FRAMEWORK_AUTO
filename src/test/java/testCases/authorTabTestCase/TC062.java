@@ -23,6 +23,7 @@ public class TC062 extends BaseClass {
             authorTestCasePage.clickRequirement(requirementId);
             authorTestCasePage.linkTestCaseIdFromId(TestcaseId).click();
             IndividualTestCasePage individualTestCasePage = new IndividualTestCasePage(getDriver());
+            Thread.sleep(3000);
             individualTestCasePage.clickAddRow();
           logger.info("Add Test Step Button works ");
         }
