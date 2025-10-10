@@ -120,7 +120,7 @@ public class TestPlanLandingPage extends BasePage {
     }
     public void selectTestPlanTab() throws InterruptedException {
         driver.manage().window().setSize(new Dimension(1920, 1080));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         tabTestPlan.click();
         Thread.sleep(2000);
     }
