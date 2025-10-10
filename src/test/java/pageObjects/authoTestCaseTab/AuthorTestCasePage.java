@@ -283,8 +283,9 @@ public class AuthorTestCasePage extends BasePage {
     }
 
     public void clickNextArrow() throws InterruptedException {
-        arrowForwardNextPagination.click();
         Thread.sleep(2000);
+        arrowForwardNextPagination.click();
+        Thread.sleep(3000);
     }
 
 
@@ -494,7 +495,10 @@ public class AuthorTestCasePage extends BasePage {
         WebElement yesBtn = driver.findElement(By.xpath("//button[contains(@id,'confirmBtn') or normalize-space(text())='Yes']"));
         yesBtn.click();
     }
-    public void clickSubmitButtonOnAddTestCaseModal() {
+    public void clickSubmitButtonOnAddTestCaseModal() throws InterruptedException {
+        Actions a= new Actions(driver);
+        Thread.sleep(1500);
+        a.moveToElement(buttonSubmitTestCaseModal).perform();
         buttonSubmitTestCaseModal.click();
     }
 
