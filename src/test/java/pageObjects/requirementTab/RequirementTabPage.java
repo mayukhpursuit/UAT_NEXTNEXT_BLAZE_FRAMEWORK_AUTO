@@ -111,8 +111,10 @@ public class RequirementTabPage extends BasePage {
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-    public void clickRequirementTab(){
+    public void clickRequirementTab() throws InterruptedException {
+        Thread.sleep(1500);
         tabRequirements.click();
+        Thread.sleep(1500);
     }
     public void clickOnTheProjectName() throws InterruptedException {
 
