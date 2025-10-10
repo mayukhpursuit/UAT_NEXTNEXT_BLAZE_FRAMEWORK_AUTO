@@ -4,6 +4,7 @@
     <listeners>
         <listener class-name="utils.ExtentReportManager"/>
         <listener class-name="utils.ExtentSuiteListener"/>
+        <listener class-name="utils.CleanRetryReportListener"/>
     </listeners>
     <test verbose="2" preserve-order="true"
           name="requirement Test ">

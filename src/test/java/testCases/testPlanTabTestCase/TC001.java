@@ -17,6 +17,7 @@ public class TC001 extends BaseClass {
     public void verifyProjectDropdownVisibility() throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Dropdown Visibility *****************");
         try {
+            Assert.fail();
             login();
             logger.info("Logged in successfully");
 

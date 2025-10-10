@@ -6,11 +6,13 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 
+
 public class TC073 extends BaseClass {
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyToggleFunctionalityInRequirementPanel() throws Exception {
         logger.info("************ Starting the Test Case: Verify Toggle Functionality in Requirement Panel *****************");
         try {
+
             login();
             logger.info("Logged in successfully");
             AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());

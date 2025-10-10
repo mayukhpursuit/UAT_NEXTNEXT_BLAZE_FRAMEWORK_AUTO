@@ -23,38 +23,48 @@ public class ExtentReportManager implements ITestListener
 	public static ExtentSparkReporter sparkReporter;
 	public static ExtentTest test;
 	public static String repName;
-		
-		public synchronized void onStart(ITestContext testContext) {
-			if (extent == null) {
-				String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
-				repName = "Test-Report-" + timeStamp + ".html";
 
-				System.out.println(repName);
+	public synchronized void onStart(ITestContext testContext) {
+		if (extent == null) {
+			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()); // time stamp
+			repName = "Test-Report-" + timeStamp + ".html";
 
-				sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);//specify location of the report
+			System.out.println("Timestamped report name: " + repName);
 
-				sparkReporter.config().setDocumentTitle("UAT Test Next Automation Report"); // Title of report
-				sparkReporter.config().setReportName("TestNext Functional Testing"); // name of the report
-				sparkReporter.config().setTheme(Theme.DARK);
+			// Existing timestamped report
+			sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName);
+			sparkReporter.config().setDocumentTitle("UAT Test Next Automation Report");
+			sparkReporter.config().setReportName("TestNext Functional Testing");
+			sparkReporter.config().setTheme(Theme.DARK);
 
-				extent = new ExtentReports();
-				extent.attachReporter(sparkReporter);
-				extent.setSystemInfo("Application", "TestNext");
-				extent.setSystemInfo("Module", "Admin");
-				extent.setSystemInfo("Sub Module", "Author test");
-				extent.setSystemInfo("User Name", System.getProperty("user.name"));
-				extent.setSystemInfo("Environment", "Stage");
-				extent.setSystemInfo("Operating System", "windows");
+			extent = new ExtentReports();
+			extent.attachReporter(sparkReporter);
 
-				String browser = testContext.getCurrentXmlTest().getParameter("browser");
-				extent.setSystemInfo("Browser", browser);
+			// Also add a fixed path reporter for CI/CD
+			ExtentSparkReporter fixedReporter = new ExtentSparkReporter("target/extent-report.html");
+			fixedReporter.config().setDocumentTitle("UAT Test Next Automation Report");
+			fixedReporter.config().setReportName("TestNext Functional Testing");
+			fixedReporter.config().setTheme(Theme.DARK);
+			extent.attachReporter(fixedReporter);
 
-				List<String> includedGroups = testContext.getCurrentXmlTest().getIncludedGroups();
-				if (!includedGroups.isEmpty()) {
-					extent.setSystemInfo("Groups", includedGroups.toString());
-				}
+			// System info
+			extent.setSystemInfo("Application", "TestNext");
+			extent.setSystemInfo("Module", "Admin");
+			extent.setSystemInfo("Sub Module", "Author test");
+			extent.setSystemInfo("User Name", System.getProperty("user.name"));
+			extent.setSystemInfo("Environment", "Stage");
+			extent.setSystemInfo("Operating System", "windows");
+
+			String browser = testContext.getCurrentXmlTest().getParameter("browser");
+			extent.setSystemInfo("Browser", browser);
+
+			List<String> includedGroups = testContext.getCurrentXmlTest().getIncludedGroups();
+			if (!includedGroups.isEmpty()) {
+				extent.setSystemInfo("Groups", includedGroups.toString());
 			}
 		}
+	}
+
 
 
 //		public void onTestSuccess(ITestResult result) {

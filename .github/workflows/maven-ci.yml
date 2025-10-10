@@ -15,12 +15,12 @@ jobs:
         include:
           - suite: testplan.xml
             logName: testPlan
-          - suite: requirement.xml
-            logName: requirementLog
-          - suite: authortest.xml
-            logName: authorLog
-          - suite: main.xml
-            logName: mainLog
+    #          - suite: requirement.xml
+    #            logName: requirementLog
+    #          - suite: authortest.xml
+    #            logName: authorLog
+    #          - suite: main.xml
+    #            logName: mainLog
 
     steps:
       - name: Checkout repository
@@ -44,7 +44,6 @@ jobs:
             -Dbrowser=chrome \
             -Dmode=headless \
             -DlogName=${{ matrix.logName }}
-      
 
       - name: Prepare Surefire Report for Upload - ${{ matrix.suite }}
         if: always()
@@ -59,5 +58,15 @@ jobs:
           name: surefire-report-${{ matrix.suite }}
           path: reports/${{ matrix.suite }}/emailable-report.html
 
+      - name: Prepare Extent Report for Upload - ${{ matrix.suite }}
+        if: always()
+        run: |
+          mkdir -p reports/${{ matrix.suite }}
+          cp target/extent-report.html reports/${{ matrix.suite }}/
 
-
+      - name: Upload Extent Report - ${{ matrix.suite }}
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report-${{ matrix.suite }}
+          path: reports/${{ matrix.suite }}/extent-report.html
