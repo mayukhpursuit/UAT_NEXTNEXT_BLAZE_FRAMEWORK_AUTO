@@ -5,6 +5,7 @@ import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
+
 public class TC073 extends BaseClass {
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyToggleFunctionalityInRequirementPanel() throws Exception {
