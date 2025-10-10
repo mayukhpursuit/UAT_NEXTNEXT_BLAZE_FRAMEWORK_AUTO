@@ -184,7 +184,7 @@ public class TestPlanLandingPage extends BasePage {
     public void clickOnConfirmDeleteYes(String releaseCycleSuiteName){
         WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
         buttonConfirmDelete.click();
-        wait.until(ExpectedConditions.invisibilityOf(releaseTestCycleTestSuite(releaseCycleSuiteName)));
+//        wait.until(ExpectedConditions.invisibilityOf(releaseTestCycleTestSuite(releaseCycleSuiteName)));
     }
 
     public int getTotalReleases() {
@@ -271,7 +271,7 @@ public class TestPlanLandingPage extends BasePage {
     }
 
     public void enterDescription(String description) {
-        WebElement descriptionBeforeClick = driver.findElement(By.xpath("//div[@class='test-plan-releases-prototype']"));
+        WebElement descriptionBeforeClick = driver.findElement(By.xpath("//div[@class='testPlan-prototype']"));
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));

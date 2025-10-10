@@ -26,7 +26,7 @@ public class IndividualTestCyclePage extends BasePage {
     @FindBy(xpath ="//input[@class='testcase-select']")
     WebElement inputTargetRelease;
 
-    @FindBy(xpath = "//div[@class='test-plan-test-cycles-prototype']")
+    @FindBy(xpath = "//div[@class='testPlan-prototype']")
     WebElement descriptionBeforeClick;
 
     @FindBy(xpath ="//div[@class='rte-editor ql-container ql-snow']/div[@contenteditable='true']" )
