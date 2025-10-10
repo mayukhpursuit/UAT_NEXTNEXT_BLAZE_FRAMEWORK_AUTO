@@ -23,6 +23,7 @@ public class TC042 extends BaseClass {
             addTestCase.setTestCaseName("For unlink");
             addTestCase.clickSave();
             String testCaseId=addTestCase.getTestcaseId("For unlink");
+            Thread.sleep(1000);
             AuthorTestCasePage authorTestCasePage1 = new AuthorTestCasePage(getDriver());
             authorTestCasePage1.clickActionIcon(testCaseId);
             logger.info("Clicked unlink icon for test case ");

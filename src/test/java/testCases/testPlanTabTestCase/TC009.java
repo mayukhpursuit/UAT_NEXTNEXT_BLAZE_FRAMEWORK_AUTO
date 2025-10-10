@@ -7,6 +7,8 @@ import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 
+import java.util.Random;
+
 public class TC009 extends BaseClass {
     @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class)
     public void verifyDeletionOfCycle(
@@ -41,7 +43,7 @@ public class TC009 extends BaseClass {
             logger.info("Clicked on the new testCycle");
 
             IndividualTestCyclePage individualTestCyclePage=new IndividualTestCyclePage(getDriver());
-            individualTestCyclePage.setTestCycleName(testCycleName+"1");
+            individualTestCyclePage.setTestCycleName(testCycleName+String.valueOf((100 + new Random().nextInt(900))));
             logger.info("added the test cycle name");
 
             individualTestCyclePage.setDescription(testDescription);

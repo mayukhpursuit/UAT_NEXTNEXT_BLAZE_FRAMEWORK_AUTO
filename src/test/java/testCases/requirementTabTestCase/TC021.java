@@ -30,6 +30,7 @@ public class TC021 extends BaseClass {
 
             requirementTabPage.clickOnTheProjectName();
             logger.info("Clicked on the project name");
+            Thread.sleep(2000);
 
             logger.info(" Fetching the total requirement count before adding a new requirement...");
             String totalRqCountBeforeAdd = requirementTabPage.totalCountOfAvailabelRq();
@@ -67,6 +68,7 @@ public class TC021 extends BaseClass {
 
             addRequirementPage.clickClose();
             logger.info(" Clicked on 'Close' button");
+            Thread.sleep(2000);
 
             logger.info("🔍 Fetching the total requirement count after adding a new requirement...");
             String totalRqCountAfterAdd = requirementTabPage.totalCountOfAvailabelRq();

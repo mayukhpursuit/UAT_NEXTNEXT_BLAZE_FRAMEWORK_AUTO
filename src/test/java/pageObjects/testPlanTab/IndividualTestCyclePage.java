@@ -48,8 +48,8 @@ public class IndividualTestCyclePage extends BasePage {
         return testCycleHeader.getText();
     }
 
-    public void setTestCycleName(String cycleName)
-    {
+    public void setTestCycleName(String cycleName) throws InterruptedException {
+        Thread.sleep(2000);
         testCycleNameInput.clear(); //as input not div
         testCycleNameInput.sendKeys(cycleName);
     }
