@@ -15,12 +15,12 @@ jobs:
         include:
           - suite: testplan.xml
             logName: testPlan
-    #          - suite: requirement.xml
-    #            logName: requirementLog
-    #          - suite: authortest.xml
-    #            logName: authorLog
-    #          - suite: main.xml
-    #            logName: mainLog
+          - suite: requirement.xml
+            logName: requirementLog
+          - suite: authortest.xml
+            logName: authorLog
+          - suite: main.xml
+            logName: mainLog
 
     steps:
       - name: Checkout repository
