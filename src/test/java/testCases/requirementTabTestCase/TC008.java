@@ -58,7 +58,7 @@ public class TC008 extends BaseClass {
               Thread.sleep(4000);
             String newRqIdText = addRequirementPage.getRequirementIdName();
             logger.info("Captured new Requirement ID from popup: " + newRqIdText);
-
+            Thread.sleep(1000);
             addRequirementPage.clickClose();
             logger.info("Closed the Add Requirement popup");
 
