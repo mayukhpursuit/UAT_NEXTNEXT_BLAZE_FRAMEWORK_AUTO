@@ -39,7 +39,7 @@ public class TC026 extends BaseClass {
             IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());
             indivisualModulePage.clearActualDescription();
             wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//em[normalize-space()='Click to add description']")));
-            logger.info("Placeholder-Click to add description is verified ");
+            logger.info("Placeholder-Click to add description is verified");
 //            indivisualModulePage.setActualDescription(descri);
 //            logger.info("Description has been added using the data-sheet");
             indivisualModulePage.clickSave();
