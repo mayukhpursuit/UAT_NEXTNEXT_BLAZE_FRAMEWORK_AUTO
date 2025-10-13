@@ -38,7 +38,7 @@
 <!--            <class name="testCases.authorTabTestCase.TC040"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC041"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC042"/>-->
-            <class name="testCases.authorTabTestCase.TC044"/>
+<!--            <class name="testCases.authorTabTestCase.TC044"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC045"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC046"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC047"/>-->
@@ -56,7 +56,7 @@
 <!--            <class name="testCases.authorTabTestCase.TC059"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC060"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC062"/>-->
-            <class name="testCases.authorTabTestCase.TC063"/>
+<!--            <class name="testCases.authorTabTestCase.TC063"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC064"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC065"/>-->
 <!--            <class name="testCases.authorTabTestCase.TC066"/>-->
