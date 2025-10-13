@@ -38,11 +38,13 @@ public class TC026 extends BaseClass {
             WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
             IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());
             indivisualModulePage.clearActualDescription();
+            indivisualModulePage.clickInputTitle();
             wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//em[normalize-space()='Click to add description']")));
             logger.info("Placeholder-Click to add description is verified");
 //            indivisualModulePage.setActualDescription(descri);
 //            logger.info("Description has been added using the data-sheet");
             indivisualModulePage.clickSave();
+
             logger.info("Module saved successfully" );
         }
         catch (AssertionError e) {

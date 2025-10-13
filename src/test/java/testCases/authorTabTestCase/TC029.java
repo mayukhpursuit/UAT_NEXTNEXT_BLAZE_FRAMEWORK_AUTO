@@ -22,7 +22,7 @@ public class TC029 extends BaseClass {
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickNextArrow();
             logger.info("Clicked on forward arrow in the requirement");
-            Thread.sleep(3000);
+            authorTestCasePage.clickRequirementPagination();
             Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),expectedPagination);
             logger.info("Expected pagination verified ....");
         }

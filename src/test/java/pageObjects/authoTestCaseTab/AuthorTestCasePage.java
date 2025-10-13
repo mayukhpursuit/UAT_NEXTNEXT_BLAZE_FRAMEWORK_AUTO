@@ -538,6 +538,9 @@ public class AuthorTestCasePage extends BasePage {
         // Expanded if rotate(0deg), Collapsed if rotate(180deg)
         return style != null && style.contains("rotate(0deg)");
     }
+    public void clickRequirementPagination(){
+        divRequirementPagination.click();
+    }
 }
 
 

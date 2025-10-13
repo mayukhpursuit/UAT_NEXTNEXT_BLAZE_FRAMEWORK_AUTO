@@ -211,7 +211,7 @@ public class IndividualModulePage extends BasePage {
         descriptionAfterClick.sendKeys(description);
 
     }
-    public void clearActualDescription(){
+    public void clearActualDescription() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
@@ -222,6 +222,11 @@ public class IndividualModulePage extends BasePage {
         descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         descriptionAfterClick.sendKeys(Keys.BACK_SPACE);
         descriptionAfterClick.clear();
+        inputTitle.click();
+        Thread.sleep(2000);
+    }
+
+    public void clickInputTitle(){
         inputTitle.click();
     }
 
@@ -433,8 +438,8 @@ public String getAlertMessage(){
     public String getDeleteConfirmationMessage() throws InterruptedException {
         Thread.sleep(1500);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
-        return modal.findElement(By.id("actionDialog-message")).getText().trim();
+//        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
+        return driver.findElement(By.id("actionDialog-message")).getText().trim();
     }
 
     public String alretMeaasgeForDeletingModule(){
