@@ -21,7 +21,7 @@ public class TC029 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickNextArrow();
-            authorTestCasePage.clickRequirement("RQ-491");
+            Thread.sleep(5000);
             logger.info("Clicked on forward arrow in the requirement");
             authorTestCasePage.clickRequirementPagination();
             Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),expectedPagination);

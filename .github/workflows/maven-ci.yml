@@ -15,8 +15,8 @@ jobs:
         include:
 #          - suite: testplan.xml
 #            logName: testPlan
-#          - suite: requirement.xml
-#            logName: requirementLog
+          - suite: requirement.xml
+            logName: requirementLog
           - suite: authortest.xml
             logName: authorLog
 #          - suite: main.xml
