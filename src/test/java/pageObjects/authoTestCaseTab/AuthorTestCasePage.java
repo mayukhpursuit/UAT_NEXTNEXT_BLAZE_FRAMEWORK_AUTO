@@ -283,7 +283,7 @@ public class AuthorTestCasePage extends BasePage {
     }
 
     public void clickNextArrow() throws InterruptedException {
-        Thread.sleep(2000);
+
         divRequirementPagination.click();
         new Actions(driver).moveToElement(arrowForwardNextPagination);
         arrowForwardNextPagination.click();
