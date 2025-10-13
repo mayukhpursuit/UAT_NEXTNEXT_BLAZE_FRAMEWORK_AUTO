@@ -413,11 +413,18 @@ public class AuthorTestCasePage extends BasePage {
     }
 
     public void searchRq(String Rq){
-        searchInput.click();
-        searchInput.clear();
-        searchInput.sendKeys(Rq);
-        searchBtn.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
+        wait.until(ExpectedConditions.elementToBeClickable(searchInput));
+        searchInput.click();
+
+        wait.until(ExpectedConditions.visibilityOf(searchInput));
+        searchInput.clear();
+
+        searchInput.sendKeys(Rq);
+
+        wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
+        searchBtn.click();
     }
     public String totalNoOfTestcasesInsideRq(){
         return totalEntryConutOfTestcases.getText();
