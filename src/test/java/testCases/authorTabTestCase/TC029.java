@@ -19,6 +19,8 @@ public class TC029 extends BaseClass {
             logger.info("Logged in successfully");
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
+            getDriver().navigate().refresh();
+            authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickNextArrow();
             logger.info("Clicked on forward arrow in the requirement");
