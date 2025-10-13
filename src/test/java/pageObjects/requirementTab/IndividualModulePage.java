@@ -438,8 +438,9 @@ public String getAlertMessage(){
     public String getDeleteConfirmationMessage() throws InterruptedException {
         Thread.sleep(1500);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-//        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
-        return driver.findElement(By.id("actionDialog-message")).getText().trim();
+        driver.findElement(actionDialog).click();
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
+        return modal.findElement(By.id("actionDialog-message")).getText().trim();
     }
 
     public String alretMeaasgeForDeletingModule(){
