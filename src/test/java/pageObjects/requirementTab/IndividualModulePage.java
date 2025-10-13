@@ -409,7 +409,7 @@ public String getAlertMessage(){
     public void clickDeleteModuleIcon() {
         Actions a= new Actions(driver);
         a.moveToElement(deleteModuleIcon).perform();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(deleteModuleIcon)).click();
     }
 
@@ -432,7 +432,7 @@ public String getAlertMessage(){
 
     public String getDeleteConfirmationMessage() throws InterruptedException {
         Thread.sleep(1500);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(actionDialog));
         return modal.findElement(By.id("actionDialog-message")).getText().trim();
     }

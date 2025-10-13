@@ -23,10 +23,13 @@ public class TC033 extends BaseClass {
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
             AddRequirementPage addRequirementPage = new AddRequirementPage(getDriver());
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
+
+            String uniqueModuleName = moduleName + "_" + System.currentTimeMillis();
+            logger.info("Unique module name generated: " + uniqueModuleName);
             requirementTabPage.clickRequirementTab();
             requirementTabPage.clickOnTheProjectName();
             requirementTabPage.clickNewModule();
-            requirementTabPage.setModuleName(moduleName);
+            requirementTabPage.setModuleName(uniqueModuleName);
             requirementTabPage.saveModule();
             getDriver().navigate().refresh();
             requirementTabPage.clickRequirementTab();
@@ -35,8 +38,8 @@ public class TC033 extends BaseClass {
             requirementTabPage.clickArrowRightPointingForExpandModule(projectName);
             logger.info("Expanded project: " + projectName);
 
-            requirementTabPage.clickOnModule(moduleName);
-            logger.info("Opened module: " + moduleName);
+            requirementTabPage.clickOnModule(uniqueModuleName);
+            logger.info("Opened module: " + uniqueModuleName);
 
             individualModulePage.clickDeleteModuleIcon();
             logger.info("Clicked on delete icon");
