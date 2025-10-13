@@ -8,12 +8,10 @@ import pageObjects.requirementTab.IndividualModulePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.Random;
-
 public class TC033 extends BaseClass {
 
     @Test(dataProvider = "tc033", dataProviderClass = DataProviders.RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyModuleDeletionWithSuccessMessage(String projectName, String moduleName1)
+    public void verifyModuleDeletionWithSuccessMessage(String projectName, String moduleName)
             throws InterruptedException {
         logger.info("************ Starting Test Case: Verify module deletion with success message *****************");
 
@@ -25,11 +23,13 @@ public class TC033 extends BaseClass {
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
             AddRequirementPage addRequirementPage = new AddRequirementPage(getDriver());
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
+
+            String uniqueModuleName = moduleName + "_" + System.currentTimeMillis();
+            logger.info("Unique module name generated: " + uniqueModuleName);
             requirementTabPage.clickRequirementTab();
             requirementTabPage.clickOnTheProjectName();
             requirementTabPage.clickNewModule();
-            String moduleName=moduleName1+String.valueOf(100 + new Random().nextInt(900));
-            requirementTabPage.setModuleName(moduleName);
+            requirementTabPage.setModuleName(uniqueModuleName);
             requirementTabPage.saveModule();
             getDriver().navigate().refresh();
             requirementTabPage.clickRequirementTab();
@@ -38,8 +38,8 @@ public class TC033 extends BaseClass {
             requirementTabPage.clickArrowRightPointingForExpandModule(projectName);
             logger.info("Expanded project: " + projectName);
 
-            requirementTabPage.clickOnModule(moduleName);
-            logger.info("Opened module: " + moduleName);
+            requirementTabPage.clickOnModule(uniqueModuleName);
+            logger.info("Opened module: " + uniqueModuleName);
 
             individualModulePage.clickDeleteModuleIcon();
             logger.info("Clicked on delete icon");
