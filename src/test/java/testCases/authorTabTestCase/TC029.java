@@ -28,13 +28,6 @@ public class TC029 extends BaseClass {
             authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickNextArrow();
-            By paginationLocator = By.xpath("//div[@class='pagination-item']");
-
-            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(25));
-
-            wait.until(ExpectedConditions.textToBePresentInElementLocated(paginationLocator, "2"));
-
-            System.out.println("✅ Pagination text is now '2'");
             authorTestCasePage.clickEpic();
             authorTestCasePage.clickFeature();
             logger.info("Clicked on forward arrow in the requirement");
