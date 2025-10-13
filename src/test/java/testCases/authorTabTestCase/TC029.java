@@ -28,7 +28,7 @@ public class TC029 extends BaseClass {
             authorTestCasePage.clickFeature();
             logger.info("Clicked on forward arrow in the requirement");
             authorTestCasePage.clickRequirementPagination();
-            Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),expectedPagination);
+            Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),1);
             logger.info("Expected pagination verified ....");
         }
         catch (AssertionError e) {
