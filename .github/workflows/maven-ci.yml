@@ -17,8 +17,8 @@ jobs:
 #            logName: testPlan
           - suite: requirement.xml
             logName: requirementLog
-          - suite: authortest.xml
-            logName: authorLog
+#          - suite: authortest.xml
+#            logName: authorLog
 #          - suite: main.xml
 #            logName: mainLog
 

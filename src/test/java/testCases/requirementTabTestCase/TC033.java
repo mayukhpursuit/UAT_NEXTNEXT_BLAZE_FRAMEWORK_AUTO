@@ -8,10 +8,12 @@ import pageObjects.requirementTab.IndividualModulePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
+import java.util.Random;
+
 public class TC033 extends BaseClass {
 
     @Test(dataProvider = "tc033", dataProviderClass = DataProviders.RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyModuleDeletionWithSuccessMessage(String projectName, String moduleName)
+    public void verifyModuleDeletionWithSuccessMessage(String projectName, String moduleName1)
             throws InterruptedException {
         logger.info("************ Starting Test Case: Verify module deletion with success message *****************");
 
@@ -26,6 +28,7 @@ public class TC033 extends BaseClass {
             requirementTabPage.clickRequirementTab();
             requirementTabPage.clickOnTheProjectName();
             requirementTabPage.clickNewModule();
+            String moduleName=moduleName1+String.valueOf(100 + new Random().nextInt(900));
             requirementTabPage.setModuleName(moduleName);
             requirementTabPage.saveModule();
             getDriver().navigate().refresh();
