@@ -32,7 +32,6 @@ public class TC052 extends BaseClass {
             // Search by RQ Title
             logger.info("Starting search using RQ Title: " + rqTitle);
             authorTestCasePage.searchRq(rqTitle);
-
             String expectedRQTitle = authorTestCasePage.getRQTitle();
             Assert.assertEquals(expectedRQTitle, rqTitle, "Mismatch in RQ Title after search.");
             logger.info("Successfully verified RQ Title: " + expectedRQTitle);

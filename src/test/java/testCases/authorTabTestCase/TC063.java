@@ -29,6 +29,7 @@ public class TC063 extends BaseClass {
             individualTestCasePage.clickAddTestStep();
             Thread.sleep(1000);
             int beforeCount = individualTestCasePage.getStepCountInt();
+            Thread.sleep(3000);
             logger.info("before count was "+beforeCount);
             individualTestCasePage.clickDeleteButton(beforeCount);
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
