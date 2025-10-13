@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.BasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
+import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
@@ -19,9 +20,10 @@ public class TC029 extends BaseClass {
             logger.info("Logged in successfully");
             AuthorTestCasePage authorTestCasePage=new AuthorTestCasePage(getDriver());
             authorTestCasePage.clickAuthorTestcase();
+            new RequirementTabPage(getDriver()).clickRequirementTab();
+            authorTestCasePage.clickAuthorTestcase();
             logger.info("Navigated to Author Test Case tab");
             authorTestCasePage.clickNextArrow();
-            Thread.sleep(5000);
             logger.info("Clicked on forward arrow in the requirement");
             authorTestCasePage.clickRequirementPagination();
             Assert.assertEquals(authorTestCasePage.showPaginationOfRequirement(),expectedPagination);
