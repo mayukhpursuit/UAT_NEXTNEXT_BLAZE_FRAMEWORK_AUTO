@@ -78,6 +78,12 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(id = "closeModal")
     WebElement cancelButtonInPopup;
 
+    @FindBy(xpath = "//input[@id='searchInput']")
+    WebElement searchfield;
+
+    @FindBy(xpath = "//div[@class='test-execution-label-3']")
+    WebElement searchButton;
+
     private WebElement suiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
@@ -302,6 +308,22 @@ public class ExecuteLandingPage extends BasePage {
 
     public String showPaginationOfRequirement() {
         return wait.until(ExpectedConditions.visibilityOf(divRequirementPagination)).getText();
+    }
+
+    public void searchTestCase(String testCaseID) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(searchfield));
+        wait.until(ExpectedConditions.elementToBeClickable(searchfield));
+        searchfield.clear();
+        searchfield.sendKeys(testCaseID);
+        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
+        searchButton.click();
+        try
+        {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
 }

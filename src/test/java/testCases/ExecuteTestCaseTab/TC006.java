@@ -1,43 +1,46 @@
 package testCases.ExecuteTestCaseTab;
 
 import DataProviders.ExecuteTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC006 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+
+    @Test(dataProvider = "tc006", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifythesearchfeature(
             String projectName,
             String ReleaseName,
             String CycleName,
-            String SuiteName
-
+            String SuiteName,
+            String SearchTR
     ) throws InterruptedException {
+
         logger.info("****** Starting Test Case: verify the search feature *****************");
+
         try {
             login();
             logger.info("Logged in successfully");
-            ExecuteLandingPage executeLandingPage =new ExecuteLandingPage(getDriver());
+
+            ExecuteLandingPage executeLandingPage = new ExecuteLandingPage(getDriver());
             executeLandingPage.clickExecuteTab();
-            logger.info("Clicked on the execute test case tab ..");
+            logger.info("Clicked on the Execute Test Case tab");
 
             executeLandingPage.clickArrowRightPointingForExpandModule(projectName);
-            logger.info("Clicked on Project:"+projectName);
+            logger.info("Expanded Project: " + projectName);
 
             executeLandingPage.expandRelease(ReleaseName);
-            logger.info("Clicked on Release:"+ReleaseName);
+            logger.info("Expanded Release: " + ReleaseName);
 
             executeLandingPage.expandSubTestCycle(CycleName);
-            logger.info("Clicked on Cycle:"+CycleName);
+            logger.info("Expanded Cycle: " + CycleName);
 
             executeLandingPage.clickOnSuite(SuiteName);
-            logger.info("Clicked on Suite:"+SuiteName);
+            logger.info("Clicked on Suite: " + SuiteName);
 
-
-
+            executeLandingPage.searchTestCase(SearchTR);
+            logger.info("Searched for Test Case ID: " + SearchTR);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
@@ -46,6 +49,7 @@ public class TC006 extends BaseClass {
             logger.error("Exception occurred: {}", e.getMessage());
             throw e;
         }
+
         logger.info("************ Test Case Finished *************************");
     }
 }
