@@ -9,8 +9,7 @@ import utils.RetryAnalyzer;
 
 public class TC002 extends BaseClass {
     @Test(dataProvider = "tc002", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyProjectSelectionFromDropdown(String projectName,
-                                                   String releaseName) throws InterruptedException {
+    public void verifyProjectSelectionFromDropdown(String projectName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
@@ -19,7 +18,7 @@ public class TC002 extends BaseClass {
             executeLandingPage.clickExecuteTab();
             logger.info("Clicked on the execute test case tab ..");
 
-
+            Assert.assertTrue(executeLandingPage.isMentionedProjectNameVisible(projectName));
 
 
         } catch (AssertionError e) {

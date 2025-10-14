@@ -26,6 +26,9 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='project ']")
     List<WebElement> allProjects;
 
+    @FindBy(xpath = "//div[@class='project ']")
+    WebElement labelProjectName;
+
     @FindBy(xpath = "//div[contains(@class,'project')]//i[contains(@class,'fa-caret-right') and contains(@class,'toggle-icon')]")
     List<WebElement> expandArrows;
 
@@ -81,6 +84,12 @@ public class ExecuteLandingPage extends BasePage {
     Actions actions = new Actions(driver);
 
     // execute landing page
+
+    public boolean isMentionedProjectNameVisible(String projectName) throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOf(labelProjectName));
+        String name=labelProjectName.getText();
+        return name.equals(projectName);
+    }
 
     private WebElement arrowRightToExpand(String moduleName) {
         return driver.findElement(By.xpath("//div[contains(@class,'project')][contains(normalize-space(.),'"
