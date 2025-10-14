@@ -183,5 +183,4 @@ public class LinkDefectPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(descriptionInputArea)).sendKeys(description);
     }
 
-
 }
