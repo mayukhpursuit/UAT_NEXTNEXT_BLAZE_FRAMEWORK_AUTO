@@ -1,4 +1,4 @@
-package pageObjects.testExecuteTab;
+package pageObjects.executeTestCaseTab;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
-import java.util.Locale;
 
 public class IndividualTestRun extends BasePage {
     public IndividualTestRun(WebDriver driver){

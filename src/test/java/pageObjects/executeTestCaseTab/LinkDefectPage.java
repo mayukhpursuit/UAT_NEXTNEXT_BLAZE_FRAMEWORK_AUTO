@@ -1,4 +1,4 @@
-package pageObjects.executeTestCasesTab;
+package pageObjects.executeTestCaseTab;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
