@@ -35,7 +35,7 @@ public class TC006 extends BaseClass {
 
             executeLandingPage.expandSubTestCycle(CycleName);
             logger.info("Expanded Cycle: " + CycleName);
-
+            Thread.sleep(3000);
             executeLandingPage.clickOnSuite(SuiteName);
             logger.info("Clicked on Suite: " + SuiteName);
 

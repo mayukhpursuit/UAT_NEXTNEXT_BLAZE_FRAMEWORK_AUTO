@@ -3,21 +3,26 @@ package testCases.ExecuteTestCaseTab;
 import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
+import pageObjects.executeTestCaseTab.IndividualTestRun;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC011 extends BaseClass {
+import java.util.Locale;
 
-    @Test(dataProvider = "tc011", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void verifyusercanselectatestcasebyclickingontestrunID(
+public class TC013 extends BaseClass {
+    @Test(dataProvider = "tc013", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void verify_upadate_actual_result_feature(
             String projectName,
             String ReleaseName,
             String CycleName,
             String SuiteName,
-            String SearchTR
+            String TR,
+            String status,
+            String stepno,
+            String actual_result
     ) throws InterruptedException {
 
-        logger.info("****** Starting Test Case: verify user can select a testcase by clicking on test run ID *****************");
+        logger.info("****** Starting Test Case 013: verify upadate actual result feature *****************");
 
         try {
             login();
@@ -39,10 +44,20 @@ public class TC011 extends BaseClass {
             executeLandingPage.clickOnSuite(SuiteName);
             logger.info("Clicked on Suite: " + SuiteName);
 
-            executeLandingPage.clickOnTestRunById(SearchTR);
-            logger.info("Clicked on Test Run ID: " + SearchTR);
+            executeLandingPage.getTestRunById(TR);
+            logger.info("Clicked on Test Run ID: " + TR);
 
+            IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
+            Thread.sleep(3000);
+            individualTestrun.selectStatus(status);
+            logger.info("Status changed to: " + status);
 
+            individualTestrun.EnterActualResultOfTheStep(Integer.parseInt(stepno),actual_result);
+            logger.info("Entered actual desc:"+actual_result+"->in:"+stepno);
+            Thread.sleep(3000);
+            individualTestrun.clickSaveButton();
+
+            individualTestrun.clickCloseButton();
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
@@ -55,4 +70,3 @@ public class TC011 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
-
