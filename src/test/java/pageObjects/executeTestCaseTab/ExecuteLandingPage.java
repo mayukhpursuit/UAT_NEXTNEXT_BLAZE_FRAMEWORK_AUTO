@@ -78,6 +78,13 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(id = "closeModal")
     WebElement cancelButtonInPopup;
 
+    private WebElement suiteByName(String suiteName) {
+        return driver.findElement(
+                By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
+    }
+
+
+
     // ================= ACTIONS =================
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -123,6 +130,10 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     // ================= METHODS =================
+
+    public void clickOnSuite(String suiteName) {
+        suiteByName(suiteName).click();
+    }
 
     public void clickExecuteTab() {
         wait.until(ExpectedConditions.elementToBeClickable(tabexceute)).click();
