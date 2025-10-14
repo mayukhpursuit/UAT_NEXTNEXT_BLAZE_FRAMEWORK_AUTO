@@ -1,6 +1,7 @@
 package pageObjects.executeTestCaseTab;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -17,26 +18,33 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     // ================= LOCATORS =================
-    @FindBy(xpath = "//span[@id='execute']")
-    WebElement tabRequirements;
 
-    @FindBy(xpath = "//button[.//div[text()='SAVE']]")
-    private WebElement saveButtonInPopup;
+    // landing page
+    @FindBy(id = "execute")
+    WebElement tabexceute;
 
-    @FindBy(id = "closeModal")
-    private WebElement cancelButtonInPopup;
+    @FindBy(xpath = "//div[@class='project ']")
+    List<WebElement> allProjects;
+
+    @FindBy(xpath = "//div[contains(@class,'project')]//i[contains(@class,'fa-caret-right') and contains(@class,'toggle-icon')]")
+    List<WebElement> expandArrows;
+
+    @FindBy(xpath = "//div[contains(@class,'project') or contains(@class,'releases')]")
+    List<WebElement> allModulesAndReleases;
+
+    // release page
 
     @FindBy(id = "assignToMe")
-    private WebElement assignToMeRadio;
+    WebElement assignToMeRadio;
 
     @FindBy(id = "viewAll")
-    private WebElement viewAllRadio;
+    WebElement viewAllRadio;
 
     @FindBy(id = "statusDropdown")
-    private WebElement statusDropdown;
+    WebElement statusDropdown;
 
     @FindBy(id = "createTestRunButton")
-    private WebElement createTestRunButton;
+    WebElement createTestRunButton;
 
     @FindBy(xpath = "//div[@class='wrapper']")
     List<WebElement> rqCountWrapper;
@@ -56,54 +64,27 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='pagination-item']")
     WebElement divRequirementPagination;
 
-    // ================= METHODS =================
+    @FindBy(xpath = "//a[contains(@class,'runButton')]")
+    List<WebElement> testRunLinks;
+
+    // locators for create test run
+
+    @FindBy(xpath = "//button[.//div[text()='SAVE']]")
+    WebElement saveButtonInPopup;
+
+    @FindBy(id = "closeModal")
+    WebElement cancelButtonInPopup;
+
+    // ================= ACTIONS =================
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    Actions actions = new Actions(driver);
 
-    private void safeClick(WebElement element, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-            Thread.sleep(500);
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            String style = element.getAttribute("style");
-            if (style != null && style.contains("opacity: 0.5")) {
-                System.out.println("[WARN] Element appears disabled (opacity 0.5). Waiting for activation...");
-                Thread.sleep(1000);
-            }
-            try {
-                element.click();
-            } catch (ElementClickInterceptedException e) {
-                System.out.println("[WARN] Click intercepted — retrying with JavaScript...");
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-            }
-
-        } catch (Exception e) {
-            System.out.println("[ERROR] safeClick failed for element: " + element + " due to: " + e.getMessage());
-        }
-    }
-
-    public void waitForPopupToClose() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".popup-defect-modal-frame-7")));
-            System.out.println("Popup closed, proceeding.");
-        } catch (TimeoutException e) {
-            System.out.println("Popup still visible after wait, proceeding anyway.");
-        }
-    }
-
-    public void clickExecuteTab() throws InterruptedException {
-        Thread.sleep(1500);
-        tabRequirements.click();
-        Thread.sleep(1500);
-    }
+    // execute landing page
 
     private WebElement arrowRightToExpand(String moduleName) {
-        String xpath = "//div[contains(@class,'project')][contains(normalize-space(.),'"
-                + moduleName + "')]//i[contains(@class,'fa-caret-right') and contains(@class,'toggle-icon')]";
-        return driver.findElement(By.xpath(xpath));
+        return driver.findElement(By.xpath("//div[contains(@class,'project')][contains(normalize-space(.),'"
+                + moduleName + "')]//i[contains(@class,'fa-caret-right') and contains(@class,'toggle-icon')]"));
     }
 
     private WebElement arrowDownToCollapse(String moduleName) {
@@ -111,19 +92,66 @@ public class ExecuteLandingPage extends BasePage {
                 By.xpath("//span[normalize-space()='" + moduleName + "']/..//i[contains(@class,'fa-caret-down')]"));
     }
 
+    private WebElement releaseByName(String releaseName) {
+        return driver.findElement(
+                By.xpath("//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName + "')]"));
+    }
+
+    private WebElement testCycleByName(String testCycleName) {
+        return driver.findElement(By.xpath(
+                "//div[contains(@class,'test-cycle-row') and contains(normalize-space(.),'" + testCycleName + "')]"));
+    }
+
+    // after clicking on the click test run button
+
+    private WebElement requirementById(String requirementId) {
+        return driver.findElement(By.xpath("//div[contains(text(),'" + requirementId + "')]"));
+    }
+
+    private WebElement testCaseCheckboxById(String testCaseId) {
+        return driver.findElement(By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
+                + "']/ancestor::div[contains(@class,'testlistrow1')]//input[@type='checkbox']"));
+    }
+
+    // ================= METHODS =================
+
+    public void clickExecuteTab() {
+        wait.until(ExpectedConditions.elementToBeClickable(tabexceute)).click();
+    }
+
+    public void clickArrowRightToExpandModule(String moduleName) {
+        wait.until(ExpectedConditions.elementToBeClickable(arrowRightToExpand(moduleName))).click();
+    }
+
+    public void clickArrowDownToCollapseModule(String moduleName) {
+        wait.until(ExpectedConditions.elementToBeClickable(arrowDownToCollapse(moduleName))).click();
+    }
+
+    // ================= METHOD =================
+
+    // Methods for landing execute test case page
+    public void clickProjectByName(String projectName) {
+        WebElement project = allProjects.stream()
+                .filter(p -> p.getText().trim().contains(projectName))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Project not found: " + projectName));
+        actions.moveToElement(project).click().perform();
+    }
+
+    // ================= METHODS =================
+
+    // public void clickArrowRightPointingForExpandModule(String moduleName) {
+    // WebElement arrow = expandArrows.stream()
+    // .filter(e ->
+    // e.findElement(By.xpath("./..")).getText().trim().contains(moduleName))
+    // .findFirst()
+    // .orElseThrow(() -> new NoSuchElementException("Arrow for module not found: "
+    // + moduleName));
+    // actions.moveToElement(arrow).click().perform();
+    // }
+
     public void clickArrowRightPointingForExpandModule(String moduleName) {
         arrowRightToExpand(moduleName).click();
-    }
-
-    public void clickArrowDownPointingForCollapseModule(String moduleName) {
-        arrowDownToCollapse(moduleName).click();
-    }
-
-    public void clickRelease(String releaseName) {
-        By releaseLocator = By
-                .xpath("//div[contains(@class,'releases') and contains(normalize-space(.),'" + releaseName + "')]");
-        WebElement release = wait.until(ExpectedConditions.elementToBeClickable(releaseLocator));
-        release.click();
     }
 
     public WebElement selectedModuleOrReleaseName(String name) {
@@ -133,6 +161,29 @@ public class ExecuteLandingPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void clickRelease(String releaseName) {
+        wait.until(ExpectedConditions.elementToBeClickable(releaseByName(releaseName))).click();
+    }
+
+    public void expandRelease(String releaseName) {
+        WebElement release = wait.until(ExpectedConditions.elementToBeClickable(releaseByName(releaseName)));
+        actions.moveToElement(release).click().perform();
+    }
+
+    public boolean isReleaseVisible(String releaseName) {
+        return wait.until(ExpectedConditions.visibilityOf(releaseByName(releaseName))).isDisplayed();
+    }
+
+    public void expandSubTestCycle(String testCycleName) {
+        WebElement cycle = wait.until(ExpectedConditions.elementToBeClickable(testCycleByName(testCycleName)));
+        actions.moveToElement(cycle).click().perform();
+    }
+
+    public boolean isSubTestCycleVisible(String testCycleName) {
+        return wait.until(ExpectedConditions.visibilityOf(testCycleByName(testCycleName))).isDisplayed();
+    }
+
+    // methods for individual release page
     public void selectAssignToMe() {
         wait.until(ExpectedConditions.elementToBeClickable(assignToMeRadio)).click();
     }
@@ -149,61 +200,47 @@ public class ExecuteLandingPage extends BasePage {
         return viewAllRadio.isSelected();
     }
 
-    public String getAssignToMeLabel() {
-        return driver.findElement(By.xpath("//label[@for='assignToMe']")).getText();
-    }
-
-    public String getViewAllLabel() {
-        return driver.findElement(By.xpath("//label[@for='viewAll']")).getText();
-    }
-
     public void selectStatus(String status) {
-        wait.until(ExpectedConditions.elementToBeClickable(statusDropdown));
-        Select select = new Select(statusDropdown);
+        Select select = new Select(wait.until(ExpectedConditions.elementToBeClickable(statusDropdown)));
         select.selectByVisibleText(status);
     }
 
     public String getSelectedStatus() {
-        Select select = new Select(statusDropdown);
-        return select.getFirstSelectedOption().getText();
+        return new Select(statusDropdown).getFirstSelectedOption().getText();
     }
 
     public void clickCreateTestRunButton() {
         wait.until(ExpectedConditions.elementToBeClickable(createTestRunButton)).click();
     }
 
-    public boolean isCreateTestRunButtonDisplayed() {
-        return createTestRunButton.isDisplayed();
-    }
-
-    public void clickRequirementById(String requirementId) {
-        By requirementLocator = By.xpath("//div[contains(text(),'" + requirementId + "')]");
-        WebElement requirement = wait.until(ExpectedConditions.elementToBeClickable(requirementLocator));
-        requirement.click();
-    }
-
-    public WebElement getRequirementById(String requirementId) {
-        By requirementLocator = By
-                .xpath("//div[contains(@class,'tree-view-table-row')]//div[contains(text(),'" + requirementId + "')]");
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(requirementLocator));
-    }
-
     public void selectTestCaseCheckbox(String testCaseId) {
-        By rowLocator = By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
-                + "']/ancestor::div[contains(@class,'testlistrow1')]");
-        WebElement row = wait.until(ExpectedConditions.visibilityOfElementLocated(rowLocator));
-        WebElement checkbox = row.findElement(By.xpath(".//input[@type='checkbox']"));
-        if (!checkbox.isSelected()) {
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(testCaseCheckboxById(testCaseId)));
+        if (!checkbox.isSelected())
             checkbox.click();
-        }
     }
 
     public boolean isTestCaseCheckboxSelected(String testCaseId) {
-        By rowLocator = By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
-                + "']/ancestor::div[contains(@class,'testlistrow1')]");
-        WebElement row = wait.until(ExpectedConditions.visibilityOfElementLocated(rowLocator));
-        WebElement checkbox = row.findElement(By.xpath(".//input[@type='checkbox']"));
-        return checkbox.isSelected();
+        return testCaseCheckboxById(testCaseId).isSelected();
+    }
+
+    public void clickTestRunById(String testRunId) {
+        WebElement testRun = testRunLinks.stream()
+                .filter(e -> e.getText().trim().equals(testRunId))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Test Run ID not found: " + testRunId));
+        actions.moveToElement(testRun).click().perform();
+    }
+
+    public WebElement getTestRunById(String testRunId) {
+        return testRunLinks.stream()
+                .filter(e -> e.getText().trim().equals(testRunId))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Test Run ID not found: " + testRunId));
+    }
+
+    // methods for pop after clicking the click test run button
+    public void clickRequirementById(String requirementId) {
+        wait.until(ExpectedConditions.elementToBeClickable(requirementById(requirementId))).click();
     }
 
     public void clickSaveInPopup() {
@@ -214,83 +251,37 @@ public class ExecuteLandingPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(cancelButtonInPopup)).click();
     }
 
-    public boolean isSaveButtonDisplayed() {
-        return saveButtonInPopup.isDisplayed();
-    }
-
-    public boolean isCancelButtonDisplayed() {
-        return cancelButtonInPopup.isDisplayed();
-    }
-
     public boolean checkIfNextButtonIsClickable() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(arrowForwardNextPagination));
-            return "pointer".equals(arrowForwardNextPagination.getCssValue("cursor"));
-        } catch (TimeoutException e) {
-            return false;
-        }
-    }
-
-    public boolean checkIfPreviousButtonIsClickable() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(arrowBackwardPrevious));
-            return "pointer".equals(arrowBackwardPrevious.getCssValue("cursor"));
-        } catch (TimeoutException e) {
-            return false;
-        }
+        return "pointer"
+                .equals(wait.until(ExpectedConditions.visibilityOf(arrowForwardNextPagination)).getCssValue("cursor"));
     }
 
     public void clickNextArrow() {
-        safeClick(arrowForwardNextPagination, 10);
-    }
-
-    public void clickLastPageArrowBtn() {
-        safeClick(lastPageArrowBtn, 10);
+        actions.moveToElement(arrowForwardNextPagination).click().perform();
     }
 
     public void clickPreviousArrow() {
         if (checkIfPreviousButtonIsClickable()) {
-            wait.until(ExpectedConditions.elementToBeClickable(arrowBackwardPrevious)).click();
+            actions.moveToElement(arrowBackwardPrevious).click().perform();
         }
     }
 
-    public int getCountRQInFeature() throws InterruptedException {
-        Thread.sleep(2000);
+    public boolean checkIfPreviousButtonIsClickable() {
+        return "pointer"
+                .equals(wait.until(ExpectedConditions.visibilityOf(arrowBackwardPrevious)).getCssValue("cursor"));
+    }
+
+    public void selectFeature(String featureName) {
+        Select select = new Select(wait.until(ExpectedConditions.elementToBeClickable(dropdownFeature)));
+        select.selectByVisibleText(featureName);
+    }
+
+    public int getCountRQInFeature() {
         return rqCountWrapper.size();
     }
 
     public String showPaginationOfRequirement() {
         return wait.until(ExpectedConditions.visibilityOf(divRequirementPagination)).getText();
-    }
-
-    public boolean getFeatureVisibility() {
-        return dropdownFeature.isDisplayed();
-    }
-
-    public void selectFeature(String featureName) {
-        wait.until(ExpectedConditions.elementToBeClickable(dropdownFeature));
-        new Select(dropdownFeature).selectByVisibleText(featureName);
-    }
-
-    @FindBy(xpath = "//a[contains(@class,'runButton')]")
-    private List<WebElement> testRunLinks;
-
-    public void clickTestRunById(String testRunId) {
-
-        WebElement testRunElement = testRunLinks.stream().filter(e -> e.getText().trim().equals(testRunId)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Test Run ID not found: " + testRunId));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", testRunElement);
-        try {
-            testRunElement.click();
-        } catch (ElementClickInterceptedException e) {
-
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", testRunElement);
-        }
-    }
-
-    public WebElement getTestRunById(String testRunId) {
-        return testRunLinks.stream().filter(e -> e.getText().trim().equals(testRunId)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("Test Run ID not found: " + testRunId));
     }
 
 }
