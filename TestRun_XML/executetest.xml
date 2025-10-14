@@ -11,7 +11,7 @@
         <parameter name="mode" value="headed"/>
 
         <classes>
-            <class name="testCases.ExecuteTestCaseTab.TC001"/>
+            <class name="testCases.ExecuteTestCaseTab.TC004"/>
         </classes>
 
 

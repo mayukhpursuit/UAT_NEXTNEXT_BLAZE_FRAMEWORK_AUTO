@@ -67,6 +67,7 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//a[contains(@class,'runButton')]")
     List<WebElement> testRunLinks;
 
+
     // locators for create test run
 
     @FindBy(xpath = "//button[.//div[text()='SAVE']]")
@@ -101,6 +102,8 @@ public class ExecuteLandingPage extends BasePage {
         return driver.findElement(By.xpath(
                 "//div[contains(@class,'test-cycle-row') and contains(normalize-space(.),'" + testCycleName + "')]"));
     }
+
+
 
     // after clicking on the click test run button
 
@@ -181,6 +184,16 @@ public class ExecuteLandingPage extends BasePage {
 
     public boolean isSubTestCycleVisible(String testCycleName) {
         return wait.until(ExpectedConditions.visibilityOf(testCycleByName(testCycleName))).isDisplayed();
+    }
+
+    private WebElement TestsuiteByName(String suiteName) {
+        return driver.findElement(
+                By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
+    }
+
+    public boolean isSuitVisible(String testsuitName)
+    {
+        return wait.until(ExpectedConditions.visibilityOf(TestsuiteByName(testsuitName))).isDisplayed();
     }
 
     // methods for individual release page
