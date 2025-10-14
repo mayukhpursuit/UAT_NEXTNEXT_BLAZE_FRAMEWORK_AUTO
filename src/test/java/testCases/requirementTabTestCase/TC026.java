@@ -18,8 +18,8 @@ public class TC026 extends BaseClass {
     public void verifyPlaceholderOfDescription(
             String project,
             String epic,
-            String feature,
-            String descri
+            String feature
+//            String descri
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *******");
         try {
@@ -35,7 +35,7 @@ public class TC026 extends BaseClass {
             logger.info("Navigated to Module");
             requirementTabPage.clickOnModule(feature);
             logger.info("clicked on specific module");
-            WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            WebDriverWait wait1 = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
             IndividualModulePage indivisualModulePage = new IndividualModulePage(getDriver());
             indivisualModulePage.clearActualDescription();
             indivisualModulePage.clickInputTitle();
