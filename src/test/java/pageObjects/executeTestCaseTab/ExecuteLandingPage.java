@@ -82,6 +82,10 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//button[@id='clearsearchButton']")
     WebElement buttonClear;
 
+    public WebElement buttonActionPlay(String trId){
+        return driver.findElement(By.xpath("//a[text()='"+trId+"']/ancestor::div[@class='requirement testlistframe-11']//button"));
+    }
+
 
     // locators for create test run
 
@@ -393,6 +397,12 @@ public class ExecuteLandingPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(tableTestRunsWithCaseDetails));
         return tableTestRunsWithCaseDetails.isDisplayed();
+    }
+
+    public void clickPlayActionById(String tcIO) throws InterruptedException {
+        Thread.sleep(2000);
+        new Actions(driver).moveToElement(buttonActionPlay(tcIO)).perform();
+        buttonActionPlay(tcIO).click();
     }
 
 

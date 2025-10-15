@@ -43,7 +43,8 @@ public class TC017 extends BaseClass {
             executeLandingPage.searchTestCase(testRunId);
             logger.info("Entered the test run Id : {}",testRunId);
 
-            executeLandingPage.clickTestRunById(testRunId);
+//            executeLandingPage.clickTestRunById(testRunId);
+            executeLandingPage.clickPlayActionById(testRunId);
             logger.info("clicked on test run Id {}",testRunId);
 
             IndividualTestRun individualTestRun= new IndividualTestRun(getDriver());
