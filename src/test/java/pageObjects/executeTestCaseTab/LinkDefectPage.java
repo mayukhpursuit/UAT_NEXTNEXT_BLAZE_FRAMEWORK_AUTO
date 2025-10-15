@@ -1,10 +1,12 @@
 package pageObjects.executeTestCaseTab;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
@@ -181,6 +183,15 @@ public class LinkDefectPage extends BasePage {
 
     public void enterDescription(String description) {
         wait.until(ExpectedConditions.visibilityOf(descriptionInputArea)).sendKeys(description);
+    }
+    public boolean isSearchButtonVisible(){
+        try {
+            WebDriverWait wait1= new WebDriverWait(driver,Duration.ofSeconds(15));
+            wait1.until(ExpectedConditions.visibilityOf(searchBtn));
+            return true;  // element became visible
+        } catch (TimeoutException e) {
+            return false; // element not visible within wait time
+            }
     }
 
 }

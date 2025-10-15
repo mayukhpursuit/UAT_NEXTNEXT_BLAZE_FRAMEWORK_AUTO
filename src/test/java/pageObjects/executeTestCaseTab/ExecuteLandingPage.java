@@ -278,7 +278,8 @@ public class ExecuteLandingPage extends BasePage {
         return testCaseCheckboxById(testCaseId).isSelected();
     }
 
-    public void clickTestRunById(String testRunId) {
+    public void clickTestRunById(String testRunId) throws InterruptedException {
+        Thread.sleep(1500);
         WebElement testRun = testRunLinks.stream()
                 .filter(e -> e.getText().trim().equals(testRunId))
                 .findFirst()
