@@ -39,7 +39,7 @@ public class TC011 extends BaseClass {
             executeLandingPage.clickOnSuite(SuiteName);
             logger.info("Clicked on Suite: " + SuiteName);
 
-            executeLandingPage.clickOnTestRunById(SearchTR);
+            executeLandingPage.clickTestRunById(SearchTR);
             logger.info("Clicked on Test Run ID: " + SearchTR);
 
 
