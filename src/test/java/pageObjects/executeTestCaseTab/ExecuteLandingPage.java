@@ -339,20 +339,4 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
-    public void clickOnTestRunById(String testRunId) {
-        try {
-            WebElement testRun = getTestRunById(testRunId);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", testRun);
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(testRun));
-
-            testRun.click();
-
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("Unable to find Test Run ID: " + testRunId);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click on Test Run ID: " + testRunId + " | " + e.getMessage());
-        }
-    }
-
 }
