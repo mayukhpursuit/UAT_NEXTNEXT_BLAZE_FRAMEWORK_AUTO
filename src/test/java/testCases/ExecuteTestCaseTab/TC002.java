@@ -19,7 +19,7 @@ public class TC002 extends BaseClass {
             logger.info("Clicked on the execute test case tab ..");
 
             Assert.assertTrue(executeLandingPage.isMentionedProjectNameVisible(projectName));
-
+            logger.info("Verified Successfully");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

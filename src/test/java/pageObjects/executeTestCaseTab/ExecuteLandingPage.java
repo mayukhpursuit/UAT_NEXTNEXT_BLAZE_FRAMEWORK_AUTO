@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ExecuteLandingPage extends BasePage {
@@ -70,6 +73,15 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//a[contains(@class,'runButton')]")
     List<WebElement> testRunLinks;
 
+    @FindBy(xpath = "//div[@class='testlistcell1']/a[contains(text(),'TR')]")
+    List<WebElement> allTestRunIds;
+
+    @FindBy(xpath = "//div[@class='testlistcell1']/a[contains(text(),'TC')]")
+    List<WebElement> allTestCaseIds;
+
+    @FindBy(xpath = "//button[@id='clearsearchButton']")
+    WebElement buttonClear;
+
 
     // locators for create test run
 
@@ -106,8 +118,7 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     private WebElement arrowRightToExpand(String moduleName) {
-        return driver.findElement(By.xpath("//div[contains(@class,'project')][contains(normalize-space(.),'"
-                + moduleName + "')]//i[contains(@class,'fa-caret-right') and contains(@class,'toggle-icon')]"));
+        return driver.findElement(By.xpath("//div[text()='"+moduleName+"']/..//i[@class='fa-solid fa-caret-right toggle-icon']"));
     }
 
     private WebElement arrowDownToCollapse(String moduleName) {
@@ -153,7 +164,7 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     public void clickArrowDownToCollapseModule(String moduleName) {
-        wait.until(ExpectedConditions.elementToBeClickable(arrowDownToCollapse(moduleName))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(arrowRightToExpand(moduleName))).click();
     }
 
     // ================= METHOD =================
@@ -165,6 +176,10 @@ public class ExecuteLandingPage extends BasePage {
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Project not found: " + projectName));
         actions.moveToElement(project).click().perform();
+    }
+
+    public void clickOnProject(){
+        driver.findElement(By.xpath("//div[@class='project ']")).click();
     }
 
     // ================= METHODS =================
@@ -179,8 +194,9 @@ public class ExecuteLandingPage extends BasePage {
     // actions.moveToElement(arrow).click().perform();
     // }
 
-    public void clickArrowRightPointingForExpandModule(String moduleName) {
+    public void clickArrowRightPointingForExpandModule(String moduleName) throws InterruptedException {
         arrowRightToExpand(moduleName).click();
+        Thread.sleep(1500);
     }
 
     public WebElement selectedModuleOrReleaseName(String name) {
@@ -337,6 +353,36 @@ public class ExecuteLandingPage extends BasePage {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    public int getTestRunIdCount(){
+        By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        try {
+            // Try waiting for visibility
+            wait.until(ExpectedConditions.visibilityOfElementLocated(assignedToMe));
+            return allTestRunIds.size();
+
+        } catch (Exception e) {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(assignedToMe));
+            return allTestRunIds.size();
+        }
+    }
+
+    public void clickOnClearButton(){
+        By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
+        Actions a= new Actions(driver);
+        a.moveToElement(buttonClear).perform();
+        buttonClear.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(assignedToMe));
+    }
+    public String [] getAllTestRunIds(){
+        List<String> a= new ArrayList<>();
+        for (WebElement element : allTestRunIds){
+            a.add(element.getText());
+        }
+        return a.toArray(new String[0]);
     }
 
 }
