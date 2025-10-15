@@ -162,8 +162,10 @@ public class ExecuteLandingPage extends BasePage {
         suiteByName(suiteName).click();
     }
 
-    public void clickExecuteTab() {
+    public void clickExecuteTab() throws InterruptedException {
+        Thread.sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(tabexceute)).click();
+        Thread.sleep(1000);
     }
 
     public void clickArrowRightToExpandModule(String moduleName) {
@@ -171,7 +173,7 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     public void clickArrowDownToCollapseModule(String moduleName) {
-        wait.until(ExpectedConditions.elementToBeClickable(arrowRightToExpand(moduleName))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(arrowDownToCollapse(moduleName))).click();
     }
 
     // ================= METHOD =================
@@ -191,15 +193,6 @@ public class ExecuteLandingPage extends BasePage {
 
     // ================= METHODS =================
 
-    // public void clickArrowRightPointingForExpandModule(String moduleName) {
-    // WebElement arrow = expandArrows.stream()
-    // .filter(e ->
-    // e.findElement(By.xpath("./..")).getText().trim().contains(moduleName))
-    // .findFirst()
-    // .orElseThrow(() -> new NoSuchElementException("Arrow for module not found: "
-    // + moduleName));
-    // actions.moveToElement(arrow).click().perform();
-    // }
 
     public void clickArrowRightPointingForExpandModule(String moduleName) throws InterruptedException {
         arrowRightToExpand(moduleName).click();
@@ -287,10 +280,13 @@ public class ExecuteLandingPage extends BasePage {
 
     public void clickTestRunById(String testRunId) throws InterruptedException {
         Thread.sleep(1500);
+        WebDriverWait localWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement testRun = testRunLinks.stream()
                 .filter(e -> e.getText().trim().equals(testRunId))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Test Run ID not found: " + testRunId));
+
+        localWait.until(ExpectedConditions.elementToBeClickable(testRun));
         actions.moveToElement(testRun).click().perform();
     }
 
@@ -363,6 +359,22 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
+    public void clickOnTestRunById(String testRunId) {
+        try {
+            WebElement testRun = getTestRunById(testRunId);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", testRun);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(testRun));
+
+            testRun.click();
+
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Unable to find Test Run ID: " + testRunId);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click on Test Run ID: " + testRunId + " | " + e.getMessage());
+        }
+    }
+
     public int getTestRunIdCount(){
         By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -406,5 +418,27 @@ public class ExecuteLandingPage extends BasePage {
     }
 
 
+
+    @FindBy(xpath = "//button[@class='cell-4 runButton']")
+    WebElement playButton;
+
+    public void clickOnAnyPlayButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(playButton)).click();
+
+    }
+
+    public void waitForTestRunInterfaceToLoad() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void clickOnTestSuite(String suiteName) {
+        WebElement suiteElement = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[normalize-space()='" + suiteName + "']")));
+        suiteElement.click();
+    }
 
 }

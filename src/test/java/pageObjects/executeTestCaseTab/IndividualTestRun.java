@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+import java.util.List;
 
 import java.time.Duration;
 
@@ -201,6 +202,45 @@ public class IndividualTestRun extends BasePage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    @FindBy(id = "searchInput")
+    private WebElement searchInput;
+
+    @FindBy(id = "searchButton")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//table//tr[contains(@class, 'test-run-row')]")
+    private List<WebElement> testRunRows;
+
+    @FindBy(xpath = "//span[@class='pagination-next']")
+    private WebElement nextPageButton;
+
+    @FindBy(xpath = "//span[@class='pagination-prev']")
+    private WebElement previousPageButton;
+
+    private String testRunNameLocator = "//div[@id='testRunsWithCaseDetailsTable']//div[contains(@class,'testlistrow')]//div[contains(@class,'testlistcell1')]/a[contains(text(),'%s')]";
+
+    public void enterSearchTerm(String testRunName) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(searchInput));
+        searchInput.clear();
+        searchInput.sendKeys(testRunName);
+
+    }
+
+    public void clickSearchButton() {
+        searchButton.click();
+
+    }
+
+    public boolean isTestRunVisible(String testRunName) {
+
+        String locator = String.format(testRunNameLocator, testRunName);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        return driver.findElement(By.xpath(locator)).isDisplayed();
+
     }
 
 }
