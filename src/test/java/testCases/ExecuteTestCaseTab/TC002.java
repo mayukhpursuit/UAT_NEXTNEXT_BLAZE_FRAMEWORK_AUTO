@@ -16,6 +16,8 @@ public class TC002 extends BaseClass {
             logger.info("Logged in successfully");
             ExecuteLandingPage executeLandingPage =new ExecuteLandingPage(getDriver());
             executeLandingPage.clickExecuteTab();
+            executeLandingPage.clickExecuteTab();
+            executeLandingPage.clickExecuteTab();
             logger.info("Clicked on the execute test case tab ..");
 
             Assert.assertTrue(executeLandingPage.isMentionedProjectNameVisible(projectName));

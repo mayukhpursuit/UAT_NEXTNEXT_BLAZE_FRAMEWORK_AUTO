@@ -1,6 +1,7 @@
 package pageObjects.executeTestCaseTab;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 public class IndividualTestRun extends BasePage {
     public IndividualTestRun(WebDriver driver){
