@@ -101,6 +101,9 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='test-execution-label-3']")
     WebElement searchButton;
 
+    @FindBy(xpath = "//div[@class='text-wrapper-9']")
+    WebElement currentPageNumber;
+
     private WebElement suiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
@@ -111,8 +114,6 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@id='testRunsWithCaseDetailsTable']")
     WebElement tableTestRunsWithCaseDetails;
 
-    @FindBy(xpath = "//div[@class='text-wrapper-9']")
-    WebElement currentPageNumber;
 
     // ================= ACTIONS =================
 
@@ -425,7 +426,6 @@ public class ExecuteLandingPage extends BasePage {
         new Actions(driver).moveToElement(buttonActionPlay(tcIO)).perform();
         buttonActionPlay(tcIO).click();
     }
-
 
 
     @FindBy(xpath = "//button[@class='cell-4 runButton']")
