@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class IndividualTestRun extends BasePage {
     public IndividualTestRun(WebDriver driver){
@@ -191,6 +192,15 @@ public class IndividualTestRun extends BasePage {
         statusForSteps(stepNo).click();
         Select s= new Select(statusForSteps(stepNo));
         s.selectByVisibleText(stepText);
+    }
+
+    public boolean isTestLogUpdatedDisplayed() {
+        try {
+            String message = notificationAfterEdit.getText().trim();
+            return message.equalsIgnoreCase("Test log updated successfully.");
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
 }
