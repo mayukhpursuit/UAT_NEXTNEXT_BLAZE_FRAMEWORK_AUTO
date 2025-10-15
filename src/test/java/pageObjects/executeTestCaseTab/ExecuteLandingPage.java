@@ -104,6 +104,9 @@ public class ExecuteLandingPage extends BasePage {
 
 
 
+    @FindBy(xpath = "//div[@id='testRunsWithCaseDetailsTable']")
+    WebElement tableTestRunsWithCaseDetails;
+
     // ================= ACTIONS =================
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -385,5 +388,13 @@ public class ExecuteLandingPage extends BasePage {
         }
         return a.toArray(new String[0]);
     }
+
+    public boolean getVisibilityOfTestRunsWithCaseDetailsTable() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(tableTestRunsWithCaseDetails));
+        return tableTestRunsWithCaseDetails.isDisplayed();
+    }
+
+
 
 }

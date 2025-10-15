@@ -515,7 +515,7 @@ public class AuthorTestCasePage extends BasePage {
     public boolean isErrorDisplayedForField(String fieldName) {
         try {
             new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(5))
-                .until(d -> notificationDiv.getAttribute("class").contains("show"));
+                    .until(d -> notificationDiv.getAttribute("class").contains("show"));
             String errorMsg = notificationDiv.getText().trim();
             System.out.println("Error message for required field '" + fieldName + "': " + errorMsg);
             return true;
@@ -523,7 +523,7 @@ public class AuthorTestCasePage extends BasePage {
             return false;
         }
     }
-    
+
     public void toggleRequirementPanel(String requirementId) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
