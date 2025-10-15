@@ -107,6 +107,9 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@id='testRunsWithCaseDetailsTable']")
     WebElement tableTestRunsWithCaseDetails;
 
+    @FindBy(xpath = "//div[@class='text-wrapper-9']")
+    WebElement currentPageNumber;
+
     // ================= ACTIONS =================
 
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -393,6 +396,12 @@ public class ExecuteLandingPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(tableTestRunsWithCaseDetails));
         return tableTestRunsWithCaseDetails.isDisplayed();
+    }
+
+    public String getCurrentPageNumber() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(currentPageNumber));
+        return currentPageNumber.getText().trim();
     }
 
 
