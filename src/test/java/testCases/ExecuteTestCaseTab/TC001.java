@@ -21,7 +21,15 @@ public class TC001 extends BaseClass {
             ExecuteLandingPage executeLandingPage =new ExecuteLandingPage(getDriver());
             executeLandingPage.clickExecuteTab();
             logger.info("Clicked on the execute test case tab ..");
+            executeLandingPage.clickArrowRightPointingForExpandModule(projectName);
+            logger.info("Expanded the Release dropdown from left panel");
 
+            executeLandingPage.clickRelease(releaseName);
+            logger.info("Clicked on the desired release from the dropdown");
+
+            Assert.assertTrue(executeLandingPage.getVisibilityOfTestRunsWithCaseDetailsTable(),
+                    "Test Run table is not visible after selecting the release");
+            logger.info("Verified that the Test Run table is visible after selecting a release");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
