@@ -7,9 +7,9 @@ import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC036 extends BaseClass {
-    @Test(dataProvider = "tc036", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void verifyAssignedToMeRadioButton(
+public class TC037 extends BaseClass {
+    @Test(dataProvider = "tc037", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void verifyViewAllRadioButton(
             String parentModule,
             String releaseName,
             String subTestCycle,
@@ -41,8 +41,8 @@ public class TC036 extends BaseClass {
             executeLandingPage.expandTestSuit(subTestsuit);
             logger.info("TestSuit visible");
 
-            executeLandingPage.selectAssignedToMe();
-            logger.info("Assign to me selected");
+            executeLandingPage.ClickViewAllRadioButton();
+            logger.info("Clicked on View All Radio Button");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
@@ -55,3 +55,4 @@ public class TC036 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
+

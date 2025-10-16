@@ -259,8 +259,15 @@ public class ExecuteLandingPage extends BasePage {
     public boolean isAssignToMeSelected() {
         return assignToMeRadio.isSelected();
     }
-    public void selectAssignedToMe() {
+
+    public void selectAssignedToMe()
+    {
         wait.until(ExpectedConditions.elementToBeClickable(assignToMeRadio)).click();
+    }
+
+    public void ClickViewAllRadioButton()
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(viewAllRadio)).click();
     }
 
 
