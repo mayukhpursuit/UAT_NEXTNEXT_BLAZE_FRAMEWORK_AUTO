@@ -11,7 +11,7 @@ import utils.RetryAnalyzer;
 
 public class TC017 extends BaseClass {
     @Test(dataProvider = "tc007", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyProjectSelectionFromDropdown(String projectName,
+    public void verifyFunctionalityOfDefectButton(String projectName,
                                                    String release,
                                                    String cycle,
                                                    String suite,

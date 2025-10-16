@@ -48,6 +48,9 @@ public class IndividualTestRun extends BasePage {
     @FindBy(xpath = "//button[@id='linkAttachmentBtn']")
     WebElement buttonLinkAttachment;
 
+    @FindBy(xpath = "//button[@class='test-run-div-wrapper']")
+    WebElement displayDefectAfterLink;
+
     @FindBy(xpath = "//div[normalize-space()='Test Logs']")
     WebElement tabTestLogs;
 
@@ -188,6 +191,15 @@ public class IndividualTestRun extends BasePage {
         actualResultForSteps(stepNo).sendKeys(actualResultText);
     }
 
+    public String getDefectIdAfterLink(){
+        try{
+            wait.until(ExpectedConditions.visibilityOf(displayDefectAfterLink));
+            return displayDefectAfterLink.getText();
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     public void SelectStatusOfTheStep(int stepNo,String stepText){
         a.moveToElement(statusForSteps(stepNo)).perform();
         statusForSteps(stepNo).click();
@@ -242,6 +254,8 @@ public class IndividualTestRun extends BasePage {
         return driver.findElement(By.xpath(locator)).isDisplayed();
 
     }
+
+
 
     public String getActualResultOfStep(int stepNo) {
         try {

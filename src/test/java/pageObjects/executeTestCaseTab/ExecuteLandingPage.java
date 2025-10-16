@@ -440,6 +440,7 @@ public class ExecuteLandingPage extends BasePage {
     public void clickPlayActionById(String tcIO) throws InterruptedException {
         Thread.sleep(2000);
         new Actions(driver).moveToElement(buttonActionPlay(tcIO)).perform();
+        Thread.sleep(1000);
         buttonActionPlay(tcIO).click();
     }
 

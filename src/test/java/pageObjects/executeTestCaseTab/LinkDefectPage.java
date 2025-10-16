@@ -1,8 +1,7 @@
 package pageObjects.executeTestCaseTab;
 
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -10,6 +9,10 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.time.Duration;
 
 public class LinkDefectPage extends BasePage {
@@ -46,6 +49,20 @@ public class LinkDefectPage extends BasePage {
 
     @FindBy(xpath = "//div[normalize-space(text()) = 'CLOSE']")
     WebElement closeBtn;
+
+    @FindBy(xpath = "//div[@class='test-execution-label-3']")
+    WebElement confirmationYes;
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement notificationPopUp;
+
+    public WebElement radioButtonForDefectId(String defectId){
+        return driver.findElement(By.xpath("//div[contains(text(),'"+defectId+"')]/../..//input"));
+    }
+
+    public WebElement imageUnlink(String defectId){
+        return driver.findElement(By.xpath("//div[normalize-space()='"+defectId+"']/..//img"));
+    }
 
 // locators for creating a new bug
 
@@ -103,6 +120,19 @@ public class LinkDefectPage extends BasePage {
 
     public void checkDefectCheckbox() {
         wait.until(ExpectedConditions.elementToBeClickable(checkBoxOnlyForSearchedDefect)).click();
+    }
+
+    public void clickRadioButtonBesideDefectId(String defectId){
+        new Actions(driver).moveToElement(radioButtonForDefectId(defectId)).perform();
+        radioButtonForDefectId(defectId).click();
+    }
+
+    public void clickUnlinkButtonByDefectId(String defectId){
+        new Actions(driver).moveToElement(imageUnlink(defectId)).perform();
+        imageUnlink(defectId).click();
+        wait.until(ExpectedConditions.visibilityOf(confirmationYes));
+        confirmationYes.click();
+        wait.until(ExpectedConditions.visibilityOf(notificationPopUp));
     }
 
     public void clickCancel() {
@@ -165,9 +195,59 @@ public class LinkDefectPage extends BasePage {
         new Select(dropdownPriority).selectByVisibleText(value);
     }
 
-    public void uploadFile(String filePath) {
-        wait.until(ExpectedConditions.elementToBeClickable(browseFileBtn)).sendKeys(filePath);
+    public boolean isErrorMessageVisibleForSizeExceed() {
+        try {
+            WebElement popup = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='notification']"))
+            );
+            return true;
+
+        } catch (Exception e) {
+            System.out.println("No error  is found ");
+            return false;
+        }
     }
+
+
+    public void uploadFile(String fileName) {
+        String filePath = System.getProperty("user.dir")
+                + File.separator + "media"
+                + File.separator + fileName;
+
+        try {
+            // Scroll and click browse button safely
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", browseFileBtn);
+            wait.until(ExpectedConditions.elementToBeClickable(browseFileBtn));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", browseFileBtn);
+
+
+            Thread.sleep(2000);
+
+
+            StringSelection selection = new StringSelection(filePath);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+
+
+            Robot robot = new Robot();
+
+
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+
+
+            robot.delay(1000);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+            System.out.println("File uploaded successfully: " + filePath);
+
+        } catch (Exception e) {
+            System.out.println("File upload failed: " + e.getMessage());
+        }
+    }
+
 
     public void clickSave() {
         wait.until(ExpectedConditions.elementToBeClickable(saveBtn)).click();
