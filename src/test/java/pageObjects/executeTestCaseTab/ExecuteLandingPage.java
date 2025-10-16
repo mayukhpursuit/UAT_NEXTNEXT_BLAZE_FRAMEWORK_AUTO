@@ -467,10 +467,35 @@ public class ExecuteLandingPage extends BasePage {
     }
 
 
-    public List<WebElement> getAllDisplayedStatuses() {
-        By statusColumnLocator = By.xpath("//div[@id='testRunsWithCaseDetailsTable']//div[contains(@class,'test-run-row')]//div[4]");
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(statusColumnLocator));
-        return driver.findElements(statusColumnLocator);
+//    public List<WebElement> getAllDisplayedStatuses() {
+//        By statusColumnLocator = By.xpath("//div[@id='testRunsWithCaseDetailsTable']//div[contains(@class,'test-run-row')]//div[4]");
+//        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(statusColumnLocator));
+//        return driver.findElements(statusColumnLocator);
+//    }
+
+    public List<String> getAllDisplayedStatuses() throws InterruptedException {
+        List<String> statuses = new ArrayList<>();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        By tableContainer = By.xpath("//div[@class='table-content']");
+        By statusCells = By.xpath("//div[@id='testRunsWithCaseDetailsTable']//div[@value]");
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(tableContainer));
+        WebElement table = driver.findElement(tableContainer);
+
+        js.executeScript("arguments[0].scrollLeft = arguments[0].scrollWidth;", table);
+        Thread.sleep(1000);
+
+        List<WebElement> statusElements = driver.findElements(statusCells);
+        for (WebElement cell : statusElements) {
+            js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", cell);
+            Thread.sleep(200);
+            statuses.add(cell.getText().trim());
+        }
+
+        return statuses;
     }
+
+
 
 }

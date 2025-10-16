@@ -18,7 +18,8 @@ public class TC038 extends BaseClass {
             String ReleaseName,
             String CycleName,
             String SuiteName,
-            String status
+            String status,
+            String Exstatus
     ) throws InterruptedException {
 
         logger.info("****** Starting Test Case 038: verify filter by status feature. *****************");
@@ -43,27 +44,34 @@ public class TC038 extends BaseClass {
             Thread.sleep(3000);
             executeLandingPage.clickOnSuite(SuiteName);
             logger.info("Clicked on Suite: " + SuiteName);
-
+            Thread.sleep(3000);
             executeLandingPage.selectStatus(status);
             logger.info("Selected status filter: " + status);
 
             Thread.sleep(3000);
 
-            List<WebElement> displayedStatuses = executeLandingPage.getAllDisplayedStatuses();
-            boolean allMatch = true;
+//            List<WebElement> displayedStatuses = executeLandingPage.getAllDisplayedStatuses();
+//            boolean allMatch = true;
+//
+//            for (WebElement trStatus : displayedStatuses) {
+//                String visibleStatus = trStatus.getText().trim();
+//                logger.info("Visible TR status: " + visibleStatus);
+//
+//                if (!visibleStatus.equalsIgnoreCase(status)) {
+//                    allMatch = false;
+//                    logger.error("Mismatch found: Expected '" + status + "' but found '" + visibleStatus + "'");
+//                }
+//            }
+//
+//            Assert.assertTrue(allMatch, "Not all displayed Test Runs have the expected status: " + status);
+//            logger.info("All displayed TRs correctly show status: " + status);
 
-            for (WebElement trStatus : displayedStatuses) {
-                String visibleStatus = trStatus.getText().trim();
-                logger.info("Visible TR status: " + visibleStatus);
-
-                if (!visibleStatus.equalsIgnoreCase(status)) {
-                    allMatch = false;
-                    logger.error("Mismatch found: Expected '" + status + "' but found '" + visibleStatus + "'");
-                }
+            for (String actualStatus : executeLandingPage.getAllDisplayedStatuses()) {
+                logger.info("Captured status: " + actualStatus);
+                Assert.assertEquals(actualStatus, Exstatus,
+                        "Mismatch found! Expected status: " + Exstatus + " but got: " + actualStatus);
             }
 
-            Assert.assertTrue(allMatch, "Not all displayed Test Runs have the expected status: " + status);
-            logger.info("All displayed TRs correctly show status: " + status);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
