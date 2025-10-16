@@ -237,6 +237,11 @@ public class ExecuteLandingPage extends BasePage {
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
     }
 
+    public void expandTestSuit(String testSuitName) {
+        WebElement cycle = wait.until(ExpectedConditions.elementToBeClickable(TestsuiteByName(testSuitName)));
+        actions.moveToElement(cycle).click().perform();
+    }
+
     public boolean isSuitVisible(String testsuitName)
     {
         return wait.until(ExpectedConditions.visibilityOf(TestsuiteByName(testsuitName))).isDisplayed();
@@ -254,6 +259,10 @@ public class ExecuteLandingPage extends BasePage {
     public boolean isAssignToMeSelected() {
         return assignToMeRadio.isSelected();
     }
+    public void selectAssignedToMe() {
+        wait.until(ExpectedConditions.elementToBeClickable(assignToMeRadio)).click();
+    }
+
 
     public boolean isViewAllSelected() {
         return viewAllRadio.isSelected();
