@@ -8,7 +8,7 @@
 
     <test verbose="2" preserve-order="true" name="Author Test Suite">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headles"/>
+        <parameter name="mode" value="headless"/>
 
         <classes>
 <!--            <class name="testCases.ExecuteTestCaseTab.TC002"/>-->
@@ -18,7 +18,7 @@
 <!--            <class name="testCases.ExecuteTestCaseTab.TC013"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC015"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC016"/>-->
-            <class name="testCases.ExecuteTestCaseTab.TC037"/>
+            <class name="testCases.ExecuteTestCaseTab.TC028"/>
         </classes>
 
 
