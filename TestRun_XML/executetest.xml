@@ -19,8 +19,8 @@
 <!--            <class name="testCases.ExecuteTestCaseTab.TC015"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC016"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC038"/>-->
-<!--            <class name="testCases.ExecuteTestCaseTab.TC047"/>-->
-            <class name="testCases.ExecuteTestCaseTab.TC048"/>
+            <class name="testCases.ExecuteTestCaseTab.TC047"/>
+<!--            <class name="testCases.ExecuteTestCaseTab.TC048"/>-->
 
         </classes>
 
