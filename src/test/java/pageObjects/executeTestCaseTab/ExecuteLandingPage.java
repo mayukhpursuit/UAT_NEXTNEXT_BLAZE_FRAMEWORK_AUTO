@@ -484,7 +484,6 @@ public class ExecuteLandingPage extends BasePage {
                 return 0;
             }
 
-            // Extract the number from the text
             String numberPart = text.replaceAll("[^0-9]", "").trim();
             return Integer.parseInt(numberPart);
 
