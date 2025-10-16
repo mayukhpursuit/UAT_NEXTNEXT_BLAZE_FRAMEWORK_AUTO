@@ -243,4 +243,17 @@ public class IndividualTestRun extends BasePage {
 
     }
 
+    public String getActualResultOfStep(int stepNo) {
+        try {
+            WebElement actualResultField = driver.findElement(
+                    By.xpath("//div[normalize-space()='" + stepNo + "']/..//textarea[@class='non-expandable-textarea']")
+            );
+            wait.until(ExpectedConditions.visibilityOf(actualResultField));
+            return actualResultField.getAttribute("value").trim();
+        } catch (NoSuchElementException e) {
+            System.out.println("Actual result field not found for step: " + stepNo);
+            return null;
+        }
+    }
+
 }
