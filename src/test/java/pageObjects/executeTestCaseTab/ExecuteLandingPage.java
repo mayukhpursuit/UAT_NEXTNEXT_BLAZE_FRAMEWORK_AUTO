@@ -104,6 +104,9 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='text-wrapper-9']")
     WebElement currentPageNumber;
 
+    @FindBy(xpath = "//div[contains(text(),'Test runs created successfully.')]")
+    WebElement testRunCreatedSuccessMessage;
+
     private WebElement suiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
@@ -373,6 +376,21 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
+    public void clickOnTestRunById(String testRunId) {
+        try {
+            WebElement testRun = getTestRunById(testRunId);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", testRun);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(testRun));
+
+            testRun.click();
+
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("Unable to find Test Run ID: " + testRunId);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click on Test Run ID: " + testRunId + " | " + e.getMessage());
+        }
+    }
 
     public int getTestRunIdCount() {
         By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
@@ -493,5 +511,15 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
+
+    public boolean isTestRunCreatedMessageDisplayed() {
+        try {
+            WebElement msg = wait.until(ExpectedConditions.visibilityOf(testRunCreatedSuccessMessage));
+            String message = msg.getText().trim();
+            return message.equalsIgnoreCase("Test runs created successfully.");
+        } catch (TimeoutException | NoSuchElementException e) {
+            return false;
+        }
+    }
 
 }

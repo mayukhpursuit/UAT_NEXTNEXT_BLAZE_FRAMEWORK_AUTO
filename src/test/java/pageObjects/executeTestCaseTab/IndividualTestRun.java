@@ -1,9 +1,6 @@
 package pageObjects.executeTestCaseTab;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -269,5 +266,16 @@ public class IndividualTestRun extends BasePage {
             return null;
         }
     }
+
+    public boolean isLinkDefectButtonClickable() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(buttonLinkDefect));
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
 }
