@@ -160,6 +160,10 @@ public class ExecuteLandingPage extends BasePage {
         return driver.findElement(By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
                 + "']/ancestor::div[contains(@class,'testlistrow1')]//input[@type='checkbox']"));
     }
+    private WebElement ClicktestCaseCheckboxById(String testCaseId) {
+        return driver.findElement(By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
+                + "']/ancestor::div[contains(@class,'testlistrow1')]//input[@type='checkbox']"));
+    }
 
     // ================= METHODS =================
 
@@ -518,6 +522,20 @@ public class ExecuteLandingPage extends BasePage {
             String message = msg.getText().trim();
             return message.equalsIgnoreCase("Test runs created successfully.");
         } catch (TimeoutException | NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement successNotification;
+
+    public boolean waitForSuccessMessage(String expectedMessage) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement notification = wait.until(ExpectedConditions.visibilityOf(successNotification));
+            String actualMessage = notification.getText().trim();
+            return actualMessage.equalsIgnoreCase(expectedMessage);
+        } catch (TimeoutException e) {
             return false;
         }
     }
