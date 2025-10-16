@@ -155,7 +155,7 @@ public class ExecuteLandingPage extends BasePage {
         return driver.findElement(By.xpath("//div[contains(text(),'" + requirementId + "')]"));
     }
 
-    private WebElement testCaseCheckboxById(String testCaseId) {
+    private WebElement ClicktestCaseCheckboxById(String testCaseId) {
         return driver.findElement(By.xpath("//div[contains(@class,'testlistrow1')]//a[normalize-space()='" + testCaseId
                 + "']/ancestor::div[contains(@class,'testlistrow1')]//input[@type='checkbox']"));
     }
@@ -289,13 +289,13 @@ public class ExecuteLandingPage extends BasePage {
     }
 
     public void selectTestCaseCheckbox(String testCaseId) {
-        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(testCaseCheckboxById(testCaseId)));
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(ClicktestCaseCheckboxById(testCaseId)));
         if (!checkbox.isSelected())
             checkbox.click();
     }
 
     public boolean isTestCaseCheckboxSelected(String testCaseId) {
-        return testCaseCheckboxById(testCaseId).isSelected();
+        return ClicktestCaseCheckboxById(testCaseId).isSelected();
     }
 
     public void clickTestRunById(String testRunId) throws InterruptedException {
@@ -464,6 +464,20 @@ public class ExecuteLandingPage extends BasePage {
         WebElement suiteElement = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//div[normalize-space()='" + suiteName + "']")));
         suiteElement.click();
+    }
+
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement successNotification;
+
+    public boolean waitForSuccessMessage(String expectedMessage) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement notification = wait.until(ExpectedConditions.visibilityOf(successNotification));
+            String actualMessage = notification.getText().trim();
+            return actualMessage.equalsIgnoreCase(expectedMessage);
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 
 }
