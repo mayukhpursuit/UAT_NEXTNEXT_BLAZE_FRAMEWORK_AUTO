@@ -466,4 +466,11 @@ public class ExecuteLandingPage extends BasePage {
         suiteElement.click();
     }
 
+
+    public List<WebElement> getAllDisplayedStatuses() {
+        By statusColumnLocator = By.xpath("//div[@id='testRunsWithCaseDetailsTable']//div[contains(@class,'test-run-row')]//div[4]");
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(statusColumnLocator));
+        return driver.findElements(statusColumnLocator);
+    }
+
 }
