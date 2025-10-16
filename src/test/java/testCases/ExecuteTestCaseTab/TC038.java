@@ -50,22 +50,6 @@ public class TC038 extends BaseClass {
 
             Thread.sleep(3000);
 
-//            List<WebElement> displayedStatuses = executeLandingPage.getAllDisplayedStatuses();
-//            boolean allMatch = true;
-//
-//            for (WebElement trStatus : displayedStatuses) {
-//                String visibleStatus = trStatus.getText().trim();
-//                logger.info("Visible TR status: " + visibleStatus);
-//
-//                if (!visibleStatus.equalsIgnoreCase(status)) {
-//                    allMatch = false;
-//                    logger.error("Mismatch found: Expected '" + status + "' but found '" + visibleStatus + "'");
-//                }
-//            }
-//
-//            Assert.assertTrue(allMatch, "Not all displayed Test Runs have the expected status: " + status);
-//            logger.info("All displayed TRs correctly show status: " + status);
-
             for (String actualStatus : executeLandingPage.getAllDisplayedStatuses()) {
                 logger.info("Captured status: " + actualStatus);
                 Assert.assertEquals(actualStatus, Exstatus,
