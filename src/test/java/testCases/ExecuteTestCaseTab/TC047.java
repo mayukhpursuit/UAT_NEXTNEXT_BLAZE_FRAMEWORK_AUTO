@@ -21,7 +21,7 @@ public class TC047 extends BaseClass {
             String Tc_ID
     ) throws InterruptedException {
 
-        logger.info("****** Starting Test Case 038: verify filter by status feature. *****************");
+        logger.info("****** Starting Test Case 047: verify filter by status feature. *****************");
 
         try {
             login();
