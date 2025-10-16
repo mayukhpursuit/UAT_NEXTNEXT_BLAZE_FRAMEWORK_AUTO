@@ -82,8 +82,8 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//button[@id='clearsearchButton']")
     WebElement buttonClear;
 
-    public WebElement buttonActionPlay(String trId){
-        return driver.findElement(By.xpath("//a[text()='"+trId+"']/ancestor::div[@class='requirement testlistframe-11']//button"));
+    public WebElement buttonActionPlay(String trId) {
+        return driver.findElement(By.xpath("//a[text()='" + trId + "']/ancestor::div[@class='requirement testlistframe-11']//button"));
     }
 
 
@@ -110,7 +110,6 @@ public class ExecuteLandingPage extends BasePage {
     }
 
 
-
     @FindBy(xpath = "//div[@id='testRunsWithCaseDetailsTable']")
     WebElement tableTestRunsWithCaseDetails;
 
@@ -124,12 +123,12 @@ public class ExecuteLandingPage extends BasePage {
 
     public boolean isMentionedProjectNameVisible(String projectName) throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(labelProjectName));
-        String name=labelProjectName.getText();
+        String name = labelProjectName.getText();
         return name.equals(projectName);
     }
 
     private WebElement arrowRightToExpand(String moduleName) {
-        return driver.findElement(By.xpath("//div[text()='"+moduleName+"']/..//i[@class='fa-solid fa-caret-right toggle-icon']"));
+        return driver.findElement(By.xpath("//div[text()='" + moduleName + "']/..//i[@class='fa-solid fa-caret-right toggle-icon']"));
     }
 
     private WebElement arrowDownToCollapse(String moduleName) {
@@ -146,7 +145,6 @@ public class ExecuteLandingPage extends BasePage {
         return driver.findElement(By.xpath(
                 "//div[contains(@class,'test-cycle-row') and contains(normalize-space(.),'" + testCycleName + "')]"));
     }
-
 
 
     // after clicking on the click test run button
@@ -191,7 +189,7 @@ public class ExecuteLandingPage extends BasePage {
         actions.moveToElement(project).click().perform();
     }
 
-    public void clickOnProject(){
+    public void clickOnProject() {
         driver.findElement(By.xpath("//div[@class='project ']")).click();
     }
 
@@ -242,8 +240,7 @@ public class ExecuteLandingPage extends BasePage {
         actions.moveToElement(cycle).click().perform();
     }
 
-    public boolean isSuitVisible(String testsuitName)
-    {
+    public boolean isSuitVisible(String testsuitName) {
         return wait.until(ExpectedConditions.visibilityOf(TestsuiteByName(testsuitName))).isDisplayed();
     }
 
@@ -260,13 +257,11 @@ public class ExecuteLandingPage extends BasePage {
         return assignToMeRadio.isSelected();
     }
 
-    public void selectAssignedToMe()
-    {
+    public void selectAssignedToMe() {
         wait.until(ExpectedConditions.elementToBeClickable(assignToMeRadio)).click();
     }
 
-    public void ClickViewAllRadioButton()
-    {
+    public void ClickViewAllRadioButton() {
         wait.until(ExpectedConditions.elementToBeClickable(viewAllRadio)).click();
     }
 
@@ -371,31 +366,15 @@ public class ExecuteLandingPage extends BasePage {
         searchfield.sendKeys(testCaseID);
         wait.until(ExpectedConditions.elementToBeClickable(searchButton));
         searchButton.click();
-        try
-        {
+        try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    public void clickOnTestRunById(String testRunId) {
-        try {
-            WebElement testRun = getTestRunById(testRunId);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", testRun);
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(testRun));
 
-            testRun.click();
-
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("Unable to find Test Run ID: " + testRunId);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click on Test Run ID: " + testRunId + " | " + e.getMessage());
-        }
-    }
-
-    public int getTestRunIdCount(){
+    public int getTestRunIdCount() {
         By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -410,16 +389,17 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
-    public void clickOnClearButton(){
+    public void clickOnClearButton() {
         By assignedToMe = By.xpath("//label[normalize-space()='Assigned to me']");
-        Actions a= new Actions(driver);
+        Actions a = new Actions(driver);
         a.moveToElement(buttonClear).perform();
         buttonClear.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(assignedToMe));
     }
-    public String [] getAllTestRunIds(){
-        List<String> a= new ArrayList<>();
-        for (WebElement element : allTestRunIds){
+
+    public String[] getAllTestRunIds() {
+        List<String> a = new ArrayList<>();
+        for (WebElement element : allTestRunIds) {
             a.add(element.getText());
         }
         return a.toArray(new String[0]);
@@ -466,5 +446,53 @@ public class ExecuteLandingPage extends BasePage {
                 By.xpath("//div[normalize-space()='" + suiteName + "']")));
         suiteElement.click();
     }
+
+
+    public List<String> getAllDisplayedStatuses() throws InterruptedException {
+        List<String> statuses = new ArrayList<>();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        By tableContainer = By.xpath("//div[@class='table-content']");
+        By statusCells = By.xpath("//div[@id='testRunsWithCaseDetailsTable']//div[@value]");
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(tableContainer));
+        WebElement table = driver.findElement(tableContainer);
+
+        js.executeScript("arguments[0].scrollLeft = arguments[0].scrollWidth;", table);
+        Thread.sleep(1000);
+
+        List<WebElement> statusElements = driver.findElements(statusCells);
+        for (WebElement cell : statusElements) {
+            js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", cell);
+            Thread.sleep(200);
+            statuses.add(cell.getText().trim());
+        }
+
+        return statuses;
+    }
+
+    public int getTotalEntriesCount() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement paginationText = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//p[@class='pagination-text']")));
+
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", paginationText);
+
+            String text = paginationText.getText();
+
+            if (text.isEmpty() || text.contains("No entries")) {
+                return 0;
+            }
+
+            // Extract the number from the text
+            String numberPart = text.replaceAll("[^0-9]", "").trim();
+            return Integer.parseInt(numberPart);
+
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
 
 }
