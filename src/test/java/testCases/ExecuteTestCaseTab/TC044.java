@@ -17,7 +17,7 @@ import java.util.prefs.BackingStoreException;
 public class TC044 extends BaseClass
 {
     @Test(dataProvider = "tc044", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void verify(String projectName,
+    public void verifyTestCaseSucessMessage(String projectName,
                                                    String releaseName,
                                                    String reqId,
                                                    String tCaseId
