@@ -213,6 +213,17 @@ public class IndividualTestRun extends BasePage {
         }
     }
 
+    public boolean isTestLogCreatedDisplayed() {
+        try {
+            WebElement notificationMessage = driver.findElement(By.xpath("//div[@id='notification']"));
+            String message = notificationMessage.getText().trim();
+            return message.equalsIgnoreCase("Test log created successfully.");
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+
     @FindBy(id = "searchInput")
     private WebElement searchInput;
 
