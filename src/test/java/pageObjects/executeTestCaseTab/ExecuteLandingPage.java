@@ -540,4 +540,13 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
+    public boolean isNoMatchingTabVisible(){
+        try{
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='No matching results found']")));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

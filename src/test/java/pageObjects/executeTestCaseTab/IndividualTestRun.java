@@ -104,6 +104,15 @@ public class IndividualTestRun extends BasePage {
     Actions a= new Actions(driver);
     WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(20));
 
+    public boolean isErrorAfterEmptyTestLogSaveVisible(){
+        try {
+            wait.until(ExpectedConditions.visibilityOf(notificationAfterEdit));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     public String getTestRunName(){
         return labelTestRunId.getText();
     }

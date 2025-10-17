@@ -9,14 +9,13 @@ import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC042 extends BaseClass {
-    @Test(dataProvider = "tc042", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyFileAbove5MBInDefect(String projectName,
+public class TC043 extends BaseClass {
+    @Test(dataProvider = "tc043", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    public void verifySearchForNonExistingTestRun(
                                                     String release,
                                                     String cycle,
                                                     String suite,
-                                                    String testRunId,
-                                                    String fileAddress
+                                                    String testRunId
     ) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
@@ -44,24 +43,8 @@ public class TC042 extends BaseClass {
             executeLandingPage.searchTestCase(testRunId);
             logger.info("Entered the test run Id : {}",testRunId);
 
-//            executeLandingPage.clickTestRunById(testRunId);
-            executeLandingPage.clickPlayActionById(testRunId);
-            logger.info("clicked on test run Id {}",testRunId);
-
-            IndividualTestRun individualTestRun= new IndividualTestRun(getDriver());
-            individualTestRun.clickLinkDefect();
-            logger.info("Clicked on link defect ");
-
-            LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
-
-            linkDefectPage.clickNew();
-            logger.info("Clicked On the New ");
-
-            linkDefectPage.uploadFile(fileAddress);
-            logger.info("more than 5 mb uploaded");
-
-            Assert.assertTrue(linkDefectPage.isErrorMessageVisibleForSizeExceed());
-            logger.info("Error message is visible as desired ....");
+            Assert.assertTrue(executeLandingPage.isNoMatchingTabVisible());
+            logger.info("Verified no matching tab is visible");
 
 
 

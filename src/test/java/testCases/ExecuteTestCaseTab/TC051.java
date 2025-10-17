@@ -9,14 +9,14 @@ import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC042 extends BaseClass {
-    @Test(dataProvider = "tc042", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
-    public void verifyFileAbove5MBInDefect(String projectName,
+public class TC051 extends BaseClass {
+    @Test(dataProvider = "tc018", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    public void verifyEmptyTestLogSave(String projectName,
                                                     String release,
                                                     String cycle,
                                                     String suite,
                                                     String testRunId,
-                                                    String fileAddress
+                                                    String dfId
     ) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
@@ -49,19 +49,16 @@ public class TC042 extends BaseClass {
             logger.info("clicked on test run Id {}",testRunId);
 
             IndividualTestRun individualTestRun= new IndividualTestRun(getDriver());
-            individualTestRun.clickLinkDefect();
-            logger.info("Clicked on link defect ");
+            individualTestRun.clickCreateTestLog();
+            logger.info("Clicked on create ");
 
-            LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
+            individualTestRun.clickSaveButton();
+            logger.info("Saved the test log without editing");
 
-            linkDefectPage.clickNew();
-            logger.info("Clicked On the New ");
+            Assert.assertTrue(individualTestRun.isErrorAfterEmptyTestLogSaveVisible());
+            logger.info("error message is visible .....");
 
-            linkDefectPage.uploadFile(fileAddress);
-            logger.info("more than 5 mb uploaded");
 
-            Assert.assertTrue(linkDefectPage.isErrorMessageVisibleForSizeExceed());
-            logger.info("Error message is visible as desired ....");
 
 
 
