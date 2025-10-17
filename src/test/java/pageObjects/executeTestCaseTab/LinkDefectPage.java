@@ -47,6 +47,10 @@ public class LinkDefectPage extends BasePage {
     @FindBy(xpath = "//div[normalize-space(text()) = 'CLOSE']")
     WebElement closeBtn;
 
+    @FindBy(xpath = "//div[@id='notification']")
+    WebElement notificationPopUp;
+
+
 // locators for creating a new bug
 
     @FindBy(xpath = "//textarea[@id='DefSummary']")
@@ -123,6 +127,9 @@ public class LinkDefectPage extends BasePage {
 
     public void enterSummary(String summary) {
         wait.until(ExpectedConditions.visibilityOf(summaryInput)).sendKeys(summary);
+    }
+    public String getNotificationPopUpText() {
+       return wait.until(ExpectedConditions.elementToBeClickable(notificationPopUp)).getText();
     }
 
     public void selectSeverity(String value) {

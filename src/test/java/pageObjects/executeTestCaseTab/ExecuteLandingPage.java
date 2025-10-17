@@ -104,6 +104,10 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[@class='text-wrapper-9']")
     WebElement currentPageNumber;
 
+    @FindBy(xpath = "//img[@class='menu-open']")
+    WebElement hamburgerMenuBtn;
+
+
     private WebElement suiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
@@ -127,6 +131,12 @@ public class ExecuteLandingPage extends BasePage {
         String name=labelProjectName.getText();
         return name.equals(projectName);
     }
+
+    public void clickHamburgerMenu() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOf(hamburgerMenuBtn)).click();
+
+    }
+
 
     private WebElement arrowRightToExpand(String moduleName) {
         return driver.findElement(By.xpath("//div[text()='"+moduleName+"']/..//i[@class='fa-solid fa-caret-right toggle-icon']"));
