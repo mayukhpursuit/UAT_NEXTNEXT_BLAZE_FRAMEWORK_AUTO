@@ -295,20 +295,26 @@ public class IndividualTestRun extends BasePage {
             WebElement tableContainer = wait.until(ExpectedConditions.presenceOfElementLocated(
                     By.xpath("//div[@class='test-run-frame-10']")));
 
+
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tableContainer);
 
             long lastHeight = -1;
             while (true) {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", tableContainer);
                 Thread.sleep(500);
+
                 long newHeight = (long) ((JavascriptExecutor) driver).executeScript(
                         "return arguments[0].scrollHeight;", tableContainer);
                 if (newHeight == lastHeight) break;
                 lastHeight = newHeight;
             }
 
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+                    By.xpath("//div[@class='test-run-frame-10']//div[contains(@class,'tr') or contains(@class,'table-row')]")
+            ));
 
-            List<WebElement> rows = tableContainer.findElements(By.xpath(".//div[contains(@class,'tr') or contains(@class,'row')]"));
+            List<WebElement> rows = tableContainer.findElements(
+                    By.xpath(".//div[contains(@class,'tr') or contains(@class,'table-row')]"));
 
             return rows.size();
 
