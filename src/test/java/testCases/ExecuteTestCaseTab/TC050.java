@@ -51,13 +51,12 @@ public class TC050 extends BaseClass {
             IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             Thread.sleep(3000);
 
-            // --- Step 1: Capture execution history count before creating new log ---
+
             individualTestrun.clickTabExecutionHistory();
             Thread.sleep(2000);
             int initialCount = individualTestrun.getExecutionHistoryCount();
             logger.info("Initial Execution History Count: " + initialCount);
 
-            // --- Step 2: Create new Test Log ---
             individualTestrun.clickTabTestLogs();
             logger.info("Clicked on Test Log tab");
 
