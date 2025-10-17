@@ -23,7 +23,7 @@ public class TC044 extends BaseClass
                                                    String tCaseId
     ) throws InterruptedException
     {
-        logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
+        logger.info("****** Starting Test Case *****************");
         try
         {
             login();
