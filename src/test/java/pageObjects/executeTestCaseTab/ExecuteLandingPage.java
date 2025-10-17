@@ -540,4 +540,21 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
+    public boolean isSaveButtonVisible() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(saveButtonInPopup));
+            return saveButtonInPopup.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isCancelButtonVisible() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(cancelButtonInPopup));
+            return cancelButtonInPopup.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 }
