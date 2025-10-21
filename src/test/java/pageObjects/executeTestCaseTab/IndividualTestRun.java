@@ -312,8 +312,7 @@ public class IndividualTestRun extends BasePage {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", tableContainer);
                 Thread.sleep(500);
 
-                long newHeight = (long) ((JavascriptExecutor) driver).executeScript(
-                        "return arguments[0].scrollHeight;", tableContainer);
+                long newHeight = (long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollHeight;", tableContainer);
                 if (newHeight == lastHeight) break;
                 lastHeight = newHeight;
             }
