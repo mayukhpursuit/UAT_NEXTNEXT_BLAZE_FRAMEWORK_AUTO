@@ -202,7 +202,7 @@ public class IndividualModulePage extends BasePage {
 
         wait.until(ExpectedConditions.elementToBeClickable(descriptionBeforeClick));
         descriptionBeforeClick.click();
-//        Thread.sleep(1000);
+        Thread.sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(descriptionAfterClick));
         ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", descriptionAfterClick);
         descriptionAfterClick.sendKeys(Keys.chord(Keys.CONTROL, "a"));
