@@ -154,6 +154,9 @@ public class LinkDefectPage extends BasePage {
     public void enterSummary(String summary) {
         wait.until(ExpectedConditions.visibilityOf(summaryInput)).sendKeys(summary);
     }
+    public String getNotificationPopUpText() {
+       return wait.until(ExpectedConditions.elementToBeClickable(notificationPopUp)).getText();
+    }
 
     public void selectSeverity(String value) {
         wait.until(ExpectedConditions.visibilityOf(dropdownSeverity));
