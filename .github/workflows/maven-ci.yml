@@ -37,7 +37,7 @@ jobs:
         run: mvn -B clean install -DskipTests
 
       - name: Run TestNG Suite - ${{ matrix.suite }}
-        continue-on-error: true
+#        continue-on-error: true
         run: |
           mvn test \
             -DsuiteXmlFile=TestRun_XML/${{ matrix.suite }} \

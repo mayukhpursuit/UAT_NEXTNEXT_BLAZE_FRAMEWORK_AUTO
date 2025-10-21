@@ -216,6 +216,7 @@ public class LinkDefectPage extends BasePage {
             return false;
         }
     }
+
     public void uploadFileWithRobot(String relativeFilePath) throws Exception {
         String absoluteFilePath = Paths.get(relativeFilePath).toAbsolutePath().toString();
 
