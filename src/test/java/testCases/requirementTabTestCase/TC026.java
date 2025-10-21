@@ -18,8 +18,8 @@ public class TC026 extends BaseClass {
     public void verifyPlaceholderOfDescription(
             String project,
             String epic,
-            String feature
-//            String descri
+            String feature,
+            String descri
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *******");
         try {

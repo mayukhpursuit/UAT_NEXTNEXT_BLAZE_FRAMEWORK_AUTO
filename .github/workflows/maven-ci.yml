@@ -11,6 +11,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - suite: testplan.xml
@@ -19,8 +20,8 @@ jobs:
             logName: requirementLog
           - suite: authortest.xml
             logName: authorLog
-#          - suite: main.xml
-#            logName: mainLog
+          - suite: main.xml
+            logName: mainLog
 
     steps:
       - name: Checkout repository
@@ -37,7 +38,7 @@ jobs:
         run: mvn -B clean install -DskipTests
 
       - name: Run TestNG Suite - ${{ matrix.suite }}
-#        continue-on-error: true
+        continue-on-error: true
         run: |
           mvn test \
             -DsuiteXmlFile=TestRun_XML/${{ matrix.suite }} \
