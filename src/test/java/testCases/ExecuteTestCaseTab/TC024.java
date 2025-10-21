@@ -3,7 +3,6 @@ package testCases.ExecuteTestCaseTab;
 import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import pageObjects.executeTestCaseTab.IndividualTestRun;
 import pageObjects.executeTestCaseTab.LinkDefectPage;
@@ -11,14 +10,15 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 @Test(dataProvider = "tc022", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-public class TC022 extends BaseClass {
-    public void verifyNewDefectCreation( String projName,
+
+public class TC024 extends BaseClass {
+    public void verifyEvidenceAttachment( String projName,
                                          String releaseName,
                                          String testRun,
                                          String defSummary,
                                          String status,
                                          String description
-    ) throws InterruptedException {
+    ) throws Exception {
         logger.info("****** Starting Test Case: Verify Expand feature of sub test cycle *****************");
 
         try {
@@ -52,14 +52,13 @@ public class TC022 extends BaseClass {
             logger.info("Select status");
             linkDefectPage.enterDescription(description);
             logger.info("Entered description ");
-            linkDefectPage.clickSave();;
-            logger.info("clicked on save button");
+             Thread.sleep(3000);
+            linkDefectPage.uploadFileWithRobot("src//test//resources//Screenshot 2024-10-07 071957.png");
             logger.info("Defect has successfully created");
+            Thread.sleep(6000);
 
-            String actualAlert = linkDefectPage.getNotificationPopUpText();
-            String expectedAlert="Defect created and linked successfully.";
-            Assert.assertEquals(actualAlert, expectedAlert);
-            logger.info("Assertion has completed");
+            linkDefectPage.clickSave();
+            logger.info("New Defect has been created with evidence");
 
 
         }
@@ -73,4 +72,4 @@ public class TC022 extends BaseClass {
 
         logger.info("************ Test Case Finished *************************");
     }
-    }
+}

@@ -23,6 +23,9 @@ public class ExecuteLandingPage extends BasePage {
     // ================= LOCATORS =================
 
     // landing page
+    @FindBy(xpath = "//button[@class='help-btn']")
+    WebElement helpBtn;
+
     @FindBy(id = "execute")
     WebElement tabexceute;
 
@@ -136,6 +139,11 @@ public class ExecuteLandingPage extends BasePage {
 
     public void clickHamburgerMenu() throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(hamburgerMenuBtn)).click();
+
+    }
+
+    public void clickHelpBtn() throws InterruptedException {
+        wait.until(ExpectedConditions.visibilityOf(helpBtn)).click();
 
     }
 
