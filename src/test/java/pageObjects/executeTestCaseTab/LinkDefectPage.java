@@ -10,7 +10,14 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LinkDefectPage extends BasePage {
 
@@ -50,7 +57,8 @@ public class LinkDefectPage extends BasePage {
     @FindBy(xpath = "//div[@id='notification']")
     WebElement notificationPopUp;
 
-
+    @FindBy(xpath = "//div[@class='modal-div']//div[contains(text(),'DF-')]")
+    List<WebElement> allDefectId;
 // locators for creating a new bug
 
     @FindBy(xpath = "//textarea[@id='DefSummary']")
@@ -172,8 +180,36 @@ public class LinkDefectPage extends BasePage {
         new Select(dropdownPriority).selectByVisibleText(value);
     }
 
-    public void uploadFile(String filePath) {
-        wait.until(ExpectedConditions.elementToBeClickable(browseFileBtn)).sendKeys(filePath);
+    public void uploadFileWithRobot(String relativeFilePath) throws Exception {
+        String absoluteFilePath = Paths.get(relativeFilePath).toAbsolutePath().toString();
+
+        StringSelection selection = new StringSelection(absoluteFilePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+
+        wait.until(ExpectedConditions.elementToBeClickable(browseFileBtn)).click();
+
+        // Use Robot to interact with file dialog
+        Robot robot = new Robot();
+        robot.delay(2000);
+
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+    public List<String> getAllDefectIds() {
+        List<String> defectIds = new ArrayList<>();
+        for (WebElement element : allDefectId) {
+            String id = element.getText().trim();
+            if (!id.isEmpty()) {
+                defectIds.add(id);
+            }
+        }
+        return defectIds;
     }
 
     public void clickSave() {
