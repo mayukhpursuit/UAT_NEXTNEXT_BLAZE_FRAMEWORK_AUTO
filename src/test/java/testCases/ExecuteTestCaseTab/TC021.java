@@ -42,24 +42,30 @@ public class TC021 extends BaseClass {
             IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             executeLandingPage.clickPlayActionById(testRun);
             logger.info("clicked on Action Play button");
-            individualTestrun.clickLinkDefect();
+
+
+            IndividualTestRun individualTestRun= new IndividualTestRun(getDriver());
+            individualTestRun.clickLinkDefect();
             logger.info("Clicked on link defect ");
 
             LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
+            linkDefectPage.enterDefectSearch(defectID.replaceAll("[^0-9]", ""));
+            logger.info("Entered the defect defect id");
+
             linkDefectPage.clickSearchButton();
-            linkDefectPage.enterDefectSearch(defectID);
-            linkDefectPage.clickSearchButton();
-            WebElement element1= getDriver().findElement(By.xpath("(//input[@value='317'])[1]"));
-            element1.click();
+            logger.info("Searched the defect");
+
+            linkDefectPage.clickRadioButtonBesideDefectId(defectID);
+            logger.info("clicked on defect id {}",defectID);
+
             linkDefectPage.clickLink();
-            individualTestrun.clickSaveButton();
+            Thread.sleep(3000);
+            logger.info("defect is linked successfully");
+
             individualTestrun.clickLinkDefect();
-            WebElement element2= getDriver().findElement(By.xpath("(//img[@title='Unlink Defect'])[2]"));
-            element2.click();
-            getDriver().findElement(By.xpath("(//div[@class='test-execution-label-3'])[1]")).click();
-            individualTestrun.clickSaveButton();
-            linkDefectPage.clickClose();
-            individualTestrun.clickCloseButton();
+
+            linkDefectPage.clickUnlinkButtonByDefectId(defectID);
+            logger.info("Defect is unlinked successfully");
         }
         catch (AssertionError e)
         {
