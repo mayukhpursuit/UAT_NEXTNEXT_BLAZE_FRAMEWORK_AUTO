@@ -450,9 +450,10 @@ public String getAlertMessage(){
         alertBoxCloseBtnForModule.click();
     }
 
-    public void confirmDelete() {
+    public void confirmDelete() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         JavascriptExecutor js = (JavascriptExecutor) driver;
+        Thread.sleep(4000);
 
         try {
             WebElement dialog = wait.until(driver -> driver.findElement(By.id("actionDialog")));
