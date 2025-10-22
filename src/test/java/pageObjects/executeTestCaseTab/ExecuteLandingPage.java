@@ -517,21 +517,23 @@ public class ExecuteLandingPage extends BasePage {
             WebElement paginationText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//p[@class='pagination-text']")));
 
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", paginationText);
-
-            String text = paginationText.getText();
+            String text = paginationText.getText().trim();  // e.g. "Showing 1 to 10 of 27 entries"
 
             if (text.isEmpty() || text.contains("No entries")) {
                 return 0;
             }
 
-            String numberPart = text.replaceAll("[^0-9]", "").trim();
-            return Integer.parseInt(numberPart);
+            // Split by space and get the 6th word (index 5) which is the total number
+            // "Showing 1 to 10 of 27 entries" → ["Showing","1","to","10","of","27","entries"]
+            String[] parts = text.split(" ");
+            return Integer.parseInt(parts[5]);
 
         } catch (Exception e) {
+            System.out.println("Error while reading total entries: " + e.getMessage());
             return 0;
         }
     }
+
 
 
     public boolean isTestRunCreatedMessageDisplayed() {
@@ -584,4 +586,5 @@ public class ExecuteLandingPage extends BasePage {
             return false;
         }
     }
+
 }
