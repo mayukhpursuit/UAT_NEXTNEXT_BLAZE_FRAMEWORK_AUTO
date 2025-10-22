@@ -12,7 +12,7 @@
         <classes>
 
 <!--            <class name="testCases.requirementTabTestCase.TC001"/>-->
-            <class name="testCases.requirementTabTestCase.TC002"/>
+<!--            <class name="testCases.requirementTabTestCase.TC002"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC003"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC004"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC005"/>-->
@@ -41,7 +41,7 @@
 <!--            <class name="testCases.requirementTabTestCase.TC030"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC031"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC032"/>-->
-<!--            <class name="testCases.requirementTabTestCase.TC033"/>-->
+            <class name="testCases.requirementTabTestCase.TC033"/>
 <!--            <class name="testCases.requirementTabTestCase.TC035"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC036"/>-->
 <!--            <class name="testCases.requirementTabTestCase.TC037"/>-->
