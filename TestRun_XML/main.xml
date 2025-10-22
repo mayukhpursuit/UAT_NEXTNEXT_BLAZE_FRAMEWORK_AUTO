@@ -30,7 +30,7 @@
         </packages>
     </test>
 
-    <test verbose="2" preserve-order="true" name="author Test ">
+    <test verbose="2" preserve-order="true" name="Execute  Test ">
         <parameter name="browser" value="${browser}"/>
         <parameter name="mode" value="${mode}"/>
         <packages>
