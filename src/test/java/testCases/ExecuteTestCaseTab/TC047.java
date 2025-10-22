@@ -43,7 +43,7 @@ public class TC047 extends BaseClass {
             Thread.sleep(3000);
             executeLandingPage.clickOnSuite(SuiteName);
             logger.info("Clicked on Suite: " + SuiteName);
-            Thread.sleep(3000);
+            Thread.sleep(10000);
 
             int initialCount = executeLandingPage.getTotalEntriesCount();
             logger.info("Initial Entries Count: " + initialCount);
@@ -68,7 +68,7 @@ public class TC047 extends BaseClass {
             executeLandingPage.clickSaveInPopup();
             logger.info("Clicked on Save button ");
 
-            Thread.sleep(4000);
+            Thread.sleep(10000);
 
             int updatedCount = executeLandingPage.getTotalEntriesCount();
             logger.info("Updated Entries Count: " + updatedCount);

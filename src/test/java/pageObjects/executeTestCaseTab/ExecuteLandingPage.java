@@ -516,7 +516,8 @@ public class ExecuteLandingPage extends BasePage {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             WebElement paginationText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//p[@class='pagination-text']")));
-
+            new Actions(driver).moveToElement(paginationText).perform();
+            Thread.sleep(3000);
             String text = paginationText.getText().trim();  // e.g. "Showing 1 to 10 of 27 entries"
 
             if (text.isEmpty() || text.contains("No entries")) {
@@ -526,8 +527,8 @@ public class ExecuteLandingPage extends BasePage {
             // Split by space and get the 6th word (index 5) which is the total number
             // "Showing 1 to 10 of 27 entries" → ["Showing","1","to","10","of","27","entries"]
             String[] parts = text.split(" ");
-            return Integer.parseInt(parts[5]);
-
+//            return Integer.parseInt(parts[5]);
+            return  Integer.parseInt(text.replaceAll("[^0-9]", ""));
         } catch (Exception e) {
             System.out.println("Error while reading total entries: " + e.getMessage());
             return 0;
