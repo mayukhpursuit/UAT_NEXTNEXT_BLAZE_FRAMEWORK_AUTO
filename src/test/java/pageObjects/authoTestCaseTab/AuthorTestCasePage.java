@@ -566,6 +566,7 @@ public class AuthorTestCasePage extends BasePage {
                     return false;
                 }
             }
+
             return divRequirementPagination.isDisplayed();
         } catch (Exception e) {
             return false;

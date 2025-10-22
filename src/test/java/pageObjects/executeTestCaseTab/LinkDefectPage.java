@@ -117,7 +117,7 @@ public class LinkDefectPage extends BasePage {
 
     // Actions
     public void enterDefectSearch(String defectIdOrSummary) {
-        wait.until(ExpectedConditions.visibilityOf(inputSearchDefect)).sendKeys(defectIdOrSummary);
+        wait.until(ExpectedConditions.visibilityOf(inputSearchDefect)).sendKeys(defectIdOrSummary.replaceAll("[^0-9]", ""));
     }
 
     public void clickSearchButton() {
