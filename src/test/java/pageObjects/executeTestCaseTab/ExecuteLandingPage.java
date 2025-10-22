@@ -23,9 +23,6 @@ public class ExecuteLandingPage extends BasePage {
     // ================= LOCATORS =================
 
     // landing page
-    @FindBy(xpath = "//button[@class='help-btn']")
-    WebElement helpBtn;
-
     @FindBy(id = "execute")
     WebElement tabexceute;
 
@@ -110,10 +107,6 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//div[contains(text(),'Test runs created successfully.')]")
     WebElement testRunCreatedSuccessMessage;
 
-    @FindBy(xpath = "//img[@class='menu-open']")
-    WebElement hamburgerMenuBtn;
-
-
     private WebElement suiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
@@ -136,17 +129,6 @@ public class ExecuteLandingPage extends BasePage {
         String name = labelProjectName.getText();
         return name.equals(projectName);
     }
-
-    public void clickHamburgerMenu() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(hamburgerMenuBtn)).click();
-
-    }
-
-    public void clickHelpBtn() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(helpBtn)).click();
-
-    }
-
 
     private WebElement arrowRightToExpand(String moduleName) {
         return driver.findElement(By.xpath("//div[text()='" + moduleName + "']/..//i[@class='fa-solid fa-caret-right toggle-icon']"));
@@ -517,22 +499,23 @@ public class ExecuteLandingPage extends BasePage {
             WebElement paginationText = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//p[@class='pagination-text']")));
 
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", paginationText);
-            new Actions(driver).moveToElement(paginationText);
-            Thread.sleep(2000);
-            String text = paginationText.getText();
+            String text = paginationText.getText().trim();  // e.g. "Showing 1 to 10 of 27 entries"
 
             if (text.isEmpty() || text.contains("No entries")) {
                 return 0;
             }
 
-            String numberPart = text.replaceAll("[^0-9]", "").trim();
-            return Integer.parseInt(numberPart);
+            // Split by space and get the 6th word (index 5) which is the total number
+            // "Showing 1 to 10 of 27 entries" → ["Showing","1","to","10","of","27","entries"]
+            String[] parts = text.split(" ");
+            return Integer.parseInt(parts[5]);
 
         } catch (Exception e) {
+            System.out.println("Error while reading total entries: " + e.getMessage());
             return 0;
         }
     }
+
 
 
     public boolean isTestRunCreatedMessageDisplayed() {
@@ -568,21 +551,5 @@ public class ExecuteLandingPage extends BasePage {
         }
     }
 
-    public boolean isSaveButtonVisible() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(saveButtonInPopup));
-            return saveButtonInPopup.isDisplayed();
-        } catch (TimeoutException e) {
-            return false;
-        }
-    }
 
-    public boolean isCancelButtonVisible() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(cancelButtonInPopup));
-            return cancelButtonInPopup.isDisplayed();
-        } catch (TimeoutException e) {
-            return false;
-        }
-    }
 }
