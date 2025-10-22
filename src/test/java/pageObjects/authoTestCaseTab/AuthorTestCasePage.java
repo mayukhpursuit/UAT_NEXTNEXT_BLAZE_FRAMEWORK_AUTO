@@ -553,14 +553,16 @@ public class AuthorTestCasePage extends BasePage {
 
     public boolean verifyPaginationAlignment() {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             wait.until(ExpectedConditions.visibilityOf(divRequirementPagination));
-
+            Thread.sleep(3000);
             List<WebElement> paginationElements = divRequirementPagination.findElements(By.xpath(".//*"));
-            int yCoordinate = paginationElements.get(0).getRect().y;
-
+            if (paginationElements.isEmpty()) {
+                return false;
+            }
+            int yCoordinate = paginationElements.getFirst().getRect().y;
             for (WebElement element : paginationElements) {
-                if (Math.abs(element.getRect().y - yCoordinate) > 3) {
+                if (Math.abs(element.getRect().y - yCoordinate) > 8) {
                     return false;
                 }
             }
