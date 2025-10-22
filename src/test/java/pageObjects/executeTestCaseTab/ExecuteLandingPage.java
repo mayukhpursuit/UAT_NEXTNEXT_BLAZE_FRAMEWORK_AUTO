@@ -518,7 +518,8 @@ public class ExecuteLandingPage extends BasePage {
                     By.xpath("//p[@class='pagination-text']")));
 
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", paginationText);
-
+            new Actions(driver).moveToElement(paginationText);
+            Thread.sleep(2000);
             String text = paginationText.getText();
 
             if (text.isEmpty() || text.contains("No entries")) {
