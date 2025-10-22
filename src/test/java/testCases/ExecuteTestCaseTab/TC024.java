@@ -53,7 +53,7 @@ public class TC024 extends BaseClass {
             linkDefectPage.enterDescription(description);
             logger.info("Entered description ");
              Thread.sleep(3000);
-            linkDefectPage.uploadFileWithRobot("src//test//resources//Screenshot 2024-10-07 071957.png");
+            linkDefectPage.uploadFile("uploadInDefect.png");
             logger.info("Defect has successfully created");
             Thread.sleep(6000);
 
