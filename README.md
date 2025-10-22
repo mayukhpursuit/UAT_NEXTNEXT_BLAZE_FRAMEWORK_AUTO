@@ -1,1 +1,129 @@
-# UAT_TESTNEXT_BLAZE_FRAMEWORK
+# UAT_NEXT_BLAZE_FRAMEWORK
+Automated UI testing framework for the NEXT Blaze application. This Maven-based TestNG framework uses Selenium WebDriver to execute test suites, produces HTML test reports and integrates with GitHub Actions for CI runs.
+
+---
+## Technology Stack
+Java 21, Maven, Selenium WebDriver, TestNG, ExtentReports (reporting), GitHub Actions (CI)
+
+---
+## Prerequisites
+- Java JDK 21 installed and JAVA_HOME configured
+- Maven installed (mvn available)
+- Git (optional, for cloning)
+- Browser driver(s) — WebDriverManager is used in the project where configured
+
+---
+## Quick Start
+
+**1. Clone the repository**
+
+```
+git clone https://github.com/mayukhpursuit/UAT_NEXTNEXT_BLAZE_FRAMEWORK_AUTO.git
+```
+
+**2. Navigate to project root**
+
+**3. Run tests (example)**
+
+You can run your automation suite directly using Maven with parameters for suite file, log file name, browser, and execution mode.
+
+Syntax:
+```
+mvn clean test "-DsuiteXmlFile=TestRun_XML/your_XML_File_Name.xml" "-DlogFileName=Your_Log_File_Name" "-Dbrowser=chrome" "-Dmode=headlessOrHeaded"
+```
+
+Examples:
+
+Run the complete UAT test Cases in headed Chrome mode:
+```
+mvn clean test "-DsuiteXmlFile=TestRun_XML/main.xml" "-DlogFileName=UAT_Log" "-Dbrowser=chrome" "-Dmode=headed"
+```
+
+Run author tests in headless mode:
+```
+mvn clean test "-DsuiteXmlFile=TestRun_XML/authortest.xml" "-DlogFileName=Author_Log" "-Dbrowser=chrome" "-Dmode=headless"
+```
+
+**Notes:**
+- The suite files are available under `TestRun_XML/` (e.g. `testplan.xml`, `authortest.xml`, `executetest.xml`).
+- Maven passes the suite file to surefire using the `-DsuiteXmlFile` parameter, which is read in the project's configuration.
+- The -Dbrowser parameter can be chrome, firefox, or any browser configured in your framework.
+- The -Dmode parameter controls UI visibility — use headless for CI/CD pipelines.
+- The logs will be stored under the logs/ directory using the given log file name.
+
+---
+## CI / GitHub Actions
+
+This repository contains a workflow **`CI - Run TestNG Suites with Maven`** located at `.github/workflows/maven-ci.yml`.  
+
+The workflow can be triggered in the following ways:
+
+### 1. On Push
+The workflow is automatically triggered when there is a push to the `main` branch (or any configured branches).
+
+### 2. Manual Trigger (Workflow Dispatch)
+You can trigger the workflow manually from the GitHub UI:
+1. Go to the repository **Actions** tab.  
+2. Select **CI - Run TestNG Suites with Maven**.  
+3. Click **Run workflow** and choose the branch/suite inputs if any.  
+
+### 3. Programmatically
+You can also trigger runs programmatically using the **GitHub Actions REST API** by dispatching the workflow file.
+
+
+---
+## Reports and Artifacts
+After a test run, reports and artifacts are available in these locations within the repository workspace:
+- reports/ (HTML reports and screenshots)
+- target/ (compiled classes and surefire/target outputs)
+
+Screenshots taken during failures are stored under `screenshots/` and additional HTML reports are in `reports/`.
+
+---
+## Project Structure (high level)
+- `src/test/java/` — Test cases and test utilities (TestNG test classes).
+- `reports/` — Generated HTML test reports and logs.
+- `screenshots/` — Failure screenshots captured during tests.
+- `pom.xml` — Maven project file (dependencies and plugins).
+- `.github/workflows/maven-ci.yml` — GitHub Actions workflow for CI.
+
+| Folder / File      | Description                                                                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DataProviders/** | Contains TestNG DataProvider classes for modular test data supply to each suite (Author, Execute, Requirement, TestPlan).                                         |
+| **pageObjects/**   | Implements Page Object Model — each tab has its own subfolder defining web elements and methods to interact with that page.                                       |
+| **testBase/**      | Core setup and teardown logic. Handles WebDriver initialization, configuration loading, and environment setup.                                                    |
+| **testCases/**     | Main automation test scripts, grouped by module (author, execute, requirement, test plan). Each test case class references `BaseClass` and relevant Page Objects. |
+| **resources/**     | Holds configuration files such as `config.properties` (URLs, credentials, environment variables) and `log4j2.xml` (logging setup).                                |
+| **testData/**      | Stores external test data files organized per module (can include Excel, CSV, or JSON files).                                                                     |
+| **target/**        | Auto-generated by Maven after each build. Contains compiled code, reports, and logs.                                                                              |
+| **TestRun_XML/**   | (At project root) Contains TestNG suite files (`testplan.xml`, `authortest.xml`, etc.) which define the execution flow for different modules.                     |
+
+
+---
+## How to add or run a new TestNG suite locally
+1. Create or modify a suite file in `TestRun_XML/` (e.g. `new-suite.xml`).
+2. Run it with Maven:
+
+```
+mvn clean test "-DsuiteXmlFile=TestRun_XML/your_XML_File_Name.xml" "-DlogFileName=Your_Log_File_Name" "-Dbrowser=chrome" "-Dmode=headlessOrHeaded"
+
+```
+
+---
+## Common Troubleshooting
+- **Headless issues (X11/HeadlessException)**: If you see `HeadlessException` when running UI tests on a server, ensure runs are configured for headless mode (set browser options) or use containers/VMs with display support (Xvfb) or run with a headful runner locally.
+- **Driver/version issues**: Ensure the browser and driver versions are compatible. Consider using WebDriverManager to auto-manage drivers.
+- **Missing environment variables**: Set `JAVA_HOME` and ensure `mvn` is on PATH.
+
+---
+## Contributing
+This repository follows standard contribution practices. For any change:
+1. Create an issue describing the work.
+2. Open a PR with a clear description of changes and test evidence (screenshots or report links).
+
+---
+## Author
+
+**QA Automation Team**  (Pursuit Software Development Pvt. Ltd.)
+
+
