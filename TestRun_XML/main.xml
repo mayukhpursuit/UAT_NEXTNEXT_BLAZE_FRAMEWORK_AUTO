@@ -29,4 +29,12 @@
             <package name="testCases.authorTabTestCase"/>
         </packages>
     </test>
+
+    <test verbose="2" preserve-order="true" name="author Test ">
+        <parameter name="browser" value="${browser}"/>
+        <parameter name="mode" value="${mode}"/>
+        <packages>
+            <package name="testCases.ExecuteTestCaseTab"/>
+        </packages>
+    </test>
 </suite>
