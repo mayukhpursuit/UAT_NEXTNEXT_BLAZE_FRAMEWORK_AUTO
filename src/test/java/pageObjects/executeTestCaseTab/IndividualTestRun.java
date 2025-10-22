@@ -140,6 +140,11 @@ public class IndividualTestRun extends BasePage {
     }
 
     public void clickLinkDefect(){
+        Select s= new Select(dropdownStatus);
+        if (s.getFirstSelectedOption().getText().equalsIgnoreCase("Unexecuted")){
+            s.selectByVisibleText("Failed");
+            clickSaveButton();
+        }
         a.moveToElement(buttonLinkDefect).perform();
         buttonLinkDefect.click();
     }

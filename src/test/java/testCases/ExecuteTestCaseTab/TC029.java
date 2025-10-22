@@ -9,7 +9,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC029 extends BaseClass {
-    @Test(dataProvider = "tc029", dataProviderClass = ExecuteTestCaseDataProvider.class)
+    @Test(dataProvider = "tc029", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifythesearchfeature(
             String projectName,
             String releaseName1,

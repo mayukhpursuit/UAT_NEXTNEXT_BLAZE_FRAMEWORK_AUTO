@@ -387,7 +387,7 @@ public class ExecuteLandingPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(searchfield));
         wait.until(ExpectedConditions.elementToBeClickable(searchfield));
-        searchfield.clear();
+//        searchfield.clear();
         searchfield.sendKeys(testCaseID);
         wait.until(ExpectedConditions.elementToBeClickable(searchButton));
         searchButton.click();
@@ -469,8 +469,8 @@ public class ExecuteLandingPage extends BasePage {
     WebElement playButton;
 
     public void clickOnAnyPlayButton() {
+        new Actions(driver).moveToElement(playButton).perform();
         wait.until(ExpectedConditions.elementToBeClickable(playButton)).click();
-
     }
 
     public void waitForTestRunInterfaceToLoad() {

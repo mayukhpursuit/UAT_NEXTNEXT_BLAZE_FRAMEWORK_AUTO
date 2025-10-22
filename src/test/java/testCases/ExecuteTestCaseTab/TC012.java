@@ -52,7 +52,7 @@ public class TC012 extends BaseClass {
             individualTestRun.clickShowOnlyBusinessStepsRadio();
             logger.info("Clicked on 'Show Only Business Test Steps' radio button");
 
-            Thread.sleep(200);
+            Thread.sleep(2000);
 
             individualTestRun.clickShowAllStepsRadio();
             logger.info("Clicked on 'Show All Steps' radio button");
