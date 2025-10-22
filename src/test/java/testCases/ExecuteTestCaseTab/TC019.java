@@ -9,12 +9,12 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC019 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc019", dataProviderClass = ExecuteTestCaseDataProvider.class)
     public void verifythesearchfeature(
             String projectName,
-            String ReleaseName,
-            String CycleName,
-            String SuiteName,
+            String releaseName,
+            String cycleName,
+            String suiteName,
             String testRun
     ) throws InterruptedException {
 
@@ -31,14 +31,14 @@ public class TC019 extends BaseClass {
             executeLandingPage.clickArrowRightPointingForExpandModule(projectName);
             logger.info("Expanded Project: " + projectName);
 
-            executeLandingPage.expandRelease(ReleaseName);
-            logger.info("Expanded Release: " + ReleaseName);
+            executeLandingPage.expandRelease(releaseName);
+            logger.info("Expanded Release: " + releaseName);
 
-            executeLandingPage.expandSubTestCycle(CycleName);
-            logger.info("Expanded Cycle: " + CycleName);
+            executeLandingPage.expandSubTestCycle(cycleName);
+            logger.info("Expanded Cycle: " + cycleName);
             Thread.sleep(3000);
-            executeLandingPage.clickOnSuite(SuiteName);
-            logger.info("Clicked on Suite: " + SuiteName);
+            executeLandingPage.clickOnSuite(suiteName);
+            logger.info("Clicked on Suite: " + suiteName);
 
             IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             executeLandingPage.clickPlayActionById(testRun);
