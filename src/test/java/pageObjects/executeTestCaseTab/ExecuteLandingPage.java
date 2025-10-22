@@ -468,8 +468,9 @@ public class ExecuteLandingPage extends BasePage {
     @FindBy(xpath = "//button[@class='cell-4 runButton']")
     WebElement playButton;
 
-    public void clickOnAnyPlayButton() {
+    public void clickOnAnyPlayButton() throws InterruptedException {
         new Actions(driver).moveToElement(playButton).perform();
+        Thread.sleep(2000);
         wait.until(ExpectedConditions.elementToBeClickable(playButton)).click();
     }
 

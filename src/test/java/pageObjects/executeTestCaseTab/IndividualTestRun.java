@@ -141,7 +141,8 @@ public class IndividualTestRun extends BasePage {
 
     public void clickLinkDefect(){
         Select s= new Select(dropdownStatus);
-        if (s.getFirstSelectedOption().getText().equalsIgnoreCase("Unexecuted")){
+        System.out.println(buttonLinkDefect.isEnabled());
+        if (!buttonLinkDefect.isEnabled()){
             s.selectByVisibleText("Failed");
             clickSaveButton();
         }

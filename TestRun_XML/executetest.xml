@@ -8,7 +8,7 @@
 
     <test verbose="2" preserve-order="true" name="Execute Test Suite">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headless"/>
+        <parameter name="mode" value="headles"/>
 
         <classes>
             <class name="testCases.ExecuteTestCaseTab.TC001"/>
