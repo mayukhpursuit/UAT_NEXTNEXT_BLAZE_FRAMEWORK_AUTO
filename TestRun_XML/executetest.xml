@@ -8,7 +8,7 @@
 
     <test verbose="2" preserve-order="true" name="Execute Test Suite">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headless"/>
+        <parameter name="mode" value="headed"/>
 
         <classes>
 <!--            <class name="testCases.ExecuteTestCaseTab.TC001"/>-->
@@ -20,7 +20,7 @@
 <!--            <class name="testCases.ExecuteTestCaseTab.TC007"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC008"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC009"/>-->
-            <class name="testCases.ExecuteTestCaseTab.TC010"/>
+<!--            <class name="testCases.ExecuteTestCaseTab.TC010"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC011"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC012"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC013"/>-->
@@ -45,6 +45,7 @@
 <!--            <class name="testCases.ExecuteTestCaseTab.TC038"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC039"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC040"/>-->
+                <class name="testCases.ExecuteTestCaseTab.TC041"/>
 <!--            <class name="testCases.ExecuteTestCaseTab.TC042"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC043"/>-->
 <!--            <class name="testCases.ExecuteTestCaseTab.TC044"/>-->

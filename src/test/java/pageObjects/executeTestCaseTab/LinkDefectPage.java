@@ -328,4 +328,21 @@ public class LinkDefectPage extends BasePage {
         }
     }
 
+    public boolean isNotificationPopupDisplayed(String expectedMessage) {
+        try {
+            By notificationLocator = By.xpath("//div[@id='notification']");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(notificationLocator));
+
+            String notificationText = notification.getText().trim();
+            System.out.println("Notification text: " + notificationText);
+
+            return notificationText.equals(expectedMessage);
+
+        } catch (Exception e) {
+            System.out.println("Notification not displayed: " + e.getMessage());
+            return false;
+        }
+    }
+
 }
