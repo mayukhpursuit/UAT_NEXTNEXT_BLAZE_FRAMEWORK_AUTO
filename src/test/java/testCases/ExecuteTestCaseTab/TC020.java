@@ -5,8 +5,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import pageObjects.executeTestCaseTab.IndividualTestRun;
+import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
+
+import java.util.logging.Logger;
 
 public class TC020 extends BaseClass {
     @Test(dataProvider = "tc020", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
@@ -15,7 +18,8 @@ public class TC020 extends BaseClass {
             String ReleaseName,
             String CycleName,
             String SuiteName,
-            String TR
+            String TR,
+            String defid
     ) throws InterruptedException {
 
         logger.info("****** Starting Test Case 048: Verify that Create Test Log button is working properly *****************");
@@ -57,6 +61,11 @@ public class TC020 extends BaseClass {
             }
 
             Assert.assertTrue(defectPresent, "Defect is not displayed under the defect category.");
+
+            LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
+
+            linkDefectPage.clickDefectById(defid);
+            logger.info("clicked on defect id"+defid);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

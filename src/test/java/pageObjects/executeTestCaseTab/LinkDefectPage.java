@@ -315,4 +315,17 @@ public class LinkDefectPage extends BasePage {
             }
     }
 
+    public void clickDefectById(String defectId) {
+        for (WebElement defect : allDefectId) {
+            String id = defect.getText().trim();
+            if (id.equals(defectId)) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", defect);
+
+
+                defect.click();
+                break;
+            }
+        }
+    }
+
 }
