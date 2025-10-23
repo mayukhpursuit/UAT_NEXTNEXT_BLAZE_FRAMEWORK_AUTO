@@ -10,9 +10,11 @@ import pageObjects.BasePage;
 import java.util.List;
 
 import java.time.Duration;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class IndividualTestRun extends BasePage {
-    public IndividualTestRun(WebDriver driver){
+    public IndividualTestRun(WebDriver driver) {
         super(driver);
     }
 
@@ -24,7 +26,7 @@ public class IndividualTestRun extends BasePage {
     @FindBy(xpath = "//div[@class='test-run-name']")
     WebElement headingTestRunName;
 
-    @FindBy (xpath = "//div[@class='test-run-form-text-field']//select[@class='test-run-text select-dropdown']")
+    @FindBy(xpath = "//div[@class='test-run-form-text-field']//select[@class='test-run-text select-dropdown']")
     WebElement dropdownStatus;
 
     @FindBy(xpath = "//button[@id='submitButton']")
@@ -69,42 +71,38 @@ public class IndividualTestRun extends BasePage {
     @FindBy(xpath = "//input[@id='masterCheckbox']")
     WebElement checkBoxSelectAllSteps;
 
-    public WebElement checkboxForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/../div[@class='table-row-cell checkbox-cell']"));
+    public WebElement checkboxForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/../div[@class='table-row-cell checkbox-cell']"));
     }
 
-    public WebElement uatCategoryForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/../div[@class='table-row-cell uat-category']"));
+    public WebElement uatCategoryForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/../div[@class='table-row-cell uat-category']"));
     }
 
-    public WebElement descriptionForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/../div[@class='table-row-cell name']"));
+    public WebElement descriptionForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/../div[@class='table-row-cell name']"));
     }
 
-    public WebElement expectedResultForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/../div[@class='table-row-cell expected-result']"));
+    public WebElement expectedResultForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/../div[@class='table-row-cell expected-result']"));
     }
 
-    public WebElement actualResultForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/..//textarea[@class='non-expandable-textarea']"));
+    public WebElement actualResultForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/..//textarea[@class='non-expandable-textarea']"));
     }
 
-    public WebElement statusForSteps(int stepNo){
-        return driver.findElement(By.xpath("//div[normalize-space()='"+stepNo+"']/..//select[@class='test-run-text select-dropdown']"));
+    public WebElement statusForSteps(int stepNo) {
+        return driver.findElement(By.xpath("//div[normalize-space()='" + stepNo + "']/..//select[@class='test-run-text select-dropdown']"));
     }
-
-
-
 
 
     //Actions
 
 
+    Actions a = new Actions(driver);
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-    Actions a= new Actions(driver);
-    WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(20));
-
-    public boolean isErrorAfterEmptyTestLogSaveVisible(){
+    public boolean isErrorAfterEmptyTestLogSaveVisible() {
         try {
             wait.until(ExpectedConditions.visibilityOf(notificationAfterEdit));
             return true;
@@ -113,36 +111,36 @@ public class IndividualTestRun extends BasePage {
         }
     }
 
-    public String getTestRunName(){
+    public String getTestRunName() {
         return labelTestRunId.getText();
     }
 
-    public void clickSaveButton(){
+    public void clickSaveButton() {
         a.moveToElement(buttonSave).perform();
         buttonSave.click();
         wait.until(ExpectedConditions.visibilityOf(notificationAfterEdit));
     }
 
-    public void clickCloseButton(){
+    public void clickCloseButton() {
         a.moveToElement(buttonClose).perform();
         buttonClose.click();
     }
 
-    public void clickCreateTestLog(){
+    public void clickCreateTestLog() {
         a.moveToElement(buttonCreateTestLog).perform();
         buttonCreateTestLog.click();
     }
 
-    public void selectStatus(String statusTxt){
-        Select s= new Select(dropdownStatus);
+    public void selectStatus(String statusTxt) {
+        Select s = new Select(dropdownStatus);
         dropdownStatus.click();
         s.selectByVisibleText(statusTxt);
     }
 
-    public void clickLinkDefect(){
-        Select s= new Select(dropdownStatus);
+    public void clickLinkDefect() {
+        Select s = new Select(dropdownStatus);
         System.out.println(buttonLinkDefect.isEnabled());
-        if (!buttonLinkDefect.isEnabled()){
+        if (!buttonLinkDefect.isEnabled()) {
             s.selectByVisibleText("Failed");
             clickSaveButton();
         }
@@ -150,33 +148,33 @@ public class IndividualTestRun extends BasePage {
         buttonLinkDefect.click();
     }
 
-    public void clickLinkAttachment(){
+    public void clickLinkAttachment() {
         a.moveToElement(buttonLinkAttachment).perform();
         buttonLinkAttachment.click();
     }
 
-    public void clickTabTestLogs(){
+    public void clickTabTestLogs() {
         a.moveToElement(tabTestLogs).perform();
         tabTestLogs.click();
     }
 
-    public void clickTabExecutionHistory(){
+    public void clickTabExecutionHistory() {
         a.moveToElement(tabExecutionHistory).perform();
         tabExecutionHistory.click();
     }
 
-    public void selectDropdownStatusBesidesUpdate(String statusText){
-        Select s= new Select(dropdownOverallStatusBesidesUpdate);
+    public void selectDropdownStatusBesidesUpdate(String statusText) {
+        Select s = new Select(dropdownOverallStatusBesidesUpdate);
         dropdownOverallStatusBesidesUpdate.click();
         s.selectByVisibleText(statusText);
     }
 
-    public void clickUpdate(){
+    public void clickUpdate() {
         a.moveToElement(buttonUpdate).perform();
         buttonClose.click();
     }
 
-    public void clickShowAllStepsRadio(){
+    public void clickShowAllStepsRadio() {
         WebElement checkbox = wait.until(
                 ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='viewAll']"))
         );
@@ -185,26 +183,26 @@ public class IndividualTestRun extends BasePage {
 
     }
 
-    public void clickShowOnlyBusinessStepsRadio(){
+    public void clickShowOnlyBusinessStepsRadio() {
         radioShowBusinessSteps.click();
     }
 
-    public void selectCheckAllStepsCheckbox(){
+    public void selectCheckAllStepsCheckbox() {
         checkBoxSelectAllSteps.click();
     }
 
-    public void clickCheckboxOfTheStep(int stepNo){
+    public void clickCheckboxOfTheStep(int stepNo) {
         checkboxForSteps(stepNo).click();
     }
 
-    public void EnterActualResultOfTheStep(int stepNo,String actualResultText){
+    public void EnterActualResultOfTheStep(int stepNo, String actualResultText) {
         a.moveToElement(actualResultForSteps(stepNo)).perform();
         actualResultForSteps(stepNo).click();
         actualResultForSteps(stepNo).sendKeys(actualResultText);
     }
 
-    public String getDefectIdAfterLink(){
-        try{
+    public String getDefectIdAfterLink() {
+        try {
             wait.until(ExpectedConditions.visibilityOf(displayDefectAfterLink));
             return displayDefectAfterLink.getText();
         } catch (Exception e) {
@@ -212,10 +210,10 @@ public class IndividualTestRun extends BasePage {
         }
     }
 
-    public void SelectStatusOfTheStep(int stepNo,String stepText){
+    public void SelectStatusOfTheStep(int stepNo, String stepText) {
         a.moveToElement(statusForSteps(stepNo)).perform();
         statusForSteps(stepNo).click();
-        Select s= new Select(statusForSteps(stepNo));
+        Select s = new Select(statusForSteps(stepNo));
         s.selectByVisibleText(stepText);
     }
 
@@ -279,7 +277,6 @@ public class IndividualTestRun extends BasePage {
     }
 
 
-
     public String getActualResultOfStep(int stepNo) {
         try {
             WebElement actualResultField = driver.findElement(
@@ -338,5 +335,22 @@ public class IndividualTestRun extends BasePage {
         }
     }
 
+    public boolean isDefectPresent() {
+        try {
+            By defectLocator = By.xpath("//body/div[@class='requirements']/div[@class='frame']/div[@id='execute_rightPanel']/div[@class='test-run-cases']/div[@id='test-run-frames']/div[@class='test-run-form-text-field']/div[1]");
 
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement defectSection = wait.until(ExpectedConditions.visibilityOfElementLocated(defectLocator));
+
+            String defectText = defectSection.getText().trim();
+            System.out.println("Defect section text: " + defectText);
+
+            return Pattern.compile("DF-\\d+").matcher(defectText).find();
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
 }
+
+
+
