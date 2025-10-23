@@ -114,8 +114,21 @@ public class LinkDefectPage extends BasePage {
     @FindBy(xpath = "//textarea[@class='defect-text-wrapper-5']")
     WebElement descriptionInputArea;
 
+    @FindBy(xpath = "//i[@class='fa fa-download defect-download-symbol']")
+    List<WebElement> allDownloadIcons;
+
 
     // Actions
+
+    public void clickDownloadIcon(int index) {
+        if (index < allDownloadIcons.size()) {
+            WebElement downloadIcon = allDownloadIcons.get(index);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", downloadIcon);
+            downloadIcon.click();
+        } else {
+            System.out.println("Invalid index: " + index);
+        }
+    }
     public void enterDefectSearch(String defectIdOrSummary) {
         wait.until(ExpectedConditions.visibilityOf(inputSearchDefect)).sendKeys(defectIdOrSummary.replaceAll("[^0-9]", ""));
     }
@@ -250,6 +263,7 @@ public class LinkDefectPage extends BasePage {
     }
 
 
+
     public void uploadFile(String fileName) {
         String filePath = System.getProperty("user.dir")
                 + File.separator + "media"
@@ -314,5 +328,19 @@ public class LinkDefectPage extends BasePage {
             return false; // element not visible within wait time
             }
     }
+
+    public void clickDefectId(String defectId) {
+        for (WebElement defect : allDefectId) {
+            String id = defect.getText().trim();
+            if (id.equals(defectId)) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", defect);
+
+                // Click the defect
+                defect.click();
+                break;
+            }
+        }
+    }
+
 
 }
