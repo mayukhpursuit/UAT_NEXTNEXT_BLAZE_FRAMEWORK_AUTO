@@ -20,6 +20,15 @@ public class IndividualTestRun extends BasePage {
 
     // Locators
 
+    @FindBy (xpath = "//body/div[@class='requirements']/div[@class='frame']/div[@id='execute_rightPanel']/div[@class='test-run-cases']/div[@id='test-run-frames']/div[@class='test-run-frame-5']/div[@class='test-run-frame-6']/div[@class='test-run-frame-6-1']/div[1]")
+    WebElement QAUser;
+
+    @FindBy(xpath = "//body/div[@class='requirements']/div[@class='frame']/div[@id='execute_rightPanel']/div[@class='test-run-cases']/div[@id='test-run-frames']/div[@class='test-run-frame-5']/div[@class='test-run-frame-6']/div[@class='test-run-frame-6-1']/div[2]")
+    WebElement BusinessUser;
+
+    @FindBy(xpath = "//div[@class='test-run-description']")
+    WebElement PreCondition;
+
     @FindBy(xpath = "//div[@class='test-run-text-3']")
     WebElement labelTestRunId;
 
@@ -351,8 +360,24 @@ public class IndividualTestRun extends BasePage {
         }
     }
 
-
+    public boolean areAllElementsVisible() {
+        try {
+            return labelTestRunId.isDisplayed() &&
+                    headingTestRunName.isDisplayed() &&
+                    dropdownStatus.isDisplayed() &&
+                    buttonLinkAttachment.isDisplayed() &&
+                    buttonLinkDefect.isDisplayed() &&
+                    radioShowAllSteps.isDisplayed() &&
+                    radioShowBusinessSteps.isDisplayed() &&
+                    QAUser.isDisplayed() &&
+                    BusinessUser.isDisplayed() &&
+                    PreCondition.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
+
 
 
 

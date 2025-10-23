@@ -9,20 +9,17 @@ import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.logging.Logger;
-
-public class TC020 extends BaseClass {
-    @Test(dataProvider = "tc020", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void verify_the_user_is_able_to_click_on_the_linked_defect_and_see_the_details(
+public class TC010 extends BaseClass {
+    @Test(dataProvider = "tc010", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void verify_the_visibilty_of_test_run_details(
             String projectName,
             String ReleaseName,
             String CycleName,
             String SuiteName,
-            String TR,
-            String defid
+            String TR
     ) throws InterruptedException {
 
-        logger.info("****** Starting Test Case 020: verify the user is able to click on the linked defect and see the details *****************");
+        logger.info("****** Starting Test Case 010: verify the visibilty of test run details *****************");
 
         try {
             login();
@@ -52,20 +49,16 @@ public class TC020 extends BaseClass {
             IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             Thread.sleep(3000);
 
-
-            boolean defectPresent = individualTestrun.isDefectPresent();
-            if (defectPresent) {
-                logger.info("Defect is present");
+            boolean allVisible = individualTestrun.areAllElementsVisible();
+            if (allVisible) {
+                logger.info("All Test Run elements are visible.");
             } else {
-                logger.error("Defect is NOT present under the defect category.");
+                logger.error("Some Test Run elements are NOT visible.");
             }
 
-            Assert.assertTrue(defectPresent, "Defect is not displayed under the defect category.");
+            Assert.assertTrue(allVisible, "Not all Test Run elements are visible.");
 
-            LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
 
-            linkDefectPage.clickDefectById(defid);
-            logger.info("clicked on defect id"+defid);
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
@@ -78,4 +71,3 @@ public class TC020 extends BaseClass {
         logger.info("************ Test Case Finished *************************");
     }
 }
-
