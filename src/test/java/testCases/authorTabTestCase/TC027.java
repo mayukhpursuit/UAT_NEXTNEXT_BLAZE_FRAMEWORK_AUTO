@@ -9,9 +9,7 @@ import utils.RetryAnalyzer;
 
 public class TC027 extends BaseClass {
     @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void verifyVisibilityOfPaginationControls(
-
-    ) throws InterruptedException {
+    public void verifyVisibilityOfPaginationControls() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
