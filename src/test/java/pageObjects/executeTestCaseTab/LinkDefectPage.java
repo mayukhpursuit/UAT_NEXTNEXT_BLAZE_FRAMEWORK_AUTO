@@ -343,4 +343,34 @@ public class LinkDefectPage extends BasePage {
     }
 
 
+    public void clickDefectById(String defectId) {
+        for (WebElement defect : allDefectId) {
+            String id = defect.getText().trim();
+            if (id.equals(defectId)) {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", defect);
+
+
+                defect.click();
+                break;
+            }
+        }
+    }
+
+    public boolean isNotificationPopupDisplayed(String expectedMessage) {
+        try {
+            By notificationLocator = By.xpath("//div[@id='notification']");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(notificationLocator));
+
+            String notificationText = notification.getText().trim();
+            System.out.println("Notification text: " + notificationText);
+
+            return notificationText.equals(expectedMessage);
+
+        } catch (Exception e) {
+            System.out.println("Notification not displayed: " + e.getMessage());
+            return false;
+        }
+    }
+
 }
