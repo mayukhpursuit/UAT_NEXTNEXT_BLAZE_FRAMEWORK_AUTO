@@ -133,7 +133,7 @@ public class GlobalTabPage extends BasePage {
 
                                     // create global field//
     //Locator
-    @FindBy(xpath = "//body[1]/div[1]/div[4]/div[5]/div[1]/form[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]")
+    @FindBy(xpath = "//tbody//tr//td//input[@type='text']")
     WebElement FieldName;
 
     @FindBy(xpath = "//select[@class='global-fields-select']")
