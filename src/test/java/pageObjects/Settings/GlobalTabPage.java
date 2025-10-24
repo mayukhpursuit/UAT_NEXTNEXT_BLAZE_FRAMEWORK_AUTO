@@ -143,7 +143,7 @@ public class GlobalTabPage extends BasePage {
     @FindBy(xpath = "//div[@class='global-fields-object-types-checkboxes']")
     WebElement ObjectTypes;
 
-    @FindBy(xpath = "(//button[@type='button'][normalize-space()='SAVE'])[1]")
+    @FindBy(xpath = "//button[@type='button'][normalize-space()='SAVE']")
     WebElement Savebutton;
 
 

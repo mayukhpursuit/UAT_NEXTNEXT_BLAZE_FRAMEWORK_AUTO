@@ -17,7 +17,9 @@ public class Demo extends BaseClass {
     public void DemoGlobalSetting(
             String fieldvalue,
             String Datatype,
-            String checkboxLabel
+            String checkboxLabel1,
+            String checkboxLabel2,
+            String editrow
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -46,11 +48,20 @@ public class Demo extends BaseClass {
             globalTabPage.SelectDataType(Datatype);
             logger.info("select data type"+Datatype);
 
-           globalTabPage.clickObjectTypeCheckbox(checkboxLabel);
-            logger.info("select data type"+checkboxLabel);
+           globalTabPage.clickObjectTypeCheckbox(checkboxLabel1);
+            logger.info("select data type"+checkboxLabel1);
 
-            globalTabPage.clickonSaveButton();
-            logger.info("clicked on Save button");
+            globalTabPage.clickObjectTypeCheckbox(checkboxLabel2);
+            logger.info("select data type"+checkboxLabel2);
+
+//            globalTabPage.clickonSaveButton();
+//            logger.info("clicked on Save button");
+
+            globalTabPage.clickCloseButton();
+          logger.info("clicked on close button");
+
+          globalTabPage.clickonEdit(editrow);
+            logger.info("clicked on edit:"+editrow);
 
         }
         catch (AssertionError e) {
