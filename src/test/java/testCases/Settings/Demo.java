@@ -19,7 +19,9 @@ public class Demo extends BaseClass {
             String Datatype,
             String checkboxLabel1,
             String checkboxLabel2,
-            String editrow
+            String editrow,
+            String editvalue,
+            String deleterow
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -62,6 +64,22 @@ public class Demo extends BaseClass {
 
           globalTabPage.clickonEdit(editrow);
             logger.info("clicked on edit:"+editrow);
+
+            globalTabPage.clickAddFieldButton();
+            logger.info("clicked on addfieldbutton");
+
+            globalTabPage.enterFieldValue(editvalue);
+            logger.info("entered Default Field Value:"+editvalue);
+
+            globalTabPage.clickonDeleteIcon();
+            logger.info("Clicked on delete icon");
+
+            globalTabPage.clickonCloseButton();
+            logger.info("Clicked on close button");
+
+            globalTabPage.clickonDelete(deleterow);
+            logger.info("clicked on delete icon of row:"+deleterow);
+
 
         }
         catch (AssertionError e) {

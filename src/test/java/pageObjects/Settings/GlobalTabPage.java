@@ -61,9 +61,8 @@ public class GlobalTabPage extends BasePage {
 
 
     public WebElement DeleteButtonForRow(String rowName) {
-        return driver.findElement(By.xpath(
-                "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']"
-        ));
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
+        return driver.findElement(By.xpath(xpath));
     }
 
 
