@@ -16,6 +16,13 @@ public class GlobalTabPage extends BasePage {
     }
 
     //locators
+    @FindBy(xpath = "//img[@id='chevron-logout']")
+    WebElement dropdowncurrentuser;
+
+    @FindBy(xpath = "//a[normalize-space()='Settings']")
+    WebElement setting;
+
+
     @FindBy(xpath = "//div[@class='global-fields-add-label']")
     WebElement AddGlobalFieldButton;
 
@@ -60,6 +67,12 @@ public class GlobalTabPage extends BasePage {
 
 
     //Actions
+
+    public void clickCurrentUserAndGoToSettings() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(dropdowncurrentuser)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(setting)).click();
+    }
 
     public void clickonAddGlobalField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))

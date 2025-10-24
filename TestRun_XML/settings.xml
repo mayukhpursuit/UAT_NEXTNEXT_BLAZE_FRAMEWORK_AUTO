@@ -6,12 +6,16 @@
 
     </listeners>
 
-    <test verbose="2" preserve-order="true" name="Demo flow ">
+    <test verbose="2" preserve-order="true" name="Setting Suite">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headless"/>
-        <packages>
-            <package name="testCases.Settings"/>
-        </packages>
+        <parameter name="mode" value="headed"/>
+        <classes>
+
+        <class name="testCases.Settings.Demo"/>
+        </classes>
+<!--        <packages>-->
+<!--            <package name="testCases.Settings"/>-->
+<!--        </packages>-->
     </test>
 
 </suite>

@@ -20,7 +20,7 @@ public class OtherTabPage extends BasePage {
     }
 
     // ----------------------------- Diff Tab locators ---------------------------------------------
-    @FindBy(xpath = "//div[@class='releases active']")
+    @FindBy(xpath = "//div[normalize-space()='Global Field Setting']")
     WebElement globalFieldSetting;
 
     @FindBy(xpath = "//div[@class='releases '][normalize-space()='Module']")
