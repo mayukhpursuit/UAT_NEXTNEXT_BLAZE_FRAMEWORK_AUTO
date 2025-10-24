@@ -14,7 +14,8 @@ public class OtherTabAutomation extends BaseClass {
     }
     @Test(dataProvider = "Demo1", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void runOtherTabAutomation(
-            String editrow
+            String editrow,
+            String value
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -29,11 +30,25 @@ public class OtherTabAutomation extends BaseClass {
             otherTabPage.clickModule();
             logger.info("clicked on Modules");
 
-//            otherTabPage.clickOnEdit(editrow);
-//            logger.info("clicked on edit row:"+editrow);
+            otherTabPage.clickOnEdit(editrow);
+            logger.info("clicked on edit row:"+editrow);
 
-            otherTabPage.deleteButtonForRow(editrow);
-            logger.info("clicked on delete row:"+editrow);
+            otherTabPage.clickDefaultAddValue() ;
+            logger.info("clicked on adddefaultvalue");
+
+            otherTabPage.enterDefaultValue(value);
+            logger.info("entered default value"+value);
+
+            otherTabPage.clickDefaultDeleteIcon();
+            logger.info("clicked on delete icon");
+
+            otherTabPage.clickDefaultCloseButton();
+            logger.info("clicked on close button");
+
+
+
+//            otherTabPage.deleteButtonForRow(editrow);
+//            logger.info("clicked on delete row:"+editrow);
 
 
         } catch (AssertionError e) {

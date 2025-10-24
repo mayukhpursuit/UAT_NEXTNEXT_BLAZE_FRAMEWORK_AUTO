@@ -154,7 +154,7 @@ public class OtherTabPage extends BasePage {
     }
 
 
-    public void clickOnAddGlobalField() {
+    public void clickOnAddCustomField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(addCustomField)).click();
     }
