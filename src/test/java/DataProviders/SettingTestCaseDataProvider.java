@@ -10,4 +10,9 @@ public class SettingTestCaseDataProvider {
     public static String[][] getDataTC001() throws IOException {
         return ExcelDataProviders.getExcelDataForSettingTestCase("Demo");
     }
+
+    @DataProvider(name="Demo1")
+    public static String[][] getDataTC002() throws IOException {
+        return ExcelDataProviders.getExcelDataForSettingTestCase("Demo1");
+    }
 }

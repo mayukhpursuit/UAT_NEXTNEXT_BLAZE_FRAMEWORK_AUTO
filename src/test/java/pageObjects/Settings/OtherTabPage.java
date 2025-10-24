@@ -137,15 +137,13 @@ public class OtherTabPage extends BasePage {
     }
 
     public WebElement editButtonForRow(String rowName) {
-        return driver.findElement(By.xpath(
-                "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']"
-        ));
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']";
+        return driver.findElement(By.xpath(xpath));
     }
 
     public WebElement deleteButtonForRow(String rowName) {
-        return driver.findElement(By.xpath(
-                "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']"
-        ));
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
+        return driver.findElement(By.xpath(xpath));
     }
 
     public void clickOnAddGlobalField() {

@@ -11,7 +11,8 @@
         <parameter name="mode" value="headed"/>
         <classes>
 
-        <class name="testCases.Settings.Demo"/>
+<!--        <class name="testCases.Settings.GlobalAutomation"/>-->
+            <class name="testCases.Settings.OtherTabAutomation"/>
         </classes>
 <!--        <packages>-->
 <!--            <package name="testCases.Settings"/>-->

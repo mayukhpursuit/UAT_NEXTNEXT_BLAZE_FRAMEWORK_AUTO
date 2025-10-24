@@ -1,18 +1,14 @@
 package testCases.Settings;
 
 
-import DataProviders.AuthorTestCaseDataProvider;
 import DataProviders.SettingTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
-import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class Demo extends BaseClass {
-    //@Test(dataProvider = "Demo", dataProviderClass = SettingTestCaseDataProvider.class)
+public class GlobalAutomation extends BaseClass {
     @Test(dataProvider = "Demo", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void DemoGlobalSetting(
             String fieldvalue,
@@ -91,8 +87,10 @@ public class Demo extends BaseClass {
             globalTabPage.clickRemoveButtonForObjectType(manoj1);
             logger.info("clicked on remove button of Manage object type:"+manoj1);
 
-            globalTabPage.ClickCloseButton();
-            logger.info("clicked on close button");
+//            globalTabPage.ClickCloseButton();
+//            logger.info("clicked on close button");
+
+
 
 
         }
