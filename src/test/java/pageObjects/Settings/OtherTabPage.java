@@ -27,6 +27,9 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//div[@class='releases '][normalize-space()='Module']")
     WebElement module;
 
+    @FindBy(xpath = "//i[@class='fas fa-rocket']")
+    WebElement Release;
+
     @FindBy(xpath = "//div[normalize-space()='Requirement']")
     WebElement requirement;
 
@@ -63,6 +66,13 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(requirement)).click();
     }
+
+    public void clickOnRelease() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement releaseElement = wait.until(ExpectedConditions.elementToBeClickable(Release));
+        releaseElement.click();
+    }
+
 
     public void clickTestCase() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
