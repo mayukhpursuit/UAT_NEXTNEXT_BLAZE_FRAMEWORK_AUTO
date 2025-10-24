@@ -214,10 +214,11 @@ public class GlobalTabPage extends BasePage {
 
     public void clickAddButtonForObjectType(String objectType) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        String xpath = "///table//tr[td[normalize-space()='"+objectType+"']]//button[normalize-space()='Add']";
+        String xpath = "//table//tr[td[normalize-space()='" + objectType + "']]//button[normalize-space()='Add']";
         WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
         addButton.click();
     }
+
 
     public void clickRemoveButtonForObjectType(String objectType) {
         WebElement removeButton = driver.findElement(By.xpath(

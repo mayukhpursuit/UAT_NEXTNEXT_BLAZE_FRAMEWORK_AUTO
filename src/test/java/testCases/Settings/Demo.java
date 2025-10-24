@@ -21,7 +21,8 @@ public class Demo extends BaseClass {
             String checkboxLabel2,
             String editrow,
             String editvalue,
-            String settingrow
+            String settingrow,
+            String manobj
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -83,6 +84,8 @@ public class Demo extends BaseClass {
             globalTabPage.clickonSettings(settingrow);
             logger.info("clicked on setting icon of row:"+settingrow);
 
+            globalTabPage.clickAddButtonForObjectType(manobj);
+            logger.info("clicked on Manage object type:"+manobj);
 
         }
         catch (AssertionError e) {
