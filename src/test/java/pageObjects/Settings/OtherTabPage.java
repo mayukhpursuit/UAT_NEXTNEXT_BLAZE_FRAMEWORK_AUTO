@@ -5,9 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
 import javax.swing.*;
+import java.time.Duration;
 
 public class OtherTabPage extends BasePage
 {
@@ -54,7 +58,32 @@ public class OtherTabPage extends BasePage
     @FindBy(xpath = "(//button[normalize-space()='CLOSE'])[1]")
     WebElement CloseActionEditButton;
 
+    //locators for Add custome Fields
 
+    @FindBy(xpath = "(//input[@placeholder='Enter field name (e.g., Priority, Category)'])[1]")
+    WebElement FieldNAme;
+
+    @FindBy(xpath = "(//select[@class='assignToDropdown testcase-text-wrapper-15 testcase-select'])[1]")
+    WebElement DataType;
+
+    @FindBy(xpath = "(//button[@type='button'])[1]")
+    WebElement CreateField;
+
+    @FindBy(xpath = "(//button[normalize-space()='CANCEL'])[1]")
+    WebElement Cancelbutton;
+
+    //Locators for add field value
+    @FindBy(xpath = "(//button[normalize-space()='ADD FIELD VALUE'])[1]")
+    WebElement AddFieldValueButton;
+
+    @FindBy(xpath = "(//input[@placeholder='Enter option value'])[1]")
+    WebElement EnterFieldValue;
+
+    @FindBy(xpath ="(//input[@title='Set as default'])[1]")
+    WebElement DefaultButton;
+
+    @FindBy(xpath = "(//i[@class='fa-solid fa-trash'])[6]")
+    WebElement deleteButton;
 
     //Actions
 
@@ -110,6 +139,67 @@ public class OtherTabPage extends BasePage
     public void closeButtonInsideActionEditButton()
     {
         CloseActionEditButton.click();
+    }
+
+    //Action for Add cutome Fields
+
+    public void EnterFieldName(String name) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(FieldNAme));
+
+        FieldNAme.clear();
+        FieldNAme.sendKeys(name);
+    }
+
+    public void SelectDataType(String value) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(DataType));
+        Select dropdown = new Select(DataType);
+        dropdown.selectByVisibleText(value);
+    }
+
+    public void clickCreateFieldButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(CreateField));
+        CreateField.click();
+    }
+
+    public void clickCloseButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(Cancelbutton));
+        Cancelbutton.click();
+    }
+
+
+    //Action for add field value
+
+    public void clickOnAddfieldValueButton()
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(AddFieldValueButton));
+        AddFieldValueButton.click();
+    }
+
+    public void EnterField(String name) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(EnterFieldValue));
+
+        EnterFieldValue.clear();
+        EnterFieldValue.sendKeys(name);
+    }
+
+    public void clickOnDefault()
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(DefaultButton));
+        DefaultButton.click();
+    }
+
+    public void clickOnDelete()
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+        deleteButton.click();
     }
 
 }
