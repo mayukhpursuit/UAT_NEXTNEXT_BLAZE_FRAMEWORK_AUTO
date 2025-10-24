@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="classes">
     <listeners>
         <listener class-name="utils.ExtentReportManager"/>
         <listener class-name="utils.ExtentSuiteListener"/>
@@ -30,7 +30,7 @@
         </packages>
     </test>
 
-    <test verbose="2" preserve-order="true" name="Execute  Test ">
+    <test verbose="2" preserve-order="true" name="Execute Test ">
         <parameter name="browser" value="${browser}"/>
         <parameter name="mode" value="${mode}"/>
         <packages>
