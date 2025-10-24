@@ -12,10 +12,10 @@ public class OtherTabAutomation extends BaseClass {
     public OtherTabAutomation() {
         super();
     }
-
-    @Test(retryAnalyzer = RetryAnalyzer.class)
-    // @Test(dataProvider = "Demo1", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void runOtherTabAutomation() throws InterruptedException {
+    @Test(dataProvider = "Demo1", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void runOtherTabAutomation(
+            String editrow
+    ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
@@ -28,6 +28,13 @@ public class OtherTabAutomation extends BaseClass {
             OtherTabPage otherTabPage = new OtherTabPage(getDriver());
             otherTabPage.clickModule();
             logger.info("clicked on Modules");
+
+//            otherTabPage.clickOnEdit(editrow);
+//            logger.info("clicked on edit row:"+editrow);
+
+            otherTabPage.deleteButtonForRow(editrow);
+            logger.info("clicked on delete row:"+editrow);
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

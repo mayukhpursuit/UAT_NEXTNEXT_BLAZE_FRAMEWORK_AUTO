@@ -1,6 +1,7 @@
 package pageObjects.Settings;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -137,14 +138,21 @@ public class OtherTabPage extends BasePage {
     }
 
     public WebElement editButtonForRow(String rowName) {
-        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']";
+        String xpath = "//div[@id='partialTestCaseContainer']//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='"
+                + rowName + "']]//i[contains(@class,'fa-pencil')]";
         return driver.findElement(By.xpath(xpath));
     }
 
+
+
+
     public WebElement deleteButtonForRow(String rowName) {
-        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
+        String xpath = "//div[@id='partialTestCaseContainer']" +
+                "//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='" + rowName + "']]" +
+                "//i[contains(@class,'fa-trash')]";
         return driver.findElement(By.xpath(xpath));
     }
+
 
     public void clickOnAddGlobalField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -175,10 +183,12 @@ public class OtherTabPage extends BasePage {
     }
 
     public void clickOnEdit(String rowName) {
-        WebElement editBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(editButtonForRow(rowName)));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editButtonForRow(rowName)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
         editBtn.click();
     }
+
 
     public void clickOnDelete(String rowName) {
         WebElement deleteBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
