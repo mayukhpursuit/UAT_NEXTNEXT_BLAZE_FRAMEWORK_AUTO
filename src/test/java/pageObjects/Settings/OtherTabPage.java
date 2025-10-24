@@ -3,114 +3,253 @@ package pageObjects.Settings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
-import javax.swing.*;
+import java.time.Duration;
 
-public class OtherTabPage extends BasePage
-{
-    public OtherTabPage(WebDriver driver)
-    {
+public class OtherTabPage extends BasePage {
+
+    public OtherTabPage(WebDriver driver) {
         super(driver);
-    }
-    //Locators
-
-    @FindBy(xpath = "(//img[@class='fields-img-2'])[1]")
-    WebElement buttonAddCustomField;
-
-    @FindBy(xpath = "(//button[@class='fields-button-secondary'])[1]")
-    WebElement buttonSaveChanges;
-
-    @FindBy(xpath = "(//button[@class='fields-button-secondary'])[2]")
-    WebElement buttonSelectAll;
-
-    @FindBy(xpath = "(//button[@class='fields-button-secondary'])[3]")
-    WebElement buttonClearAll;
-
-    @FindBy(xpath = "(//button[@class='fields-button-secondary'])[4]")
-    WebElement buttonReset;
-
-    public WebElement showInGridCheckbox(String rowName) {
-        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//input[@type='checkbox']";
-        return driver.findElement(By.xpath(xpath));
+        PageFactory.initElements(driver, this);
     }
 
-    public WebElement editFieldButtonInsideAction(String rowName) {
-        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']";
-        return driver.findElement(By.xpath(xpath));
+    // ----------------------------- Diff Tab locators ---------------------------------------------
+    @FindBy(xpath = "//div[@class='releases active']")
+    WebElement globalFieldSetting;
+
+    @FindBy(xpath = "//div[@class='releases '][normalize-space()='Module']")
+    WebElement module;
+
+    @FindBy(xpath = "//div[normalize-space()='Requirement']")
+    WebElement requirement;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')][normalize-space()='Test Case']")
+    WebElement testCase;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')][normalize-space()='Test Step']")
+    WebElement testStep;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')][normalize-space()='Test Cycle']")
+    WebElement testCycle;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')][normalize-space()='Test Suite']")
+    WebElement testSuite;
+
+    @FindBy(xpath = "//div[contains(@class,'releases')][normalize-space()='Test Runs']")
+    WebElement testRuns;
+
+    @FindBy(xpath = "//div[normalize-space()='Defect']")
+    WebElement defect;
+
+    // ----------------------------- Diff Tab actions ---------------------------------------------
+    public void clickGlobalFieldSetting() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(globalFieldSetting)).click();
     }
 
-    public WebElement deleteFieldButtonInsideAction(String rowName) {
-        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
-        return driver.findElement(By.xpath(xpath));
+    public void clickModule() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(module)).click();
     }
 
-
-    @FindBy(xpath = "(//button[@type='button'])[3]")
-    WebElement SaveChangesButtonInsideActionEdit;
-
-    @FindBy(xpath = "(//button[normalize-space()='CLOSE'])[1]")
-    WebElement CloseActionEditButton;
-
-
-
-    //Actions
-
-    public void clickAddCustomField()
-    {
-        buttonAddCustomField.click();
+    public void clickRequirement() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(requirement)).click();
     }
 
-    public void clickSaveChanges()
-    {
-        buttonSaveChanges.click();
+    public void clickTestCase() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(testCase)).click();
     }
 
-    public void clickSelectALlButton()
-    {
-        buttonSelectAll.click();
+    public void clickTestStep() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(testStep)).click();
     }
 
-    public void clickClearAll()
-    {
-        buttonClearAll.click();
+    public void clickTestCycle() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(testCycle)).click();
     }
 
-    public void clickReset()
-    {
-        buttonReset.click();
+    public void clickTestSuite() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(testSuite)).click();
     }
 
-    public void clickShowInGridCheckbox(String fieldName) {
-        Actions actions = new Actions(driver);
-        WebElement checkbox = showInGridCheckbox(fieldName);
-        actions.moveToElement(checkbox).perform();
-        checkbox.click();
+    public void clickTestRuns() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(testRuns)).click();
     }
 
-    public void clickEditFieldInAction(String fieldName)
-    {
-        WebElement editButton = editFieldButtonInsideAction(fieldName);
-        editButton.click();
+    public void clickDefect() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(defect)).click();
     }
 
-    public void clickDeleteFieldInAction(String fieldName)
-    {
-        WebElement deleteButton = deleteFieldButtonInsideAction(fieldName);
-        deleteButton.click();
+    // ----------------------------- Common tab locators ------------------------------------------
+    @FindBy(xpath = "//button[@id='createRequirementButton']")
+    WebElement addCustomField;
+
+    @FindBy(xpath = "//div[@class='bulk-actions-container']//button[1]")
+    WebElement saveChangesButton;
+
+    @FindBy(xpath = "//span[normalize-space()='SELECT ALL']")
+    WebElement selectAllButton;
+
+    @FindBy(xpath = "//span[normalize-space()='CLEAR ALL']")
+    WebElement clearAllButton;
+
+    @FindBy(xpath = "//span[normalize-space()='RESET']")
+    WebElement resetButton;
+
+    @FindBy(xpath = "//button[normalize-space()='ADD DEFAULT VALUE']")
+    WebElement editDefaultValueButton;
+
+    @FindBy(xpath = "//button[normalize-space()='CLOSE']")
+    WebElement editCloseButton;
+
+    @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
+    WebElement editSaveChangesButton;
+
+    @FindBy(xpath = "//input[@placeholder='Enter default value']")
+    WebElement editFillDefaultValue;
+
+    @FindBy(xpath = "//div[@title='Remove default value']//i[@class='fa-solid fa-trash']")
+    WebElement editDefaultDeleteIcon;
+
+    // ----------------------------- Common tab actions -------------------------------------------
+    public void clickOnSaveChanges() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(saveChangesButton)).click();
     }
 
-    public void saveChangesButtonInsideActionEditButton()
-    {
-        SaveChangesButtonInsideActionEdit.click();
+    public WebElement checkboxForRow(String rowName) {
+        return driver.findElement(By.xpath(
+                "//p[normalize-space()='" + rowName + "']/../../..//input[@type='checkbox']"
+        ));
     }
 
-    public void closeButtonInsideActionEditButton()
-    {
-        CloseActionEditButton.click();
+    public WebElement editButtonForRow(String rowName) {
+        return driver.findElement(By.xpath(
+                "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']"
+        ));
     }
 
+    public WebElement deleteButtonForRow(String rowName) {
+        return driver.findElement(By.xpath(
+                "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']"
+        ));
+    }
+
+    public void clickOnAddGlobalField() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(addCustomField)).click();
+    }
+
+    public void clickOnSelectAll() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(selectAllButton)).click();
+    }
+
+    public void clickOnClearAll() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(clearAllButton)).click();
+    }
+
+    public void clickOnReset() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(resetButton)).click();
+    }
+
+    public void clickOnCheckbox(String rowName) {
+        WebElement checkbox = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(checkboxForRow(rowName)));
+        if (!checkbox.isSelected()) {
+            checkbox.click();
+        }
+    }
+
+    public void clickOnEdit(String rowName) {
+        WebElement editBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(editButtonForRow(rowName)));
+        editBtn.click();
+    }
+
+    public void clickOnDelete(String rowName) {
+        WebElement deleteBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(deleteButtonForRow(rowName)));
+        deleteBtn.click();
+    }
+
+    public void clickDefaultAddValue() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(editDefaultValueButton)).click();
+    }
+
+    public void clickDefaultCloseButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(editCloseButton)).click();
+    }
+
+    public void clickDefaultSaveChanges() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(editSaveChangesButton)).click();
+    }
+
+    public void enterDefaultValue(String value) {
+        WebElement input = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(editFillDefaultValue));
+        input.clear();
+        input.sendKeys(value);
+    }
+
+    public void clickDefaultDeleteIcon() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(editDefaultDeleteIcon)).click();
+    }
+
+    // ----------------------------- Add Custom Field locators ------------------------------------
+    @FindBy(xpath = "//input[@placeholder='Enter field name (e.g., Priority, Category)']")
+    WebElement createCustomFieldName;
+
+    @FindBy(xpath = "//span[normalize-space()='CREATE FIELD']")
+    WebElement createCustomFieldButton;
+
+    @FindBy(xpath = "//button[normalize-space()='CANCEL']")
+    WebElement createCustomCancelButton;
+
+    @FindBy(xpath = "//select[@class='assignToDropdown testcase-text-wrapper-15 testcase-select']")
+    WebElement createCustomDataTypeDropdown;
+
+    // ----------------------------- Add Custom Field actions -------------------------------------
+    public void createCustomEnterFieldName(String fieldName) {
+        WebElement input = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(createCustomFieldName));
+        input.clear();
+        input.sendKeys(fieldName);
+    }
+
+    public void createCustomSelectDataType(String value) {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(createCustomDataTypeDropdown));
+        Select dropdown = new Select(createCustomDataTypeDropdown);
+        dropdown.selectByVisibleText(value);
+    }
+
+    public void createCustomClickFieldButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(createCustomFieldButton)).click();
+    }
+
+    public void createCustomClickCancelButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(createCustomCancelButton)).click();
+    }
 }
-
