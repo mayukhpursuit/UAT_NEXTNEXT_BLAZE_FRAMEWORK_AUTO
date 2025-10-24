@@ -3,8 +3,8 @@ package pageObjects.Settings;
 import org.openqa.selenium.WebDriver;
 import pageObjects.BasePage;
 
-public class AddCustomFieldPage extends BasePage {
-    public AddCustomFieldPage(WebDriver driver) {
+public class GlobalTabPage extends BasePage {
+    public GlobalTabPage(WebDriver driver) {
         super(driver);
     }
     //locators

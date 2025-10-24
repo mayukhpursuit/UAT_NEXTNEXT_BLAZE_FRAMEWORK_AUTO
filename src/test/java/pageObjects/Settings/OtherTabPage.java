@@ -3,13 +3,12 @@ package pageObjects.Settings;
 import org.openqa.selenium.WebDriver;
 import pageObjects.BasePage;
 
-public class IndividualTabsForSettings extends BasePage {
-    public IndividualTabsForSettings(WebDriver driver) {
+public class OtherTabPage extends BasePage {
+    public OtherTabPage(WebDriver driver) {
         super(driver);
     }
-    // locators
+    //Locators
 
     //Actions
-
 
 }
