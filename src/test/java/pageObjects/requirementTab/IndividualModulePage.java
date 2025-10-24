@@ -12,9 +12,11 @@ import javax.swing.*;
 import java.time.Duration;
 import java.util.List;
 
-public class IndividualModulePage extends BasePage {
+public class IndividualModulePage extends BasePage
+{
 
-    public IndividualModulePage(WebDriver driver){
+    public IndividualModulePage(WebDriver driver)
+    {
         super(driver);
     }
 
