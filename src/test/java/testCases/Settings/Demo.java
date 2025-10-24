@@ -22,7 +22,8 @@ public class Demo extends BaseClass {
             String editrow,
             String editvalue,
             String settingrow,
-            String manobj
+            String manobj,
+            String manoj1
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -85,7 +86,14 @@ public class Demo extends BaseClass {
             logger.info("clicked on setting icon of row:"+settingrow);
 
             globalTabPage.clickAddButtonForObjectType(manobj);
-            logger.info("clicked on Manage object type:"+manobj);
+            logger.info("clicked on add button of Manage object type:"+manobj);
+
+            globalTabPage.clickRemoveButtonForObjectType(manoj1);
+            logger.info("clicked on remove button of Manage object type:"+manoj1);
+
+            globalTabPage.ClickCloseButton();
+            logger.info("clicked on close button");
+
 
         }
         catch (AssertionError e) {
