@@ -206,7 +206,7 @@ public class GlobalTabPage extends BasePage {
     @FindBy(xpath = "//button[@type='button'][normalize-space()='Remove']")
     WebElement RemoveButton;
 
-    @FindBy(xpath = "//button[@type='button'][normalize-space()='CLOSE']")
+    @FindBy(xpath = "//form[@id='manageObjectTypesForm']//button[@type='button'][normalize-space()='CLOSE']")
     WebElement closeButton;
 
 
