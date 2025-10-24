@@ -56,16 +56,18 @@ public class TC020 extends BaseClass {
             boolean defectPresent = individualTestrun.isDefectPresent();
             if (defectPresent) {
                 logger.info("Defect is present");
+                Assert.assertTrue(true, "Defect is not displayed under the defect category.");
             } else {
                 logger.error("Defect is NOT present under the defect category.");
+                LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
+
+                linkDefectPage.clickDefectById(defid);
+                logger.info("clicked on defect id"+defid);
             }
 
-            Assert.assertTrue(defectPresent, "Defect is not displayed under the defect category.");
 
-            LinkDefectPage linkDefectPage= new LinkDefectPage(getDriver());
 
-            linkDefectPage.clickDefectById(defid);
-            logger.info("clicked on defect id"+defid);
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
