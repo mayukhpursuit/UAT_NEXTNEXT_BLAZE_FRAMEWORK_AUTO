@@ -46,7 +46,7 @@ public class Demo extends BaseClass {
             globalTabPage.SelectDataType(Datatype);
             logger.info("select data type"+Datatype);
 
-           globalTabPage.ClickObjectTypeCheckbox(checkboxLabel);
+           globalTabPage.clickObjectTypeCheckbox(checkboxLabel);
             logger.info("select data type"+checkboxLabel);
 
             globalTabPage.clickonSaveButton();

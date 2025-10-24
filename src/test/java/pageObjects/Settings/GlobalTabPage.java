@@ -167,18 +167,19 @@ public class GlobalTabPage extends BasePage {
         dropdown.selectByVisibleText(value);
     }
 
-    public void ClickObjectTypeCheckbox(String checkboxLabel) {
+    public void clickObjectTypeCheckbox(String checkboxLabel) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(ObjectTypes));
-
-        WebElement checkbox = ObjectTypes.findElement(By.xpath(
-                "//label[normalize-space()='checkboxLabel']"
+        String xpath = ".//label[contains(normalize-space(.),'" + checkboxLabel + "')]//input[@type='checkbox']";
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
+                ObjectTypes.findElement(By.xpath(xpath))
         ));
-        wait.until(ExpectedConditions.elementToBeClickable(checkbox));
         if (!checkbox.isSelected()) {
             checkbox.click();
         }
     }
+
+
 
     public void clickSaveButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
