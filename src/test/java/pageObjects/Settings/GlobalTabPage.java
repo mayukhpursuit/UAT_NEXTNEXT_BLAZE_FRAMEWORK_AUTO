@@ -1,6 +1,7 @@
 package pageObjects.Settings;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -142,8 +143,9 @@ public class GlobalTabPage extends BasePage {
     @FindBy(xpath = "//div[@class='global-fields-object-types-checkboxes']")
     WebElement ObjectTypes;
 
-    @FindBy(xpath = "//form[@id='createGlobalFieldForm']//button[@type='button'][normalize-space()='SAVE']")
+    @FindBy(xpath = "(//button[@type='button'][normalize-space()='SAVE'])[1]")
     WebElement Savebutton;
+
 
     @FindBy(xpath = "//form[@id='createGlobalFieldForm']//button[@type='button'][normalize-space()='CLOSE']")
     WebElement CloseButton;
@@ -181,11 +183,14 @@ public class GlobalTabPage extends BasePage {
 
 
 
-    public void clickSaveButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(Savebutton));
+    public void clickSaveButton() throws InterruptedException {
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        Thread.sleep(3000);
         Savebutton.click();
     }
+
+
+
 
     public void clickCloseButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
