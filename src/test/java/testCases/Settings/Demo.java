@@ -21,7 +21,7 @@ public class Demo extends BaseClass {
             String checkboxLabel2,
             String editrow,
             String editvalue,
-            String deleterow
+            String settingrow,
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
@@ -77,8 +77,11 @@ public class Demo extends BaseClass {
             globalTabPage.clickonCloseButton();
             logger.info("Clicked on close button");
 
-            globalTabPage.clickonDelete(deleterow);
-            logger.info("clicked on delete icon of row:"+deleterow);
+//            globalTabPage.clickonDelete(deleterow);
+//            logger.info("clicked on delete icon of row:"+deleterow);
+
+            globalTabPage.clickonSettings(settingrow);
+            logger.info("clicked on setting icon of row:"+settingrow);
 
 
         }

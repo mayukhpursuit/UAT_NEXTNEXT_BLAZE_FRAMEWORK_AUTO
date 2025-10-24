@@ -47,9 +47,8 @@ public class GlobalTabPage extends BasePage {
 
 
     public WebElement SettingsButtonForRow(String rowName) {
-        return driver.findElement(By.xpath(
-                "//p[normalize-space()='\"+rowName+\"']/../../..//i[@class='fa-solid fa-cog']"
-        ));
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-cog']";
+        return driver.findElement(By.xpath(xpath));
     }
 
 
