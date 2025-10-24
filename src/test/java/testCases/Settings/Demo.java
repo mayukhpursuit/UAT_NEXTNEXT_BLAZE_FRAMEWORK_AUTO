@@ -21,7 +21,7 @@ public class Demo extends BaseClass {
             String checkboxLabel2,
             String editrow,
             String editvalue,
-            String settingrow,
+            String settingrow
     ) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
