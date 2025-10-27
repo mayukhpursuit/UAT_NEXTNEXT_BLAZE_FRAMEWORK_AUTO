@@ -150,13 +150,9 @@ public class OtherTabPage extends BasePage {
     }
 
     public WebElement editButtonForRow(String rowName) {
-        String xpath = "//div[@id='partialTestCaseContainer']//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='"
-                + rowName + "']]//i[contains(@class,'fa-pencil')]";
+        String xpath = "//div[@id='partialTestCaseContainer']//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='"+rowName+"']]//i[contains(@class,'fa-pencil')]";
         return driver.findElement(By.xpath(xpath));
     }
-
-
-
 
     public WebElement deleteButtonForRow(String rowName) {
         String xpath = "//div[@id='partialTestCaseContainer']" +
