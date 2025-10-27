@@ -108,6 +108,9 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//button[@id='createRequirementButton']")
     WebElement addCustomField;
 
+    @FindBy(xpath = "//span[normalize-space()='CREATE FIELD']")
+    WebElement createfieldbutton;
+
     @FindBy(xpath = "//div[@class='bulk-actions-container']//button[1]")
     WebElement saveChangesButton;
 
@@ -261,9 +264,9 @@ public class OtherTabPage extends BasePage {
         dropdown.selectByVisibleText(value);
     }
 
-    public void createCustomClickFieldButton() {
+    public void clickcreatefieldButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(createCustomFieldButton)).click();
+                .until(ExpectedConditions.elementToBeClickable(createfieldbutton)).click();
     }
 
     public void createCustomClickCancelButton() {
