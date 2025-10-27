@@ -40,9 +40,8 @@ public class GlobalTabPage extends BasePage {
     WebElement ResetButton;
 
     public WebElement CheckboxForRow(String rowName) {
-        return driver.findElement(By.xpath(
-                "//p[normalize-space()='+rowName+']/../../..//input[@type='checkbox']"
-        ));
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//input[@type='checkbox']";
+        return driver.findElement(By.xpath(xpath));
     }
 
 
@@ -288,6 +287,7 @@ public class GlobalTabPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(deleteIcon)).click();
     }
+
 
 
 }

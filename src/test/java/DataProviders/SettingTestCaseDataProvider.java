@@ -15,4 +15,14 @@ public class SettingTestCaseDataProvider {
     public static String[][] getDataTC002() throws IOException {
         return ExcelDataProviders.getExcelDataForSettingTestCase("Demo1");
     }
+
+    @DataProvider(name="tc005")
+    public static String[][] getDataTC005() throws IOException {
+        return ExcelDataProviders.getExcelDataForSettingTestCase("tc005");
+    }
+
+    @DataProvider(name="tc006")
+    public static String[][] getDataTC006() throws IOException {
+        return ExcelDataProviders.getExcelDataForSettingTestCase("tc006");
+    }
 }

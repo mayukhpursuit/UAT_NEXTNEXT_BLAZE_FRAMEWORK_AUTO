@@ -12,7 +12,7 @@
         <classes>
 
 <!--        <class name="testCases.Settings.GlobalAutomation"/>-->
-            <class name="testCases.Settings.OtherTabAutomation"/>
+            <class name="testCases.Settings.TC006"/>
         </classes>
 <!--        <packages>-->
 <!--            <package name="testCases.Settings"/>-->
