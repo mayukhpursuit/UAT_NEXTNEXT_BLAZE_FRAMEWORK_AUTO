@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
+
 import java.time.Duration;
 
 public class OtherTabPage extends BasePage {
@@ -51,11 +52,22 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//div[normalize-space()='Defect']")
     WebElement defect;
 
+    @FindBy(xpath = "(//button[@id='confirmBtn'])[1]")
+    WebElement confirmationOnDefaultFieldDelete;
+
+    @FindBy(xpath = "(//button[@id='confirmBtn'])[1]")
+    WebElement confirmationOnDefaultFieldDelete;
+
     // ----------------------------- Diff Tab actions
     // ---------------------------------------------
     public void clickGlobalFieldSetting() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(globalFieldSetting)).click();
+    }
+
+    public void clickYesDefaultValueDelete()
+    {
+        confirmationOnDefaultFieldDelete.click();
     }
 
     public void clickModule() {
@@ -206,6 +218,10 @@ public class OtherTabPage extends BasePage {
                 .until(ExpectedConditions.elementToBeClickable(selectAllButton)).click();
     }
 
+    public void clickEdit(String rowName)
+    {
+        editCloseButton.click();
+    }
     public void clickOnClearAll() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(clearAllButton)).click();
@@ -316,5 +332,5 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(createCustomCancelButton)).click();
     }
-
+>>>>>>>>> Temporary merge branch 2
 }
