@@ -200,6 +200,7 @@ public class OtherTabPage extends BasePage {
     public void clickYesDefaultValueDelete()
     {
         ConfirmationOfDefaultValueDelete.click();
+
     }
 
     public void clickOnEdit(String rowName) {
