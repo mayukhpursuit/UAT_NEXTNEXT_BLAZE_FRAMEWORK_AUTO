@@ -39,7 +39,7 @@ public class TC010 extends BaseClass {
             otherTab.enterDefaultValue(value);
             logger.info("entered default value"+value);
 
-            otherTab.clickOnSaveChanges();
+            otherTab.clickDefaultSaveChanges();
             logger.info("clicked on save changes");
 
 
