@@ -10,8 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
 
+import javax.swing.*;
+import java.time.Duration;
 import java.time.Duration;
 
 public class OtherTabPage extends BasePage {
@@ -159,8 +164,8 @@ public class OtherTabPage extends BasePage {
         return driver.findElement(By.xpath(xpath));
     }
 
-    public WebElement deleteButtonForRow(String rowName) {
-        String xpath = "//p[normalize-space(text())='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
+    public WebElement deleteFieldButtonInsideAction(String rowName) {
+        String xpath = "//p[normalize-space()='" + rowName + "']/../../..//i[@class='fa-solid fa-trash']";
         return driver.findElement(By.xpath(xpath));
     }
 
@@ -168,6 +173,44 @@ public class OtherTabPage extends BasePage {
     public void clickOnAddCustomField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(addCustomField)).click();
+    @FindBy(xpath = "(//button[@type='button'])[3]")
+    WebElement SaveChangesButtonInsideActionEdit;
+
+    @FindBy(xpath = "(//button[normalize-space()='CLOSE'])[1]")
+    WebElement CloseActionEditButton;
+
+    //locators for Add custome Fields
+
+    @FindBy(xpath = "(//input[@placeholder='Enter field name (e.g., Priority, Category)'])[1]")
+    WebElement FieldNAme;
+
+    @FindBy(xpath = "(//select[@class='assignToDropdown testcase-text-wrapper-15 testcase-select'])[1]")
+    WebElement DataType;
+
+    @FindBy(xpath = "(//button[@type='button'])[1]")
+    WebElement CreateField;
+
+    @FindBy(xpath = "(//button[normalize-space()='CANCEL'])[1]")
+    WebElement Cancelbutton;
+
+    //Locators for add field value
+    @FindBy(xpath = "(//button[normalize-space()='ADD FIELD VALUE'])[1]")
+    WebElement AddFieldValueButton;
+
+    @FindBy(xpath = "(//input[@placeholder='Enter option value'])[1]")
+    WebElement EnterFieldValue;
+
+    @FindBy(xpath ="(//input[@title='Set as default'])[1]")
+    WebElement DefaultButton;
+
+    @FindBy(xpath = "(//i[@class='fa-solid fa-trash'])[6]")
+    WebElement deleteButton;
+
+    //Actions
+
+    public void clickAddCustomField()
+    {
+        buttonAddCustomField.click();
     }
 
     public void clickOnSelectAll() {
