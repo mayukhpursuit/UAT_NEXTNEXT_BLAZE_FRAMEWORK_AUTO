@@ -8,14 +8,14 @@
 
     <test verbose="2" preserve-order="true" name="Setting Suite">
         <parameter name="browser" value="chrome"/>
-        <parameter name="mode" value="headed"/>
+        <parameter name="mode" value="headles"/>
         <classes>
 <!--        <class name="testCases.Settings.GlobalAutomation"/>-->
 <!--            <class name="testCases.Settings.OtherTabAutomation"/>-->
 <!--            <class name="testCases.Settings.TC001"/>-->
 <!--            <class name="testCases.Settings.TC002"/>-->
 <!--            <class name="testCases.Settings.TC009"/>-->
-            <class name="testCases.Settings.TC010"/>
+            <class name="testCases.Settings.TC013"/>
         </classes>
 <!--        <packages>-->
 <!--            <package name="testCases.Settings"/>-->
