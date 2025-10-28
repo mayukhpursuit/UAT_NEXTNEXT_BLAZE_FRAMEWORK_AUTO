@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -192,15 +193,30 @@ public class OtherTabPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editButtonForRow(rowName)));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
-        editBtn.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(editBtn).perform();
+        try {
+            editBtn.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", editBtn);
+        }
     }
+
 
 
     public void clickOnDelete(String rowName) {
-        WebElement deleteBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(deleteButtonForRow(rowName)));
-        deleteBtn.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteButtonForRow(rowName)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(deleteBtn).perform();
+        try {
+            deleteBtn.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deleteBtn);
+        }
     }
+
 
     public void clickDefaultAddValue() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
