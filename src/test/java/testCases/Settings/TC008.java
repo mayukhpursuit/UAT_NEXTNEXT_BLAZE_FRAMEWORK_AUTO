@@ -1,20 +1,17 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
-import utils.RetryAnalyzer;
 
-public class TC010 extends BaseClass {
-    @Test(dataProvider = "tc009", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_Module_Tab(
-            String fieldName,
-            String value
+public class TC008 extends BaseClass {
+    @Test
+    public void Verify_that_user_is_able_to_select_Module_Tab(
+
     ) throws InterruptedException {
 
-        logger.info("****** Starting the TC010: Verify that user is able to create a Custom Field inside Module Tab *****************");
+        logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
 
         try {
             login();
@@ -28,19 +25,6 @@ public class TC010 extends BaseClass {
 
             otherTab.clickModule();
             logger.info("Navigated to Module tab");
-
-
-            otherTab.clickOnEdit(fieldName);
-            logger.info("clicked on edit row:"+fieldName);
-
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
-
-            otherTab.enterDefaultValue(value);
-            logger.info("entered default value"+value);
-
-            otherTab.clickDefaultSaveChanges();
-            logger.info("clicked on save changes");
 
 
         } catch (AssertionError e) {
