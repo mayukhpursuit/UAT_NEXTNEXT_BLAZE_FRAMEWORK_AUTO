@@ -33,7 +33,6 @@ public class TC013 extends BaseClass {
             globalTab.clickonClearAll();
             logger.info("Clicked on Clear All Button");
             Thread.sleep(3000);
-
         }
         catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
