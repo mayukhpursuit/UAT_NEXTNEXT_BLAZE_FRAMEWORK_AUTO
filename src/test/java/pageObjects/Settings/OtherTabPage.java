@@ -155,9 +155,7 @@ public class OtherTabPage extends BasePage {
     }
 
     public WebElement deleteButtonForRow(String rowName) {
-        String xpath = "//div[@id='partialTestCaseContainer']" +
-                "//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='" + rowName + "']]" +
-                "//i[contains(@class,'fa-trash')]";
+        String xpath = "//p[normalize-space(text())='\" + rowName + \"']/../../..//i[@class='fa-solid fa-trash']";
         return driver.findElement(By.xpath(xpath));
     }
 
