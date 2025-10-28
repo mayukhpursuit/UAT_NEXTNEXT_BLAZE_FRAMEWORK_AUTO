@@ -1,4 +1,4 @@
-package testCases.Settings;
+package testCases.demo;
 
 import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;

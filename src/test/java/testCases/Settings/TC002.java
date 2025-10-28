@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC002 extends BaseClass {
-    @Test(dataProvider = "TC002", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc002", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void Verify_that_user_is_able_to_create_a_Global_Custom_Field(
             String fieldName,
             String textBox,
