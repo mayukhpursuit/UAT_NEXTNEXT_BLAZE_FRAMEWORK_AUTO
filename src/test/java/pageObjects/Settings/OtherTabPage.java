@@ -17,7 +17,6 @@ public class OtherTabPage extends BasePage {
 
     public OtherTabPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     // ----------------------------- Diff Tab locators ---------------------------------------------
