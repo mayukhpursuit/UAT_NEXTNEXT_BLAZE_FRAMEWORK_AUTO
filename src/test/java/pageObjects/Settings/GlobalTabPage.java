@@ -316,5 +316,42 @@ public class GlobalTabPage extends BasePage {
         }
     }
 
+    public void clickShowInGridCheckbox(String fieldName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+            String xpath = "//p[@class='global-fields-name-text' and normalize-space(text())='" + fieldName + "']"
+                    + "/ancestor::div[contains(@class,'global-fields-table-row')]"
+                    + "//div[@class='global-fields-cell-showingrid']//input[@type='checkbox']";
+
+            WebElement checkbox = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkbox);
+            wait.until(ExpectedConditions.elementToBeClickable(checkbox)).click();
+
+            System.out.println("Clicked on 'Show in Grid' checkbox for field: " + fieldName);
+        } catch (Exception e) {
+            System.out.println(
+                    "Unable to click on 'Show in Grid' checkbox for field: " + fieldName + " - " + e.getMessage());
+            throw e;
+        }
+    }
+
+    public boolean isShowInGridCheckboxSelected(String fieldName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            String xpath = "//td[contains(text(),'" + fieldName
+                    + "')]/following-sibling::td//div[@class='checkbox-wrapper']/input";
+            WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            boolean isSelected = checkbox.isSelected();
+            System.out.println("'Show in Grid' checkbox state for field '" + fieldName + "': "
+                    + (isSelected ? "Selected" : "Not Selected"));
+            return isSelected;
+        } catch (Exception e) {
+            System.out.println(
+                    "Unable to verify 'Show in Grid' checkbox for field: " + fieldName + " - " + e.getMessage());
+            return false;
+        }
+    }
 }
 
