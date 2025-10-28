@@ -14,7 +14,7 @@ public class TC010 extends BaseClass {
             String value
     ) throws InterruptedException {
 
-        logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
+        logger.info("****** Starting the TC010: Verify that user is able to create a Custom Field inside Module Tab *****************");
 
         try {
             login();
