@@ -138,6 +138,9 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//div[@title='Remove default value']//i[@class='fa-solid fa-trash']")
     WebElement editDefaultDeleteIcon;
 
+    @FindBy(xpath = "(//button[@id='confirmBtn'])[1]")
+    WebElement ConfirmationOfDefaultValueDelete;
+
     // ----------------------------- Common tab actions -------------------------------------------
     public void clickOnSaveChanges() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -187,6 +190,15 @@ public class OtherTabPage extends BasePage {
         if (!checkbox.isSelected()) {
             checkbox.click();
         }
+    }
+    public void clickEdit(String rowName)
+    {
+        editButtonForRow(rowName).click();
+    }
+
+    public void clickYesDefaultValueDelete()
+    {
+        ConfirmationOfDefaultValueDelete.click();
     }
 
     public void clickOnEdit(String rowName) {
@@ -244,6 +256,8 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(editDefaultDeleteIcon)).click();
     }
+
+
 
     // ----------------------------- Add Custom Field locators ------------------------------------
     @FindBy(xpath = "//input[@placeholder='Enter field name (e.g., Priority, Category)']")
