@@ -9,7 +9,7 @@ import utils.RetryAnalyzer;
 
 public class TC013 extends BaseClass {
     @Test()
-    public void Verify()
+    public void VerifySelectAllAndCLearAllButton()
             throws InterruptedException {
         logger.info("****** Starting the TC002 :  Verify that user is able to create a Global Custom Field.*****************");
         try {
@@ -26,7 +26,7 @@ public class TC013 extends BaseClass {
             logger.info("Navigated to Global Field Settings section");
 
             globalTab.clickonSelectAll();
-            logger.info("Clicked on Select All Button");
+            logger.info("Clicked on Select All Button ");
 
             Thread.sleep(3000);
 
