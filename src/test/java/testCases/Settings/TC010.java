@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC010 extends BaseClass {
-    @Test(dataProvider = "TC009", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc009", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_Module_Tab(
             String fieldName,
             String value
