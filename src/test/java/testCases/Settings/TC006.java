@@ -47,7 +47,6 @@ public class TC006 extends BaseClass {
             globalTab.clickSaveButton();
             logger.info("Clicked on Save button to add global field");
 
-            logger.info("***** Completed TC_VerifyAddGlobalField *****");
             globalTab.clickonCheckbox(rowName);
             logger.info("Clicked on checkbox for row: " + rowName);
 
