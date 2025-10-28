@@ -17,7 +17,7 @@ public class TC010 extends BaseClass
     ) throws InterruptedException
     {
 
-        logger.info("****** Starting the TC010*****************");
+        logger.info("****** Starting the TC010***************");
 
         try {
             login();

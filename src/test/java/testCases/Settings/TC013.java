@@ -11,7 +11,7 @@ public class TC013 extends BaseClass {
     @Test()
     public void VerifySelectAllAndCLearAllButton()
             throws InterruptedException {
-        logger.info("****** Starting the TC002 :  Verify that user is able to create a Global Custom Field.*****************");
+        logger.info("****** Starting the TC013*****************");
         try {
             login();
             logger.info("Logged in successfully");
