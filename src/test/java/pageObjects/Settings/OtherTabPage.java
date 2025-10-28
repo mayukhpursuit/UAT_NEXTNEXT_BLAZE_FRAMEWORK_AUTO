@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
-
 import java.time.Duration;
 
 public class OtherTabPage extends BasePage {
@@ -55,8 +54,7 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "(//button[@id='confirmBtn'])[1]")
     WebElement confirmationOnDefaultFieldDelete;
 
-    @FindBy(xpath = "(//button[@id='confirmBtn'])[1]")
-    WebElement confirmationOnDefaultFieldDelete;
+     
 
     // ----------------------------- Diff Tab actions
     // ---------------------------------------------
@@ -332,5 +330,4 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(createCustomCancelButton)).click();
     }
->>>>>>>>> Temporary merge branch 2
 }
