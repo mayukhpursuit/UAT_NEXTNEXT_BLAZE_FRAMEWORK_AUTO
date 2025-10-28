@@ -10,21 +10,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.BasePage;
-
 import java.time.Duration;
 
 public class OtherTabPage extends BasePage {
-import java.time.Duration;
 
     public OtherTabPage(WebDriver driver) {
         super(driver);
     }
 
-    // ----------------------------- Diff Tab locators ---------------------------------------------
+    // ----------------------------- Diff Tab locators
+    // ---------------------------------------------
     @FindBy(xpath = "//div[normalize-space()='Global Field Setting']")
     WebElement globalFieldSetting;
 
@@ -55,7 +51,8 @@ import java.time.Duration;
     @FindBy(xpath = "//div[normalize-space()='Defect']")
     WebElement defect;
 
-    // ----------------------------- Diff Tab actions ---------------------------------------------
+    // ----------------------------- Diff Tab actions
+    // ---------------------------------------------
     public void clickGlobalFieldSetting() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(globalFieldSetting)).click();
@@ -76,7 +73,6 @@ import java.time.Duration;
         WebElement releaseElement = wait.until(ExpectedConditions.elementToBeClickable(Release));
         releaseElement.click();
     }
-
 
     public void clickTestCase() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -108,7 +104,8 @@ import java.time.Duration;
                 .until(ExpectedConditions.elementToBeClickable(defect)).click();
     }
 
-    // ----------------------------- Common tab locators ------------------------------------------
+    // ----------------------------- Common tab locators
+    // ------------------------------------------
     @FindBy(xpath = "//button[@id='createRequirementButton']")
     WebElement addCustomField;
 
@@ -142,7 +139,8 @@ import java.time.Duration;
     @FindBy(xpath = "//div[@title='Remove default value']//i[@class='fa-solid fa-trash']")
     WebElement editDefaultDeleteIcon;
 
-    // ----------------------------- Common tab actions -------------------------------------------
+    // ----------------------------- Common tab actions
+    // -------------------------------------------
     public void clickOnSaveChanges() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(saveChangesButton)).click();
@@ -150,8 +148,7 @@ import java.time.Duration;
 
     public WebElement checkboxForRow(String rowName) {
         return driver.findElement(By.xpath(
-                "//p[normalize-space()='" + rowName + "']/../../..//input[@type='checkbox']"
-        ));
+                "//p[normalize-space()='" + rowName + "']/../../..//input[@type='checkbox']"));
     }
 
     public WebElement editButtonForRow(String rowName) {
@@ -164,14 +161,13 @@ import java.time.Duration;
         return driver.findElement(By.xpath(xpath));
     }
 
-
     @FindBy(xpath = "(//button[@type='button'])[3]")
     WebElement SaveChangesButtonInsideActionEdit;
 
     @FindBy(xpath = "(//button[normalize-space()='CLOSE'])[1]")
     WebElement CloseActionEditButton;
 
-    //locators for Add custome Fields
+    // locators for Add custome Fields
 
     @FindBy(xpath = "(//input[@placeholder='Enter field name (e.g., Priority, Category)'])[1]")
     WebElement FieldNAme;
@@ -185,24 +181,21 @@ import java.time.Duration;
     @FindBy(xpath = "(//button[normalize-space()='CANCEL'])[1]")
     WebElement Cancelbutton;
 
-    //Locators for add field value
+    // Locators for add field value
     @FindBy(xpath = "(//button[normalize-space()='ADD FIELD VALUE'])[1]")
     WebElement AddFieldValueButton;
 
     @FindBy(xpath = "(//input[@placeholder='Enter option value'])[1]")
     WebElement EnterFieldValue;
 
-    @FindBy(xpath ="(//input[@title='Set as default'])[1]")
+    @FindBy(xpath = "(//input[@title='Set as default'])[1]")
     WebElement DefaultButton;
 
     @FindBy(xpath = "(//i[@class='fa-solid fa-trash'])[6]")
     WebElement deleteButton;
 
-    //Actions
+    // Actions
 
-    public void clickAddCustomField()
-    {
-        buttonAddCustomField.click();
     public void clickOnAddCustomField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(addCustomField)).click();
@@ -244,8 +237,6 @@ import java.time.Duration;
         }
     }
 
-
-
     public void clickOnDelete(String rowName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteButtonForRow(rowName)));
@@ -258,7 +249,6 @@ import java.time.Duration;
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deleteBtn);
         }
     }
-
 
     public void clickDefaultAddValue() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -287,7 +277,8 @@ import java.time.Duration;
                 .until(ExpectedConditions.elementToBeClickable(editDefaultDeleteIcon)).click();
     }
 
-    // ----------------------------- Add Custom Field locators ------------------------------------
+    // ----------------------------- Add Custom Field locators
+    // ------------------------------------
     @FindBy(xpath = "//input[@placeholder='Enter field name (e.g., Priority, Category)']")
     WebElement createCustomFieldName;
 
@@ -300,7 +291,8 @@ import java.time.Duration;
     @FindBy(xpath = "//select[@class='assignToDropdown testcase-text-wrapper-15 testcase-select']")
     WebElement createCustomDataTypeDropdown;
 
-    // ----------------------------- Add Custom Field actions -------------------------------------
+    // ----------------------------- Add Custom Field actions
+    // -------------------------------------
     public void createCustomEnterFieldName(String fieldName) {
         WebElement input = new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOf(createCustomFieldName));
@@ -326,4 +318,3 @@ import java.time.Duration;
     }
 
 }
-
