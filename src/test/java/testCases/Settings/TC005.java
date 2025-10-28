@@ -12,7 +12,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC005 extends BaseClass {
-    @Test(dataProvider = "tc005", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc005", dataProviderClass = SettingTestCaseDataProvider.class)
     public void verifyProjectSelectionFromDropdown(String fieldName,
                                                    String textBox,
                                                    String objType1,String objType2,String fieldName2) throws InterruptedException {
@@ -49,11 +49,8 @@ public class TC005 extends BaseClass {
             globalTab.clickSaveButton();
             logger.info("Clicked on Save button to add global field");
 
-            logger.info("***** Completed TC_VerifyAddGlobalField *****");
-
-            WebElement deleteBtn = globalTab.DeleteButtonForRow(fieldName2);
-            deleteBtn.click();
-            logger.info("Clicked Delete icon for the field: " + fieldName);
+            globalTab.clickonDelete(fieldName2);
+            logger.info("Clicked Delete icon for the field: " + fieldName2);
 
 
 
