@@ -288,7 +288,33 @@ public class GlobalTabPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(deleteIcon)).click();
     }
 
+    public boolean verifySuccessNotification(String expectedMessage) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//div[@id='notification' and contains(@class,'notification')]")));
 
+            String actualText = notification.getText().trim();
+            System.out.println("Notification Text Found: " + actualText);
+            return actualText.toLowerCase().contains(expectedMessage.toLowerCase());
+        } catch (Exception e) {
+            System.out.println("Notification not found: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean verifyManageObjectTypesDashboard(String expectedTitle) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+            String xpath = "//div[contains(@class, 'global-fields-modal-header')]/h3[contains(normalize-space(), '"
+                    + expectedTitle + "')]";
+            WebElement dashboardHeader = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            return dashboardHeader.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }
 
