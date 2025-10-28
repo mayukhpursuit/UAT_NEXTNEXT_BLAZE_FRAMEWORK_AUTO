@@ -126,6 +126,7 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='ADD DEFAULT VALUE']")
     WebElement editDefaultValueButton;
 
+
     @FindBy(xpath = "//button[normalize-space()='CLOSE']")
     WebElement editCloseButton;
 
