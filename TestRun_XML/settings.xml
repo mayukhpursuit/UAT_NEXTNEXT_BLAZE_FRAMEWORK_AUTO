@@ -15,6 +15,7 @@
 <!--            <class name="testCases.Settings.TC001"/>-->
 <!--            <class name="testCases.Settings.TC002"/>-->
 <!--            <class name="testCases.Settings.TC009"/>-->
+<!--            <class name="testCases.Settings.TC010"/>-->
             <class name="testCases.Settings.TC010"/>
         </classes>
 <!--        <packages>-->

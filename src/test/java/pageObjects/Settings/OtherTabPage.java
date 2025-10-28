@@ -150,11 +150,13 @@ public class OtherTabPage extends BasePage {
     }
 
     public WebElement editButtonForRow(String rowName) {
-        String xpath = "//div[@id='partialTestCaseContainer']"+
-        "//div[contains(@class,'fields-testlistrow') and .//*[normalize-space(text())='"+rowName+"']]"+
-        "//i[contains(@class,'fa-pencil')]";
-        return driver.findElement(By.xpath(xpath));
+        String xpath = "//p[normalize-space(text())='" + rowName + "']/../../..//i[@class='fa-solid fa-pencil']";
+        WebElement element = driver.findElement(By.xpath(xpath));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        return element;
     }
+
+
 
     public WebElement deleteButtonForRow(String rowName) {
         String xpath = "//div[@id='partialTestCaseContainer']" +
@@ -198,6 +200,7 @@ public class OtherTabPage extends BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
         editBtn.click();
     }
+
 
 
     public void clickOnDelete(String rowName) {
