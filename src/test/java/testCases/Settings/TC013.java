@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC013 extends BaseClass {
-    @Test()
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void VerifySelectAllAndCLearAllButton()
             throws InterruptedException {
         logger.info("****** Starting the TC002 :  Verify that user is able to create a Global Custom Field.*****************");
