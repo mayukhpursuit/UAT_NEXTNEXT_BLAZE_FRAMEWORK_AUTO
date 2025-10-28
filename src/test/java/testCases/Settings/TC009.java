@@ -40,7 +40,7 @@ public class TC009 extends BaseClass {
             logger.info("Selected Custom Field Type: " + fieldtype);
 
             otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button.............");
+            logger.info("clicked on create field button#");
 
 
         } catch (AssertionError e) {
