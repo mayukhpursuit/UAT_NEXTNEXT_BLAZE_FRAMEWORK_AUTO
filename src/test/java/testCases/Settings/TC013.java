@@ -24,7 +24,7 @@ public class TC013 extends BaseClass {
             logger.info("Clicked on Settings option from user dropdown");
 
             otherTab.clickGlobalFieldSetting();
-            logger.info("Navigated to Global Field Settings section");
+            logger.info("Navigated  to Global Field Settings section");
 
             globalTab.clickonSelectAll();
             logger.info("Clicked on Select All Button ");
