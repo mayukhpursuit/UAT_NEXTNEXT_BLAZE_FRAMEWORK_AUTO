@@ -16,9 +16,11 @@
                 <version>3.0.0-M7</version>
                 <configuration>
                     <suiteXmlFiles>
+                        <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
+                        <!--suppress UnresolvedMavenProperty -->
                         <logFileName>${logFileName}</logFileName>
                         <browser>${browser}</browser>
                         <mode>${mode}</mode>
