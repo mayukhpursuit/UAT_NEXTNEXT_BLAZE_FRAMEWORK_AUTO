@@ -7,7 +7,8 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC025 extends BaseClass {
+public class TC025 extends BaseClass
+{
     @Test()
     public void VerifySelectAllAndClearAllButtonForRequirementField() throws InterruptedException
     {
@@ -30,7 +31,7 @@ public class TC025 extends BaseClass {
             Thread.sleep(2000);
 
             otherTab.clickOnSelectAll();
-            logger.info("Clecked on select All Button");
+            logger.info("Clicked on select All Button");
 
             Thread.sleep(2000);
 
@@ -39,10 +40,12 @@ public class TC025 extends BaseClass {
 
             Thread.sleep(2000);
 
-        } catch (AssertionError e) {
+        }
+        catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }

@@ -7,9 +7,10 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC027 extends BaseClass {
+public class TC027 extends BaseClass
+{
     @Test(dataProvider = "tc027", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void VerifyClickOnCheckboxOfAvailableCustomFieldForRequirementField(
+    public void VerifyClickOnCheckboxOfAvailableCustomFieldForTestCaseField(
             String fieldName,
             String fieldtype
     ) throws InterruptedException
@@ -50,10 +51,12 @@ public class TC027 extends BaseClass {
             Thread.sleep(3000);
 
 
-        } catch (AssertionError e) {
+        }
+        catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
