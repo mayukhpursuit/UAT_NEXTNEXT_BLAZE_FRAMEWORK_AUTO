@@ -10,6 +10,7 @@ import pageObjects.BasePage;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import org.openqa.selenium.support.ui.Select;
+import java.util.List;
 
 public class GlobalTabPage extends BasePage {
     public GlobalTabPage(WebDriver driver) {
@@ -353,5 +354,111 @@ public class GlobalTabPage extends BasePage {
             return false;
         }
     }
+
+    public boolean isCustomFieldPresent(String fieldName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            By locator = By.xpath("//p[normalize-space()='" + fieldName + "']");
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            return driver.findElements(locator).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean areAllFieldsSelected() {
+        try {
+            Thread.sleep(1000);
+
+            List<WebElement> checkboxes = driver.findElements(
+                    By.xpath(
+                            "//input[@type='checkbox' and not(@disabled) and not(ancestor::div[contains(@style,'display:none')])]"));
+
+            if (checkboxes.isEmpty()) {
+                System.out.println(" No checkboxes found on the page!");
+                return false;
+            }
+
+            long selectedCount = checkboxes.stream().filter(WebElement::isSelected).count();
+            long totalCount = checkboxes.size();
+
+            System.out.println(" Total Checkboxes: " + totalCount + " | Selected: " + selectedCount);
+
+            if (selectedCount == totalCount) {
+                return true;
+            } else {
+                System.out.println(" Unselected checkboxes count: " + (totalCount - selectedCount));
+                for (WebElement cb : checkboxes) {
+                    if (!cb.isSelected()) {
+                        System.out.println("Unselected checkbox element: " + cb);
+                    }
+                }
+                return false;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error while checking selected checkboxes: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean areAllFieldsCleared() {
+        try {
+            Thread.sleep(1000);
+
+            List<WebElement> checkboxes = driver.findElements(
+                    By.xpath(
+                            "//input[@type='checkbox' and not(@disabled) and not(ancestor::div[contains(@style,'display:none')])]"));
+
+            if (checkboxes.isEmpty()) {
+                System.out.println(" No checkboxes found on the page!");
+                return true;
+            }
+
+            long selectedCount = checkboxes.stream().filter(WebElement::isSelected).count();
+            long totalCount = checkboxes.size();
+
+            System.out.println("Total Checkboxes: " + totalCount + " | Selected after Clear All: " + selectedCount);
+
+            if (selectedCount == 0) {
+                return true;
+            } else {
+                System.out.println(" Still-selected checkboxes count: " + selectedCount);
+                for (WebElement cb : checkboxes) {
+                    if (cb.isSelected()) {
+                        System.out.println("Still selected: " + cb);
+                    }
+                }
+                return false;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error while checking cleared checkboxes: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public int getTotalCheckboxCount() {
+        List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox' and not(@disabled)]"));
+        int visibleCount = 0;
+        for (WebElement cb : checkboxes) {
+            if (cb.isDisplayed()) {
+                visibleCount++;
+            }
+        }
+        return visibleCount;
+    }
+
+    public int getSelectedCheckboxCount() {
+        List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox' and not(@disabled)]"));
+        int selectedCount = 0;
+        for (WebElement cb : checkboxes) {
+            if (cb.isDisplayed() && cb.isSelected()) {
+                selectedCount++;
+            }
+        }
+        return selectedCount;
+    }
+    
 }
 
