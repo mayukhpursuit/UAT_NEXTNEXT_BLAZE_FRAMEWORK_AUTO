@@ -149,6 +149,10 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//div[@title='Remove default value']//i[@class='fa-solid fa-trash']")
     WebElement editDefaultDeleteIcon;
 
+    @FindBy(xpath = "//button[@id='confirmBtn']")
+    WebElement confirmYesButton;
+
+
     // ----------------------------- Common tab actions
     // -------------------------------------------
     public void clickOnSaveChanges() {
@@ -254,7 +258,8 @@ public class OtherTabPage extends BasePage {
     public void clickOnDelete(String rowName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement deleteBtn = wait.until(ExpectedConditions.elementToBeClickable(deleteButtonForRow(rowName)));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteBtn);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300);");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", deleteBtn);
         Actions actions = new Actions(driver);
         actions.moveToElement(deleteBtn).perform();
         try {
@@ -263,6 +268,7 @@ public class OtherTabPage extends BasePage {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deleteBtn);
         }
     }
+
 
     public void clickDefaultAddValue() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -290,6 +296,13 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(editDefaultDeleteIcon)).click();
     }
+
+    public void clickConfirmYesButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(confirmYesButton));
+        confirmYesButton.click();
+    }
+
 
     // ----------------------------- Add Custom Field locators
     // ------------------------------------
