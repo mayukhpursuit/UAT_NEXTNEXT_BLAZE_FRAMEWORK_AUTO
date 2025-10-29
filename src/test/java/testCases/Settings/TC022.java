@@ -15,7 +15,7 @@ public class TC022 extends BaseClass {
     ) throws InterruptedException
     {
 
-        logger.info("****** Starting the TC010***************");
+        logger.info("****** Starting the TC022:Verify that user is able to add a Default Field Value in the Module Tab.***************");
 
         try {
             login();
