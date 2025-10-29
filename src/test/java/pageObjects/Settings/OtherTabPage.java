@@ -330,4 +330,16 @@ public class OtherTabPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(createCustomCancelButton)).click();
     }
+
+    public boolean isCustomFieldPresent(String fieldName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            By fieldLocator = By.xpath("//p[normalize-space()='" + fieldName + "']");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(fieldLocator));
+            return driver.findElements(fieldLocator).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
