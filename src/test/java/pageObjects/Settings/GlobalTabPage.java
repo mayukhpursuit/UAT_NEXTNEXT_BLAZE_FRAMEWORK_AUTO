@@ -339,21 +339,21 @@ public class GlobalTabPage extends BasePage {
     }
 
     public boolean isShowInGridCheckboxSelected(String fieldName) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            String xpath = "//td[contains(text(),'" + fieldName
-                    + "')]/following-sibling::td//div[@class='checkbox-wrapper']/input";
-            WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-            boolean isSelected = checkbox.isSelected();
-            System.out.println("'Show in Grid' checkbox state for field '" + fieldName + "': "
-                    + (isSelected ? "Selected" : "Not Selected"));
-            return isSelected;
-        } catch (Exception e) {
-            System.out.println(
-                    "Unable to verify 'Show in Grid' checkbox for field: " + fieldName + " - " + e.getMessage());
-            return false;
-        }
+    try {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        String xpath = "//td[contains(text(),'" + fieldName
+         + "')]/following-sibling::td//div[@class='checkbox-wrapper']/input";
+        WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        boolean isSelected = checkbox.isSelected();
+        System.out.println("'Show in Grid' checkbox state for field '" + fieldName + "': "
+                + (isSelected ? "Selected" : "Not Selected"));
+        return isSelected;
+    } catch (Exception e) {
+        System.out.println(
+            "Unable to verify 'Show in Grid' checkbox for field: " + fieldName + " - " + e.getMessage());
+        return false;
     }
+}
 
     public boolean isCustomFieldPresent(String fieldName) {
         try {
@@ -459,6 +459,75 @@ public class GlobalTabPage extends BasePage {
         }
         return selectedCount;
     }
-    
+
+    public String getFirstAvailableCustomFieldName() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            By fieldLocator = By.xpath("(//table//tr/td[1])[1]");
+            WebElement fieldElement = wait.until(ExpectedConditions.visibilityOfElementLocated(fieldLocator));
+            String fieldName = fieldElement.getText().trim();
+            System.out.println("First available custom field name found: " + fieldName);
+            return fieldName;
+        } catch (Exception e) {
+            System.out.println("No custom fields found — " + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean toggleShowInGridCheckbox(String fieldName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            String checkboxXpath = "//p[normalize-space()='" + fieldName + "']" +
+                    "/ancestor::div[@class='global-fields-table-row']//input[@type='checkbox']";
+
+            WebElement checkbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(checkboxXpath)));
+
+            boolean initiallySelected = checkbox.isSelected();
+            System.out.println("Initial checkbox state for field '" + fieldName + "': " + initiallySelected);
+
+            checkbox.click();
+
+            Thread.sleep(1000);
+            boolean afterClickState = checkbox.isSelected();
+            System.out.println("After click checkbox state for field '" + fieldName + "': " + afterClickState);
+
+            return initiallySelected != afterClickState;
+
+        } catch (Exception e) {
+            System.out.println("Error while toggling checkbox for field '" + fieldName + "': " + e.getMessage());
+            return false;
+        }
+    }
+
+    public String getFirstCustomFieldName() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            By firstFieldLocator = By.xpath("(//p[contains(@class,'global-fields-name-text')])[1]");
+            WebElement firstField = wait.until(ExpectedConditions.visibilityOfElementLocated(firstFieldLocator));
+            return firstField.getText().trim();
+        } catch (Exception e) {
+            System.out.println("No custom fields found — " + e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean isFieldVisibleInGrid(String fieldName) {
+        try {
+            String iconXpath = "//p[normalize-space()='" + fieldName + "']" +
+                    "/ancestor::div[@class='global-fields-table-row']//i[contains(@class,'fa-eye')]";
+            WebElement icon = driver.findElement(By.xpath(iconXpath));
+            String iconClass = icon.getAttribute("class");
+
+            boolean isActive = iconClass.contains("fa-eye") && !iconClass.contains("fa-eye-slash");
+            System.out.println("Visibility icon for '" + fieldName + "': " + iconClass);
+            return isActive;
+
+        } catch (Exception e) {
+            System.out.println("Unable to verify visibility icon for '" + fieldName + "': " + e.getMessage());
+            return false;
+        }
+    }
+
 }
 

@@ -6,10 +6,11 @@ import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC031 extends BaseClass {
 
-    @Test(dataProvider = "tc002", dataProviderClass = SettingTestCaseDataProvider.class)
+    @Test(dataProvider = "tc002", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void Verify_SelectAll_and_ClearAll_for_CustomFields(String fieldName, String textBox, String objType1,
             String objType2) throws InterruptedException {
 
