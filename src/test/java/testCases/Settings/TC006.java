@@ -11,10 +11,10 @@ import utils.RetryAnalyzer;
 
 public class TC006 extends BaseClass {
     @Test(dataProvider = "tc006", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void verifyProjectSelectionFromDropdown(String fieldName,
+    public void Verifythatuserabletoclickonthecheckboxofavailablecustomfield(String fieldName,
                                                    String textBox,
                                                    String objType1,String objType2,String rowName) throws InterruptedException {
-        logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
+        logger.info("****** Starting Test Case: Verify that user able to click on the check box of available custom field *****************");
         try {
             login();
             logger.info("Logged in successfully");
