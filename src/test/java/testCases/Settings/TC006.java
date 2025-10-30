@@ -49,6 +49,7 @@ public class TC006 extends BaseClass {
 
             globalTab.clickonCheckbox(rowName);
             logger.info("Clicked on checkbox for row: " + rowName);
+            Thread.sleep(7000);
 
 
 
