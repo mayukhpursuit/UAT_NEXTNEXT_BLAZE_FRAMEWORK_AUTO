@@ -377,4 +377,15 @@ public class OtherTabPage extends BasePage {
         }
     }
 
+    public boolean isTestStepsPageDisplayed() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            By pageHeaderLocator = By.xpath("//div[contains(@class,'releases') and normalize-space()='Test Step']");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(pageHeaderLocator));
+            return driver.findElements(pageHeaderLocator).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
