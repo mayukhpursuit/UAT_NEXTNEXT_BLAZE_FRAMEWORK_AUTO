@@ -10,8 +10,8 @@ import utils.RetryAnalyzer;
 public class TC028 extends BaseClass {
     @Test(dataProvider = "tc028", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void VerifythatuserisabletoaddaDefaultFieldValueintheTestCaseTab(
-            String fieldName,
-            String fieldtype
+            String fieldrow,
+            String fieldName
     ) throws InterruptedException
     {
 
@@ -33,17 +33,17 @@ public class TC028 extends BaseClass {
             logger.info("Navigated to Test cases tab");
 
 
-            otherTab.clickOnAddCustomField();
-            logger.info("Clicked on Add Custom Field button");
+            otherTab.clickOnEdit(fieldrow);
+            logger.info("Clicked on edit field button:"+fieldrow);
 
-            otherTab.createCustomEnterFieldName(fieldName);
-            logger.info("Entered Custom Field Name: " + fieldName);
+            otherTab.clickDefaultAddValue();
+            logger.info("Click on add default value");
 
-            otherTab.createCustomSelectDataType(fieldtype);
-            logger.info("Selected Custom Field Type: " + fieldtype);
+            otherTab.enterDefaultValue(fieldName);
+            logger.info("Entered defualt value: " + fieldName);
 
-            otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button");
+            otherTab.clickDefaultSaveChanges();
+            logger.info("clicked on default save changes button");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
