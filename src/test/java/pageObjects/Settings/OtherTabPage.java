@@ -181,7 +181,7 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "(//button[normalize-space()='CLOSE'])[1]")
     WebElement CloseActionEditButton;
 
-    // locators for Add custome Fields
+    // locators for Add custom Fields
 
     @FindBy(xpath = "(//input[@placeholder='Enter field name (e.g., Priority, Category)'])[1]")
     WebElement FieldNAme;
@@ -224,10 +224,32 @@ public class OtherTabPage extends BasePage {
     {
         editCloseButton.click();
     }
+
     public void clickOnClearAll() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(clearAllButton)).click();
     }
+
+    public boolean SelectAllAndClearAllButtonsClickable() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            WebElement selectAllBtn = wait.until(ExpectedConditions.elementToBeClickable(selectAllButton));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", selectAllBtn);
+            new Actions(driver).moveToElement(selectAllBtn).perform();
+
+            WebElement clearAllBtn = wait.until(ExpectedConditions.elementToBeClickable(clearAllButton));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", clearAllBtn);
+            new Actions(driver).moveToElement(clearAllBtn).perform();
+
+            return selectAllBtn.isDisplayed() && selectAllBtn.isEnabled()
+                    && clearAllBtn.isDisplayed() && clearAllBtn.isEnabled();
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
     public void clickOnReset() {
         new WebDriverWait(driver, Duration.ofSeconds(10))

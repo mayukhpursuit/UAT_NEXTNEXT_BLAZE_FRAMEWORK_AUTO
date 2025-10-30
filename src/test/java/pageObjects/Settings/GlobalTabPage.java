@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageObjects.BasePage;
@@ -104,12 +105,31 @@ public class GlobalTabPage extends BasePage {
     }
 
     public void clickonCheckbox(String rowName) {
-        WebElement checkbox = new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(CheckboxForRow(rowName)));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(CheckboxForRow(rowName)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", checkbox);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(checkbox).perform();
+
         if (!checkbox.isSelected()) {
-            checkbox.click();
+            actions.moveToElement(checkbox).click().perform();
         }
     }
+
+    public boolean isCheckboxClickable(String rowName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(CheckboxForRow(rowName)));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", checkbox);
+            Actions actions = new Actions(driver);
+            actions.moveToElement(checkbox).perform();
+            return checkbox.isDisplayed() && checkbox.isEnabled();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 
     public void clickonSettings(String rowName) {
         WebElement settingsBtn = new WebDriverWait(driver, Duration.ofSeconds(10))
