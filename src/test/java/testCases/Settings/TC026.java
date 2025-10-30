@@ -1,17 +1,14 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
-import utils.RetryAnalyzer;
 
-public class TC027 extends BaseClass {
-    @Test(dataProvider = "tc009", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_TestCase_Tab(
-            String fieldName,
-            String fieldtype
+public class TC026 extends BaseClass {
+    @Test
+    public void Verify_that_user_is_able_to_select_Module_Tab(
+
     ) throws InterruptedException {
 
         logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
@@ -27,19 +24,7 @@ public class TC027 extends BaseClass {
             logger.info("Clicked on Settings option from user dropdown");
 
             otherTab.clickTestCase();
-            logger.info("Navigated to TestCase tab");
-
-            otherTab.clickOnAddCustomField();
-            logger.info("Clicked on Add Custom Field button");
-
-            otherTab.createCustomEnterFieldName(fieldName);
-            logger.info("Entered Custom Field Name: " + fieldName);
-
-            otherTab.createCustomSelectDataType(fieldtype);
-            logger.info("Selected Custom Field Type: " + fieldtype);
-
-            otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button#");
+            logger.info("Navigated to Module tab");
 
 
         } catch (AssertionError e) {
