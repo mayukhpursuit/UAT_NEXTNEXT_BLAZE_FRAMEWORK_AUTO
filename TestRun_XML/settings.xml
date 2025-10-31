@@ -21,10 +21,10 @@
 <!--            <class name="testCases.Settings.TC016"/>-->
 <!--            <class name="testCases.Settings.TC022"/>-->
 <!--            <class name="testCases.Settings.TC023"/>-->
-<!--            <class name="testCases.Settings.TC028"/>-->
+            <class name="testCases.Settings.TC028"/>
 <!--            <class name="testCases.Settings.TC036"/>-->
 <!--            <class name="testCases.Settings.TC037"/>-->
-            <class name="testCases.Settings.TC044"/>
+<!--            <class name="testCases.Settings.TC044"/>-->
         </classes>
 <!--        <packages>-->
 <!--            <package name="testCases.Settings"/>-->
