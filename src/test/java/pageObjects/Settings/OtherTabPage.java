@@ -388,4 +388,15 @@ public class OtherTabPage extends BasePage {
         }
     }
 
+    public boolean isTestRunsTabVisible(String expectedTabName) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement testRunsHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//div[contains(text(),'" + expectedTabName + "')]")));
+            return testRunsHeader.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
