@@ -7,14 +7,14 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC027 extends BaseClass {
-    @Test(dataProvider = "tc027", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void VerifyUserIsAbleToCreateCustomFieldInsideTestCaseTab(
+public class TC052 extends BaseClass {
+    @Test(dataProvider = "tc046", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void Verify_that_user_is_able_to_add_a_Default_Field_Value_in_the_Release_Tab(
             String fieldName,
-            String fieldtype
+            String value
     ) throws InterruptedException {
 
-        logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
+        logger.info("****** Starting the TC016: Verify that user is able to add a Default Field Value in the Release Tab. *****************");
 
         try {
             login();
@@ -26,20 +26,21 @@ public class TC027 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickTestCase();
-            logger.info("Navigated to TestCase tab");
+            otherTab.clickTestRuns();
+            logger.info("Navigated to release tab");
 
-            otherTab.clickOnAddCustomField();
-            logger.info("Clicked on Add Custom Field button");
 
-            otherTab.createCustomEnterFieldName(fieldName);
-            logger.info("Entered Custom Field Name: " + fieldName);
+            otherTab.clickOnEdit(fieldName);
+            logger.info("clicked on edit row:"+fieldName);
 
-            otherTab.createCustomSelectDataType(fieldtype);
-            logger.info("Selected Custom Field Type: " + fieldtype);
+            otherTab.clickDefaultAddValue() ;
+            logger.info("clicked on adddefaultvalue");
 
-            otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button#");
+            otherTab.enterDefaultValue(value);
+            logger.info("entered default value"+value);
+
+            otherTab.clickDefaultSaveChanges();
+            logger.info("clicked on save changes");
 
 
         } catch (AssertionError e) {
