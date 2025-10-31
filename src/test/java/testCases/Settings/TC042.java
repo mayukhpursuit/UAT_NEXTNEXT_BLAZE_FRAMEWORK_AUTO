@@ -1,22 +1,19 @@
 package testCases.Settings;
 
+import DataProviders.SettingTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
-import utils.RetryAnalyzer;
 
 public class TC042 extends BaseClass {
-
-    @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void verifyUserCanToggleShowInGridCheckboxForCustomField() throws InterruptedException {
-
+    @Test(dataProvider = "tc042", dataProviderClass = SettingTestCaseDataProvider.class)
+    public void Verify_that_user_able_to_click_on_the_checkbox_of_available_customfield(
+            String rowName) throws InterruptedException {
         logger.info(
-                "****** Starting TC042 : Verify that user is able to click on the checkbox of available custom field ******");
-
+                "****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
         try {
-
             login();
             logger.info("Logged in successfully");
 
@@ -26,39 +23,20 @@ public class TC042 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickGlobalFieldSetting();
-            logger.info("Navigated to Global Field Settings section");
+            otherTab.clickTestSuite();
+            logger.info("Navigated to TestSuite section");
 
-            String firstFieldName = globalTab.getFirstCustomFieldName();
-            Assert.assertNotNull(firstFieldName, "No custom fields found to test checkbox interaction.");
-            logger.info("Found a custom field: " + firstFieldName);
-
-            boolean initialState = globalTab.isShowInGridCheckboxSelected(firstFieldName);
-            logger.info("'Show in Grid' checkbox for '" + firstFieldName + "' is initially: "
-                    + (initialState ? "Selected" : "Not Selected"));
-
-            boolean toggleResult = globalTab.toggleShowInGridCheckbox(firstFieldName);
-            Assert.assertTrue(toggleResult, "Checkbox state did not change after click.");
-            logger.info("Toggled 'Show in Grid' checkbox successfully for field: " + firstFieldName);
-
-            boolean isVisibleInGrid = globalTab.isFieldVisibleInGrid(firstFieldName);
-            logger.info("Field visibility icon check: "
-                    + (isVisibleInGrid ? "Active (eye icon)" : "Inactive (eye-slash icon)"));
-
-            boolean currentCheckboxState = globalTab.isShowInGridCheckboxSelected(firstFieldName);
-            Assert.assertEquals(isVisibleInGrid, currentCheckboxState,
-                    "Field visibility icon state does not match the checkbox selection.");
-
-            logger.info("Successfully verified that toggling 'Show in Grid' checkbox activates/deactivates the field.");
+            boolean isClickable = globalTab.isCheckboxClickable(rowName);
+            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
+            logger.info("Verified checkbox is clickable for row: " + rowName);
 
         } catch (AssertionError e) {
-            logger.error("Assertion failed: " + e.getMessage());
+            logger.error("Assertion failed: {}", e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.error("Exception occurred: " + e.getMessage());
+            logger.error("Exception occurred: {}", e.getMessage());
             throw e;
         }
-
-        logger.info("************ Test Case TC042 Finished *************************");
+        logger.info("************ Test Case Finished *************************");
     }
 }
