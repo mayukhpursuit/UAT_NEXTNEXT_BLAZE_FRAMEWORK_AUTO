@@ -12,8 +12,8 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC005 extends BaseClass {
-    @Test(dataProvider = "tc005", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void verifyProjectSelectionFromDropdown(String fieldName,
+    @Test(dataProvider = "tc005", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void VerifyDeleteGlobalField(String fieldName,
                                                    String textBox,
                                                    String objType1,String objType2,String fieldName2) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
@@ -51,6 +51,8 @@ public class TC005 extends BaseClass {
 
             globalTab.clickonDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
+            globalTab.clickOnDeleteConfirmation();
+            logger.info("clicked on yes confirmation");
 
 
 

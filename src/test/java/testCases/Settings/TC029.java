@@ -8,7 +8,7 @@ import testBase.BaseClass;
 
 public class TC029 extends BaseClass {
     @Test(dataProvider = "tc029", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_Module_Tab(
+    public void VerifyDeleteCustomFieldFromTestCaseTab(
             String fieldName1,
             String fieldType,String fieldName2
     ) throws InterruptedException {
@@ -42,6 +42,9 @@ public class TC029 extends BaseClass {
 
             otherTab.clickOnDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
+
+            otherTab.clickOnDeleteRowConfirmation();
+            logger.info("clicked on yes confirmation");
 
 
         } catch (AssertionError e) {
