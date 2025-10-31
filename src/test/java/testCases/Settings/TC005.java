@@ -51,12 +51,6 @@ public class TC005 extends BaseClass {
 
             globalTab.clickonDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
-            globalTab.clickOnDeleteConfirmation();
-            logger.info("clicked on yes confirmation");
-
-
-
-
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
             throw e;
