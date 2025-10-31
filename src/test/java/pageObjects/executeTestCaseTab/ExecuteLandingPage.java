@@ -255,6 +255,13 @@ public class ExecuteLandingPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOf(testCycleByName(testCycleName))).isDisplayed();
     }
 
+    public void clickTestCycle(String testCycleName) {
+        WebElement testCycle = wait.until(ExpectedConditions.elementToBeClickable(testCycleByName(testCycleName)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", testCycle);
+        testCycle.click();
+    }
+
+
     private WebElement TestsuiteByName(String suiteName) {
         return driver.findElement(
                 By.xpath("//div[contains(@class,'test-suite-row') and contains(normalize-space(.),'" + suiteName + "')]"));
