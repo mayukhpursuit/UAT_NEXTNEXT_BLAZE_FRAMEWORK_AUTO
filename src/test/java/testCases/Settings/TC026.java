@@ -4,10 +4,11 @@ import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC026 extends BaseClass {
-    @Test
-    public void Verify_that_user_is_able_to_select_Module_Tab(
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    public void VerifyThatUserAbleToAccessTheSetting(
 
     ) throws InterruptedException {
 

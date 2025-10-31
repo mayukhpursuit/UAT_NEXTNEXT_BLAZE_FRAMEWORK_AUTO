@@ -10,7 +10,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC006 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = SettingTestCaseDataProvider.class)
+    @Test(dataProvider = "tc006", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void Verifythatuserabletoclickonthecheckboxofavailablecustomfield(String fieldName,
                                                    String textBox,
                                                    String objType1,String objType2,String rowName) throws InterruptedException {

@@ -9,7 +9,7 @@ import utils.RetryAnalyzer;
 
 public class TC012 extends BaseClass {
     @Test(dataProvider = "tc012", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_Module_Tab(
+    public void VerifyClickOnCheckBoxOfCustomFieldInModule(
             String rowName
     ) throws InterruptedException {
 
@@ -25,8 +25,8 @@ public class TC012 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickGlobalFieldSetting();
-            logger.info("Navigated to Global Field Setting tab");
+            otherTab.clickModule();
+            logger.info("Navigated to Module tab");
 
             otherTab.clickOnCheckbox(rowName);
             logger.info("Clicked on checkbox");
