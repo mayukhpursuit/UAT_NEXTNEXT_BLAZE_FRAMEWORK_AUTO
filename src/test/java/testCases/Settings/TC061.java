@@ -1,18 +1,14 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
-import utils.RetryAnalyzer;
 
-public class TC006 extends BaseClass {
-    @Test(dataProvider = "tc006", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verifythatuserabletoclickonthecheckboxofavailablecustomfield(String rowName) throws InterruptedException {
-        logger.info("****** Starting Test Case: Verify that user able to click on the check box of available custom field *****************");
+public class TC061 extends BaseClass {
+    @Test
+    public void verify_SelectAll_And_ClearAllButton_ClickableOn_TestRun()throws InterruptedException {
+        logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -24,13 +20,15 @@ public class TC006 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickGlobalFieldSetting();
-            logger.info("Navigated to Global Field Settings section");
+            otherTab.clickTestRuns();
+            logger.info("Navigated to TestRun section");
 
-            globalTab.clickonCheckbox(rowName);
-            logger.info("Clicked on checkbox for row: " + rowName);
+            globalTab.clickonSelectAll();
+            logger.info("Clicked on selectAll Button");
 
-
+            globalTab.clickonClearAll();
+            logger.info("Clicked on ClearAll Button");
+            logger.info("Successfully Completed the testcase");
 
 
         } catch (AssertionError e) {
