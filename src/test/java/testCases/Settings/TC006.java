@@ -29,10 +29,6 @@ public class TC006 extends BaseClass {
 
             globalTab.clickonCheckbox(rowName);
             logger.info("Clicked on checkbox for row: " + rowName);
-
-
-
-
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
             throw e;

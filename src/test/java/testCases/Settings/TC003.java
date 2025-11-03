@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 public class TC003 extends BaseClass {
 
-    @Test(dataProvider = "TC003", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc003", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyAddDefaultFieldValueInGlobalSettings(String fieldName,
             String textBox,
             String objType1,
