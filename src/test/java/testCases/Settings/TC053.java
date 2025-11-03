@@ -7,9 +7,9 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC041 extends BaseClass {
+public class TC053 extends BaseClass {
     @Test(dataProvider = "tc041", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verify_delete_Custom_Field_inside_TestCycle_Tab(
+    public void Verify_delete_Custom_Field_inside_TestRuns_Tab(
             String fieldName1,
             String fieldType,String fieldName2
     ) throws InterruptedException {
@@ -26,7 +26,7 @@ public class TC041 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickTestCycle();
+            otherTab.clickTestRuns();
             logger.info("Navigated to Module tab");
 
             otherTab.clickOnAddCustomField();
