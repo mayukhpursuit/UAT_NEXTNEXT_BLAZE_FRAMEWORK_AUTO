@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC059 extends BaseClass {
-    @Test(dataProvider = "tc059", dataProviderClass = SettingTestCaseDataProvider.class)
+    @Test(dataProvider = "tc059",  dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void VerifyDeleteACustomeFieldInDefectTab(
             String fieldName1,
             String fieldType,
