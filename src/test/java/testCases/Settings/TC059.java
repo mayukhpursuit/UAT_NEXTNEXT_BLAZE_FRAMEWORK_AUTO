@@ -27,7 +27,7 @@ public class TC059 extends BaseClass {
             logger.info("Clicked on Settings option from user dropdown");
 
             otherTab.clickDefect();
-            logger.info("Navigated to TestSuite tab");
+            logger.info("Navigated to Defect tab");
 
             otherTab.clickOnAddCustomField();
             logger.info("Clicked on Add Custom Field button");
@@ -39,7 +39,7 @@ public class TC059 extends BaseClass {
             logger.info("Selected Custom Field Type: " + fieldType);
 
             otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button#");
+            logger.info("clicked on create field button");
 
             otherTab.clickOnDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
