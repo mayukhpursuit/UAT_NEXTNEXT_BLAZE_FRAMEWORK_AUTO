@@ -140,7 +140,7 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='CLOSE']")
     WebElement editCloseButton;
 
-    @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
+     @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
     WebElement editSaveChangesButton;
 
     @FindBy(xpath = "//input[@placeholder='Enter default value']")
@@ -264,18 +264,61 @@ public class OtherTabPage extends BasePage {
         }
     }
 
+//    public void clickOnEdit(String rowName) {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement editBtn = wait.until(ExpectedConditions.visibilityOf(editButtonForRow(rowName)));
+//
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", editBtn);
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(editBtn).perform();
+//
+//        try {
+//            wait.until(ExpectedConditions.elementToBeClickable(editBtn)).click();
+//        } catch (Exception firstAttempt) {
+//            try {
+//                Thread.sleep(1000);
+//                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", editBtn);
+//                actions.moveToElement(editBtn).perform();
+//                wait.until(ExpectedConditions.elementToBeClickable(editBtn)).click();
+//            } catch (Exception retryAttempt) {
+//                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", editBtn);
+//            }
+//        }
+//    }
+
     public void clickOnEdit(String rowName) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement editBtn = wait.until(ExpectedConditions.elementToBeClickable(editButtonForRow(rowName)));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editBtn);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement editBtn = wait.until(ExpectedConditions.visibilityOf(editButtonForRow(rowName)));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         Actions actions = new Actions(driver);
-        actions.moveToElement(editBtn).perform();
+
         try {
-            editBtn.click();
-        } catch (Exception e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", editBtn);
+            js.executeScript("arguments[0].scrollIntoView({block: 'center'});", editBtn);
+            Thread.sleep(500);
+            boolean inView = (Boolean) js.executeScript(
+                    "var rect = arguments[0].getBoundingClientRect();" +
+                            "return (rect.top >= 0 && rect.left >= 0 && " +
+                            "rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && " +
+                            "rect.right <= (window.innerWidth || document.documentElement.clientWidth));", editBtn);
+
+            if (inView) {
+                actions.moveToElement(editBtn).perform();
+            }
+            wait.until(ExpectedConditions.elementToBeClickable(editBtn)).click();
+
+        } catch (Exception e1) {
+            try {
+                Thread.sleep(1000);
+                js.executeScript("arguments[0].scrollIntoView({block: 'center'});", editBtn);
+                Thread.sleep(500);
+                wait.until(ExpectedConditions.elementToBeClickable(editBtn)).click();
+            } catch (Exception e2) {
+                js.executeScript("arguments[0].click();", editBtn);
+            }
         }
     }
+
+
 
     public void clickOnDelete(String rowName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -306,15 +349,20 @@ public class OtherTabPage extends BasePage {
                 .until(ExpectedConditions.elementToBeClickable(editDefaultValueButton)).click();
     }
 
+
     public void clickDefaultCloseButton() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(editCloseButton)).click();
     }
 
     public void clickDefaultSaveChanges() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(editSaveChangesButton)).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement saveChangesBtn = wait.until(ExpectedConditions.elementToBeClickable(editSaveChangesButton));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(saveChangesBtn).perform();
+        saveChangesBtn.click();
     }
+
 
     public void enterDefaultValue(String value) {
         WebElement input = new WebDriverWait(driver, Duration.ofSeconds(10))
