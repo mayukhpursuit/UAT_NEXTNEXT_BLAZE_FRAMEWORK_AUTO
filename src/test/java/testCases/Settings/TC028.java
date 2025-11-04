@@ -9,13 +9,15 @@ import utils.RetryAnalyzer;
 
 public class TC028 extends BaseClass {
     @Test(dataProvider = "tc028", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void VerifythatuserisabletoaddaDefaultFieldValueintheTestCaseTab(
-            String fieldrow,
-            String fieldName
-    ) throws InterruptedException
-    {
+    public void Verify_that_user_is_able_to_add_a_Default_Field_Value_in_the_TestCase_Tab(
+            String customfield,
+            String Datatype,
+            String field,
+            String value,
+            String delcustom
+    ) throws InterruptedException {
 
-        logger.info("****** Starting the TC028:Verify that user is able to add a Default Field Value in the Test Case Tab.***************");
+        logger.info("****** Starting the TC028: Verify that user is able to add a Default Field Value in the Testcase Tab. *****************");
 
         try {
             login();
@@ -27,23 +29,43 @@ public class TC028 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            Thread.sleep(3000);
-
             otherTab.clickTestCase();
-            logger.info("Navigated to Test cases tab");
+            logger.info("Navigated to TestCase tab");
+
+            otherTab.clickOnAddCustomField();
+            logger.info("clicked on add custom field");
+
+            otherTab.createCustomEnterFieldName(customfield);
+            logger.info("Custom field:"+customfield);
+
+            otherTab.createCustomSelectDataType(Datatype);
+            logger.info("selected datatype:"+Datatype);
+
+            otherTab.clickcreatefieldButton();
 
 
-            otherTab.clickOnEdit(fieldrow);
-            logger.info("Clicked on edit field button:"+fieldrow);
+            otherTab.clickOnEdit(field);
+            logger.info("clicked on edit row:"+field);
 
-            otherTab.clickDefaultAddValue();
-            logger.info("Click on add default value");
 
-            otherTab.enterDefaultValue(fieldName);
-            logger.info("Entered defualt value: " + fieldName);
+            otherTab.clickDefaultAddValue(); ;
+            logger.info("clicked on add default value");
+
+            otherTab.enterDefaultValue(value);
+            logger.info("entered default value"+value);
 
             otherTab.clickDefaultSaveChanges();
-            logger.info("clicked on default save changes button");
+            logger.info("clicked on save changes");
+            Thread.sleep(3000);
+
+            otherTab.clickOnEdit(field);
+            otherTab.clickDefaultDeleteIcon();
+            otherTab.clickYesDefaultValueDelete();
+            otherTab.clickDefaultSaveChanges();
+
+            otherTab.clickOnDelete(delcustom);
+            otherTab.clickConfirmYesButton();
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

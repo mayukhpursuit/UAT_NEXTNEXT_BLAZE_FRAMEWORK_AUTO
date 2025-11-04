@@ -10,8 +10,11 @@ import utils.RetryAnalyzer;
 public class TC016 extends BaseClass {
     @Test(dataProvider = "tc016", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void Verify_that_user_is_able_to_add_a_Default_Field_Value_in_the_Release_Tab(
-            String fieldName,
-            String value
+            String customfield,
+            String Datatype,
+            String field,
+            String value,
+            String delcustom
     ) throws InterruptedException {
 
         logger.info("****** Starting the TC016: Verify that user is able to add a Default Field Value in the Release Tab. *****************");
@@ -29,18 +32,39 @@ public class TC016 extends BaseClass {
             otherTab.clickOnRelease();
             logger.info("Navigated to release tab");
 
+            otherTab.clickOnAddCustomField();
+            logger.info("clicked on add custom field");
 
-            otherTab.clickOnEdit(fieldName);
-            logger.info("clicked on edit row:"+fieldName);
+            otherTab.createCustomEnterFieldName(customfield);
+            logger.info("Custom field:"+customfield);
 
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
+            otherTab.createCustomSelectDataType(Datatype);
+            logger.info("selected datatype:"+Datatype);
+
+            otherTab.clickcreatefieldButton();
+
+
+            otherTab.clickOnEdit(field);
+            logger.info("clicked on edit row:"+field);
+
+
+            otherTab.clickDefaultAddValue(); ;
+            logger.info("clicked on add default value");
 
             otherTab.enterDefaultValue(value);
             logger.info("entered default value"+value);
 
             otherTab.clickDefaultSaveChanges();
             logger.info("clicked on save changes");
+            Thread.sleep(3000);
+
+            otherTab.clickOnEdit(field);
+            otherTab.clickDefaultDeleteIcon();
+            otherTab.clickYesDefaultValueDelete();
+            otherTab.clickDefaultSaveChanges();
+
+            otherTab.clickOnDelete(delcustom);
+            otherTab.clickConfirmYesButton();
 
 
         } catch (AssertionError e) {

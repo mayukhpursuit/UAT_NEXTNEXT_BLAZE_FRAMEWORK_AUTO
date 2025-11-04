@@ -1,9 +1,6 @@
 package pageObjects.Settings;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -140,8 +137,8 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='CLOSE']")
     WebElement editCloseButton;
 
-     @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
-    WebElement editSaveChangesButton;
+    @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
+    WebElement DefaultSaveButton ;
 
     @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
     WebElement DefaultSaveButton ;
@@ -348,9 +345,14 @@ public class OtherTabPage extends BasePage {
 
 
     public void clickDefaultAddValue() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(editDefaultValueButton)).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(editDefaultValueButton));
+        WebElement addValueBtn = wait.until(ExpectedConditions.elementToBeClickable(editDefaultValueButton));
+        addValueBtn.click();
     }
+
+
+
 
 
     public void clickDefaultCloseButton() {
@@ -359,11 +361,8 @@ public class OtherTabPage extends BasePage {
     }
 
     public void clickDefaultSaveChanges() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement saveChangesBtn = wait.until(ExpectedConditions.elementToBeClickable(editSaveChangesButton));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(saveChangesBtn).perform();
-        saveChangesBtn.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(DefaultSaveButton)).click();
     }
 
     public void clickDefaultSaveButton() {
