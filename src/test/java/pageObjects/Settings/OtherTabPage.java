@@ -1,9 +1,6 @@
 package pageObjects.Settings;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -356,11 +353,9 @@ public class OtherTabPage extends BasePage {
     }
 
     public void clickDefaultSaveChanges() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement saveChangesBtn = wait.until(ExpectedConditions.elementToBeClickable(editSaveChangesButton));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(saveChangesBtn).perform();
-        saveChangesBtn.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement saveChangesBtn = wait.until(ExpectedConditions.visibilityOf(editSaveChangesButton));
+        wait.until(ExpectedConditions.elementToBeClickable(saveChangesBtn)).click();
     }
 
 
