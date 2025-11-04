@@ -8,13 +8,16 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC046 extends BaseClass {
-    @Test(dataProvider = "tc040", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verify_that_user_is_able_to_add_a_Default_Field_Value_in_the_Release_Tab(
-            String fieldName1, String fieldType, String fieldName2,
-            String value, String fieldName3
+    @Test(dataProvider = "tc046", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void Verify_that_user_is_able_to_add_a_Default_Field_Value_in_the_Defect_Tab(
+            String customfield,
+            String Datatype,
+            String field,
+            String value,
+            String delcustom
     ) throws InterruptedException {
 
-        logger.info("****** Starting the TC016: Verify that user is able to add a Default Field Value in the Release Tab. *****************");
+        logger.info("****** Starting the TC058: Verify that user is able to add a Default Field Value in the Defect Tab. *****************");
 
         try {
             login();
@@ -27,38 +30,41 @@ public class TC046 extends BaseClass {
             logger.info("Clicked on Settings option from user dropdown");
 
             otherTab.clickTestSuite();
-            logger.info("Navigated to release tab");
+            logger.info("Navigated to Defect tab");
 
             otherTab.clickOnAddCustomField();
-            logger.info("Clicked on Add Custom Field button");
+            logger.info("clicked on add custom field");
 
-            otherTab.createCustomEnterFieldName(fieldName1);
-            logger.info("Entered Custom Field Name: " + fieldName1);
+            otherTab.createCustomEnterFieldName(customfield);
+            logger.info("Custom field:"+customfield);
 
-            otherTab.createCustomSelectDataType(fieldType);
-            logger.info("Selected Custom Field Type: " + fieldType);
+            otherTab.createCustomSelectDataType(Datatype);
+            logger.info("selected datatype:"+Datatype);
 
             otherTab.clickcreatefieldButton();
-            logger.info("clicked on create field button#");
 
 
-            otherTab.clickOnEdit(fieldName2);
-            logger.info("clicked on edit row:"+fieldName2);
+            otherTab.clickOnEdit(field);
+            logger.info("clicked on edit row:"+field);
 
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
+
+            otherTab.clickDefaultAddValue(); ;
+            logger.info("clicked on add default value");
 
             otherTab.enterDefaultValue(value);
             logger.info("entered default value"+value);
 
             otherTab.clickDefaultSaveChanges();
             logger.info("clicked on save changes");
+            Thread.sleep(3000);
 
-            otherTab.clickOnDelete(fieldName3);
-            logger.info("Clicked Delete icon for the field: " + fieldName3);
+            otherTab.clickOnEdit(field);
+            otherTab.clickDefaultDeleteIcon();
+            otherTab.clickYesDefaultValueDelete();
+            otherTab.clickDefaultSaveChanges();
 
-            otherTab.clickOnDeleteRowConfirmation();
-            logger.info("clicked on yes confirmation");
+            otherTab.clickOnDelete(delcustom);
+            otherTab.clickConfirmYesButton();
 
 
         } catch (AssertionError e) {
@@ -71,4 +77,5 @@ public class TC046 extends BaseClass {
 
         logger.info("************ Test Case Finished *************************");
     }
+
 }
