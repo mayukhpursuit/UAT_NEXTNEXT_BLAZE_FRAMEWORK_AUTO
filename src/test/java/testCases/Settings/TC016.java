@@ -47,16 +47,24 @@ public class TC016 extends BaseClass {
             otherTab.clickOnEdit(field);
             logger.info("clicked on edit row:"+field);
 
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
+
+            otherTab.clickDefaultAddValue(); ;
+            logger.info("clicked on add default value");
 
             otherTab.enterDefaultValue(value);
             logger.info("entered default value"+value);
 
             otherTab.clickDefaultSaveChanges();
             logger.info("clicked on save changes");
+            Thread.sleep(3000);
+
+            otherTab.clickOnEdit(field);
+            otherTab.clickDefaultDeleteIcon();
+            otherTab.clickYesDefaultValueDelete();
+            otherTab.clickDefaultSaveChanges();
 
             otherTab.clickOnDelete(delcustom);
+            otherTab.clickConfirmYesButton();
 
 
         } catch (AssertionError e) {

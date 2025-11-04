@@ -137,8 +137,8 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//button[normalize-space()='CLOSE']")
     WebElement editCloseButton;
 
-     @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
-    WebElement editSaveChangesButton;
+    @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
+    WebElement DefaultSaveButton ;
 
     @FindBy(xpath = "//input[@placeholder='Enter default value']")
     WebElement editFillDefaultValue;
@@ -342,9 +342,14 @@ public class OtherTabPage extends BasePage {
 
 
     public void clickDefaultAddValue() {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(editDefaultValueButton)).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(editDefaultValueButton));
+        WebElement addValueBtn = wait.until(ExpectedConditions.elementToBeClickable(editDefaultValueButton));
+        addValueBtn.click();
     }
+
+
+
 
 
     public void clickDefaultCloseButton() {
@@ -353,9 +358,8 @@ public class OtherTabPage extends BasePage {
     }
 
     public void clickDefaultSaveChanges() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement saveChangesBtn = wait.until(ExpectedConditions.visibilityOf(editSaveChangesButton));
-        wait.until(ExpectedConditions.elementToBeClickable(saveChangesBtn)).click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(DefaultSaveButton)).click();
     }
 
 
