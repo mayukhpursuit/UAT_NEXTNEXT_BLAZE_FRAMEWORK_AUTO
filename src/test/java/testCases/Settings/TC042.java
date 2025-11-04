@@ -8,10 +8,11 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 
 public class TC042 extends BaseClass {
-    @Test(dataProvider = "tc042", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void verifyUserCanClickAvailableCustomFieldCheckbox(String rowName) throws InterruptedException {
+    @Test(dataProvider = "tc036", dataProviderClass = SettingTestCaseDataProvider.class)
+    public void Verify_that_user_able_to_click_on_the_checkbox_of_available_customfield(
+            String rowName) throws InterruptedException {
         logger.info(
-                "****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
+                "****** Starting TC36: Verify that user able to click on the check box of available custom field *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -22,8 +23,8 @@ public class TC042 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickTestSuite();
-            logger.info("Navigated to TestSuite section");
+            otherTab.clickGlobalFieldSetting();
+            logger.info("Navigated to Global Field Settings section");
 
             boolean isClickable = globalTab.isCheckboxClickable(rowName);
             Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);

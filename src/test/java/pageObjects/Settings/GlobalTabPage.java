@@ -563,9 +563,5 @@ public class GlobalTabPage extends BasePage {
     public void clickDeleteConfirmButton() {
         deleteConfirmButton.click();
     }
-
-
-
-
 }
 

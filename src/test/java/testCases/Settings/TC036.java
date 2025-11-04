@@ -30,8 +30,6 @@ public class TC036 extends BaseClass {
             Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
             logger.info("Verified checkbox is clickable for row: " + rowName);
 
-
-
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
             throw e;
