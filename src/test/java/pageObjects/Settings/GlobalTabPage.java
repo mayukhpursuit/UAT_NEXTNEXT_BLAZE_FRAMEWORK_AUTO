@@ -68,11 +68,18 @@ public class GlobalTabPage extends BasePage {
 
     //Actions
 
+
     public void clickCurrentUserAndGoToSettings() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(dropdowncurrentuser)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(setting)).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement currentUserDropdown = wait.until(ExpectedConditions.visibilityOf(dropdowncurrentuser));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(currentUserDropdown).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(currentUserDropdown)).click();
+        WebElement settingsOption = wait.until(ExpectedConditions.visibilityOf(setting));
+        actions.moveToElement(settingsOption).perform();
+        wait.until(ExpectedConditions.elementToBeClickable(settingsOption)).click();
     }
+
 
     public void clickonAddGlobalField() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
