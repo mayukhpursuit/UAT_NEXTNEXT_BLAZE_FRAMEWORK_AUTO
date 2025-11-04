@@ -10,8 +10,7 @@ public class TC035 extends BaseClass {
     @Test(dataProvider = "tc035", dataProviderClass = SettingTestCaseDataProvider.class)
     public void Verify_that_user_is_able_to_delete_a_Custom_Field_inside_Test_step(
             String fieldName1,
-            String fieldType,String fieldName2
-    ) throws InterruptedException {
+            String fieldType) throws InterruptedException {
 
         logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
 
