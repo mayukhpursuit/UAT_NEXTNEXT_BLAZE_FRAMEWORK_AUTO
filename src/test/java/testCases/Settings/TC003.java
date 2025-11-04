@@ -7,10 +7,13 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 import org.testng.Assert;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 
 public class TC003 extends BaseClass {
 
-    @Test(dataProvider = "tc003", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc003", dataProviderClass = SettingTestCaseDataProvider.class)
     public void verifyAddDefaultFieldValueInGlobalSettings(String fieldName,
             String textBox,
             String objType1,
@@ -23,7 +26,6 @@ public class TC003 extends BaseClass {
                 "****** Starting the TC003 : Verify that user is able to add a Default Field Value in the Global Field Setting. ******");
 
         try {
-
             login();
             logger.info("Logged in successfully");
 
@@ -54,11 +56,9 @@ public class TC003 extends BaseClass {
             globalTab.clickSaveButton();
             logger.info("Clicked on Save button to add global field");
 
+            Thread.sleep(1000);
             globalTab.clickonEdit(fieldName);
             logger.info("Clicked on Edit icon for field: " + fieldName);
-
-            globalTab.clickAddFieldButton();
-            logger.info("Clicked on Add Field Value button");
 
             globalTab.enterFieldValue(defaultFieldValue);
             logger.info("Entered Default Field Value: " + defaultFieldValue);
@@ -73,7 +73,7 @@ public class TC003 extends BaseClass {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
         } catch (Exception e) {
-            logger.error("Exception occurred: " + e.getMessage());
+            logger.error("Exception occurred: " + e.getMessage(), e);
             throw e;
         }
 
