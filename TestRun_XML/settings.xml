@@ -18,10 +18,10 @@
 <!--            <class name="testCases.Settings.TC010"/>-->
 <!--            <class name="testCases.Settings.TC014"/>-->
 <!--            <class name="testCases.Settings.TC015"/>-->
-<!--            <class name="testCases.Settings.TC016"/>-->
-<!--            <class name="testCases.Settings.TC022"/>-->
+            <class name="testCases.Settings.TC016"/>
+            <class name="testCases.Settings.TC022"/>
 <!--            <class name="testCases.Settings.TC023"/>-->
-<!--            <class name="testCases.Settings.TC028"/>-->
+            <class name="testCases.Settings.TC028"/>
 <!--            <class name="testCases.Settings.TC036"/>-->
 <!--            <class name="testCases.Settings.TC037"/>-->
 <!--            <class name="testCases.Settings.TC044"/>-->
