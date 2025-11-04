@@ -18,7 +18,7 @@
 <!--            <class name="testCases.Settings.TC010"/>-->
 <!--            <class name="testCases.Settings.TC014"/>-->
 <!--            <class name="testCases.Settings.TC015"/>-->
-            <class name="testCases.Settings.TC016"/>
+<!--            <class name="testCases.Settings.TC016"/>-->
 <!--            <class name="testCases.Settings.TC022"/>-->
 <!--            <class name="testCases.Settings.TC023"/>-->
 <!--            <class name="testCases.Settings.TC028"/>-->
@@ -28,7 +28,7 @@
 <!--            <class name="testCases.Settings.TC047"/>-->
 <!--            <class name="testCases.Settings.TC048"/>-->
 <!--            <class name="testCases.Settings.TC056"/>-->
-<!--            <class name="testCases.Settings.TC058"/>-->
+            <class name="testCases.Settings.TC058"/>
         </classes>
 <!--        <packages>-->
 <!--            <package name="testCases.Settings"/>-->
