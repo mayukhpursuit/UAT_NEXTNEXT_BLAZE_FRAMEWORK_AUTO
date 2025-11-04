@@ -44,6 +44,9 @@ public class TC041 extends BaseClass {
             otherTab.clickOnDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
 
+            otherTab.clickOnDeleteRowConfirmation();
+            logger.info("clicked on yes confirmation");
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());

@@ -5,12 +5,13 @@ import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
-public class TC035 extends BaseClass {
-    @Test(dataProvider = "tc035", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void Verify_that_user_is_able_to_delete_a_Custom_Field_inside_Test_step(
+public class TC053 extends BaseClass {
+    @Test(dataProvider = "tc041", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void Verify_delete_Custom_Field_inside_TestRuns_Tab(
             String fieldName1,
-            String fieldType
+            String fieldType,String fieldName2
     ) throws InterruptedException {
 
         logger.info("****** Starting the TC009: Verify that user is able to create a Custom Field inside Module Tab *****************");
@@ -25,7 +26,7 @@ public class TC035 extends BaseClass {
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickTestStep();
+            otherTab.clickTestRuns();
             logger.info("Navigated to Module tab");
 
             otherTab.clickOnAddCustomField();
@@ -40,10 +41,11 @@ public class TC035 extends BaseClass {
             otherTab.clickcreatefieldButton();
             logger.info("clicked on create field button#");
 
-            Thread.sleep(3000);
+            otherTab.clickOnDelete(fieldName2);
+            logger.info("Clicked Delete icon for the field: " + fieldName2);
 
-            otherTab.clickOnDelete(fieldName1);
-            logger.info("Clicked Delete icon for the field: " + fieldName1);
+            otherTab.clickOnDeleteRowConfirmation();
+            logger.info("clicked on yes confirmation");
 
 
         } catch (AssertionError e) {

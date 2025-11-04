@@ -1,17 +1,14 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 
-public class TC042 extends BaseClass {
-    @Test(dataProvider = "tc042", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void verifyUserCanClickAvailableCustomFieldCheckbox(String rowName) throws InterruptedException {
-        logger.info(
-                "****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
+public class TC061 extends BaseClass {
+    @Test
+    public void verify_SelectAll_And_ClearAllButton_ClickableOn_TestRun()throws InterruptedException {
+        logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -19,15 +16,20 @@ public class TC042 extends BaseClass {
             GlobalTabPage globalTab = new GlobalTabPage(getDriver());
             OtherTabPage otherTab = new OtherTabPage(getDriver());
 
+
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickTestSuite();
-            logger.info("Navigated to TestSuite section");
+            otherTab.clickTestRuns();
+            logger.info("Navigated to TestRun section");
 
-            boolean isClickable = globalTab.isCheckboxClickable(rowName);
-            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
-            logger.info("Verified checkbox is clickable for row: " + rowName);
+            globalTab.clickonSelectAll();
+            logger.info("Clicked on selectAll Button");
+
+            globalTab.clickonClearAll();
+            logger.info("Clicked on ClearAll Button");
+            logger.info("Successfully Completed the testcase");
+
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

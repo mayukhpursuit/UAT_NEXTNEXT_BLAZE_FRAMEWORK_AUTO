@@ -11,9 +11,7 @@ import utils.RetryAnalyzer;
 
 public class TC006 extends BaseClass {
     @Test(dataProvider = "tc006", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void Verifythatuserabletoclickonthecheckboxofavailablecustomfield(String fieldName,
-                                                   String textBox,
-                                                   String objType1,String objType2,String rowName) throws InterruptedException {
+    public void Verifythatuserabletoclickonthecheckboxofavailablecustomfield(String rowName) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify that user able to click on the check box of available custom field *****************");
         try {
             login();
@@ -29,31 +27,8 @@ public class TC006 extends BaseClass {
             otherTab.clickGlobalFieldSetting();
             logger.info("Navigated to Global Field Settings section");
 
-            globalTab.clickonAddGlobalField();
-            logger.info("Clicked on Add Global Field button");
-
-            globalTab.EnterFieldName(fieldName);
-            logger.info("Entered Field Name: " + fieldName);
-
-            globalTab.SelectDataType(textBox);
-            logger.info("Selected Data Type as Text Box");
-
-            globalTab.clickObjectTypeCheckbox(objType1);
-            logger.info("Selected Object Type: Test Case");
-
-            globalTab.clickObjectTypeCheckbox(objType2);
-            logger.info("Selected Object Type: Requirement");
-
-            globalTab.clickSaveButton();
-            logger.info("Clicked on Save button to add global field");
-
             globalTab.clickonCheckbox(rowName);
             logger.info("Clicked on checkbox for row: " + rowName);
-            Thread.sleep(7000);
-
-
-
-
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
             throw e;

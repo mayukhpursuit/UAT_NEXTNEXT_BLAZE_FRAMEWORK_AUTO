@@ -556,6 +556,15 @@ public class GlobalTabPage extends BasePage {
         }
     }
 
+    @FindBy(xpath = "//button[@class='global-fields-delete-confirm-button' and text()='YES, DELETE']")
+    WebElement deleteConfirmButton;
+
+
+    public void clickDeleteConfirmButton() {
+        deleteConfirmButton.click();
+    }
+
+
 
 
 }
