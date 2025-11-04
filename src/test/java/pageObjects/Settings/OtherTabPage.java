@@ -140,9 +140,6 @@ public class OtherTabPage extends BasePage {
     @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
     WebElement DefaultSaveButton ;
 
-    @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
-    WebElement DefaultSaveButton ;
-
     @FindBy(xpath = "//input[@placeholder='Enter default value']")
     WebElement editFillDefaultValue;
 
