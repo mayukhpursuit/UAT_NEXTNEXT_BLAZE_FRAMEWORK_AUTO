@@ -9,7 +9,7 @@ import utils.RetryAnalyzer;
 
 public class TC034 extends BaseClass {
     @Test(dataProvider = "tc016", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void VerifythatuserisabletoaddaDefaultFieldValueintheModuleTab(
+    public void VerifythatuserisabletoaddaDefaultFieldValueintheTestcaseTab(
             String fieldName,
             String value
     ) throws InterruptedException
@@ -34,8 +34,6 @@ public class TC034 extends BaseClass {
             otherTab.clickOnEdit(fieldName);
             logger.info("clicked on edit row:"+fieldName);
 
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
 
             otherTab.enterDefaultValue(value);
             logger.info("entered default value:"+value);
