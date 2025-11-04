@@ -143,6 +143,9 @@ public class OtherTabPage extends BasePage {
      @FindBy(xpath = "//span[normalize-space()='SAVE CHANGES']")
     WebElement editSaveChangesButton;
 
+    @FindBy(xpath = "//div[@id='addFieldValueModal']//button[1]")
+    WebElement DefaultSaveButton ;
+
     @FindBy(xpath = "//input[@placeholder='Enter default value']")
     WebElement editFillDefaultValue;
 
@@ -363,6 +366,10 @@ public class OtherTabPage extends BasePage {
         saveChangesBtn.click();
     }
 
+    public void clickDefaultSaveButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(DefaultSaveButton)).click();
+    }
 
     public void enterDefaultValue(String value) {
         WebElement input = new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -454,6 +461,8 @@ public class OtherTabPage extends BasePage {
         } catch (Exception e) {
             return false;
         }
+
+
     }
 
     

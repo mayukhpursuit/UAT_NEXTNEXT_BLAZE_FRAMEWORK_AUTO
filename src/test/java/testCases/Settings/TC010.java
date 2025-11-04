@@ -10,13 +10,13 @@ import utils.RetryAnalyzer;
 public class TC010 extends BaseClass
 {
     @Test(dataProvider = "tc010", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
-    public void VerifyThatUserIsAbleToCreateADefaultValue(
-            String fieldName,
-            String value
+    public void VerifyThatUserIsAbleToAddaDefaultFieldValueintheModuleTab(
+            String fieldrow,
+            String fieldName
     ) throws InterruptedException
     {
 
-        logger.info("****** Starting the TC010***************");
+        logger.info("****** Starting the TC010 ***********");
 
         try {
             login();
@@ -28,29 +28,37 @@ public class TC010 extends BaseClass
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");
 
-            otherTab.clickModule();
-                    logger.info("Navigated to Module tab");
-
             Thread.sleep(3000);
-            otherTab.clickEdit(fieldName);
-            logger.info("clicked on edit row:"+fieldName);
 
-            otherTab.clickDefaultAddValue() ;
-            logger.info("clicked on adddefaultvalue");
+            otherTab.clickModule();
+            logger.info("Navigated to Module tab");
 
-            otherTab.enterDefaultValue(value);
-            logger.info("entered default value"+value);
 
-            otherTab.clickDefaultSaveChanges();
-            logger.info("clicked on save changes");
+            otherTab.clickOnEdit(fieldrow);
+            logger.info("Clicked on edit field button:"+fieldrow);
+
+            otherTab.clickDefaultAddValue();
+            logger.info("Click on add default value");
+
+            otherTab.enterDefaultValue(fieldName);
+            logger.info("Entered defualt value: " + fieldName);
+
+            otherTab.clickDefaultSaveButton();
+            logger.info("clicked on default save changes button");
+
+            Thread.sleep(2000);
 
             logger.info("Now delete the added default field value");
 
-            otherTab.clickEdit(fieldName);
+            otherTab.clickOnEdit(fieldrow);
             logger.info("Clicked on edit field");
+
+            Thread.sleep(2000);
 
             otherTab.clickDefaultDeleteIcon();
             logger.info("Click on delete button");
+
+            Thread.sleep(2000);
 
             otherTab.clickYesDefaultValueDelete();
             logger.info("Successfully deleted the Default value after adding it");
@@ -62,8 +70,6 @@ public class TC010 extends BaseClass
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
-
         logger.info("************ Test Case Finished *************************");
     }
-
 }
