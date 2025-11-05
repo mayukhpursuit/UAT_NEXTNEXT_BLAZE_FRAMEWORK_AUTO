@@ -35,6 +35,7 @@ public class TC060 extends BaseClass {
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());
             throw e;
+
         } catch (Exception e) {
             logger.error("Exception occurred: {}", e.getMessage());
             throw e;
