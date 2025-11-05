@@ -1,7 +1,6 @@
 package testCases.Settings;
 
 import org.testng.annotations.Test;
-
 import DataProviders.SettingTestCaseDataProvider;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
@@ -45,15 +44,8 @@ public class TC017 extends BaseClass {
             assert isFieldAdded : "Custom field was not added successfully.";
             logger.info("Verified: Custom field '" + fieldName + "' added successfully");
 
-            otherTab.clickOnDelete(fieldName);
-            logger.info("Clicked on delete icon for field: " + fieldName);
-
-            otherTab.clickYesDefaultValueDelete();
-            logger.info("Confirmed deletion of custom field");
-
-            Thread.sleep(1000);
-            boolean isFieldDeleted = !otherTab.isCustomFieldPresent(fieldName);
-            assert isFieldDeleted : "Custom field was not deleted successfully.";
+           
+            otherTab.deleteCustomFieldAndVerify(fieldName);
             logger.info("Verified: Custom field '" + fieldName + "' deleted successfully from the dashboard");
 
         } catch (AssertionError e) {
