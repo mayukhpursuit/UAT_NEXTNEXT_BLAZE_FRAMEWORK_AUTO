@@ -22,8 +22,8 @@ jobs:
             logName: authorLog
           - suite: executetest.xml
             logName: executeLog
-          - suite: main.xml
-            logName: mainLog
+          - suite: settings.xml
+            logName: settingLog
 
     steps:
       - name: Checkout repository
@@ -52,7 +52,7 @@ jobs:
         if: always()
         run: |
           mkdir -p reports/${{ matrix.suite }}
-          cp target/surefire-reports/emailable-report.html reports/${{ matrix.suite }}/
+          cp target/surefire-reports/emailable-report.html reports/${{ matrix.suite }}/ || echo "Surefire report not found."
 
       - name: Upload Surefire Report - ${{ matrix.suite }}
         if: always()
@@ -65,7 +65,7 @@ jobs:
         if: always()
         run: |
           mkdir -p reports/${{ matrix.suite }}
-          cp target/extent-report.html reports/${{ matrix.suite }}/
+          cp target/extent-report.html reports/${{ matrix.suite }}/ || echo "Extent report not found."
 
       - name: Upload Extent Report - ${{ matrix.suite }}
         if: always()
