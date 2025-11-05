@@ -8,7 +8,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC034 extends BaseClass {
-    @Test(dataProvider = "tc016", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc034", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void VerifythatuserisabletoaddaDefaultFieldValueintheTestcaseTab(
             String fieldName,
             String value
