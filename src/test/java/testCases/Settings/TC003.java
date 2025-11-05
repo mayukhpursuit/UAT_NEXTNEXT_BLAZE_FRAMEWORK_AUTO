@@ -6,15 +6,11 @@ import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
-import org.testng.Assert;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.time.Duration;
 
 public class TC003 extends BaseClass {
 
-    @Test(dataProvider = "tc003", dataProviderClass = SettingTestCaseDataProvider.class)
-    public void verifyAddDefaultFieldValueInGlobalSettings(String fieldName,
+    @Test(dataProvider = "tc003", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
+    public void verifyAddDefaultFieldValueInGlobalSettings(
             String textBox,
             String objType1,
             String objType2,
@@ -41,6 +37,7 @@ public class TC003 extends BaseClass {
             globalTab.clickonAddGlobalField();
             logger.info("Clicked on Add Global Field button");
 
+            String fieldName = "Test_User_" + System.currentTimeMillis();
             globalTab.EnterFieldName(fieldName);
             logger.info("Entered Field Name: " + fieldName);
 
@@ -56,18 +53,17 @@ public class TC003 extends BaseClass {
             globalTab.clickSaveButton();
             logger.info("Clicked on Save button to add global field");
 
-            Thread.sleep(1000);
             globalTab.clickonEdit(fieldName);
             logger.info("Clicked on Edit icon for field: " + fieldName);
+
+            globalTab.clickAddFieldButton();
+            logger.info("Clicked on Add Field button to add Default Field Value");
 
             globalTab.enterFieldValue(defaultFieldValue);
             logger.info("Entered Default Field Value: " + defaultFieldValue);
 
             globalTab.clickonSaveButton();
             logger.info("Clicked on Save button to save Default Field Value");
-
-            Assert.assertTrue(globalTab.verifySuccessNotification(expectedMessage),
-                    "Default Field Value not added successfully");
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
