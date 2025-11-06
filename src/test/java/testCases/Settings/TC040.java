@@ -34,8 +34,10 @@ public class TC040 extends BaseClass {
 
             otherTab.clickOnAddCustomField();
             logger.info("clicked on add custom field");
+            long timeMillis = System.currentTimeMillis();
+            String dynamicfield=customfield+timeMillis;
 
-            otherTab.createCustomEnterFieldName(customfield);
+            otherTab.createCustomEnterFieldName(dynamicfield);
             logger.info("Custom field:"+customfield);
 
             otherTab.createCustomSelectDataType(Datatype);
@@ -44,8 +46,8 @@ public class TC040 extends BaseClass {
             otherTab.clickcreatefieldButton();
 
 
-            otherTab.clickOnEdit(field);
-            logger.info("clicked on edit row:"+field);
+            otherTab.clickOnEdit(dynamicfield);
+            logger.info("clicked on edit row:"+dynamicfield);
 
 
             otherTab.clickDefaultAddValue(); ;
@@ -58,12 +60,12 @@ public class TC040 extends BaseClass {
             logger.info("clicked on save changes");
             Thread.sleep(3000);
 
-            otherTab.clickOnEdit(field);
+            otherTab.clickOnEdit(dynamicfield);
             otherTab.clickDefaultDeleteIcon();
             otherTab.clickYesDefaultValueDelete();
             otherTab.clickDefaultSaveChanges();
 
-            otherTab.clickOnDelete(delcustom);
+            otherTab.clickOnDelete(dynamicfield);
             otherTab.clickConfirmYesButton();
 
 
