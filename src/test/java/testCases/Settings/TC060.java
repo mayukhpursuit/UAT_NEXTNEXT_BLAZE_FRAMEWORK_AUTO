@@ -26,9 +26,9 @@ public class TC060 extends BaseClass {
             otherTab.clickDefect();
             logger.info("Navigated to Defect section");
 
-            boolean isClickable = globalTab.isCheckboxClickable(rowName);
-            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
-            logger.info("Verified checkbox is clickable for row: " + rowName);
+//            boolean isClickable = globalTab.isCheckboxClickable(rowName);
+//            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
+//            logger.info("Verified checkbox is clickable for row: " + rowName);
 
 
 

@@ -482,13 +482,7 @@ public class OtherTabPage extends BasePage {
         return false;
     }
 
-    @FindBy(xpath = "//div[@class='test-execution-label-3']")
-    private WebElement deleterowconfirmation;
 
-    public void clickOnDeleteRowConfirmation() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement confirmBtn = wait.until(ExpectedConditions.elementToBeClickable(deleterowconfirmation));
-        confirmBtn.click();
-    }
+
 
 }

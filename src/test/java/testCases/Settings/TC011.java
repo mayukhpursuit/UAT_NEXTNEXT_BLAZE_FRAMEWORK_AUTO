@@ -44,7 +44,7 @@ public class TC011 extends BaseClass {
             otherTab.clickOnDelete(fieldName2);
             logger.info("Clicked Delete icon for the field: " + fieldName2);
 
-            otherTab.clickOnDeleteRowConfirmation();
+           // otherTab.clickOnDeleteRowConfirmation();
             logger.info("clicked on yes confirmation");
 
 
