@@ -429,13 +429,30 @@ public class AuthorTestCasePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(searchBtn));
         searchBtn.click();
     }
-    public String totalNoOfTestcasesInsideRq(){
+   
+    public String totalNoOfTestcasesInsideRq() {
         return totalEntryConutOfTestcases.getText();
     }
+
+    public String totalNoOfTestcasesInsideRq(int expectedMinimumCount) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(d -> {
+            String text = totalEntryConutOfTestcases.getText().trim();
+            if (text.isEmpty())
+                return false;
+            int current = extractNumber(text);
+            return current >= expectedMinimumCount;
+        });
+
+        return totalEntryConutOfTestcases.getText();
+    }
+
     public int extractNumber(String text) {
         return Integer.parseInt(text.replaceAll("[^0-9]", ""));
     }
-    public String getRQId(){
+
+    public String getRQId() {
         return rqIdText.getText();
     }
     public String getRQTitle(){

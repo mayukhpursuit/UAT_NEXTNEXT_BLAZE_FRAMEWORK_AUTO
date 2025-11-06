@@ -9,9 +9,12 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC041 extends BaseClass {
-    @Test(dataProvider = "tc041", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
-    public void verifyUpdatedCountoftestcase(String rqName, String tcName, String description, String priority, String type, String qaUser, String preCondition) throws InterruptedException {
+    @Test(dataProvider = "tc041", dataProviderClass = AuthorTestCaseDataProvider.class ,retryAnalyzer = RetryAnalyzer.class)
+    public void verifyUpdatedCountoftestcase(String rqName, String tcName, String description,
+            String priority, String type, String qaUser, String preCondition)
+            throws InterruptedException {
+
         logger.info("****** Starting the Test Case *****************");
         try {
             login();
@@ -28,8 +31,9 @@ public class TC041 extends BaseClass {
             logger.info("Requirement '" + rqName + "' clicked.");
 
             String totalCountBeforeAddTestcase = authorTestCasePage.totalNoOfTestcasesInsideRq();
-            Thread.sleep(4000);
             logger.info("Total test cases before addition: " + totalCountBeforeAddTestcase);
+
+            int before = authorTestCasePage.extractNumber(totalCountBeforeAddTestcase);
 
             authorTestCasePage.clickAddTestcase();
             logger.info("Clicked 'Add Test Case' button.");
@@ -55,21 +59,18 @@ public class TC041 extends BaseClass {
             addTestcasePage.clickSave();
             logger.info("New test case saved successfully.");
 
-            Thread.sleep(3000);
-
-            String totalCountAfterAddNewTestcase = authorTestCasePage.totalNoOfTestcasesInsideRq();
+            String totalCountAfterAddNewTestcase = authorTestCasePage.totalNoOfTestcasesInsideRq(before + 1);
             logger.info("Total test cases after addition: " + totalCountAfterAddNewTestcase);
 
-            int before = authorTestCasePage.extractNumber(totalCountBeforeAddTestcase);
             int after = authorTestCasePage.extractNumber(totalCountAfterAddNewTestcase);
 
             Assert.assertEquals(after, before + 1, "Test case count did not increase after adding a new test case.");
+
         } catch (Exception e) {
             logger.error("An exception occurred: " + e.getMessage(), e);
             throw e;
         }
 
         logger.info("************ Test Case Execution Completed ************");
-
     }
 }

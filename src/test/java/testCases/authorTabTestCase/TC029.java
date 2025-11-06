@@ -1,18 +1,11 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.BasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
-
-import java.time.Duration;
 
 public class TC029 extends BaseClass {
     @Test(dataProvider = "tc029", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)

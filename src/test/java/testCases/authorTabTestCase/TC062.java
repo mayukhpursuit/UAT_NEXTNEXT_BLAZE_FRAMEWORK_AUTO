@@ -7,8 +7,6 @@ import pageObjects.authoTestCaseTab.IndividualTestCasePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.prefs.BackingStoreException;
-
 public class TC062 extends BaseClass {
     @Test(dataProvider = "tc040",dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void VerifyAddTestStepButton(
