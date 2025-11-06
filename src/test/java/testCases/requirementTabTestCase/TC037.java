@@ -10,7 +10,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC037 extends BaseClass {
-    @Test(dataProvider = "tc037", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc036", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
 
     public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module
     ) throws InterruptedException {
@@ -28,7 +28,7 @@ public class TC037 extends BaseClass {
             requirementTabPage.clickRequirementTab();
             logger.info("Clicked on the 'Requirement' tab");
 
-            Thread.sleep(6000);
+            Thread.sleep(5000);
 
             requirementTabPage.clickArrowRightPointingForExpandModule(mainProject);
             logger.info("Expanded the main project: " + mainProject);

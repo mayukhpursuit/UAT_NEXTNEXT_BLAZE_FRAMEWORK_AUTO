@@ -461,6 +461,25 @@ public class OtherTabPage extends BasePage {
 
     }
 
-    
+    public void deleteCustomFieldAndVerify(String fieldName) throws InterruptedException {
+        clickOnDelete(fieldName);
+        Thread.sleep(500);
+        clickYesDefaultValueDelete();
+
+        boolean isDeleted = waitUntilCustomFieldIsDeleted(fieldName, 10);
+        assert isDeleted : "Custom field was not deleted successfully.";
+    }
+
+    private boolean waitUntilCustomFieldIsDeleted(String fieldName, int timeoutSeconds) throws InterruptedException {
+        int waited = 0;
+        while (waited < timeoutSeconds * 1000) {
+            if (!isCustomFieldPresent(fieldName)) {
+                return true;
+            }
+            Thread.sleep(500);
+            waited += 500;
+        }
+        return false;
+    }
 
 }
