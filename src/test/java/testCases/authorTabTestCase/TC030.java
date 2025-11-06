@@ -1,7 +1,6 @@
 package testCases.authorTabTestCase;
 
 import DataProviders.AuthorTestCaseDataProvider;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;

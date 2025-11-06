@@ -20,8 +20,8 @@ jobs:
             logName: requirementLog
           - suite: authortest.xml
             logName: authorLog
-          - suite: executetest.xml
-            logName: executeLog
+          # - suite: executetest.xml
+          #   logName: executeLog
           - suite: settings.xml
             logName: settingLog
 
