@@ -8,7 +8,8 @@ import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.Random;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class TC009 extends BaseClass {
     @Test(dataProvider = "tc008", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
@@ -20,7 +21,7 @@ public class TC009 extends BaseClass {
     )
             throws InterruptedException {
         logger.info(
-                "****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************");
+                "****** Starting Test Case: Verify deleting a cycle removes it from the hierarchy *****************");
         try {
 
             login();
@@ -42,7 +43,8 @@ public class TC009 extends BaseClass {
 
             testPlanPage.clickNewTestCycle();
             logger.info("Clicked on the new testCycle");
-            String num=String.valueOf((100 + new Random().nextInt(900)));
+
+            String num = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
             IndividualTestCyclePage individualTestCyclePage=new IndividualTestCyclePage(getDriver());
             individualTestCyclePage.setTestCycleName(testCycleName+num);
             logger.info("added the test cycle name");

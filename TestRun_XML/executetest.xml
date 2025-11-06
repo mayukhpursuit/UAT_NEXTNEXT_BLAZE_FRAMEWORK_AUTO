@@ -63,7 +63,7 @@
         </classes>
 
         <!--        <packages>-->
-<!--            <package name="testCases.ExecuteTestCaseTab"/>-->
-<!--        </packages>-->
+        <!--            <package name="testCases.ExecuteTestCaseTab"/>-->
+        <!--        </packages>-->
     </test>
 </suite>
