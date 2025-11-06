@@ -1,10 +1,10 @@
 name: CI - Run TestNG Suites with Maven
 
 on:
-#  push:
-#    branches: ["main"]
-#  pull_request:
-#    branches: ["main"]
+  #  push:
+  #    branches: ["main"]
+  #  pull_request:
+  #    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -14,14 +14,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - suite: testplan.xml
-          #   logName: testPlan
-          # - suite: requirement.xml
-          #   logName: requirementLog
-          # - suite: authortest.xml
-          #   logName: authorLog
-          # - suite: executetest.xml
-          #   logName: executeLog
+          - suite: testplan.xml
+            logName: testPlan
+          - suite: requirement.xml
+            logName: requirementLog
+          - suite: authortest.xml
+            logName: authorLog
+          - suite: executetest.xml
+            logName: executeLog
           - suite: settings.xml
             logName: settingLog
 
