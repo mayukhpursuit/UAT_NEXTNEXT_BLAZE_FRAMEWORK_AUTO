@@ -477,14 +477,27 @@ public class GlobalTabPage extends BasePage {
     }
 
     public int getSelectedCheckboxCount() {
-        List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox' and not(@disabled)]"));
-        int selectedCount = 0;
-        for (WebElement cb : checkboxes) {
-            if (cb.isDisplayed() && cb.isSelected()) {
-                selectedCount++;
+        for (int i = 0; i < 5; i++) {
+            List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox' and not(@disabled)]"));
+            long selectedCount = checkboxes.stream()
+                    .filter(cb -> cb.isDisplayed() && cb.isSelected())
+                    .count();
+
+            if (selectedCount == 0) {
+                return 0;
+            }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
         }
-        return selectedCount;
+
+        List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox' and not(@disabled)]"));
+        long selectedCount = checkboxes.stream()
+                .filter(cb -> cb.isDisplayed() && cb.isSelected())
+                .count();
+        return (int) selectedCount;
     }
 
     public String getFirstAvailableCustomFieldName() {
