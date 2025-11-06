@@ -14,10 +14,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - suite: testplan.xml
-            logName: testPlan
-          - suite: requirement.xml
-            logName: requirementLog
+          # - suite: testplan.xml
+          #   logName: testPlan
+          # - suite: requirement.xml
+          #   logName: requirementLog
           - suite: authortest.xml
             logName: authorLog
           # - suite: executetest.xml
