@@ -3,13 +3,12 @@ package testCases.authorTabTestCase;
 import DataProviders.AuthorTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC052 extends BaseClass {
-    @Test(dataProvider = "tc052", dataProviderClass = AuthorTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc052", dataProviderClass = AuthorTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
 
     public void verifyRQSearchFunctionality(String rqName, String rqTitle) throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
@@ -19,7 +18,6 @@ public class TC052 extends BaseClass {
 
             logger.info("Navigating to 'Author Test Case' tab.");
             AuthorTestCasePage authorTestCasePage = new AuthorTestCasePage(getDriver());
-            AddTestcasePage addTestcasePage = new AddTestcasePage(getDriver());
 
             // Search by RQ ID
             authorTestCasePage.searchRq(rqName);
