@@ -4,25 +4,22 @@ import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
-import pageObjects.executeTestCaseTab.IndividualTestRun;
-import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC043 extends BaseClass {
-    @Test(dataProvider = "tc043", dataProviderClass = ExecuteTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc043", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifySearchForNonExistingTestRun(
-                                                    String release,
-                                                    String cycle,
-                                                    String suite,
-                                                    String testRunId
-    ) throws InterruptedException {
+            String release,
+            String cycle,
+            String suite,
+            String testRunId) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
             logger.info("Logged in successfully");
 
-            ExecuteLandingPage executeLandingPage =new ExecuteLandingPage(getDriver());
+            ExecuteLandingPage executeLandingPage = new ExecuteLandingPage(getDriver());
             executeLandingPage.clickExecuteTab();
             logger.info("Clicked on the execute test case tab ..");
 
@@ -30,23 +27,19 @@ public class TC043 extends BaseClass {
             logger.info("Clicked on project Name ....");
 
             executeLandingPage.clickArrowRightPointingForExpandModule(release);
-            logger.info("Expanded the release {}",release);
+            logger.info("Expanded the release {}", release);
 
             executeLandingPage.clickArrowRightToExpandModule(cycle);
-            logger.info("Expanded the cycle : {}",cycle);
+            logger.info("Expanded the cycle : {}", cycle);
 
             executeLandingPage.clickOnSuite(suite);
-            logger.info("clicked on the suite : {}",suite);
-
-            String [] beforeFilter= executeLandingPage.getAllTestRunIds();
+            logger.info("clicked on the suite : {}", suite);
 
             executeLandingPage.searchTestCase(testRunId);
-            logger.info("Entered the test run Id : {}",testRunId);
+            logger.info("Entered the test run Id : {}", testRunId);
 
             Assert.assertTrue(executeLandingPage.isNoMatchingTabVisible());
             logger.info("Verified no matching tab is visible");
-
-
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

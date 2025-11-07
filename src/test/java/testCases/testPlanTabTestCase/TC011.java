@@ -1,10 +1,7 @@
 package testCases.testPlanTabTestCase;
 
 import DataProviders.TestPlanDataProvider;
-import lombok.extern.java.Log;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;

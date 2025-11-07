@@ -39,7 +39,6 @@ public class TC018 extends BaseClass {
             executeLandingPage.clickOnSuite(suite);
             logger.info("clicked on the suite : {}",suite);
 
-            String [] beforeFilter= executeLandingPage.getAllTestRunIds();
 
             executeLandingPage.searchTestCase(testRunId);
             logger.info("Entered the test run Id : {}",testRunId);

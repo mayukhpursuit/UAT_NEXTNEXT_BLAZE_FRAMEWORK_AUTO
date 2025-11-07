@@ -9,7 +9,6 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 import java.util.List;
-import java.util.Arrays;
 
 public class TC003 extends BaseClass {
 

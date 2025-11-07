@@ -1,6 +1,5 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;

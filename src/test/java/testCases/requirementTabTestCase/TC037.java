@@ -1,19 +1,17 @@
 package testCases.requirementTabTestCase;
 
 import DataProviders.RequirementDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC037 extends BaseClass {
-    @Test(dataProvider = "tc036", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc036", dataProviderClass = RequirementDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
 
-    public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module
-    ) throws InterruptedException {
+    public void verifyCLoseButtonOnTheAlertWhenEmptyModuleName(String mainProject, String module)
+            throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
         try {
             logger.info("************ Test Case Started *************************");
@@ -23,7 +21,6 @@ public class TC037 extends BaseClass {
 
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
-            AddRequirementPage addRequirementPage = new AddRequirementPage(getDriver());
 
             requirementTabPage.clickRequirementTab();
             logger.info("Clicked on the 'Requirement' tab");

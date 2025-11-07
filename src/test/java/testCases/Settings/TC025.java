@@ -1,17 +1,14 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-public class TC025 extends BaseClass
-{
+public class TC025 extends BaseClass {
     @Test(retryAnalyzer = RetryAnalyzer.class)
-    public void VerifySelectAllAndClearAllButtonForRequirementField() throws InterruptedException
-    {
+    public void VerifySelectAllAndClearAllButtonForRequirementField() throws InterruptedException {
         logger.info("****** Starting the TC025 ***************");
         try {
             login();
@@ -40,12 +37,10 @@ public class TC025 extends BaseClass
 
             Thread.sleep(2000);
 
-        }
-        catch (AssertionError e) {
+        } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }

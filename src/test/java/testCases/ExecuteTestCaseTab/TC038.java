@@ -1,15 +1,12 @@
 package testCases.ExecuteTestCaseTab;
 
 import DataProviders.ExecuteTestCaseDataProvider;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
-import pageObjects.executeTestCaseTab.IndividualTestRun;
+
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
-
-import java.util.List;
 
 public class TC038 extends BaseClass {
     @Test(dataProvider = "tc038", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
@@ -19,8 +16,7 @@ public class TC038 extends BaseClass {
             String CycleName,
             String SuiteName,
             String status,
-            String Exstatus
-    ) throws InterruptedException {
+            String Exstatus) throws InterruptedException {
 
         logger.info("****** Starting Test Case 038: verify filter by status feature. *****************");
 
@@ -55,7 +51,6 @@ public class TC038 extends BaseClass {
                 Assert.assertEquals(actualStatus, Exstatus,
                         "Mismatch found! Expected status: " + Exstatus + " but got: " + actualStatus);
             }
-
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

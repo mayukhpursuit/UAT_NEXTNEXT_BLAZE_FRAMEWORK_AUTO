@@ -1,8 +1,6 @@
 package testCases.requirementTabTestCase;
 
 import DataProviders.RequirementDataProvider;
-import com.beust.ah.A;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;

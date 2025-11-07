@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
-import java.util.Base64;
 
 public class TC047 extends BaseClass {
-    @Test(dataProvider = "tc047", dataProviderClass = SettingTestCaseDataProvider.class)
+    @Test(dataProvider = "tc047", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void Verify_that_user_is_able_to_create_a_Custom_Field_inside_TestSuite_Tab(
             String fieldName1,
             String fieldType,

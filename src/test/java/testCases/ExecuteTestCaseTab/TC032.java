@@ -9,7 +9,6 @@ import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.List;
 
 public class TC032 extends BaseClass {
     @Test(dataProvider = "tc032", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
@@ -39,7 +38,6 @@ public class TC032 extends BaseClass {
             Assert.assertTrue(executeLandingPage.isReleaseVisible(releaseName), "Release not visible after expand");
             logger.info("Expanded Release module: " + releaseName);
 
-            IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             executeLandingPage.clickPlayActionById(testRun);
             logger.info("clicked on Action Play button");
 

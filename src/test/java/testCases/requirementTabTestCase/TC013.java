@@ -1,9 +1,6 @@
 package testCases.requirementTabTestCase;
 
-import DataProviders.RequirementDataProvider;
 import org.testng.annotations.Test;
-import pageObjects.requirementTab.AddRequirementPage;
-import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;

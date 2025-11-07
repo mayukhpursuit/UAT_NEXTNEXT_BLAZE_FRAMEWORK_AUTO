@@ -1,18 +1,18 @@
 package testCases.Settings;
 
 import DataProviders.SettingTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
+import utils.RetryAnalyzer;
 
 public class TC054 extends BaseClass {
-    @Test(dataProvider = "tc054", dataProviderClass = SettingTestCaseDataProvider.class)
+    @Test(dataProvider = "tc054", dataProviderClass = SettingTestCaseDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
     public void Verify_that_user_able_to_click_on_the_checkbox_of_available_customfield_intestrunsection(
-            String rowName
-    ) throws InterruptedException {
-        logger.info("****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
+            String rowName) throws InterruptedException {
+        logger.info(
+                "****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -25,12 +25,6 @@ public class TC054 extends BaseClass {
 
             otherTab.clickTestRuns();
             logger.info("Navigated to TestRun section");
-
-//            boolean isClickable = globalTab.isCheckboxClickable(rowName);
-//            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
-//            logger.info("Verified checkbox is clickable for row: " + rowName);
-
-
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

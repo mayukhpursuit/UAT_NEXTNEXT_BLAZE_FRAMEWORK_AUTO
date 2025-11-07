@@ -1,8 +1,6 @@
 package testCases.Settings;
 
 import DataProviders.SettingTestCaseDataProvider;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
