@@ -1,8 +1,6 @@
 package testCases.ExecuteTestCaseTab;
 
 import DataProviders.ExecuteTestCaseDataProvider;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;

@@ -1,11 +1,10 @@
 package testCases.ExecuteTestCaseTab;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
-import pageObjects.executeTestCaseTab.IndividualTestRun;
 import testBase.BaseClass;
-@Test
+import utils.RetryAnalyzer;
+@Test( retryAnalyzer = RetryAnalyzer.class)
 public class TC030 extends BaseClass {
     public void verifyHelpDropDown() throws InterruptedException {
         try {
@@ -14,7 +13,6 @@ public class TC030 extends BaseClass {
             logger.info("Logged in successfully");
 
             ExecuteLandingPage executeLandingPage = new ExecuteLandingPage(getDriver());
-            IndividualTestRun individualTestRun = new IndividualTestRun(getDriver());
             executeLandingPage.clickExecuteTab();
             logger.info("Clicked on the Execute Test Case tab");
             executeLandingPage.clickHelpBtn();

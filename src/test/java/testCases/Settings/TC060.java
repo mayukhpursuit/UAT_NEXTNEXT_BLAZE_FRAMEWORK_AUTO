@@ -1,7 +1,6 @@
 package testCases.Settings;
 
 import DataProviders.SettingTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
@@ -10,9 +9,9 @@ import testBase.BaseClass;
 public class TC060 extends BaseClass {
     @Test(dataProvider = "tc060", dataProviderClass = SettingTestCaseDataProvider.class)
     public void Verify_that_user_able_to_click_on_the_checkbox_of_available_customfield_in_defect_section(
-            String rowName
-    ) throws InterruptedException {
-        logger.info("****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
+            String rowName) throws InterruptedException {
+        logger.info(
+                "****** Starting TC48: Verify that user able to click on the check box of available custom field *****************");
         try {
             login();
             logger.info("Logged in successfully");
@@ -25,12 +24,6 @@ public class TC060 extends BaseClass {
 
             otherTab.clickDefect();
             logger.info("Navigated to Defect section");
-
-//            boolean isClickable = globalTab.isCheckboxClickable(rowName);
-//            Assert.assertTrue(isClickable, "Checkbox is not clickable for row: " + rowName);
-//            logger.info("Verified checkbox is clickable for row: " + rowName);
-
-
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

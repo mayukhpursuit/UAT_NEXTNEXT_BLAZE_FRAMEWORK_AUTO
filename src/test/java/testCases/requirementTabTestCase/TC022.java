@@ -3,7 +3,6 @@ package testCases.requirementTabTestCase;
 import DataProviders.RequirementDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
@@ -23,7 +22,6 @@ public class TC022 extends BaseClass {
 
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
-            AddRequirementPage addRequirementPage = new AddRequirementPage(getDriver());
 
             requirementTabPage.clickRequirementTab();
             logger.info("Clicked on the 'Requirement' tab");

@@ -7,7 +7,6 @@ import pageObjects.Settings.OtherTabPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.Base64;
 
 public class TC030 extends BaseClass {
 

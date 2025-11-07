@@ -1,9 +1,7 @@
 package testCases.ExecuteTestCaseTab;
 
 import DataProviders.ExecuteTestCaseDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AuthorTestCasePage;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import pageObjects.executeTestCaseTab.IndividualTestRun;
 import testBase.BaseClass;

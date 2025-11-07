@@ -43,9 +43,9 @@ public class TC025 extends BaseClass {
                 individualModulePage.clickLastPageArrowBtn();
             }
             WebElement countBeforeAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
-            RequirementTabPage requirementTabPage2= new RequirementTabPage(getDriver());
+            
             Thread.sleep(2000);
-            List<String> beforeList = requirementTabPage.getRequirementIDs();
+           
             int beforeCount = Integer.parseInt(countBeforeAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Initial requirement count: " + beforeCount);
 
@@ -78,10 +78,8 @@ public class TC025 extends BaseClass {
             logger.info("Unlinked requirement: " + newRequirementId);
             Thread.sleep(3000);
 
-            RequirementTabPage requirementTabPage3= new RequirementTabPage(getDriver());
             Thread.sleep(2000);
-            List<String> afterRemoveList = requirementTabPage3.getRequirementIDs();
-            WebElement afterRemove = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
+           
             int afterRemoveCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
 
             logger.info("Requirement count after unlink: " + afterRemoveCount);

@@ -1,22 +1,18 @@
 package testCases.testPlanTabTestCase;
 
 import DataProviders.TestPlanDataProvider;
-import lombok.extern.java.Log;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.testPlanTab.IndividualTestCyclePage;
 import pageObjects.testPlanTab.TestPlanLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC011 extends BaseClass {
-    @Test(dataProvider = "tc011", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc011", dataProviderClass = TestPlanDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyTestSuits(
             String projectName,
             String release,
             String testCycle,
-            String testSuit
-    )
+            String testSuit)
             throws InterruptedException {
         logger.info(
                 "****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************");
@@ -34,7 +30,6 @@ public class TC011 extends BaseClass {
 
             testPlanPage.expandProjectSTG(projectName);
             logger.info("Expanded STG Project");
-
 
             testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(release);
             logger.info("Clicked on the release ");

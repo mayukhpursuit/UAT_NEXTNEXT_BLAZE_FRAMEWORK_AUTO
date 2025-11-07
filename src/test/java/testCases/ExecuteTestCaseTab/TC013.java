@@ -7,7 +7,6 @@ import pageObjects.executeTestCaseTab.IndividualTestRun;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.Locale;
 
 public class TC013 extends BaseClass {
     @Test(dataProvider = "tc013", dataProviderClass = ExecuteTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)

@@ -3,7 +3,6 @@ package testCases.ExecuteTestCaseTab;
 import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import pageObjects.executeTestCaseTab.IndividualTestRun;
 import pageObjects.executeTestCaseTab.LinkDefectPage;

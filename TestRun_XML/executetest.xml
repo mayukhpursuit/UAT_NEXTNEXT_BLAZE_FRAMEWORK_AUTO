@@ -61,9 +61,5 @@
             <class name="testCases.ExecuteTestCaseTab.TC051"/>
             <class name="testCases.ExecuteTestCaseTab.TC052"/>
         </classes>
-
-        <!--        <packages>-->
-<!--            <package name="testCases.ExecuteTestCaseTab"/>-->
-<!--        </packages>-->
     </test>
 </suite>

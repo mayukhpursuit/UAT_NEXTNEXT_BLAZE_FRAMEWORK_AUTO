@@ -1,6 +1,5 @@
 package testCases.Settings;
 
-import DataProviders.SettingTestCaseDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
@@ -15,18 +14,16 @@ public class TC001 extends BaseClass {
             login();
             logger.info("Logged in successfully");
             logger.info("Navigated to Author Test Case tab");
-            GlobalTabPage globalTabPage= new GlobalTabPage(getDriver());
+            GlobalTabPage globalTabPage = new GlobalTabPage(getDriver());
             globalTabPage.clickCurrentUserAndGoToSettings();
 
-            OtherTabPage otherTabPage= new OtherTabPage(getDriver());
+            OtherTabPage otherTabPage = new OtherTabPage(getDriver());
             otherTabPage.clickGlobalFieldSetting();
             logger.info("clicked on global field settings");
-        }
-        catch (AssertionError e) {
+        } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }

@@ -8,7 +8,6 @@ import pageObjects.requirementTab.IndividualModulePage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
-import java.util.logging.Logger;
 
 public class TC011 extends BaseClass {
     @Test (dataProvider = "tc011", dataProviderClass = RequirementDataProvider.class,retryAnalyzer = RetryAnalyzer.class)

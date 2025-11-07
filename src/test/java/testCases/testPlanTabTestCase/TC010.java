@@ -1,6 +1,8 @@
 package testCases.testPlanTabTestCase;
 
 import DataProviders.TestPlanDataProvider;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.testPlanTab.IndividualTestCyclePage;
@@ -10,7 +12,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC010 extends BaseClass {
-    @Test(dataProvider = "tc010", dataProviderClass = TestPlanDataProvider.class,retryAnalyzer = RetryAnalyzer.class)
+    @Test(dataProvider = "tc010", dataProviderClass = TestPlanDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyCreationOfTestSuite(
             String projectName,
             String releaseName,
@@ -19,16 +21,13 @@ public class TC010 extends BaseClass {
             String suiteName,
             String startDate,
             String endDate,
-            String executionType
-    )
+            String executionType)
             throws InterruptedException {
         logger.info(
                 "****** Starting Test Case: Verify Release List Updates Based on Project Selection *****************");
         try {
 
             login();
-//            getDriver().navigate().refresh();
-//            Thread.sleep(2000);
             logger.info("Logged in successfully");
 
             TestPlanLandingPage testPlanPage = new TestPlanLandingPage(getDriver());
@@ -48,28 +47,31 @@ public class TC010 extends BaseClass {
             testPlanPage.clickNewTestCycle();
             logger.info("Clicked on the new testCycle");
 
-            IndividualTestCyclePage individualTestCyclePage=new IndividualTestCyclePage(getDriver());
-            individualTestCyclePage.setTestCycleName(testCycleName);
+            IndividualTestCyclePage individualTestCyclePage = new IndividualTestCyclePage(getDriver());
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+            String testCycleNameWithTimestamp = testCycleName + "_" + timestamp;
+            individualTestCyclePage.setTestCycleName(testCycleNameWithTimestamp);
             logger.info("added the test cycle name");
 
             individualTestCyclePage.setDescription(testDescription);
             logger.info("added the description for cycle");
 
-            Assert.assertEquals(individualTestCyclePage.getTargetRelease(),releaseName);
+            Assert.assertEquals(individualTestCyclePage.getTargetRelease(), releaseName);
             logger.info("verified the targeted release ");
 
             individualTestCyclePage.clickSave();
             logger.info("Clicked on the save button");
 
-            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleName);
+            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testCycleNameWithTimestamp);
             logger.info("navigated to the created cycle");
 
             testPlanPage.clickNewTestSuite();
             logger.info("Clicked on the new test suite icon ");
 
-            IndividualTestSuitePage individualTestSuitePage=new IndividualTestSuitePage(getDriver());
+            IndividualTestSuitePage individualTestSuitePage = new IndividualTestSuitePage(getDriver());
 
-            individualTestSuitePage.enterTestSuiteName(suiteName);
+            String testSuiteNameWithTimestamp = suiteName + "_" + timestamp;
+            individualTestSuitePage.enterTestSuiteName(testSuiteNameWithTimestamp);
             logger.info("Entered the suite name");
 
             individualTestSuitePage.enterDescription(testDescription);
@@ -85,11 +87,9 @@ public class TC010 extends BaseClass {
             individualTestSuitePage.clickSaveButton();
             logger.info("clicked on save button");
 
-
-            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(suiteName);
-            Assert.assertEquals(individualTestSuitePage.getTargetRelease(),releaseName);
+            testPlanPage.clickOnReleaseOrTestCycleOrTestSuite(testSuiteNameWithTimestamp);
+            Assert.assertEquals(individualTestSuitePage.getTargetRelease(), releaseName);
             logger.info("release note verified successfully");
-
 
         } catch (AssertionError e) {
             logger.error("Assertion failed: {}", e.getMessage());

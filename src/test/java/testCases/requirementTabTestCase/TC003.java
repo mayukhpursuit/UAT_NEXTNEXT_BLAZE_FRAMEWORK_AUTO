@@ -1,9 +1,7 @@
 package testCases.requirementTabTestCase;
 
-import DataProviders.RequirementDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.requirementTab.AddRequirementPage;
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
@@ -24,11 +22,9 @@ public class TC003 extends BaseClass {
             requirementsPage.clickOnTheProjectName();
             IndividualModulePage individualModulePage = new IndividualModulePage(getDriver());
 
-            Assert.assertTrue(individualModulePage.isLinkedRequirementTableVisible(), "Linked Test Case table not visible");
+            Assert.assertTrue(individualModulePage.isLinkedRequirementTableVisible(),
+                    "Linked Test Case table not visible");
             logger.info("Verified linked test case table is displayed");
-
-
-
 
         } catch (Exception e) {
             logger.error("Exception occurred during test execution: " + e.getMessage(), e);

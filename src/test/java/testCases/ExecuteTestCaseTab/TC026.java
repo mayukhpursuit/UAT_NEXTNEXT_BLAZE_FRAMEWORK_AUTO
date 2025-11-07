@@ -4,7 +4,6 @@ import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
-import pageObjects.executeTestCaseTab.IndividualTestRun;
 import pageObjects.executeTestCaseTab.LinkDefectPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
@@ -37,7 +36,6 @@ public class TC026 extends BaseClass {
             Assert.assertTrue(executeLandingPage.isReleaseVisible(releaseName), "Release not visible after expand");
             logger.info("Expanded Release module: " + releaseName);
 
-            IndividualTestRun individualTestrun = new IndividualTestRun(getDriver());
             executeLandingPage.clickPlayActionById(testRun);
             logger.info("clicked on Action Play button");
 

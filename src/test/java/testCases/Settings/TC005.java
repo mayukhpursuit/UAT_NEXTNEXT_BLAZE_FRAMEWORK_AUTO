@@ -1,21 +1,17 @@
 package testCases.Settings;
 
-import DataProviders.ExecuteTestCaseDataProvider;
 import DataProviders.SettingTestCaseDataProvider;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.Settings.GlobalTabPage;
 import pageObjects.Settings.OtherTabPage;
-import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC005 extends BaseClass {
     @Test(dataProvider = "tc005", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void VerifyDeleteGlobalField(String fieldName,
-                                                   String textBox,
-                                                   String objType1,String objType2,String fieldName2) throws InterruptedException {
+            String textBox,
+            String objType1, String objType2, String fieldName2) throws InterruptedException {
         logger.info("****** Starting Test Case: Verify Project Selection from Dropdown *****************");
         try {
             login();
@@ -23,7 +19,6 @@ public class TC005 extends BaseClass {
 
             GlobalTabPage globalTab = new GlobalTabPage(getDriver());
             OtherTabPage otherTab = new OtherTabPage(getDriver());
-
 
             globalTab.clickCurrentUserAndGoToSettings();
             logger.info("Clicked on Settings option from user dropdown");

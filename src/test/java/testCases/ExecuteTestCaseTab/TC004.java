@@ -3,7 +3,6 @@ package testCases.ExecuteTestCaseTab;
 import DataProviders.ExecuteTestCaseDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.authoTestCaseTab.AddTestcasePage;
 import pageObjects.executeTestCaseTab.ExecuteLandingPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;

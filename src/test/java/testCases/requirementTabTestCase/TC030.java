@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import pageObjects.requirementTab.AddRequirementPage;
+ 
 import pageObjects.requirementTab.IndividualModulePage;
 import pageObjects.requirementTab.RequirementTabPage;
 import testBase.BaseClass;
@@ -26,7 +26,7 @@ public class TC030 extends BaseClass {
             login();
             logger.info("Logged in successfully");
             RequirementTabPage requirementTabPage = new RequirementTabPage(getDriver());
-            AddRequirementPage addRequirementPage=new AddRequirementPage(getDriver());
+      
             requirementTabPage.clickRequirementTab();
             logger.info("Navigated to Requirement page");
             requirementTabPage.clickArrowRightPointingForExpandModule(project);
