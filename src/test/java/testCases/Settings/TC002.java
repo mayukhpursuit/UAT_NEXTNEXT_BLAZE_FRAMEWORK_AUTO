@@ -32,6 +32,8 @@ public class TC002 extends BaseClass {
             globalTab.clickonAddGlobalField();
             logger.info("Clicked on Add Global Field button");
 
+            long timeMillis = System.currentTimeMillis();
+            String dynamicfield=fieldName+timeMillis;
             globalTab.EnterFieldName(fieldName);
             logger.info("Entered Field Name: " + fieldName);
 
