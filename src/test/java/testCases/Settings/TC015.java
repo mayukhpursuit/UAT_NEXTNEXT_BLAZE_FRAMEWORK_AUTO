@@ -30,8 +30,11 @@ public class TC015 extends BaseClass {
             otherTab.clickOnAddCustomField();
             logger.info("Clicked on custom Field button");
 
-            otherTab.createCustomEnterFieldName(fieldName);
-            logger.info("Entered Field Name: " + fieldName);
+            long timeMillis = System.currentTimeMillis();
+            String dynamicfield=fieldName+timeMillis;
+
+            otherTab.createCustomEnterFieldName(dynamicfield);
+            logger.info("Entered Field Name: " + dynamicfield);
 
             otherTab.createCustomSelectDataType(textBox);
             logger.info("Selected Data Type as Text Box");
