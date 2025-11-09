@@ -9,6 +9,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC003 extends BaseClass {
+
     @Test(dataProvider = "tc003", dataProviderClass = AuthorTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyAllAvailableEpicsDisplayed(
             String projectName) throws InterruptedException {

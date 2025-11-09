@@ -7,6 +7,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC010 extends BaseClass {
+
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyFeatureVisibility() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

@@ -7,6 +7,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC002 extends BaseClass {
+
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyEpicClickFunctionality() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");

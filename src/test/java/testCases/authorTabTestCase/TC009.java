@@ -10,6 +10,7 @@ import utils.RetryAnalyzer;
 import java.util.List;
 
 public class TC009 extends BaseClass {
+
     @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyEpicsWithSpecialCharacter() throws InterruptedException {
         logger.info("****** Starting the Test Case *****************");
