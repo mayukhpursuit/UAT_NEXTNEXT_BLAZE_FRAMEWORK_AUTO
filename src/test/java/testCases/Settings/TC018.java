@@ -10,7 +10,7 @@ import utils.RetryAnalyzer;
 public class TC018 extends BaseClass {
 
     @Test(dataProvider = "tc018", dataProviderClass = SettingTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class, groups = {
-            "Settings" })
+        "Settings"})
     public void verifyClickOnCheckboxOfAvailableCustomField(
             String fieldName,
             String textBox,
@@ -39,7 +39,7 @@ public class TC018 extends BaseClass {
             logger.info("Clicked on Add Global Field button");
 
             long timeMillis = System.currentTimeMillis();
-            String dynamicfield=fieldName+timeMillis;
+            String dynamicfield = fieldName + timeMillis;
 
             globalTab.EnterFieldName(dynamicfield);
             logger.info("Entered Field Name: " + dynamicfield);
