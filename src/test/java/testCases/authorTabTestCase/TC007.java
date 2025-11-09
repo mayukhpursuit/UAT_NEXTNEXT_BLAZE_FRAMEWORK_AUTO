@@ -8,6 +8,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC007 extends BaseClass {
+
     @Test(dataProvider = "tc007", dataProviderClass = AuthorTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyAllAvailableEpicsDisplayed(
             String epicName, String defaultEpic) throws InterruptedException {
