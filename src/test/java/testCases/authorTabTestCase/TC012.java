@@ -7,6 +7,7 @@ import testBase.BaseClass;
 import utils.RetryAnalyzer;
 
 public class TC012 extends BaseClass {
+
     @Test(dataProvider = "tc011", dataProviderClass = AuthorTestCaseDataProvider.class, retryAnalyzer = RetryAnalyzer.class)
     public void verifyClickFunctionOfFeaturesDropdown(
             String epicName, String feature) throws InterruptedException {
