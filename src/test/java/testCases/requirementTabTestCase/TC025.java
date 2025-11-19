@@ -1,5 +1,4 @@
 package testCases.requirementTabTestCase;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -9,9 +8,7 @@ import pageObjects.requirementTab.RequirementTabPage;
 import pageObjects.requirementTab.AddRequirementPage;
 import testBase.BaseClass;
 import utils.RetryAnalyzer;
-
 import java.util.List;
-
 public class TC025 extends BaseClass {
 
     @Test(dataProvider = "tc025", dataProviderClass = DataProviders.RequirementDataProvider.class, description = "Verify linked requirement count increases and decreases",retryAnalyzer = RetryAnalyzer.class)
@@ -37,7 +34,6 @@ public class TC025 extends BaseClass {
             requirementTabPage.clickOnModule(moduleName);
             logger.info("Opened module: " + moduleName);
 
-
             IndividualModulePage individualModulePage= new IndividualModulePage(getDriver());
             if(individualModulePage.isClickableNextArrow()){
                 individualModulePage.clickLastPageArrowBtn();
@@ -45,7 +41,8 @@ public class TC025 extends BaseClass {
             WebElement countBeforeAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             
             Thread.sleep(2000);
-           
+
+
             int beforeCount = Integer.parseInt(countBeforeAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Initial requirement count: " + beforeCount);
 
@@ -68,18 +65,13 @@ public class TC025 extends BaseClass {
             WebElement countAfterAdd = getDriver().findElement(By.xpath("//span[@class='entry-info']"));
             int afterAddCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
             logger.info("Requirement count after adding: " + afterAddCount);
-
             Assert.assertEquals(afterAddCount, beforeCount + 1, "Requirement count did not increase after adding");
-
-            String newRequirementId = afterAddList.get(afterAddList.size() - 1);
+            String newRequirementId = afterAddList.getLast();
             logger.info("Newly linked requirement ID: " + newRequirementId);
-
             requirementTabPage1.unlinkRequirementById(newRequirementId, afterAddCount);
             logger.info("Unlinked requirement: " + newRequirementId);
             Thread.sleep(3000);
-
             Thread.sleep(2000);
-           
             int afterRemoveCount = Integer.parseInt(countAfterAdd.getText().replaceAll("[^0-9]", ""));
 
             logger.info("Requirement count after unlink: " + afterRemoveCount);
@@ -87,7 +79,6 @@ public class TC025 extends BaseClass {
             Assert.assertEquals(afterRemoveCount, beforeCount, "Requirement count did not decrease after unlinking");
 
             logger.info("Verified requirement count increases by 1 after link and decreases by 1 after unlink");
-
         } catch (AssertionError e) {
             logger.error("Assertion failed: " + e.getMessage());
             throw e;
@@ -95,7 +86,6 @@ public class TC025 extends BaseClass {
             logger.error("Exception occurred: " + e.getMessage());
             throw e;
         }
-
         logger.info("************ Test Case Finished *************************");
     }
 }
